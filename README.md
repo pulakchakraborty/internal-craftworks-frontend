@@ -1,5 +1,5 @@
-# sebamaster-movie-frontend application
-Movies example application based on AngularJS. Backend can be found [here](https://github.com/sebischair/sebamaster-movie-backend)
+# CraftWorks-Frontend application
+Movies example application based on AngularJS. Backend can be found [here](https://github.com/pulakchakraborty/Internal-CraftWorks-Backend)
 
 ## Prerequisites
 
@@ -10,27 +10,27 @@ Both for the front end and the back end check:
 
 ## Getting Started
 
-To get you started you can simply clone the [sebamaster-movie-frontend](https://github.com/sebischair/sebamaster-movie-frontend/) repository and install all its dependencies:
+To get you started you can simply clone the [Internal-CraftWorks-Frontend](https://github.com/pulakchakraborty/Internal-CraftWorks-Frontend) repository and install all its dependencies:
 
 ### Prerequisites
 
-You need git to clone the [sebamaster-movie-frontend](https://github.com/sebischair/sebamaster-movie-frontend/)  repository. You can get git from [http://git-scm.com/](http://git-scm.com/).
+You need git to clone the [Internal-CraftWorks-Frontend](https://github.com/pulakchakraborty/Internal-CraftWorks-Frontend)  repository. You can get git from [http://git-scm.com/](http://git-scm.com/).
 
-We also use a number of node.js tools to initialize and test [sebamaster-movie-frontend](https://github.com/sebischair/sebamaster-movie-frontend/) . You must have node.js and its package manager (npm) installed.  You can get them from [http://nodejs.org/](http://nodejs.org/).
+We also use a number of node.js tools to initialize and test [Internal-CraftWorks-Frontend](https://github.com/pulakchakraborty/Internal-CraftWorks-Frontend) . You must have node.js and its package manager (npm) installed.  You can get them from [http://nodejs.org/](http://nodejs.org/).
 
 ### Clone Movie Project
 
-Clone the [sebamaster-movie-frontend](https://github.com/sebischair/sebamaster-movie-frontend/)  repository using [git](http://git-scm.com/):
+Clone the [Internal-CraftWorks-Frontend](https://github.com/pulakchakraborty/Internal-CraftWorks-Frontend)  repository using [git](http://git-scm.com/):
 
 ```
-git clone https://github.com/sebischair/sebamaster-movie-frontend.git
-cd sebamaster-movie-frontend
+git clone https://github.com/pulakchakraborty/Internal-CraftWorks-Frontend
+cd Internal-CraftWorks-Frontend
 ```
 
-If you just want to start a new project without the [sebamaster-movie-frontend](https://github.com/sebischair/sebamaster-movie-frontend/)  commit history then you can do:
+If you just want to start a new project without the [Internal-CraftWorks-Frontend](https://github.com/pulakchakraborty/Internal-CraftWorks-Frontend)  commit history then you can do:
 
 ```bash
-git clone --depth=1 https://github.com/sebischair/sebamaster-movie-frontend.git <your-project-name>
+git clone --depth=1 https://github.com/pulakchakraborty/Internal-CraftWorks-Frontend <your-project-name>
 ```
 
 The `depth=1` tells git to only pull down one commit worth of historical data.
@@ -38,7 +38,7 @@ The `depth=1` tells git to only pull down one commit worth of historical data.
 In case you would like to try the application without a server you can use the branch <severless>
 
 ```bash
-git clone -b serverless --depth=1 https://github.com/sebischair/sebamaster-movie-frontend.git <your-project-name>
+git clone -b serverless --depth=1 https://github.com/pulakchakraborty/Internal-CraftWorks-Frontend <your-project-name>
 ```
 
 ### Install Dependencies
