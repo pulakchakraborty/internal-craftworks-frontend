@@ -20,6 +20,7 @@ import ViewMovie from './components/view-movie/view-movie';
 import ViewMovieEdit from './components/view-movie-edit/view-movie-edit';
 import ViewMovieCreate from './components/view-movie-create/view-movie-create';
 import ViewLogin from './components/view-login/view-login';
+import ViewSignup from './components/view-signup/view-signup';
 
 let app = angular.module('app', [
     uiRouter,
@@ -32,7 +33,8 @@ let app = angular.module('app', [
     ViewMovie.name,
     ViewMovieEdit.name,
     ViewMovieCreate.name,
-    ViewLogin.name
+    ViewLogin.name,
+    ViewSignup.name
 ]);
 
 app.constant('API_URL', 'http://localhost:3000/api');
