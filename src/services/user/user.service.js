@@ -18,7 +18,7 @@ export default class UserService {
         return 'UserService';
     }
 
-    register(user, pass) {
+    signup(user, pass) {
         return this.$http.post(`${ this.API_URL }/user/signup`, {
             username: user,
             password: pass

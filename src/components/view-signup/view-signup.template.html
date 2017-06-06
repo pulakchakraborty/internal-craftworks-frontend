@@ -1,0 +1,29 @@
+<div layout="column" layout-padding="">
+    <span flex="20"></span>
+    <md-content class="signup-form" layout="row" flex="35">
+        <span flex="35"></span>
+        <md-card flex="30">
+            <md-card-content>
+                <form name="SignupForm">
+                    <md-input-container class="md-block">
+                        <label>Login</label>
+                        <input type="text" name="username" ng-model="$ctrl.signup.username" placeholder="signup" required=""/>
+                        <div ng-messages="SignupForm.username.$error" role="alert" multiple="">
+                            <div ng-message="required">Please enter your username.</div>
+                        </div>
+                    </md-input-container>
+                    <md-input-container class="md-block">
+                        <label>Password</label>
+                        <input type="password" name="password" ng-model="$ctrl.signup.password" placeholder="password" required="" md-maxlength="64"/>
+                        <div ng-messages="SignupForm.password.$error" role="alert" multiple="">
+                            <div ng-message="required">Please enter your password.</div>
+                        </div>
+                    </md-input-container>
+                    <md-button ng-disabled="!SignupForm.$valid" ng-click="$ctrl.submit()" class="md-raised md-primary">&nbsp Signup &nbsp</md-button>
+                </form>
+            </md-card-content>
+        </md-card>
+        <span flex></span>
+    </md-content>
+    <span flex></span>
+</div>
