@@ -1,0 +1,60 @@
+<md-sidenav class="md-sidenav-left" md-component-id="{{$ctrl.menuId}}"
+    md-disable-backdrop md-whiteframe="4">
+
+    <md-toolbar class="sidebar-category-title">
+        <h1 class="md-toolbar-tools"><i class="material-icons">apps</i>Categories</h1>
+    </md-toolbar>
+
+    <md-content layout-margin>
+        <ul class="side-bar-menu-list">
+            <li class="item">
+                <a ui-sref="shop({category: 'art'})">Art</a>
+            </li>
+            <li class="item">
+                <a ui-sref="shop({category: 'clothes'})">Clothes</a>
+            </li>
+            <li class="item">
+                <a ui-sref="shop({category: 'jewellery'})">Jewellery</a>
+            </li>
+            <li class="item">
+                <a ui-sref="shop({category: 'accessories'})">Accessories</a>
+            </li>
+            <li class="item">
+                <a ui-sref="shop({category: 'decore'})">Home decore</a>
+            </li>
+        </ul>
+    </md-content>
+
+    <md-toolbar class="sidebar-category-title">
+        <h1 class="md-toolbar-tools"><i class="material-icons">event</i>News & Evants</h1>
+    </md-toolbar>
+
+    <md-content layout-margin>
+        <ul class="side-bar-menu-list">
+            <li class="item">
+                <a ui-sref="shop({category: 'news'})">News</a>
+            </li>
+            <li class="item">
+                <a ui-sref="shop({category: 'events'})">Events</a>
+            </li>
+        </ul>
+    </md-content>
+
+    <md-toolbar class="sidebar-category-title">
+        <h1 class="md-toolbar-tools"><i class="material-icons">error_outline</i>About us...</h1>
+    </md-toolbar>
+
+    <md-content layout-margin>
+        <ul class="side-bar-menu-list">
+            <li class="item">
+                <a ui-sref="shop({category: 'story'})">Our story</a>
+            </li>
+            <li class="item">
+                <a ui-sref="shop({category: 'support'})">Support</a>
+            </li>
+            <li class="item">
+                <a ui-sref="shop({category: 'contacts'})">Contacts & Imprint</a>
+            </li>
+        </ul>
+    </md-content>
+</md-sidenav>

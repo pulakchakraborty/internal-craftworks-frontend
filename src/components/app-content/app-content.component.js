@@ -2,6 +2,7 @@
 'use strict';
 
 import template from './app-content.template.html';
+import './app-content.style.css';
 
 class AppContentComponent {
     constructor(){
@@ -13,15 +14,19 @@ class AppContentComponent {
     static get name() {
         return 'appContent';
     }
-
-
 }
 
 class AppContentComponentController{
-    constructor(){
-
+    constructor($state){
     }
 
+    $onInit() {
+        this.menuId = 'leftSideBar';
+    }
+
+    static get $inject(){
+        return ['$state'];
+    }
 }
 
 

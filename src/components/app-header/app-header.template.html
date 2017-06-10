@@ -1,9 +1,12 @@
 <md-toolbar>
     <div class="md-toolbar-tools">
-
+        <div id="nav-icon4" ng-click="$ctrl.toggleLeft()" ng-class="{'open': $ctrl.menuOpened}">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
         <a ui-sref="movies" layout="row">
-            <md-icon><ng-md-icon icon="grain" ></ng-md-icon></md-icon>
-            <h2>Movie Application</h2>
+            
         </a>
 
         <span flex></span>
