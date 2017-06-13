@@ -1,0 +1,128 @@
+
+
+/*CSS for Navigationblock*/
+.navigationBlock {
+    width:220px;
+    position: fixed;
+    left: 200px;
+}
+
+.navigationTemplate {
+    margin-left: 50px;
+
+}
+
+.navigationTemplateSub {
+    margin-left: 60px;
+}
+
+/*CSS for Creating new Offerblock*/
+
+.offerBlock {
+    width: 750px;
+    position: relative;
+    left: 300px;
+}
+
+
+.iconoffer {
+    background-color: #8BC34A ;
+    color: #fff;
+    font-size: 20px;
+    font-weight: bold;
+    border-radius: 50%;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    height: 40px;
+    line-height: 35px;
+    text-align: center;
+    width: 40px;
+    position: absolute;
+    top: 60px;
+    left: 30px;
+}
+
+#headline {
+    margin: 80px 0px 20px 85px;
+}
+
+.textTemplate {
+    margin-left: 80px;
+    margin-right: 30px;
+    margin-bottom: 0px;
+}
+
+.colorlist {
+    text-decoration: none;
+}
+ .choosecolor {
+     padding-bottom: 10px;
+ }
+
+ .afterbutton {
+     padding-bottom: 10px;
+ }
+
+ /*Choosing color*/
+
+.colorpaletteorange .md-icon {
+    background: orange;
+    border-color: orange;
+}
+.colorpaletteorange.md-checked .md-icon {
+    background: orange;
+
+}
+
+.colorpaletteyellow .md-icon {
+    background: #FFEB3B;
+    border-color: #FFEB3B;
+}
+.colorpaletteyellow.md-checked .md-icon {
+    background: #FFEB3B;
+}
+
+.colorpalettedarkred .md-icon {
+    background: #F44336;
+    border-color: #F44336;
+
+}
+.colorpalettedarkred.md-checked .md-icon {
+    background: #F44336;
+
+}
+
+.colorpalettedarkblue .md-icon {
+    background: darkblue;
+    border: dashed;
+    border-color: darkblue;
+}
+.colorpalettedarkblue.md-checked .md-icon {
+    background: darkblue;
+}
+
+.colorpalettebrown .md-icon {
+    background: brown;
+    border: hidden;
+    border-color: brown;
+}
+.colorpalettebrown.md-checked .md-icon {
+    background: brown;
+}
+
+.colorpaletteviolette .md-icon {
+    background: violet;
+}
+.colorpaletteviolette.md-checked .md-icon {
+    background: violet;
+}
+
+.colorpalettegreen .md-icon {
+    background: lime;
+    border-color: lime;
+}
+.colorpalettegreen.md-checked .md-icon {
+    background: lime;
+}
+
+
+

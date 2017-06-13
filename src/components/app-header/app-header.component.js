@@ -1,4 +1,3 @@
-
 'use strict';
 
 import UserService from './../../services/user/user.service';
@@ -41,6 +40,10 @@ class AppHeaderComponentController{
         this.onMenuClosed();
     }
 
+    newProduct(){
+        this.$state.go('productAdd',{});
+    }
+
     openMenu($mdMenu, ev) {
         $mdMenu.open(ev);
     }
@@ -78,6 +81,5 @@ class AppHeaderComponentController{
     }
 
 }
-
 
 export default AppHeaderComponent;

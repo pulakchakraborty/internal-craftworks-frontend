@@ -2,15 +2,18 @@
 
 import AppContentComponent from './../components/app-content/app-content.component';
 import HomeComponent from './../components/view-home/view-home.component';
+import OffersComponent from './../components/view-offers/view-offers.component';
 import MoviesComponent from './../components/view-movies/view-movies.component';
 import MovieComponent from './../components/view-movie/view-movie.component';
 import MovieEditComponent from './../components/view-movie-edit/view-movie-edit.component';
 import MovieCreateComponent from './../components/view-movie-create/view-movie-create.component';
+import ProductCreateComponent from './../components/view-product-create/view-product-create.component';
 import LoginComponent from './../components/view-login/view-login.component';
 import SignupComponent from './../components/view-signup/view-signup.component'
 import ShopComponent from './../components/view-shop/view-shop.component'
 
 import MoviesService from './../services/movies/movies.service';
+import ProductsService from './../services/products/products.service';
 
 
 resolveMovie.$inject = ['$stateParams', MoviesService.name];
@@ -23,6 +26,10 @@ function resolveMovies(moviesService){
     return moviesService.list();
 }
 
+resolveProducts.$inject = [ProductsService.name];
+function resolveProducts(productsService){
+    return productsService.list();
+}
 
 config.$inject = ['$stateProvider', '$urlRouterProvider', '$locationProvider'];
 export default function config ($stateProvider, $urlRouterProvider, $locationProvider){
@@ -69,6 +76,17 @@ export default function config ($stateProvider, $urlRouterProvider, $locationPro
                 movie : resolveMovie
             }
         })
+        .state('app.productAdd', {
+            url: '/products/new',
+            component: ProductCreateComponent.name
+        })
+        .state('app.offers', {
+            url: '/offers',
+            component: OffersComponent.name,
+            resolve: {
+                products : resolveProducts
+            }
+        })
         .state('app.login', {
             url: '/login',
             component: LoginComponent.name,
@@ -78,4 +96,3 @@ export default function config ($stateProvider, $urlRouterProvider, $locationPro
             component: SignupComponent.name,
         })
 }
-

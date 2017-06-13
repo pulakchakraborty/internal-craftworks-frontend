@@ -10,12 +10,15 @@ import ngMdIcons from 'angular-material-icons';
 
 import MoviesService from './services/movies/movies';
 import UserService from './services/user/user';
+import ProductsService from './services/products/products';
 
 import Routes from './config/routes';
 import Middlewares from './config/middlewares';
 
 import AppContent from './components/app-content/app-content';
 import ViewHome from './components/view-home/view-home';
+import ViewOffers from './components/view-offers/view-offers';
+import ViewProductCreate from './components/view-product-create/view-product-create';
 import ViewMovies from './components/view-movies/view-movies';
 import ViewMovie from './components/view-movie/view-movie';
 import ViewMovieEdit from './components/view-movie-edit/view-movie-edit';
@@ -30,6 +33,7 @@ let app = angular.module('app', [
     ngMdIcons,
     UserService.name,
     MoviesService.name,
+    ProductsService.name,
     AppContent.name,
     ViewMovies.name,
     ViewMovie.name,
@@ -38,13 +42,20 @@ let app = angular.module('app', [
     ViewLogin.name,
     ViewSignup.name,
     ViewShop.name,
-    ViewHome.name
+    ViewHome.name,
+    ViewOffers.name,
+    ViewProductCreate.name
 ]);
 
 app.constant('API_URL', 'http://localhost:3000/api');
 app.config(Routes);
 app.config(Middlewares);
 
+app.config(['$mdThemingProvider',function($mdThemingProvider){
+    $mdThemingProvider.theme('default')
+        .primaryPalette('light-green')
+
+}]);
 
 angular.element(document).ready(function() {
     return angular.bootstrap(document.body, [app.name], {

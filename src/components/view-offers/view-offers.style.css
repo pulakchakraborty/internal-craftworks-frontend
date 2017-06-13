@@ -1,0 +1,14 @@
+.offersOverview {
+    width: 750px;
+    position: relative;
+    left: 300px;
+}
+.offersListed {
+    top: 80px;
+    width: 700px;
+    position: relative;
+    left: 25px;
+    align-items: center;
+    justify-content: center;
+    bottom: 50px;
+}
