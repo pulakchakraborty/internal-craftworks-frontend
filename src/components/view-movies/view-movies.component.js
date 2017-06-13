@@ -32,25 +32,25 @@ class ViewMoviesComponentController{
 
     details (movie) {
         let _id = movie['_id'];
-        this.$state.go('movie',{ movieId:_id});
+        this.$state.go('app.movie',{ movieId:_id});
     };
 
     edit (movie) {
 
         if (this.UserService.isAuthenticated()) {
             let _id = movie['_id'];
-            this.$state.go('movieEdit',{ movieId:_id});
+            this.$state.go('app.movieEdit',{ movieId:_id});
         } else {
-            this.$state.go('login',{});
+            this.$state.go('app.login',{});
         }
     };
 
     newMovie(){
 
         if (this.UserService.isAuthenticated()) {
-            this.$state.go('movieAdd',{});
+            this.$state.go('app.movieAdd',{});
         } else {
-            this.$state.go('login',{});
+            this.$state.go('app.login',{});
         }
 
     }
@@ -66,7 +66,7 @@ class ViewMoviesComponentController{
             })
 
         } else {
-            this.$state.go('login',{});
+            this.$state.go('app.login',{});
         }
     };
 

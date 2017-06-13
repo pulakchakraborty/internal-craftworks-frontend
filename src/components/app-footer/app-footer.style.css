@@ -1,7 +1,21 @@
 footer {
-    max-height: 35px ;
+    background-color: #8bc34a
 }
 
-footer > div > p {
-    margin-top: 4px;
+footer .title {
+    margin-bottom: 0px;
+}
+
+footer .title, footer a {
+    color: rgba(255,255,255,0.87);
+}
+
+footer .link-list {
+    list-style: none;
+    padding-left: 0;
+    padding-left: 10px;
+}
+
+footer .title, footer .link-list li {
+    text-align: left;
 }

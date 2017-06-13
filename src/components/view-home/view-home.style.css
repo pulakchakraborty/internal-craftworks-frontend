@@ -1,0 +1,80 @@
+.home-page {
+  min-height: 100vh;
+}
+
+.home-page .nav {
+ display: flex;
+ width: 100%;
+ justify-content: center;
+}
+
+.home-page .nav .content {
+  max-width: 1024px;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.home-page .nav ul {
+  list-style: none;
+}
+
+.home-page .nav ul li {
+  display: inline-block;
+  margin-right: 30px;
+}
+
+.home-page .nav ul li a {
+  color: #000;
+  text-decoration: none;
+}
+
+.home-page .nav ul li.logo {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.home-page .nav ul li.sign-up {
+  padding: 10px;
+  padding: 10px;
+  background-color: #8bc34a;
+  border-radius: 20px;
+}
+
+.home-page .nav ul li.sign-up a {
+  color: #fff;
+}
+
+.home-page main img {
+  width: 100%;
+}
+
+.home-page .footer {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+}
+
+.home-page .footer .footer-wrapper {
+  max-width: 1024px;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.home-page .footer .footer-wrapper .title {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.home-page .footer .footer-wrapper .link-list {
+  list-style: none;
+  padding: 0;
+}
+
+.home-page .footer .footer-wrapper .link-list li a {
+ text-decoration: none;
+ color: #000;
+}

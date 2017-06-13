@@ -1,7 +1,8 @@
 <div layout="row" layout-fill ng-cloak>
-    <div layout="column" flex>
-        <app-header></app-header>
-        <md-content flex layout-gt-sm="row">
+    <div class="main-content">
+        <app-header menu-id="$ctrl.menuId"></app-header>
+        <md-content flex layout-gt-sm="row" class="main-content-wrapper">
+            <app-sidebar menu-id="$ctrl.menuId"></app-sidebar>
             <span flex="20"></span>
             <ui-view flex></ui-view>
             <span flex="20"></span>

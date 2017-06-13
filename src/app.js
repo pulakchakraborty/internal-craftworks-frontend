@@ -15,12 +15,14 @@ import Routes from './config/routes';
 import Middlewares from './config/middlewares';
 
 import AppContent from './components/app-content/app-content';
+import ViewHome from './components/view-home/view-home';
 import ViewMovies from './components/view-movies/view-movies';
 import ViewMovie from './components/view-movie/view-movie';
 import ViewMovieEdit from './components/view-movie-edit/view-movie-edit';
 import ViewMovieCreate from './components/view-movie-create/view-movie-create';
 import ViewLogin from './components/view-login/view-login';
 import ViewSignup from './components/view-signup/view-signup';
+import ViewShop from './components/view-shop/view-shop';
 
 let app = angular.module('app', [
     uiRouter,
@@ -34,7 +36,9 @@ let app = angular.module('app', [
     ViewMovieEdit.name,
     ViewMovieCreate.name,
     ViewLogin.name,
-    ViewSignup.name
+    ViewSignup.name,
+    ViewShop.name,
+    ViewHome.name
 ]);
 
 app.constant('API_URL', 'http://localhost:3000/api');
@@ -47,5 +51,11 @@ angular.element(document).ready(function() {
         strictDi: true
     });
 });
+
+requireAll(require.context('./assets/img', true, /\.jpg|png$/));
+function requireAll(r) {
+  r.keys().forEach(r);
+}
+
 
 export default app;
