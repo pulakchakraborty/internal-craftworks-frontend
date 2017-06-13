@@ -15,6 +15,7 @@ import Routes from './config/routes';
 import Middlewares from './config/middlewares';
 
 import AppContent from './components/app-content/app-content';
+import ViewHome from './components/view-home/view-home';
 import ViewMovies from './components/view-movies/view-movies';
 import ViewMovie from './components/view-movie/view-movie';
 import ViewMovieEdit from './components/view-movie-edit/view-movie-edit';
@@ -36,7 +37,8 @@ let app = angular.module('app', [
     ViewMovieCreate.name,
     ViewLogin.name,
     ViewSignup.name,
-    ViewShop.name
+    ViewShop.name,
+    ViewHome.name
 ]);
 
 app.constant('API_URL', 'http://localhost:3000/api');
@@ -49,5 +51,11 @@ angular.element(document).ready(function() {
         strictDi: true
     });
 });
+
+requireAll(require.context('./assets/img', true, /\.jpg|png$/));
+function requireAll(r) {
+  r.keys().forEach(r);
+}
+
 
 export default app;

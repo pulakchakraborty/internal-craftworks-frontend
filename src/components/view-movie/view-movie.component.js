@@ -34,9 +34,9 @@ class ViewMovieComponentController{
 
         if (this.UserService.isAuthenticated()) {
             let _id = this.movie['_id'];
-            this.$state.go('movieEdit',{ movieId:_id});
+            this.$state.go('app.movieEdit',{ movieId:_id});
         } else {
-            this.$state.go('login',{});
+            this.$state.go('app.login',{});
         }
 
     };
@@ -47,10 +47,10 @@ class ViewMovieComponentController{
             let _id = this.movie['_id'];
 
             this.MoviesService.delete(_id).then(response => {
-                this.$state.go('movies',{});
+                this.$state.go('app.movies',{});
             });
         } else {
-            this.$state.go('login',{});
+            this.$state.go('app.login',{});
         }
     };
 

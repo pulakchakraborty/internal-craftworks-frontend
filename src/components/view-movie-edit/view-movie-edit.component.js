@@ -33,7 +33,7 @@ class ViewMovieEditComponentController{
 
     cancel() {
         this.model = JSON.parse(JSON.stringify(this.movie));
-        this.$state.go('movies',{});
+        this.$state.go('app.movies',{});
     };
 
     save() {
@@ -42,7 +42,7 @@ class ViewMovieEditComponentController{
         this.MoviesService.update(this.model).then(data => {
             this.movie = JSON.parse(JSON.stringify(data));
 
-            this.$state.go('movie',{ movieId:_id});
+            this.$state.go('app.movie',{ movieId:_id});
         });
 
     };
@@ -51,7 +51,7 @@ class ViewMovieEditComponentController{
         let _id = this.movie['_id'];
 
         this.MoviesService.delete(_id).then(response => {
-            this.$state.go('movies',{});
+            this.$state.go('app.movies',{});
         });
     };
 

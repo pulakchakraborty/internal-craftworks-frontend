@@ -25,6 +25,43 @@ md-nav-bar.md-default-theme md-nav-ink-bar, md-nav-bar md-nav-ink-bar {
     background-color: #8bc34a;
 }
 
+.search-container {
+    display: flex;
+}
+
+.search-container input {
+    background-color: transparent;
+    border: 0;
+    border-bottom: 1px solid #aaa;
+    font-size: 16px;
+    margin-left: 5px;
+    color: #fff;
+    outline: none;
+}
+
+.search-container input::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+  color: #fff;
+}
+
+.notification-icon-wrapper, .mail-icon-wrapper {
+    margin-left: 5px;
+    margin-right: 5px;
+}
+
+.profile-dropdown-container {
+    margin-left: 10px;
+    margin-right: 10px;
+    margin-top: -7px;
+}
+.user-dropdown {
+    margin: 0;
+}
+
+.user-dropdown .md-select-value span{
+    font-size: 16px;
+    color: #fff;
+    outline: none; 
+}
 
 #nav-icon4 {
     outline: none;

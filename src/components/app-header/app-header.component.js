@@ -61,16 +61,16 @@ class AppHeaderComponentController{
     }
 
     goHome(){
-        this.$state.go('movies',{});
+        this.$state.go('home',{});
     }
 
     login(){
-        this.$state.go('login',{});
+        this.$state.go('app.login',{});
     }
 
     logout(){
         this.UserService.logout();
-        this.$state.go('movies',{});
+        this.$state.go('home',{});
     }
 
     static get $inject(){

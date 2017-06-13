@@ -35,6 +35,10 @@ module.exports = {
             {
                 test: /\.css$/,
                 loader: ExtractTextPlugin.extract({ fallback: 'style-loader', use: 'css-loader' })
+            },
+            {
+                test: /\.(png|jpg|gif)$/,
+                loader:'file-loader?name=assets/img/[name].[ext]'
             }
         ]
     },

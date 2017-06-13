@@ -1,5 +1,7 @@
 'use strict';
 
+import AppContentComponent from './../components/app-content/app-content.component';
+import HomeComponent from './../components/view-home/view-home.component';
 import MoviesComponent from './../components/view-movies/view-movies.component';
 import MovieComponent from './../components/view-movie/view-movie.component';
 import MovieEditComponent from './../components/view-movie-edit/view-movie-edit.component';
@@ -22,50 +24,58 @@ function resolveMovies(moviesService){
 }
 
 
-config.$inject = ['$stateProvider', '$urlRouterProvider'];
-export default function config ($stateProvider, $urlRouterProvider){
+config.$inject = ['$stateProvider', '$urlRouterProvider', '$locationProvider'];
+export default function config ($stateProvider, $urlRouterProvider, $locationProvider){
 
     // For any unmatched url, redirect to /home
-    $urlRouterProvider.otherwise("/movies");
+    $urlRouterProvider.otherwise("/");
 
     $stateProvider
-        .state('movies', {
+        .state('home', {
+            url: '/',
+            component: HomeComponent.name
+        })
+        .state('app', {
+            abstract: true,
+            component: AppContentComponent.name,
+            url: '/app'
+        })
+        .state('app.movies', {
             url: '/movies',
             component: MoviesComponent.name,
             resolve: {
                 movies : resolveMovies
             }
         })
-        .state('movieAdd', {
+        .state('app.movieAdd', {
             url: '/movies/new',
             component: MovieCreateComponent.name
         })
-        .state('movie', {
+        .state('app.movie', {
             url: '/movies/:movieId',
             component: MovieComponent.name,
             resolve: {
                 movie : resolveMovie
             }
         })
-        .state('shop', {
+        .state('app.shop', {
             url: '/shop/:category',
             component: ShopComponent.name
         })
-        .state('movieEdit', {
+        .state('app.movieEdit', {
             url: '/movies/:movieId/edit',
             component: MovieEditComponent.name,
             resolve: {
                 movie : resolveMovie
             }
         })
-        .state('login', {
+        .state('app.login', {
             url: '/login',
             component: LoginComponent.name,
         })
-        .state('signup', {
+        .state('app.signup', {
             url: '/signup',
             component: SignupComponent.name,
         })
-
 }
 

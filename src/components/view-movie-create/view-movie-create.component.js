@@ -26,7 +26,7 @@ class ViewMovieCreateComponentController{
     }
 
     cancel() {
-        this.$state.go('movies',{});
+        this.$state.go('app.app.movies',{});
     };
 
     save() {
@@ -35,7 +35,7 @@ class ViewMovieCreateComponentController{
         this.movie['user'] = user['_id'];
         this.MoviesService.create(this.movie).then(data => {
             let _id = data['_id'];
-            this.$state.go('movie',{ movieId:_id});
+            this.$state.go('app.movie',{ movieId:_id});
         });
 
     };

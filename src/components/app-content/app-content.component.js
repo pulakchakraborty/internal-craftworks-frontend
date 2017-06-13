@@ -8,7 +8,6 @@ class AppContentComponent {
     constructor(){
         this.controller = AppContentComponentController;
         this.template = template;
-
     }
 
     static get name() {
