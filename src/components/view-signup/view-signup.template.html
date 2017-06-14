@@ -5,95 +5,120 @@
         <md-card flex="80">
             <md-card-content>
                 <form name="SignupForm">
-                    <md-input-container class="md-block">
+                    <md-input-container class="md-block" flex-gt-sm>
                         <label>Username</label>
-                        <input type="text" name="username" ng-model="$ctrl.signup.username" placeholder="username" required="" md-maxlength="10"/>
-                        <div ng-messages="SignupForm.username.$error" role="alert" multiple="">
+                        <input type="text" required name="username" ng-model="$ctrl.signup.username"   md-maxlength="15"/>
+                        <div ng-messages="SignupForm.username.$error">
                             <div ng-message="required">Please enter your username.</div>
+                            <div ng-message="md-maxlength">The username has to be less than 15 characters long.</div>
                         </div>
                     </md-input-container>
-                    <md-input-container class="md-block">
-                        <label>First Name</label>
-                        <input type="text" name="firstName" ng-model="$ctrl.signup.firstName" placeholder="Enter your first name" required="" md-maxlength="30"/>
-                        <div ng-messages="SignupForm.firstName.$error" role="alert" multiple="">
-                            <div ng-message="required">Please enter your first name.</div>
-                        </div>
-                    </md-input-container>
-                    <md-input-container class="md-block">
-                        <label>Last Name</label>
-                        <input type="text" name="lastName" ng-model="$ctrl.signup.lastName" placeholder="Enter your last name" required="" md-maxlength="30"/>
-                        <div ng-messages="SignupForm.lastName.$error" role="alert" multiple="">
-                            <div ng-message="required">Please enter your last name.</div>
-                        </div>
-                    </md-input-container>
-                    <md-input-container class="md-block">
+                    <div layout-gt-sm="row">
+                        <md-input-container class="md-block" flex-gt-sm>
+                            <label>First Name</label>
+                            <input type="text" name="firstName" ng-model="$ctrl.signup.firstName" required="" md-maxlength="30"/>
+                            <div ng-messages="SignupForm.firstName.$error" role="alert" multiple="">
+                                <div ng-message="required">Please enter your first name.</div>
+                            </div>
+                        </md-input-container>
+                        <md-input-container class="md-block" flex-gt-sm>
+                            <label>Last Name</label>
+                            <input type="text" name="lastName" ng-model="$ctrl.signup.lastName" required="" md-maxlength="30"/>
+                            <div ng-messages="SignupForm.lastName.$error" role="alert" multiple="">
+                                <div ng-message="required">Please enter your last name.</div>
+                            </div>
+                        </md-input-container>
+                    </div>
+                    <md-input-container class="md-block" flex-gt-sm>
                         <label>Email</label>
-                        <input type="email" name="username" ng-model="$ctrl.signup.email" placeholder="email" required=""/>
+                        <input type="email" name="username" ng-model="$ctrl.signup.email"  required minlength="10" maxlength="100" ng-pattern="/^.+@.+\..+$/"/>
                         <div ng-messages="SignupForm.email.$error" role="alert" multiple="">
-                            <div ng-message="required">Please enter your email.</div>
+                            <div  ng-message-exp="['required', 'minlength', 'maxlength', 'pattern']">
+                                Your email must be between 10 and 100 characters long and look like an e-mail address.
+                            </div>
                         </div>
                     </md-input-container>
                     <md-input-container class="md-block">
                         <label>Password</label>
-                        <input type="password" name="password" ng-model="$ctrl.signup.password" placeholder="password" required="" md-maxlength="64"/>
+                        <input type="password" name="password" ng-model="$ctrl.signup.password"  required="" md-maxlength="64"/>
                         <div ng-messages="SignupForm.password.$error" role="alert" multiple="">
                             <div ng-message="required">Please enter your password.</div>
                         </div>
                     </md-input-container>
-                    <md-input-container class="md-block">
+                    <md-input-container class="md-block" flex-gt-sm>
                         <label>Address Line 1</label>
-                        <input type="text" name="addressLine1" ng-model="$ctrl.signup.addressLine1" placeholder="Enter your street-name/house-number" required=""/>
+                        <input type="text" name="addressLine1" ng-model="$ctrl.signup.addressLine1" required=""/>
                         <div ng-messages="SignupForm.addressLine1.$error" role="alert" multiple="">
                             <div ng-message="required">Please enter your street address.</div>
                         </div>
                     </md-input-container>
-                    <md-input-container class="md-block">
+                    <md-input-container class="md-block" flex-gt-sm>
                         <label>Address Line 2</label>
-                        <input type="text" name="addressLine2" ng-model="$ctrl.signup.addressLine2" placeholder="Enter additional information" />
+                        <input type="text" name="addressLine2" ng-model="$ctrl.signup.addressLine2" />
                     </md-input-container>
-                    <md-input-container class="md-block">
-                        <label>City</label>
-                        <input type="text" name="city" ng-model="$ctrl.signup.city" placeholder="Enter your city" required=""/>
-                        <div ng-messages="SignupForm.city.$error" role="alert" multiple="">
-                            <div ng-message="required">Please enter your city name.</div>
-                        </div>
-                    </md-input-container>
-                    <md-input-container class="md-block">
-                        <label>State</label>
-                        <input type="text" name="state" ng-model="$ctrl.signup.state" placeholder="Enter your state" required=""/>
-                        <div ng-messages="SignupForm.state.$error" role="alert" multiple="">
-                            <div ng-message="required">Please enter your state.</div>
-                        </div>
-                    </md-input-container>
-                    <md-input-container class="md-block">
-                        <label>ZIP Code</label>
-                        <input type="number" name="zip" ng-model="$ctrl.signup.zip" placeholder="Enter the ZIP code" required=""/>
-                        <div ng-messages="SignupForm.zip.$error" role="alert" multiple="">
-                            <div ng-message="required">Please enter the ZIP code.</div>
-                        </div>
-                    </md-input-container>
-                    <md-input-container class="md-block">
+                    <div layout-gt-sm="row">
+                        <md-input-container class="md-block" flex-gt-sm>
+                            <label>City</label>
+                            <input type="text" name="city" ng-model="$ctrl.signup.city" required=""/>
+                            <div ng-messages="SignupForm.city.$error" role="alert" multiple="">
+                                <div ng-message="required">Please enter your city name.</div>
+                            </div>
+                        </md-input-container>
+                        <md-input-container class="md-block" flex-gt-sm>
+                            <label>State</label>
+                            <input type="text" name="state" ng-model="$ctrl.signup.state"  required=""/>
+                            <div ng-messages="SignupForm.state.$error" role="alert" multiple="">
+                                <div ng-message="required">Please enter your state.</div>
+                            </div>
+                        </md-input-container>
+                        <md-input-container class="md-block" flex-gt-sm>
+                            <label>ZIP Code</label>
+                            <input name="zip" ng-model="$ctrl.signup.zip" required="" ng-pattern="/^[0-9]{5}$/" md-maxlength="5"/>
+                            <div ng-messages="SignupForm.zip.$error">
+                                <div ng-message="required">Please enter the ZIP code.</div>
+                                <div ng-message="pattern">That doesn't look like a valid postal
+                                    code.
+                                </div>
+                                <div ng-message="md-maxlength">
+                                    Don't use the long version silly...we don't need to be that specific...
+                                </div>
+                            </div>
+                        </md-input-container>
+                    </div>
+                    <md-input-container class="md-block" flex-gt-sm>
                         <label>Phone Number</label>
-                        <input type="tel" name="phone" ng-model="$ctrl.signup.phone" placeholder="Enter the phone number" required=""/>
+                        <input type="text" name="phone" ng-model="$ctrl.signup.phone"  required=""/>
                         <div ng-messages="SignupForm.phone.$error" role="alert" multiple="">
                             <div ng-message="required">Please enter the phone number.</div>
                         </div>
                     </md-input-container>
-                    <md-input-container class="md-block">
-                        <label>Payment Method</label>
-                        <input type="text" name="paymentMethod" ng-model="$ctrl.signup.paymentMethod" placeholder="Enter the payment method"/>
-                    </md-input-container>
-                    <md-input-container class="md-block">
-                        <label>IBAN</label>
-                        <input type="text" name="iban" ng-model="$ctrl.signup.iban" placeholder="Enter your IBAN" />
-                    </md-input-container>
-                    <md-input-container class="md-block">
-                        <label>Paypal</label>
-                        <input type="text" name="phone" ng-model="$ctrl.signup.paypal" placeholder="Enter your PayPal id" />
-                    </md-input-container>
-                    <md-input-container class="md-block">
+                    <div layout-gt-sm="row">
+                        <md-input-container class="md-block" flex-gt-sm>
+                                <md-checkbox  ng-model="$ctrl.signup.paymentMethod.isIban" aria-label="Checkbox 1">IBAN</md-checkbox>
+                        </md-input-container>
+                        <md-input-container class="md-block" flex-gt-sm>
+                            <md-checkbox  ng-model="$ctrl.signup.paymentMethod.isPaypal" aria-label="Checkbox 2">PayPal</md-checkbox>
+                        </md-input-container>
+                    </div>
+                    <div layout-gt-sm="row">
+                        <md-input-container class="md-block" ng-if="$ctrl.signup.paymentMethod.isIban" flex-gt-sm>
+                            <label>IBAN</label>
+                            <input type="text" name="iban" ng-model="$ctrl.signup.iban" required />
+                            <div ng-messages="SignupForm.iban.$error" role="alert" multiple="">
+                                <div ng-message="required">Please enter the IBAN number.</div>
+                            </div>
+                        </md-input-container>
+                        <md-input-container class="md-block" ng-if="$ctrl.signup.paymentMethod.isPaypal" flex-gt-sm>
+                            <label>Paypal</label>
+                            <input type="text" name="paypal" ng-model="$ctrl.signup.paypal" required />
+                            <div ng-messages="SignupForm.paypal.$error" role="alert" multiple="">
+                                <div ng-message="required">Please enter your paypal id.</div>
+                            </div>
+                        </md-input-container>
+                    </div>
+                    <md-input-container class="md-block" flex-gt-sm>
                         <label>Delivery Time</label>
-                        <input type="number" name="deliveryTime" ng-model="$ctrl.signup.deliveryTime" placeholder="Enter delivery time in days" required=""/>
+                        <input type="number" name="deliveryTime" ng-model="$ctrl.signup.deliveryTime" required=""/>
                         <div ng-messages="SignupForm.deliveryTime.$error" role="alert" multiple="">
                             <div ng-message="required">Please enter the delivery time.</div>
                         </div>
