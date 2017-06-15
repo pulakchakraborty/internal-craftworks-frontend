@@ -1,47 +1,39 @@
-<div layout="column" layout-padding>
+
     <md-content class="md-no-momentum">
-        <span flex="5"></span>
+        <div layout="row">
         <!-- Start of Navigationblock left-->
-        <md-card class="navigationBlock">
-            <div>
-                <p style="background-color: lightgrey">
-                    <md-button aria-label="My Account" class="md-icon-button" style="color: #8BC34A;">
-                        <md-icon><ng-md-icon icon="face" ></ng-md-icon></md-icon>
-                    </md-button>
-                    My Account
-                </p>
-                <p class="navigationTemplate">My Profile</p>
-                <p class="navigationTemplate" style="font-weight: bold">My Offers</p>
-                <p class="navigationTemplate">Messages</p>
-                <p class="navigationTemplate">My Events</p>
-                <p class="navigationTemplate">My Blogs</p>
-                <p class="navigationTemplate">Settings</p>
-            </div>
-        </md-card>
         <!-- End of Navigationblock left-->
         <!-- Start of Offer overview block right-->
+        <div flex>
         <md-card class="offersOverview">
-            <div>
-                <div>
-                    <p class="iconoffer"><md-icon><ng-md-icon icon="insert_drive_file"></ng-md-icon></md-icon></p>
-                </div>
+
                 <h1 id="headline">
-                    My Offers
+                    Product Overview
                 </h1>
-            </div>
             <div class="offersListed">
             <md-grid-list class="things-list" md-cols-sm="2" md-cols-md="4" md-cols-lg="8" md-row-height-gt-md="1:1" md-row-height="4:3" md-gutter="12px" md-gutter-gt-sm="8px" layout="row" layout-align="center center">
-                <md-grid-tile class="red" md-rowspan="2" md-colspan="2" ng-repeat="product in $ctrl.products">
-                    <md-grid-tile-header layout-align="center center"><h3>{{product.productName}}</h3></md-grid-tile-header>
-                    <img ng-src="https://www.catbirdnyc.com/media/catalog/product/cache/1/image/1000x/602f0fa2c1f0d1ba5e241f914e856ff9/t/e/teardrop_2.jpg" height="165" width="165">
-                    <md-grid-tile-footer layout-align="center center">
-                        <md-button class="md-icon-button" aria-label="Edit Item" >
-                            <md-icon><ng-md-icon icon="mode_edit"></ng-md-icon></md-icon>
-                        </md-button>
-                        € {{product.productPrice}}
-                        <md-button class="md-icon-button"aria-label="Delete Item" >
-                            <md-icon><ng-md-icon icon="delete" ></ng-md-icon></md-icon>
-                        </md-button>
+                <md-grid-tile md-rowspan="2" md-colspan="2" ng-repeat="product in $ctrl.products">
+                    <img ng-src="https://www.catbirdnyc.com/media/catalog/product/cache/1/image/1000x/602f0fa2c1f0d1ba5e241f914e856ff9/t/e/teardrop_2.jpg" style="max-width:200px">
+                    <md-grid-tile-footer style="height:50px">
+                        <div layout="row" flex>
+                            <div flex="90">
+                                <div layout="column">
+                                <div class="productName">{{product.name}}</div>
+                                <div> {{product.shortDescription}}</div>
+                                </div>
+                            </div>
+                            <div flex="10">
+                                <md-button class="md-icon-button" aria-label="Shop Product" style="float: right;" >
+                                <md-icon><ng-md-icon icon="shopping_cart"></ng-md-icon></md-icon>
+                                </md-button>
+                            </div>
+
+
+
+
+
+
+
                     </md-grid-tile-footer>
                     </br>
                     <md-divider ng-if="!$last"></md-divider>
@@ -49,6 +41,7 @@
             </md-grid-list>
             </div>
         </md-card>
+        </div>
 
         <!-- Kept for maybe using it again, will delete it, when i am finished here -->
         <!-- <md-list> -->

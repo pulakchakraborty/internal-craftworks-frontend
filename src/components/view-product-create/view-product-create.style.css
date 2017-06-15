@@ -1,10 +1,6 @@
 
-
 /*CSS for Navigationblock*/
 .navigationBlock {
-    width:220px;
-    position: fixed;
-    left: 200px;
 }
 
 .navigationTemplate {
@@ -19,9 +15,6 @@
 /*CSS for Creating new Offerblock*/
 
 .offerBlock {
-    width: 750px;
-    position: relative;
-    left: 300px;
 }
 
 
@@ -37,8 +30,8 @@
     text-align: center;
     width: 40px;
     position: absolute;
-    top: 60px;
-    left: 30px;
+    top: 70px;
+    left: 130px;
 }
 
 #headline {
@@ -46,9 +39,16 @@
 }
 
 .textTemplate {
-    margin-left: 80px;
-    margin-right: 30px;
+    display: flex;
     margin-bottom: 0px;
+    margin-right: 10px;
+    margin-left: 10px;
+}
+
+#TextArea1 {
+    margin-bottom: 0px;
+    margin-left: 10px;
+    margin-left: 10px;
 }
 
 .colorlist {
@@ -93,7 +93,6 @@
 
 .colorpalettedarkblue .md-icon {
     background: darkblue;
-    border: dashed;
     border-color: darkblue;
 }
 .colorpalettedarkblue.md-checked .md-icon {
@@ -102,7 +101,6 @@
 
 .colorpalettebrown .md-icon {
     background: brown;
-    border: hidden;
     border-color: brown;
 }
 .colorpalettebrown.md-checked .md-icon {
