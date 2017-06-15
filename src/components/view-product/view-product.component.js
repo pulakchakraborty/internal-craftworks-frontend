@@ -56,7 +56,7 @@ class ViewProductComponentController{
 
 
     getimage(){
-        let imageURL = 'http://placehold.it/32x32';
+        let imageURL = 'http://via.placeholder.com/550x550';
 
         return imageURL;
     }
