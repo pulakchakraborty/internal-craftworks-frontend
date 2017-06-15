@@ -1,0 +1,32 @@
+<md-card>
+    <md-card-title>
+        <md-card-title-media>
+            <div layout="row" layout-align="center center" layout-padding>
+                <img ng-src="{{$ctrl.getimage()}}" class="md-media-md">
+            </div>
+        </md-card-title-media>
+        <md-card-title-text>
+            <md-card-actions layout="row" layout-align="end center">
+                <md-button class="md-icon-button" aria-label="Edit Item" ng-click="$ctrl.edit()" >
+                    <md-icon><ng-md-icon icon="mode_edit"></ng-md-icon></md-icon>
+                </md-button>
+
+                <md-button class="md-icon-button"aria-label="Delete Item" ng-click="$ctrl.delete()" >
+                    <md-icon><ng-md-icon icon="delete" ></ng-md-icon></md-icon>
+                </md-button>
+            </md-card-actions>
+
+            <span class="md-headline">{{$ctrl.product.name}}</span>
+            <span class="md-subhead">{{$ctrl.product.updated}}</span>
+
+        </md-card-title-text>
+
+    </md-card-title>
+
+    <md-card-content>
+        <p>{{$ctrl.product.deliveryTime}}</p>
+        <p>{{$ctrl.product.description}}</p>
+    </md-card-content>
+
+
+</md-card>

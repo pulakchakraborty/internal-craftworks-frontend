@@ -9,6 +9,7 @@ import MovieEditComponent from './../components/view-movie-edit/view-movie-edit.
 import MovieCreateComponent from './../components/view-movie-create/view-movie-create.component';
 import ProductCreateComponent from './../components/view-product-create/view-product-create.component';
 import ProductEditComponent from './../components/view-product-edit/view-product-edit.component';
+import ProductComponent from './../components/view-product/view-product.component';
 import LoginComponent from './../components/view-login/view-login.component';
 import SignupComponent from './../components/view-signup/view-signup.component'
 import ShopComponent from './../components/view-shop/view-shop.component'
@@ -96,6 +97,13 @@ export default function config ($stateProvider, $urlRouterProvider, $locationPro
         .state('app.productEdit', {
             url: '/products/:productId/edit',
             component: ProductEditComponent.name,
+            resolve: {
+                product : resolveProduct
+            }
+        })
+        .state('app.product', {
+            url: '/products/:productId',
+            component: ProductComponent.name,
             resolve: {
                 product : resolveProduct
             }
