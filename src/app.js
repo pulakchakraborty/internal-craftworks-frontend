@@ -19,6 +19,7 @@ import AppContent from './components/app-content/app-content';
 import ViewHome from './components/view-home/view-home';
 import ViewOffers from './components/view-offers/view-offers';
 import ViewProductCreate from './components/view-product-create/view-product-create';
+import ViewProductEdit from './components/view-product-edit/view-product-edit';
 import ViewMovies from './components/view-movies/view-movies';
 import ViewMovie from './components/view-movie/view-movie';
 import ViewMovieEdit from './components/view-movie-edit/view-movie-edit';
@@ -44,6 +45,7 @@ let app = angular.module('app', [
     ViewShop.name,
     ViewHome.name,
     ViewOffers.name,
+    ViewProductEdit.name,
     ViewProductCreate.name
 ]);
 

@@ -1,0 +1,157 @@
+<!--
+<div layout="column" layout-padding>
+    <md-content class="md-no-momentum">
+        <h1> {{$ctrl.movie.title}} </h1>
+        <br/>
+        <form name="movieForm">
+            <md-input-container class="md-icon-float md-block">
+                <label>Title</label>
+                <md-icon><ng-md-icon icon="title" ></ng-md-icon></md-icon>
+                <input ng-model="$ctrl.model.title" type="text">
+            </md-input-container>
+            <md-input-container class="md-icon-float md-block">
+                <label>Year</label>
+                <md-icon><ng-md-icon icon="date_range" ></ng-md-icon></md-icon>
+                <input ng-model="$ctrl.model.year" type="text">
+            </md-input-container>
+            <md-input-container class="md-icon-float md-block">
+                <label>MPAA Rating</label>
+                <md-icon><ng-md-icon icon="title" ></ng-md-icon></md-icon>
+                <input ng-model="$ctrl.model.mpaa_rating" type="text">
+            </md-input-container>
+            <md-input-container class="md-block">
+                <label>Synopsis</label>
+                <textarea ng-model="$ctrl.model.synopsis" md-maxlength="1000" rows="8" md-select-on-focus></textarea>
+            </md-input-container>
+            <div layout="row">
+                <span flex></span>
+                <md-button class="md-raised md-primary" type="submit" ng-click="$ctrl.save()">Save</md-button>
+                <md-button class="md-raised" ng-click="$ctrl.cancel()">Cancel</md-button>
+            </div>
+
+        </form>
+    </md-content>
+
+</div>
+-->
+
+<div layout="column" layout-padding>
+    <span flex="20"></span>
+    <h1 id="headline">
+        Edit your product: {{ $ctrl.product.name }}
+    </h1>
+    <md-content layout="row">
+        <span flex="10"></span>
+        <md-card flex="80">
+            <md-card-content>
+                <form name="productForm">
+
+            <!-- Start Block for new Offer right-->
+
+
+                <md-input-container class="textTemplate">
+                    <label>Name</label>
+                    <md-icon><ng-md-icon icon="title" ></ng-md-icon></md-icon>
+                    <input ng-model="$ctrl.product.name" type="text">
+                </md-input-container>
+                <md-input-container class="textTemplate">
+                    <label>Description</label>
+                    <md-icon><ng-md-icon icon="subject" ></ng-md-icon></md-icon>
+                    <textarea ng-model="$ctrl.product.description" md-maxlength="500" rows="4" md-select-on-focus></textarea>
+                </md-input-container>
+
+                <md-input-container class="textTemplate">
+                    <label>Short Description</label>
+                    <md-icon><ng-md-icon icon="subject" ></ng-md-icon></md-icon>
+                    <input ng-model="$ctrl.product.shortDescription" type="text">
+                </md-input-container>
+                <md-input-container class="textTemplate">
+                    <label>Price in €</label>
+                    <md-icon><ng-md-icon icon="euro_symbol" ></ng-md-icon></md-icon>
+                    <input  ng-model="$ctrl.product.price" type="text">
+                </md-input-container>
+                <div layout="row">
+                    <md-input-container class="textTemplate">
+                        <label>Category</label>
+                        <md-icon><ng-md-icon icon="label" ></ng-md-icon></md-icon>
+                        <md-select ng-model="$ctrl.product.category" placeholder="Category" class="md-no-underline">
+                            <md-option value="art">Art</md-option>
+                            <md-option value="clothes">Clothes</md-option>
+                            <md-option value="jewellery">Jewellery</md-option>
+                            <md-option value="accessories">Accessories</md-option>
+                            <md-option value="homeDecor">Home decor</md-option>
+                        </md-select>
+                    </md-input-container>
+                </div>
+                <div layout="row">
+                    <md-input-container ng-model="$ctrl.product.subcategory" class="textTemplate">
+                        <label>Subcategory</label>
+                        <md-icon><ng-md-icon icon="label_outline" ></ng-md-icon></md-icon>
+                        <md-select ng-model="$ctrl.product.subcategory" placeholder="Subcategory" class="md-no-underline" required md-no-asterisk="false">
+                            <md-option value="none">None</md-option>
+                            <md-option value="earrings">Earrings</md-option>
+                            <md-option value="rings">Rings</md-option>
+                            <md-option value="necklacdes">Necklaces</md-option>
+                            <md-option value="bracelets">Bracelets</md-option>
+                            <md-option value="hair">Hair</md-option>
+                        </md-select>
+                    </md-input-container>
+                </div>
+                <div layout="row">
+                    <md-input-container class="textTemplate">
+                        <label>Upload images</label>
+                        <choose-file layout="row">
+                            <input id="fileInput" type="file" class="ng-hide" aria-label="File Upload">
+                            <md-input-container flex class="md-block">
+                                <input type="text" ng-model="fileName" disabled>
+                                <div class="hint">Select your images</div>
+                            </md-input-container>
+                            <div>
+                                <md-button id="uploadButton" class="md-fab md-mini" aria-label="Upload images">
+                                    <md-icon><ng-md-icon icon="camera_alt" ></ng-md-icon></md-icon>
+                                </md-button>
+                            </div>
+                        </choose-file>
+                    </md-input-container>
+                </div>
+                <!--Kept for maybe using it for Use Case Searching and Filtering
+                              <div>
+                                    <md-input-container class="textTemplate">
+                                        <label class="choosecolor">Choose color </label>
+                                            <ul class="colorlist">
+                                                <a rel="nofollow" href="google.de" title="Only yellow" style="background-color: yellow; text-decoration: none"> &nbsp&nbsp&nbsp&nbsp</a>
+                                                <a rel="nofollow" href="google.de" title="Only red" style="background-color: red; text-decoration: none"> &nbsp&nbsp&nbsp&nbsp</a>
+                                                <a rel="nofollow" href="google.de" title="Only blue" style="background-color: blue; text-decoration: none"> &nbsp&nbsp&nbsp&nbsp</a>
+                                                <a rel="nofollow" href="google.de" title="Only green" style="background-color: lawngreen; text-decoration: none"> &nbsp&nbsp&nbsp&nbsp</a>
+                                                <a rel="nofollow" href="google.de" title="Only black" style="background-color: black; text-decoration: none"> &nbsp&nbsp&nbsp&nbsp</a>
+                                                <a rel="nofollow" href="google.de" title="Only pink" style="background-color: pink; text-decoration: none"> &nbsp&nbsp&nbsp&nbsp</a>
+                                                <a rel="nofollow" href="google.de" title="Only orange" style="background-color: orange; text-decoration: none"> &nbsp&nbsp&nbsp&nbsp</a>
+                                            </ul>
+                                    </md-input-container>
+                                </div>-->
+
+                <div>
+                    <md-input-container class="textTemplate">
+                        <ul>
+                            <label class="choosecolor">Choose color</label>
+                            <md-checkbox ng-model="$ctrl.product.color[0]" class="colorpaletteyellow" aria-label="Color Yellow" ng-true-value="'yellow'" ng-false-value="' '"></md-checkbox>
+                            <md-checkbox ng-model="$ctrl.product.color[1]" class="colorpaletteorange" aria-label="Color Orange"  ng-true-value="'orange'" ng-false-value="' '"></md-checkbox>
+                            <md-checkbox ng-model="$ctrl.product.color[2]" class="colorpalettedarkred" aria-label="Color Red" ng-true-value="'red'" ng-false-value="' '"></md-checkbox>
+                            <md-checkbox ng-model="$ctrl.product.color[3]" class="colorpalettebrown" aria-label="Color Brown" ng-true-value="'brown'" ng-false-value="' '"></md-checkbox>
+                            <md-checkbox ng-model="$ctrl.product.color[4]" class="colorpalettegreen" aria-label="Color Green" ng-true-value="'green'" ng-false-value="' '"></md-checkbox>
+                            <md-checkbox ng-model="$ctrl.product.color[5]" class="colorpalettedarkblue" aria-label="Color Blue" ng-true-value="'blue'" ng-false-value="' '"></md-checkbox>
+                            <md-checkbox ng-model="$ctrl.product.color[6]" class="colorpaletteviolette" aria-label="Color Violette"  ng-true-value="'violette'" ng-false-value="' '"></md-checkbox>
+                        </ul>
+                    </md-input-container>
+                </div>
+
+                <div class="afterbutton" layout="row">
+                    <span flex></span>
+                    <md-button class="md-raised md-primary" ng-click="$ctrl.save()">Save</md-button>
+                    <md-button class="md-raised" ng-click="$ctrl.cancel()">Cancel</md-button>
+                </div>
+                </form>
+            </md-card-content>
+        </md-card>
+    </md-content>
+</div>
