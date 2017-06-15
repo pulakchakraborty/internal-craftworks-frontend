@@ -21,6 +21,7 @@ class ViewProductCreateComponent {
 class ViewProductCreateComponentController{
     constructor($state, ProductsService,UserService){
         this.product = {};
+        this.product.color = [];
         this.$state = $state;
         this.ProductsService = ProductsService;
         this.UserService = UserService;
