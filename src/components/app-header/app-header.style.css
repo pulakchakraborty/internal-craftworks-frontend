@@ -57,6 +57,15 @@ md-nav-bar.md-default-theme md-nav-ink-bar, md-nav-bar md-nav-ink-bar {
     margin: 0;
 }
 
+.user-dropdown a {
+    text-decoration: none;
+}
+
+.md-select-menu-container a {
+    text-decoration: none;
+    color: rgba(33,33,33,0.87);
+}
+
 .user-dropdown .md-select-value span{
     font-size: 16px;
     color: #fff;

@@ -1,0 +1,172 @@
+<!--
+<md-card>
+    <md-card-title>
+        <md-card-title-media>
+            <div layout="row" layout-align="center center" layout-padding>
+                <img ng-src="{{$ctrl.getimage()}}" class="md-media-md">
+            </div>
+        </md-card-title-media>
+        <md-card-title-text>
+            <md-card-actions layout="row" layout-align="end center">
+                <md-button class="md-icon-button" aria-label="Edit Item" ng-click="$ctrl.edit()" >
+                    <md-icon><ng-md-icon icon="mode_edit"></ng-md-icon></md-icon>
+                </md-button>
+
+                <md-button class="md-icon-button"aria-label="Delete Item" ng-click="$ctrl.delete()" >
+                    <md-icon><ng-md-icon icon="delete" ></ng-md-icon></md-icon>
+                </md-button>
+            </md-card-actions>
+
+            <span class="md-headline">{{$ctrl.product.name}}</span>
+            <span class="md-subhead">{{$ctrl.product.updated}}</span>
+
+        </md-card-title-text>
+
+    </md-card-title>
+
+    <md-card-content>
+        <p>{{$ctrl.product.deliveryTime}}</p>
+        <p>{{$ctrl.product.description}}</p>
+    </md-card-content>
+
+
+</md-card>
+
+-->
+
+<md-content class="md-padding" layout-xs="column" layout="row">
+    <div flex-xs flex-gt-xs="85" layout="column">
+        <md-content class="md-padding" layout-xs="column" layout="row">
+
+            <div flex-xs flex-gt-xs="55" layout="column">
+                <md-card>
+                    <img ng-src="{{$ctrl.getimage()}}" class="md-card-image">
+                </md-card>
+            </div>
+
+            <div flex-xs flex-gt-xs="45" layout="column">
+                <md-card md-theme="{{ showDarkTheme ? 'dark-orange' : 'default' }}" md-theme-watch>
+                    <md-card-title>
+                        <md-card-title-text>
+                            <span class="md-headline">{{$ctrl.product.name}}</span>
+                            <span class="md-subhead">hand-made by: {{$ctrl.product['seller']}}</span>
+                        </md-card-title-text>
+                    </md-card-title>
+                    <md-divider></md-divider>
+                    <md-card-content layout="column" layout-align="space-between">
+                        <div layout-xs="column" layout="row">
+                            <div flex-xs flex-gt-xs="10" layout="column">
+                                <h5>Price: </h5>
+                            </div>
+                            <div flex-xs flex-gt-xs="90" layout="column">
+                                <h3 md-colors="{color:'primary'}">EUR {{$ctrl.product.price}} </h3>
+                                <span class="md-subhead">Price is inclusive of German VAT.</span>
+                            </div>
+                        </div>
+                        <md-divider></md-divider>
+                        <div>
+                            <h4 md-colors="{color:'primary'}">In Stock</h4>
+                        </div>
+                        <md-divider></md-divider>
+                        <div>
+                            <p>Delivery within: {{$ctrl.product.deliveryTime}} days</p>
+                        </div>
+                        <md-divider></md-divider>
+                        <div>
+                            <p>{{$ctrl.product.shortDescription}}</p>
+                        </div>
+                        <md-divider></md-divider>
+                        <div>
+                            <p>{{$ctrl.product.category}}</p>
+                        </div>
+                    </md-card-content>
+                </md-card>
+            </div>
+
+        </md-content>
+
+        <md-card md-theme="{{ showDarkTheme ? 'dark-grey' : 'default' }}" md-theme-watch>
+            <md-card-title>
+                <md-card-title-text>
+                    <span class="md-headline">Product Description</span>
+                    <span class="md-subhead">{{$ctrl.product.name}}</span>
+                </md-card-title-text>
+            </md-card-title>
+            <md-divider></md-divider>
+            <md-card-content>
+                <p>{{$ctrl.product.description}}</p>
+            </md-card-content>
+        </md-card>
+    </div>
+    <div flex-xs flex-gt-xs="15" layout="column">
+        <md-card md-theme="{{ showDarkTheme ? 'dark-purple' : 'default' }}" md-theme-watch>
+            <md-card-title>
+                <md-card-title-text>
+                    <span class="md-headline">{{$ctrl.product.price}} EUR</span>
+                    <span class="md-subhead">+ EUR shipping cost</span>
+                </md-card-title-text>
+            </md-card-title>
+            <md-card-actions layout-align="center center">
+                <md-button>Add to cart</md-button>
+            </md-card-actions>
+        </md-card>
+        <md-card md-theme="{{ showDarkTheme ? 'dark-blue' : 'default' }}" md-theme-watch>
+            <md-card-title>
+                <md-card-title-text>
+                    <span class="md-headline">Payment and Delivery information</span>
+                    <span class="md-subhead">Medium</span>
+                </md-card-title-text>
+            </md-card-title>
+            <md-card-content>
+                <h3>Delivery Options</h3>
+                <h3>Payment Options</h3>
+            </md-card-content>
+        </md-card>
+        <md-card md-theme="{{ showDarkTheme ? 'dark-blue' : 'default' }}" md-theme-watch>
+            <md-card-title>
+                <md-card-title-text>
+                    <span class="md-headline">Deigner Information</span>
+                    <span class="md-subhead">sent from BERLIN</span>
+                </md-card-title-text>
+            </md-card-title>
+            <md-card-content>
+                <h3>Delivery Options</h3>
+                <h3>Payment Options</h3>
+            </md-card-content>
+        </md-card>
+
+    </div>
+</md-content>
+
+
+<md-content class="md-padding" layout-xs="column" layout="row">
+    <div flex-xs flex-gt-xs="50" layout="column">
+        <md-card md-theme="{{ showDarkTheme ? 'dark-grey' : 'default' }}" md-theme-watch>
+            <md-card-title>
+                <md-card-title-text>
+                    <span class="md-headline">Product Information</span>
+                </md-card-title-text>
+            </md-card-title>
+            <md-divider></md-divider>
+            <md-card-actions layout="row" layout-align="end center">
+                <md-button>Action 1</md-button>
+                <md-button>Action 2</md-button>
+            </md-card-actions>
+        </md-card>
+    </div>
+    <div flex-xs flex-gt-xs="50" layout="column">
+        <md-card md-theme="{{ showDarkTheme ? 'dark-grey' : 'default' }}" md-theme-watch>
+            <md-card-title>
+                <md-card-title-text>
+                    <span class="md-headline">Additional Information</span>
+                    <span class="md-subhead">Large</span>
+                </md-card-title-text>
+            </md-card-title>
+            <md-divider></md-divider>
+            <md-card-actions layout="row" layout-align="end center">
+                <md-button>Action 1</md-button>
+                <md-button>Action 2</md-button>
+            </md-card-actions>
+        </md-card>
+    </div>
+</md-content>

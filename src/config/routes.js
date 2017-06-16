@@ -83,8 +83,13 @@ export default function config ($stateProvider, $urlRouterProvider, $locationPro
                 movie : resolveMovie
             }
         })
-        .state('app.productAdd', {
-            url: '/products/new',
+        .state('app.product', {
+            url: '/products',
+            abstract: true,
+            component: ProductComponent.name
+        })
+        .state('app.product.productAdd', {
+            url: '/new',
             component: ProductCreateComponent.name
         })
         .state('app.offers', {
@@ -101,13 +106,13 @@ export default function config ($stateProvider, $urlRouterProvider, $locationPro
                 product : resolveProduct
             }
         })
-        .state('app.product', {
-            url: '/products/:productId',
-            component: ProductComponent.name,
-            resolve: {
-                product : resolveProduct
-            }
-        })
+        // .state('app.product', {
+        //     url: '/products/:productId',
+        //     component: ProductComponent.name,
+        //     resolve: {
+        //         product : resolveProduct
+        //     }
+        // })
         .state('app.login', {
             url: '/login',
             component: LoginComponent.name,

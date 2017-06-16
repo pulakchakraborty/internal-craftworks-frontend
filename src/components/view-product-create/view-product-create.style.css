@@ -18,7 +18,7 @@
 }
 
 
-.iconoffer {
+.title-wrapper .iconoffer {
     background-color: #8BC34A ;
     color: #fff;
     font-size: 20px;
@@ -30,13 +30,16 @@
     text-align: center;
     width: 40px;
     position: absolute;
-    top: 70px;
-    left: 130px;
+    top: 5px;
+}
+
+.title-wrapper {
+    position: relative;
 }
 
 #headline {
-    margin: 80px 0px 20px 85px;
-}
+    margin: 10px 0px 20px 85px;
+} 
 
 .textTemplate {
     display: flex;
@@ -56,6 +59,7 @@
 }
  .choosecolor {
      padding-bottom: 10px;
+     margin-bottom: 15px;
  }
 
  .afterbutton {
@@ -122,5 +126,15 @@
     background: lime;
 }
 
+.description-wrapper .md-resize-wrapper {
+    width: 90%;
+}
 
+.color-select .md-icon {
+    border: 0 !important;
+}
 
+.color-select .md-icon:after {
+    top: 2px !important;
+    left: 7px !important;
+}
