@@ -12,8 +12,8 @@ md-nav-bar.md-default-theme .md-button._md-nav-button.md-unselected, md-nav-bar 
 }
 
 app-header > md-toolbar, app-header > md-toolbar > .md-toolbar-tools{
-    min-height: 50px;
-    height: 50px;
+    min-height: 60px;
+    height: 60px;
 }
 
 md-nav-bar.md-default-theme md-nav-ink-bar, md-nav-bar md-nav-ink-bar {
@@ -55,10 +55,12 @@ md-nav-bar.md-default-theme md-nav-ink-bar, md-nav-bar md-nav-ink-bar {
 }
 .user-dropdown {
     margin: 0;
+    font-size: 16px;
 }
 
 .user-dropdown a {
     text-decoration: none;
+    margin-top: 50px;
 }
 
 .md-select-menu-container a {
@@ -157,4 +159,14 @@ md-nav-bar.md-default-theme md-nav-ink-bar, md-nav-bar md-nav-ink-bar {
     transform: rotate(-45deg);
     top: 22px;
     left: 0px;
+}
+
+.Logo {
+    height: 55px;
+    margin-left: 15px;
+    margin-top: 5px;
+}
+
+md-select-menu {
+    margin-top: 50px;
 }

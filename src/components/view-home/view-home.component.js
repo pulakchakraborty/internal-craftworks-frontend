@@ -38,6 +38,10 @@ class ViewHomeComponentController{
         this.UserService.logout();
         this.$state.go('home',{});
     }
+    myOffers(){
+        let requestingUser = this.UserService.getCurrentUser();
+        this.$state.go('app.productsSeller',{ sellerId: requestingUser['_id'] });
+    }
 
     static get $inject(){
         return ['$state', UserService.name];

@@ -4,3 +4,7 @@
 .login-form md-card md-card-title {
     background-color: blue;
 }
+
+.LinkSignUp {
+    float: right;
+}

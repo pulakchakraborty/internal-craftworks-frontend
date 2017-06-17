@@ -4,7 +4,13 @@
             <span></span>
             <span></span>
             <span></span>
+            <span></span>
+            <span></span>
         </div>
+    <div>
+        <img src="../../assets/img/Logo_Craftworks.png" class="Logo" alt="" ng-click="$ctrl.goHome()">
+    </div>
+
 
         <span flex></span>
 
@@ -22,17 +28,20 @@
                 <i class="material-icons">mail_outline</i>
             </a>
         </div>
-        <div class="profile-dropdown-container">
+        <div class="mail-icon-wrapper">
+            <a ui-sref="app.login" ng-if="!$ctrl.isAuthenticated()">
+                <i class="material-icons">face</i>
+            </a>
+        </div>
+        <div class="profile-dropdown-container" ng-if="$ctrl.isAuthenticated()">
             <div layout="row" layout-align="space-between center">
                 <md-select class="user-dropdown" ng-model="user" placeholder="{{$ctrl.isAuthenticated() ? $ctrl.getCurrentUser() : Login }}" class="md-no-underline">
-                    <md-option value="axe" ng-if="$ctrl.isAuthenticated()">My account</md-option>
-                    <md-option value="sword" ng-if="$ctrl.isAuthenticated()" ng-click="$ctrl.myOffers()">My offers</md-option>
-                    <md-option value="productAdd" ng-if="$ctrl.isAuthenticated()">
-                        <a ui-sref="app.product.productAdd">Create a new product</a>
-                    </md-option>
-                    <md-option value="wand" ng-if="$ctrl.isAuthenticated()">Settings</md-option>
-                    <md-option value="pen" ng-if="$ctrl.isAuthenticated()" ng-click="$ctrl.logout($event)">Sign out</md-option>
-                    <md-option value="pen" ng-if="!$ctrl.isAuthenticated()" ng-click="$ctrl.login($event)">Login</md-option>
+                    <md-option value="My Account" ng-if="$ctrl.isAuthenticated()">My account</md-option>
+                    <md-option value="My Offers" ng-if="$ctrl.isAuthenticated()" ng-click="$ctrl.myOffers()">My offers</md-option>
+                    <md-option value="productAdd" ng-if="$ctrl.isAuthenticated()" ng-click="$ctrl.addProduct()">Create new offer</md-option>
+                    <md-option value="Settings" ng-if="$ctrl.isAuthenticated()">Settings</md-option>
+                    <md-option value="Logout" ng-if="$ctrl.isAuthenticated()" ng-click="$ctrl.logout($event)">Sign out</md-option>
+                    <md-option value="Login" ng-if="!$ctrl.isAuthenticated()" ng-click="$ctrl.login($event)">Login</md-option>
                 </md-select>
             </div>
         </div>
