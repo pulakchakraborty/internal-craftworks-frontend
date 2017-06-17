@@ -15,6 +15,9 @@ import ProductsService from './services/products/products';
 import Routes from './config/routes';
 import Middlewares from './config/middlewares';
 
+import jkAngularCarousel from 'angular-jk-carousel/dist/jk-carousel';
+import 'angular-jk-carousel/dist/jk-carousel.css';
+
 import AppContent from './components/app-content/app-content';
 import ViewHome from './components/view-home/view-home';
 import ViewOffers from './components/view-offers/view-offers';
@@ -34,6 +37,7 @@ let app = angular.module('app', [
     uiRouter,
     angularMaterial,
     ngMdIcons,
+    jkAngularCarousel,
     UserService.name,
     MoviesService.name,
     ProductsService.name,
