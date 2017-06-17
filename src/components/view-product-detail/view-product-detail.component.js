@@ -27,7 +27,6 @@ class ViewProductDetailComponentController{
         this.$state = $state;
         this.ProductsService = ProductsService;
         this.UserService = UserService;
-
     }
 
     edit () {
