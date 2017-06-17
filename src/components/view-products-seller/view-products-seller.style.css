@@ -1,0 +1,20 @@
+.offersOverview {
+    left: 400px;
+}
+.offersListed {
+    top: 80px;
+    position: relative;
+    left: 25px;
+    bottom: 50px;
+}
+
+.productName {
+    font-weight: bold;
+}
+
+.productDescription {
+}
+
+md-grid-tile-footer figcaption  {
+    width:100%;
+}

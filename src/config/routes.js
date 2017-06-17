@@ -11,8 +11,9 @@ import ProductCreateComponent from './../components/view-product-create/view-pro
 import ProductEditComponent from './../components/view-product-edit/view-product-edit.component';
 import ProductComponent from './../components/view-product/view-product.component';
 import LoginComponent from './../components/view-login/view-login.component';
-import SignupComponent from './../components/view-signup/view-signup.component'
-import ShopComponent from './../components/view-shop/view-shop.component'
+import SignupComponent from './../components/view-signup/view-signup.component';
+import ShopComponent from './../components/view-shop/view-shop.component';
+import ProductsSellerComponent from './../components/view-products-seller/view-products-seller.component';
 
 import MoviesService from './../services/movies/movies.service';
 import ProductsService from './../services/products/products.service';
@@ -36,6 +37,11 @@ function resolveProduct($stateParams,productsService){
 resolveProducts.$inject = [ProductsService.name];
 function resolveProducts(productsService){
     return productsService.list();
+}
+
+resolveProductsSeller.$inject = ['$stateParams', ProductsService.name];
+function resolveProductsSeller($stateParams, productsService){
+    return productsService.listProducts($stateParams.sellerId);
 }
 
 config.$inject = ['$stateProvider', '$urlRouterProvider', '$locationProvider'];
@@ -113,6 +119,13 @@ export default function config ($stateProvider, $urlRouterProvider, $locationPro
         //         product : resolveProduct
         //     }
         // })
+        .state('app.productsSeller', {
+            url: '/products/seller/:sellerId',
+            component: ProductsSellerComponent.name,
+            resolve: {
+                products : resolveProductsSeller
+            }
+        })
         .state('app.login', {
             url: '/login',
             component: LoginComponent.name,

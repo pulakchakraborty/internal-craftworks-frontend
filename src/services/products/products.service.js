@@ -9,6 +9,7 @@ export default class ProductsService {
     constructor($http,API_URL) {
         this.$http = $http;
         this.resourceUrl = `${ API_URL }/products/`;
+        this.extraUrl = 'seller/';
 
     }
 
@@ -76,5 +77,17 @@ export default class ProductsService {
         })
     }
 
+    listProducts(id) {
+        let url = `${ this.resourceUrl }${ this.extraUrl }${ id }`;
+        return this.$http.get(url).then(responce => {
+
+            return new Promise((resolve, reject) => {
+                resolve(responce.data);
+
+            });
+
+        });
+
+    }
 
 }
