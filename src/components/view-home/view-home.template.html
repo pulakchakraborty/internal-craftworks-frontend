@@ -37,16 +37,28 @@
     <div flex="50">
       <view-slideshow></view-slideshow>
     </div>
-    <div flex-xs flex-gt-xs="50" layout="column">
+    <div class="display-category"
+         flex-xs
+         flex-gt-xs="50"
+         layout="column"
+         ng-mouseover="categoryHoverActive=true"
+         ng-mouseleave="categoryHoverActive=false"
+         md-colors="categoryHoverActive ? {background: 'primary'} : {}">
       <div flex="40"></div>
-      <md-card-content>
+      <md-card-content >
         <h2 layout="column" layout-align="center center">Explore our categories</h2>
       </md-card-content>
     </div>
   </md-card>
 
   <md-card flex layout="row">
-    <div flex-xs flex-gt-xs="50" layout="column">
+    <div class="display-artist"
+         flex-xs
+         flex-gt-xs="50"
+         layout="column"
+         ng-mouseover="artistHoverActive=true"
+         ng-mouseleave="artistHoverActive=false"
+         md-colors="artistHoverActive ? {background: 'primary'} : {}">
         <div flex="40"></div>
         <md-card-content>
           <h2 layout="column" layout-align="center center">Explore handicraft products from the best German artists</h2>
