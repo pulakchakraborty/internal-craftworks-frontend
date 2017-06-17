@@ -26,7 +26,7 @@
             <div layout="row" layout-align="space-between center">
                 <md-select class="user-dropdown" ng-model="user" placeholder="{{$ctrl.isAuthenticated() ? $ctrl.getCurrentUser() : Login }}" class="md-no-underline">
                     <md-option value="axe" ng-if="$ctrl.isAuthenticated()">My account</md-option>
-                    <md-option value="sword" ng-if="$ctrl.isAuthenticated()">My offers</md-option>
+                    <md-option value="sword" ng-if="$ctrl.isAuthenticated()" ng-click="$ctrl.myOffers()">My offers</md-option>
                     <md-option value="productAdd" ng-if="$ctrl.isAuthenticated()">
                         <a ui-sref="app.product.productAdd">Create a new product</a>
                     </md-option>
