@@ -1,13 +1,13 @@
 
 'use strict';
 
-import template from './view-product.template.html';
+import template from './view-product-detail.template.html';
 import ProductsService from './../../services/products/products.service';
 import UserService from './../../services/user/user.service';
 
-class ViewProductComponent {
+class ViewProductDetailComponent {
     constructor(){
-        this.controller = ViewProductComponentController;
+        this.controller = ViewProductDetailComponentController;
         this.template = template;
         this.bindings = {
             product: '<',
@@ -16,13 +16,13 @@ class ViewProductComponent {
     }
 
     static get name() {
-        return 'viewProduct';
+        return 'viewProductDetail';
     }
 
 
 }
 
-class ViewProductComponentController{
+class ViewProductDetailComponentController{
     constructor($state,ProductsService,UserService){
         this.$state = $state;
         this.ProductsService = ProductsService;
@@ -68,4 +68,4 @@ class ViewProductComponentController{
 }
 
 
-export default ViewProductComponent;
+export default ViewProductDetailComponent;

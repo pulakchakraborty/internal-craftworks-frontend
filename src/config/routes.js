@@ -14,6 +14,7 @@ import LoginComponent from './../components/view-login/view-login.component';
 import SignupComponent from './../components/view-signup/view-signup.component';
 import ShopComponent from './../components/view-shop/view-shop.component';
 import ProductsSellerComponent from './../components/view-products-seller/view-products-seller.component';
+import ProductDetailComponent from './../components/view-product-detail/view-product-detail.component';
 
 import MoviesService from './../services/movies/movies.service';
 import ProductsService from './../services/products/products.service';
@@ -112,13 +113,13 @@ export default function config ($stateProvider, $urlRouterProvider, $locationPro
                 product : resolveProduct
             }
         })
-        // .state('app.product', {
-        //     url: '/products/:productId',
-        //     component: ProductComponent.name,
-        //     resolve: {
-        //         product : resolveProduct
-        //     }
-        // })
+        .state('app.productDetail', {
+             url: '/products/:productId',
+             component: ProductDetailComponent.name,
+             resolve: {
+                 product : resolveProduct
+             }
+        })
         .state('app.productsSeller', {
             url: '/products/seller/:sellerId',
             component: ProductsSellerComponent.name,

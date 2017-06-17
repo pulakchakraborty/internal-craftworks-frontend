@@ -24,6 +24,7 @@ import ViewOffers from './components/view-offers/view-offers';
 import ViewProductCreate from './components/view-product-create/view-product-create';
 import ViewProductEdit from './components/view-product-edit/view-product-edit';
 import ViewProduct from './components/view-product/view-product';
+import ViewProductDetail from './components/view-product-detail/view-product-detail';
 import ViewMovies from './components/view-movies/view-movies';
 import ViewMovie from './components/view-movie/view-movie';
 import ViewMovieEdit from './components/view-movie-edit/view-movie-edit';
@@ -54,7 +55,8 @@ let app = angular.module('app', [
     ViewProductEdit.name,
     ViewProductCreate.name,
     ViewProduct.name,
-    ViewProductsSeller.name
+    ViewProductsSeller.name,
+    ViewProductDetail.name
 ]);
 
 app.constant('API_URL', 'http://localhost:3000/api');
