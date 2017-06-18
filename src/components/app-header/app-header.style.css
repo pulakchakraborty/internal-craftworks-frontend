@@ -170,3 +170,7 @@ md-nav-bar.md-default-theme md-nav-ink-bar, md-nav-bar md-nav-ink-bar {
 md-select-menu {
     margin-top: 50px;
 }
+
+.material-icons {
+    color: white;
+}

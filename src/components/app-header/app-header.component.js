@@ -81,9 +81,15 @@ class AppHeaderComponentController{
         this.$state.go('app.productsSeller',{ sellerId: requestingUser['_id'] });
     }
 
-    addProduct(){
-        this.$state.go('app.product.productAdd',);
+    addProduct() {
+        if (this.UserService.isAuthenticated()) {
+            this.$state.go('app.product.productAdd',);
+        } else {
+            this.$state.go('app.login', {});
+        }
     }
+
+
 
     static get $inject(){
         return ['$state', UserService.name, '$mdSidenav', '$rootScope'];

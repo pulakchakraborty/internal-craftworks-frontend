@@ -22,3 +22,8 @@
   color: rgba(0,0,0, 0.8);
   font-size: 18px; 
 }
+
+md-sidenav {
+  position: fixed;
+  margin-top: 60px;
+}
