@@ -77,7 +77,7 @@ class AppHeaderComponentController{
 
     myOffers(){
         let requestingUser = this.UserService.getCurrentUser();
-        this.$state.go('app.productsSeller',{ sellerId: requestingUser['_id'] });
+        this.$state.go('app.product.productsSeller',{ sellerId: requestingUser['_id'] });
     }
 
     addProduct() {

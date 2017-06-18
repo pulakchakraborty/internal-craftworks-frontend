@@ -120,8 +120,8 @@ export default function config ($stateProvider, $urlRouterProvider, $locationPro
                  product : resolveProduct
              }
         })
-        .state('app.productsSeller', {
-            url: '/products/seller/:sellerId',
+        .state('app.product.productsSeller', {
+            url: '/seller/:sellerId',
             component: ProductsSellerComponent.name,
             resolve: {
                 products : resolveProductsSeller
