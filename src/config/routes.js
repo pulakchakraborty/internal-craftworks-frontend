@@ -106,8 +106,8 @@ export default function config ($stateProvider, $urlRouterProvider, $locationPro
                 products : resolveProducts
             }
         })
-        .state('app.productEdit', {
-            url: '/products/:productId/edit',
+        .state('app.product.productEdit', {
+            url: '/:productId/edit',
             component: ProductEditComponent.name,
             resolve: {
                 product : resolveProduct

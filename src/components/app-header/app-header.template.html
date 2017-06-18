@@ -7,8 +7,8 @@
             <span></span>
             <span></span>
         </div>
-    <div>
-        <img src="../../assets/img/Logo_Craftworks.png" class="Logo" alt="" ng-click="$ctrl.goHome()">
+    <div class="logoheader" ng-click="$ctrl.goHome()">
+        CraftWorks
     </div>
 
 
@@ -30,7 +30,7 @@
         </div>
         <div class="mail-icon-wrapper">
             <a ui-sref="app.login">
-                <i class="material-icons headericon">face</i>
+                <i class="material-icons headericon" ng-if="!$ctrl.isAuthenticated()">face</i>
             </a>
         </div>
         <div class="profile-dropdown-container" ng-if="$ctrl.isAuthenticated()">

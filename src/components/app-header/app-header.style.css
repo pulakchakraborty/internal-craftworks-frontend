@@ -174,3 +174,9 @@ md-select-menu {
 .material-icons.headericon{
     color: white;
 }
+
+.logoheader {
+    color: white;
+    margin-left: 3%;
+    font-weight: bold;
+}
