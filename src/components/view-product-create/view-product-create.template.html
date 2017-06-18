@@ -10,36 +10,78 @@
         </div>
         <div>
             <form name="productForm">
-                <md-input-container class="textTemplate">
+                <md-input-container class="textTemplate" flex-gt-sm>
                     <label>Name</label>
                     <md-icon>
                         <ng-md-icon icon="title"></ng-md-icon>
                     </md-icon>
-                    <input ng-model="$ctrl.product.name" type="text">
+                    <input name="name" ng-model="$ctrl.product.name" type="text" required="">
+                    <div ng-messages="productForm.name.$error" role="alert" multiple="">
+                        <div ng-message="required">Don't forget to name your product silly!</div>
+                    </div>
                 </md-input-container>
-                <md-input-container class="textTemplate description-wrapper">
+                <md-input-container class="textTemplate description-wrapper" flex-gt-sm>
                     <label>Description</label>
                     <md-icon>
                         <ng-md-icon icon="subject"></ng-md-icon>
                     </md-icon>
-                    <textarea id="textArea1" ng-model="$ctrl.product.description" md-maxlength="500" rows="4" md-select-on-focus></textarea>
+                    <textarea name="description"
+                              id="textArea1"
+                              ng-model="$ctrl.product.description"
+                              md-maxlength="500"
+                              rows="4"
+                              md-select-on-focus
+                              required=""></textarea>
+                    <div ng-messages="productForm.description.$error" role="alert" multiple="">
+                        <div ng-message="required">White space is boring.</div>
+                    </div>
                 </md-input-container>
-                <md-input-container class="textTemplate">
+                <md-input-container class="textTemplate" flex-gt-sm>
                     <label>Short Description</label>
                     <md-icon>
                         <ng-md-icon icon="subject"></ng-md-icon>
                     </md-icon>
-                    <input ng-model="$ctrl.product.shortDescription" type="text">
+                    <input name="shortDescription" ng-model="$ctrl.product.shortDescription" type="text" required="">
+                    <div ng-messages="productForm.shortDescription.$error" role="alert" multiple="">
+                        <div ng-message="required">Don't be too descriptive here.</div>
+                    </div>
                 </md-input-container>
-                <md-input-container class="textTemplate">
+                <md-input-container class="textTemplate" flex-gt-sm>
                     <label>Price in €</label>
                     <md-icon>
                         <ng-md-icon icon="euro_symbol"></ng-md-icon>
                     </md-icon>
-                    <input ng-model="$ctrl.product.price" type="text">
+                    <input name="price" ng-model="$ctrl.product.price" type="text" required="" ng-pattern="/^[0-9]+(\.[0-9]{1,2})?$/">
+                    <div ng-messages="productForm.price.$error" role="alert" multiple="">
+                        <div ng-message="required">Please enter the price.</div>
+                        <div ng-message="pattern">That doesn't look like a valid price.
+                        </div>
+                    </div>
                 </md-input-container>
+                <div layout-gt-sm="row">
+                    <md-input-container class="textTemplate" flex-gt-sm>
+                        <label>Product stock</label>
+                        <md-icon>
+                            <ng-md-icon icon="store"></ng-md-icon>
+                        </md-icon>
+                        <input name="stock" ng-model="$ctrl.product.stock" type="number" required="" >
+                        <div ng-messages="productForm.stock.$error" role="alert" multiple="">
+                            <div ng-message="required">Please enter the stock.</div>
+                        </div>
+                    </md-input-container>
+                    <md-input-container class="textTemplate" flex-gt-sm>
+                        <label>Processing time</label>
+                        <md-icon>
+                            <ng-md-icon icon="hourglass_full"></ng-md-icon>
+                        </md-icon>
+                        <input name="processingDays" ng-model="$ctrl.product.processingDays" type="number" required="" >
+                        <div ng-messages="productForm.processingDays.$error" role="alert" multiple="">
+                            <div ng-message="required">fill it up.</div>
+                        </div>
+                    </md-input-container>
+                </div>
                 <div>
-                    <md-input-container class="textTemplate">
+                    <md-input-container class="textTemplate" flex-gt-sm>
                         <label>Category</label>
                         <md-icon>
                             <ng-md-icon icon="label"></ng-md-icon>
@@ -54,7 +96,7 @@
                     </md-input-container>
                 </div>
                 <div>
-                    <md-input-container ng-model="$ctrl.product.subcategory" class="textTemplate">
+                    <md-input-container ng-model="$ctrl.product.subcategory" class="textTemplate" flex-gt-sm>
                         <label>Subcategory</label>
                         <md-icon>
                             <ng-md-icon icon="label_outline"></ng-md-icon>
@@ -70,7 +112,7 @@
                     </md-input-container>
                 </div>
                 <div>
-                    <md-input-container class="textTemplate">
+                    <md-input-container class="textTemplate" flex-gt-sm>
                         <label>Upload images</label>
                         <choose-file>
                             <input id="fileInput" type="file" class="ng-hide" aria-label="File Upload">
@@ -86,24 +128,19 @@
                         </choose-file>
                     </md-input-container>
                 </div>
-                <md-input-container class="textTemplate color-select">
+                <md-input-container class="textTemplate color-select" flex-gt-sm>
                     <ul>
                         <label class="choosecolor">Choose color</label>
-                        <md-checkbox ng-model="$ctrl.product.color[0]" class="colorpaletteyellow" aria-label="Color Yellow" ng-true-value="'yellow'"
-                            ng-false-value="' '"></md-checkbox>
-                        <md-checkbox ng-model="$ctrl.product.color[1]" class="colorpaletteorange" aria-label="Color Orange" ng-true-value="'orange'"
-                            ng-false-value="' '"></md-checkbox>
-                        <md-checkbox ng-model="$ctrl.product.color[2]" class="colorpalettedarkred" aria-label="Color Red" ng-true-value="'red'" ng-false-value="' '"></md-checkbox>
-                        <md-checkbox ng-model="$ctrl.product.color[3]" class="colorpalettebrown" aria-label="Color Brown" ng-true-value="'brown'"
-                            ng-false-value="' '"></md-checkbox>
-                        <md-checkbox ng-model="$ctrl.product.color[4]" class="colorpalettegreen" aria-label="Color Green" ng-true-value="'green'"
-                            ng-false-value="' '"></md-checkbox>
-                        <md-checkbox ng-model="$ctrl.product.color[5]" class="colorpalettedarkblue" aria-label="Color Blue" ng-true-value="'blue'"
-                            ng-false-value="' '"></md-checkbox>
-                        <md-checkbox ng-model="$ctrl.product.color[6]" class="colorpaletteviolette" aria-label="Color Violette" ng-true-value="'violette'"
-                            ng-false-value="' '"></md-checkbox>
+                        <md-checkbox ng-model="$ctrl.product.color['isYellow']" class="colorpaletteyellow" aria-label="Color Yellow"></md-checkbox>
+                        <md-checkbox ng-model="$ctrl.product.color['isOrange']" class="colorpaletteorange" aria-label="Color Orange" ></md-checkbox>
+                        <md-checkbox ng-model="$ctrl.product.color['isRed']" class="colorpalettedarkred" aria-label="Color Red" ></md-checkbox>
+                        <md-checkbox ng-model="$ctrl.product.color['isBrown']" class="colorpalettebrown" aria-label="Color Brown" ></md-checkbox>
+                        <md-checkbox ng-model="$ctrl.product.color['isGreen']" class="colorpalettegreen" aria-label="Color Green" ></md-checkbox>
+                        <md-checkbox ng-model="$ctrl.product.color['isBlue']" class="colorpalettedarkblue" aria-label="Color Blue" ></md-checkbox>
+                        <md-checkbox ng-model="$ctrl.product.color['isViolette']" class="colorpaletteviolette" aria-label="Color Violette" ></md-checkbox>
                     </ul>
                 </md-input-container>
+            </form>
         </div>
         <div class="afterbutton" layout="row">
             <span flex></span>
