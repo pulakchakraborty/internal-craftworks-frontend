@@ -22,25 +22,19 @@ class ViewSlideshowComponentController{
     constructor(){
         this.arrayData = [
             {
-                src: 'https://www.travelexcellence.com/images/movil/La_Paz_Waterfall.jpg'
+                src: 'src/assets/img/Category_HomeDecor.jpeg'
             },
             {
-                src: 'http://www.parasholidays.in/blog/wp-content/uploads/2014/05/holiday-tour-packages-for-usa.jpg'
+                src: 'src/assets/img/Category_Art2.jpeg'
             },
             {
-                src: 'http://clickker.in/wp-content/uploads/2016/03/new-zealand-fy-8-1-Copy.jpg'
+                src: 'src/assets/img/Category_Clothes2.jpeg'
             },
             {
-                src: 'http://images.kuoni.co.uk/73/indonesia-34834203-1451484722-ImageGalleryLightbox.jpg'
+                src: 'src/assets/img/Category_Jewellery.jpg'
             },
             {
-                src: 'http://images.kuoni.co.uk/73/malaysia-21747826-1446726337-ImageGalleryLightbox.jpg'
-            },
-            {
-                src: 'http://www.kimcambodiadriver.com/uploads/images/tours/kim-cambodia-driver-angkor-wat.jpg'
-            },
-            {
-                src: 'https://www.travcoa.com/sites/default/files/styles/flexslider_full/public/tours/images/imperialvietnam-halong-bay-14214576.jpg?itok=O-q1yr5_'
+                src: 'src/assets/img/Category_Clothes.jpeg'
             }
         ];
         this.slideshowCurrentIndex = 0;

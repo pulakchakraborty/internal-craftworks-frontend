@@ -171,6 +171,6 @@ md-select-menu {
     margin-top: 50px;
 }
 
-.material-icons {
+.material-icons.headericon{
     color: white;
 }

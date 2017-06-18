@@ -21,16 +21,19 @@ class ViewSlideshowSellerComponentController{
     constructor(){
         this.arrayData = [
             {
-                src: 'https://www.travelexcellence.com/images/movil/La_Paz_Waterfall.jpg'
+                src: 'src/assets/img/Category_HomeDecor.jpeg'
             },
             {
-                src: 'http://www.parasholidays.in/blog/wp-content/uploads/2014/05/holiday-tour-packages-for-usa.jpg'
+                src: 'src/assets/img/Category_Art.jpg'
             },
             {
-                src: 'http://clickker.in/wp-content/uploads/2016/03/new-zealand-fy-8-1-Copy.jpg'
+                src: 'src/assets/img/Category_Clothes2.jpeg'
             },
             {
-                src: 'http://images.kuoni.co.uk/73/indonesia-34834203-1451484722-ImageGalleryLightbox.jpg'
+                src: 'src/assets/img/Category_Jewellery.jpg'
+            },
+            {
+                src: 'src/assets/img/Category_Clothes.jpeg'
             }
         ];
         this.slideshowCurrentIndex = 0;

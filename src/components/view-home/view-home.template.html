@@ -33,7 +33,7 @@
     </md-card-title>
   </md-card>
 
-  <md-card flex layout="row" ng-click="$ctrl.offers()">
+  <md-card flex layout="row">
     <div flex="50">
       <view-slideshow></view-slideshow>
     </div>
@@ -43,22 +43,24 @@
          layout="column"
          ng-mouseover="categoryHoverActive=true"
          ng-mouseleave="categoryHoverActive=false"
-         md-colors="categoryHoverActive ? {background: 'primary'} : {}">
+         md-colors="categoryHoverActive ? {background: 'primary'} : {}"
+         ng-click="$ctrl.offers()">
       <div flex="40"></div>
-      <md-card-content >
+      <md-card-content>
         <p class="md-headline" layout="column" layout-align="center center">Explore our categories</p>
       </md-card-content>
     </div>
   </md-card>
 
-  <md-card flex layout="row" ng-click="$ctrl.offers()" >
+  <md-card flex layout="row">
     <div class="display-artist"
          flex-xs
          flex-gt-xs="50"
          layout="column"
          ng-mouseover="artistHoverActive=true"
          ng-mouseleave="artistHoverActive=false"
-         md-colors="artistHoverActive ? {background: 'primary'} : {}">
+         md-colors="artistHoverActive ? {background: 'primary'} : {}"
+         ng-click="$ctrl.offers()">
       <div flex="40"></div>
       <md-card-content>
         <p class="md-headline" layout-align="center center">Explore handicraft products from the best German artists</p>
