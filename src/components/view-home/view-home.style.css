@@ -85,3 +85,30 @@
 .user-dropdownhome {
   font-size: 18px;
 }
+
+.home-page .statement {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+}
+
+
+.home-page .statement .statement-wrapper {
+  max-width: 1024px;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+
+.home-page .statement .statement-wrapper .title {
+  font-size: 20px;
+  font-weight: bold;
+  color: #8BC34A;
+}
+
+material-icons. emotions {
+  align-self: center;
+  height: auto;
+}

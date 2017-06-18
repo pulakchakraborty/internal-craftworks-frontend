@@ -180,3 +180,7 @@ md-select-menu {
     margin-left: 3%;
     font-weight: bold;
 }
+
+.logoheader :focus {
+    outline: none;
+}
