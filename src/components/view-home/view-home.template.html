@@ -13,6 +13,7 @@
           <md-select class="user-dropdownhome" style="font-size: 16px" ng-model="user" placeholder="{{$ctrl.isAuthenticated() ? $ctrl.getCurrentUser() : Login }}">
             <md-option style="font-size: 16px" value="My account" ng-if="$ctrl.isAuthenticated()">My account</md-option>
             <md-option style="font-size: 16px" value="My offers" ng-if="$ctrl.isAuthenticated()" ng-click="$ctrl.myOffers()">My offers</md-option>
+            <md-option style="font-size: 16px" value="Create new offer" ng-if="$ctrl.isAuthenticated()" ng-click="$ctrl.addProduct()">Create new offer</md-option>
             <md-option style="font-size: 16px" value="Settings" ng-if="$ctrl.isAuthenticated()">Settings</md-option>
             <md-option style="font-size: 16px"value="LogOut" ng-if="$ctrl.isAuthenticated()" ng-click="$ctrl.logout($event)">Sign out</md-option>
             <md-option style="font-size: 16px"value="Login" ng-if="!$ctrl.isAuthenticated()" ng-click="$ctrl.login($event)">Login</md-option>

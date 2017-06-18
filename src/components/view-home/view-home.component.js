@@ -55,6 +55,10 @@ class ViewHomeComponentController{
         }
     }
 
+    goHome(){
+        this.$state.go('home',{});
+    }
+
     static get $inject(){
         return ['$state', UserService.name];
     }
