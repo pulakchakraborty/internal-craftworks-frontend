@@ -80,7 +80,7 @@ export default class ProductsService {
 
     listProducts(id) {
         // make sure that user is not able to see product listing of another user
-        let requmestingUser = this.UserService.getCurrentUser();
+        let requestingUser = this.UserService.getCurrentUser();
         if (requestingUser['_id'] === id) {
             let url = `${ this.resourceUrl }${ this.extraUrl }${ id }`;
             return this.$http.get(url).then(responce => {
