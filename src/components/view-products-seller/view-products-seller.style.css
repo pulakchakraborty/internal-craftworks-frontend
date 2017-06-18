@@ -2,7 +2,7 @@
     left: 400px;
 }
 .offersListed {
-    top: 80px;
+    top: 0px;
     position: relative;
     left: 25px;
     bottom: 50px;
@@ -17,4 +17,37 @@
 
 md-grid-tile-footer figcaption  {
     width:100%;
+}
+
+.offersListed .grid-container {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+
+}
+
+.item {
+    width: 33.33%;
+    padding: 10px;
+    box-sizing: border-box;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.edit-button {
+    margin-left: 30px;
+}
+
+.edit-button button {
+    margin-right: 0 !important;
+    padding-right: 0 !important;
+}
+
+.delete-button button {
+    margin-left: 0 !important;
+    padding-left: 0 !important;
 }

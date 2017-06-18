@@ -61,6 +61,11 @@ class ViewProductComponentController{
         return imageURL;
     }
 
+    myOffers(){
+        let requestingUser = this.UserService.getCurrentUser();
+        this.$state.go('app.product.productsSeller',{ sellerId: requestingUser['_id'] });
+    }
+
     static get $inject(){
         return ['$state', ProductsService.name, UserService.name];
     }
