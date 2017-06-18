@@ -15,22 +15,22 @@
         <span flex></span>
 
         <div class="search-container">
-            <i class="material-icons">search</i>
+            <i class="material-icons headericon">search</i>
             <input placeholder="Search for items...">
         </div>
         <div class="notification-icon-wrapper">
             <a href="#">
-                <i class="material-icons">notifications_none</i>
+                <i class="material-icons headericon">notifications_none</i>
             </a>
         </div>
         <div class="mail-icon-wrapper">
             <a href="#">
-                <i class="material-icons">mail_outline</i>
+                <i class="material-icons headericon">mail_outline</i>
             </a>
         </div>
         <div class="mail-icon-wrapper">
-            <a ui-sref="app.login" ng-if="!$ctrl.isAuthenticated()">
-                <i class="material-icons">face</i>
+            <a ui-sref="app.login">
+                <i class="material-icons headericon">face</i>
             </a>
         </div>
         <div class="profile-dropdown-container" ng-if="$ctrl.isAuthenticated()">
@@ -41,13 +41,13 @@
                     <md-option value="productAdd" ng-if="$ctrl.isAuthenticated()" ng-click="$ctrl.addProduct()">Create new offer</md-option>
                     <md-option value="Settings" ng-if="$ctrl.isAuthenticated()">Settings</md-option>
                     <md-option value="Logout" ng-if="$ctrl.isAuthenticated()" ng-click="$ctrl.logout($event)">Sign out</md-option>
-                    <md-option value="Login" ng-if="!$ctrl.isAuthenticated()" ng-click="$ctrl.login($event)">Login</md-option>
+                    <md-option value="" ng-if="!$ctrl.isAuthenticated()" ng-click="$ctrl.login($event)">Login</md-option>
                 </md-select>
             </div>
         </div>
         <div class="shopping-cart-icon-wrapper">
             <a href="#">
-                <i class="material-icons">shopping_cart</i>
+                <i class="material-icons headericon">shopping_cart</i>
             </a>
         </div>
     </div>

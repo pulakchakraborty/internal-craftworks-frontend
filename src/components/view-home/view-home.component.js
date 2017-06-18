@@ -43,6 +43,18 @@ class ViewHomeComponentController{
         this.$state.go('app.productsSeller',{ sellerId: requestingUser['_id'] });
     }
 
+    offers(){
+        this.$state.go('app.offers',{});
+    }
+
+    addProduct() {
+        if (this.UserService.isAuthenticated()) {
+            this.$state.go('app.product.productAdd',);
+        } else {
+            this.$state.go('app.login', {});
+        }
+    }
+
     static get $inject(){
         return ['$state', UserService.name];
     }

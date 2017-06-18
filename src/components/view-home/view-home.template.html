@@ -4,24 +4,24 @@
       <ul class="left-block">
         <li class="logo" ng-click="$ctrl.goHome()">CraftWorks</li>
         <li><a ui-sref="app.offers">Buy</a></li>
-        <li><a ui-sref="app.product.productAdd">Sell</a></li>
+        <li><a ng-click="$ctrl.addProduct()">Sell</a></li>
       </ul>
       <ul class="right-block">
         <li ng-hide="$ctrl.isAuthenticated()"><a ui-sref="app.login">Login</a></li>
         <li ng-hide="$ctrl.isAuthenticated()" class="sign-up" ><a ui-sref="app.signup">Sign-up</a></li>
         <li ng-show="$ctrl.isAuthenticated()">
-              <md-select class="user-dropdownhome" style="font-size: 16px" ng-model="user" placeholder="{{$ctrl.isAuthenticated() ? $ctrl.getCurrentUser() : Login }}">
-                <md-option style="font-size: 16px" value="My account" ng-if="$ctrl.isAuthenticated()">My account</md-option>
-                <md-option style="font-size: 16px" value="My offers" ng-if="$ctrl.isAuthenticated()" ng-click="$ctrl.myOffers()">My offers</md-option>
-                <md-option style="font-size: 16px" value="Settings" ng-if="$ctrl.isAuthenticated()">Settings</md-option>
-                <md-option style="font-size: 16px"value="LogOut" ng-if="$ctrl.isAuthenticated()" ng-click="$ctrl.logout($event)">Sign out</md-option>
-                <md-option style="font-size: 16px"value="Login" ng-if="!$ctrl.isAuthenticated()" ng-click="$ctrl.login($event)">Login</md-option>
-              </md-select>
+          <md-select class="user-dropdownhome" style="font-size: 16px" ng-model="user" placeholder="{{$ctrl.isAuthenticated() ? $ctrl.getCurrentUser() : Login }}">
+            <md-option style="font-size: 16px" value="My account" ng-if="$ctrl.isAuthenticated()">My account</md-option>
+            <md-option style="font-size: 16px" value="My offers" ng-if="$ctrl.isAuthenticated()" ng-click="$ctrl.myOffers()">My offers</md-option>
+            <md-option style="font-size: 16px" value="Settings" ng-if="$ctrl.isAuthenticated()">Settings</md-option>
+            <md-option style="font-size: 16px"value="LogOut" ng-if="$ctrl.isAuthenticated()" ng-click="$ctrl.logout($event)">Sign out</md-option>
+            <md-option style="font-size: 16px"value="Login" ng-if="!$ctrl.isAuthenticated()" ng-click="$ctrl.login($event)">Login</md-option>
+          </md-select>
         </li>
       </ul>
     </div>
   </nav>
-  <main ui-sref="app.offers">
+  <main ng-click="$ctrl.offers()">
     <img src="../../assets/img/fleemarket.png" alt="">
   </main>
   <md-card flex layout="column">
@@ -33,7 +33,7 @@
     </md-card-title>
   </md-card>
 
-  <md-card flex layout="row" ui-sref="app.offers">
+  <md-card flex layout="row">
     <div flex="50">
       <view-slideshow></view-slideshow>
     </div>
@@ -43,26 +43,28 @@
          layout="column"
          ng-mouseover="categoryHoverActive=true"
          ng-mouseleave="categoryHoverActive=false"
-         md-colors="categoryHoverActive ? {background: 'primary'} : {}">
+         md-colors="categoryHoverActive ? {background: 'primary'} : {}"
+         ng-click="$ctrl.offers()">
       <div flex="40"></div>
-      <md-card-content >
-        <h2 layout="column" layout-align="center center">Explore our categories</h2>
+      <md-card-content>
+        <p class="md-headline" layout="column" layout-align="center center">Explore our categories</p>
       </md-card-content>
     </div>
   </md-card>
 
-  <md-card flex layout="row" ui-sref="app.offers" >
+  <md-card flex layout="row">
     <div class="display-artist"
          flex-xs
          flex-gt-xs="50"
          layout="column"
          ng-mouseover="artistHoverActive=true"
          ng-mouseleave="artistHoverActive=false"
-         md-colors="artistHoverActive ? {background: 'primary'} : {}">
-        <div flex="40"></div>
-        <md-card-content>
-          <h2 layout="column" layout-align="center center">Explore handicraft products from the best German artists</h2>
-        </md-card-content>
+         md-colors="artistHoverActive ? {background: 'primary'} : {}"
+         ng-click="$ctrl.offers()">
+      <div flex="40"></div>
+      <md-card-content>
+        <p class="md-headline" layout-align="center center">Explore handicraft products from the best German artists</p>
+      </md-card-content>
     </div>
     <div flex="50">
       <view-slideshow-seller></view-slideshow-seller>
@@ -90,9 +92,6 @@
         <ul class="link-list">
           <li>
             <a href="#">Pricelist</a>
-          </li>
-          <li>
-            <a href="#">Seller Zone</a>
           </li>
           <li>
             <a href="#">How it Works</a>
