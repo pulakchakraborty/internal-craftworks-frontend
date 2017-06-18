@@ -1,5 +1,5 @@
 # CraftWorks-Frontend application
-Movies example application based on AngularJS. Backend can be found [here](https://github.com/pulakchakraborty/Internal-CraftWorks-Backend)
+Web application for handicraft products based on AngularJS. Backend can be found [here](https://github.com/pulakchakraborty/Internal-CraftWorks-Backend)
 
 ## Prerequisites
 
@@ -18,7 +18,7 @@ You need git to clone the [Internal-CraftWorks-Frontend](https://github.com/pula
 
 We also use a number of node.js tools to initialize and test [Internal-CraftWorks-Frontend](https://github.com/pulakchakraborty/Internal-CraftWorks-Frontend) . You must have node.js and its package manager (npm) installed.  You can get them from [http://nodejs.org/](http://nodejs.org/).
 
-### Clone Movie Project
+### Clone CraftWorks Project
 
 Clone the [Internal-CraftWorks-Frontend](https://github.com/pulakchakraborty/Internal-CraftWorks-Frontend)  repository using [git](http://git-scm.com/):
 
@@ -72,7 +72,11 @@ this server is:
 npm start
 ```
 
+We have configured the project to run a development server which would continuously look for .  The simplest way to start
+this server is:
+
+```
+npm start
+```
+
 Now browse to the app at `http://localhost:8000/index.html`.
-
-
-just to show the changes
