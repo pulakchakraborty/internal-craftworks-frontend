@@ -4,7 +4,7 @@
     </h1>
     <div class="item-container">
         <div class="item" ng-repeat="product in $ctrl.products">
-            <img ng-src="https://www.catbirdnyc.com/media/catalog/product/cache/1/image/1000x/602f0fa2c1f0d1ba5e241f914e856ff9/t/e/teardrop_2.jpg"
+            <img ng-src="{{product.imagePath}}"
                 style="max-width:200px">
             <div style="height:50px" class="item-ditails">
                 <div layout="row" flex>

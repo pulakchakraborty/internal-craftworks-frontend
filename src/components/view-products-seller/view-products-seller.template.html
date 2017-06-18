@@ -12,7 +12,7 @@
             <div class="offersListed">
             <md-grid-list class="things-list" md-cols-sm="2" md-cols-md="4" md-cols-lg="8" md-row-height-gt-md="1:1" md-row-height="4:3" md-gutter="12px" md-gutter-gt-sm="8px" layout="row" layout-align="center center">
                 <md-grid-tile md-rowspan="2" md-colspan="2" ng-repeat="product in $ctrl.products">
-                    <img ng-src="https://www.catbirdnyc.com/media/catalog/product/cache/1/image/1000x/602f0fa2c1f0d1ba5e241f914e856ff9/t/e/teardrop_2.jpg" style="max-width:200px">
+                    <img ng-src="{{product.imagePath}}" style="max-width:200px">
                     <md-grid-tile-footer style="height:50px">
                         <div layout="row" flex>
                             <div flex="90">
