@@ -4,6 +4,7 @@
 import template from './view-product-edit.template.html';
 
 import ProductsService from './../../services/products/products.service';
+import UserService from './../../services/user/user.service';
 import './view-product-edit.style.css';
 
 class ViewProductEditComponent {
@@ -21,10 +22,11 @@ class ViewProductEditComponent {
 }
 
 class ViewProductEditComponentController{
-    constructor($state, ProductsService){
+    constructor($state, ProductsService, UserService){
         this.model = {};
         this.$state = $state;
         this.ProductsService = ProductsService;
+        this.UserService = UserService;
     }
 
     $onInit() {
@@ -38,12 +40,12 @@ class ViewProductEditComponentController{
     };
 
     save() {
-        let _id = this.product['_id'];
-
+        let user = this.UserService.getCurrentUser();
+        let seller_Id = user['_id'];
         this.ProductsService.update(this.model).then(data => {
             this.product = JSON.parse(JSON.stringify(data));
 
-            this.$state.go('app.productDetail',{ productId:_id});
+            this.$state.go('app.productsSeller',{ sellerId:seller_Id});
         });
 
     };
@@ -57,7 +59,7 @@ class ViewProductEditComponentController{
     };
 
     static get $inject(){
-        return ['$state', ProductsService.name];
+        return ['$state', ProductsService.name, UserService.name];
     }
 
 }
