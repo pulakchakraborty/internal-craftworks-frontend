@@ -1,0 +1,29 @@
+<md-content class="md-no-momentum">
+    <div layout="row" layout-padding>
+        <!-- Start of Navigationblock left-->
+        <div flex="20">
+            <md-card class="navigationBlock">
+                <p style="background-color: lightgrey">
+                    <md-button aria-label="My Account" class="md-icon-button" style="color: #8BC34A;">
+                        <md-icon>
+                            <ng-md-icon icon="face"></ng-md-icon>
+                        </md-icon>
+                    </md-button>
+                    My Account
+                </p>
+                <p class="navigationTemplate">My Profile</p>
+                <p class="navigationTemplate" ng-click="$ctrl.myOffers()">My Offers</p>
+                <p class="navigationTemplate">Messages</p>
+                <p class="navigationTemplate">My Events</p>
+                <p class="navigationTemplate">My Blogs</p>
+                <p class="navigationTemplate">Settings</p>
+            </md-card>
+        </div>
+        <!-- End of Navigationblock left-->
+        <!-- Start Block for new Offer right-->
+        <div flex="80">
+            <ui-view flex></ui-view>
+        </div>
+    </div>
+</md-content>
+

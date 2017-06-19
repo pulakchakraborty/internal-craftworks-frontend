@@ -73,8 +73,22 @@ class AppHeaderComponentController{
 
     logout(){
         this.UserService.logout();
-        this.$state.go('home',{});
     }
+
+    myOffers(){
+        let requestingUser = this.UserService.getCurrentUser();
+        this.$state.go('app.product.productsSeller',{ sellerId: requestingUser['_id'] });
+    }
+
+    addProduct() {
+        if (this.UserService.isAuthenticated()) {
+            this.$state.go('app.product.productAdd',);
+        } else {
+            this.$state.go('app.login', {});
+        }
+    }
+
+
 
     static get $inject(){
         return ['$state', UserService.name, '$mdSidenav', '$rootScope'];

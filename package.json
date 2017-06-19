@@ -1,18 +1,18 @@
 {
-  "name": "sebamaster-movie-frontend",
+  "name": "CraftWorks-Frontend",
   "version": "1.0.0",
-  "description": "Movies example application based on AngularJS 1.5+",
+  "description": "Web application for handicraft products based on AngularJS 1.5+",
   "private": true,
   "repository": {
     "type": "git",
-    "url": "https://github.com/sebischair/sebamaster-movie-frontend"
+    "url": "https://github.com/pulakchakraborty/Internal-CraftWorks-Frontend"
   },
-  "author": "Adrian Hernandez-Mendez <adrian.hernandez@tum.de>",
+  "author": "Pulak Chakraborty <pulak.chakraborty@tum.de>",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/sebischair/sebamaster-movie-frontend/issues"
+    "url": "https://github.com/pulakchakraborty/Internal-CraftWorks-Frontend/issues"
   },
-  "homepage": "https://github.com/sebischair/sebamaster-movie-frontend#readme",
+  "homepage": "https://github.com/pulakchakraborty/Internal-CraftWorks-Frontend#readme",
   "devDependencies": {
     "babel-core": "^6.11.4",
     "babel-loader": "^6.2.4",
@@ -26,7 +26,8 @@
     "style-loader": "^0.13.1",
     "url-loader": "^0.5.9",
     "webpack": "^2.6.1",
-    "webpack-dev-server": "^2.4.5"
+    "webpack-dev-server": "^2.4.5",
+    "angular-jk-carousel": "^0.5.0"
   },
   "dependencies": {
     "angular": "^1.5.8",
@@ -35,7 +36,8 @@
     "angular-material": "^1.1.0",
     "angular-material-icons": "^0.7.1",
     "angular-messages": "^1.5.8",
-    "@uirouter/angularjs": "^1.0.0"
+    "@uirouter/angularjs": "^1.0.0",
+    "angular-jk-carousel": "^0.5.0"
   },
   "engines": {
     "node": ">=4.3"

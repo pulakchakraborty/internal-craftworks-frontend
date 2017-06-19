@@ -2,19 +2,89 @@
   <nav class="nav">
     <div class="content">
       <ul class="left-block">
-        <li class="logo"><a ui-sref="home">CraftWorks</a></li>
-        <li><a ui-sref="app.movies">Buy</a></li>
-        <li><a ui-sref="app.movieAdd">Sell</a></li>
+        <li class="logo">CraftWorks</li>
+        <li><a ui-sref="app.offers">Buy</a></li>
+        <li><a ng-click="$ctrl.addProduct()">Sell</a></li>
       </ul>
       <ul class="right-block">
-        <li><a ui-sref="app.login">Login</a></li>
-        <li class="sign-up"><a ui-sref="app.signup">Sign-up</a></li>
+        <li ng-hide="$ctrl.isAuthenticated()"><a ui-sref="app.login">Login</a></li>
+        <li ng-hide="$ctrl.isAuthenticated()" class="sign-up" ><a ui-sref="app.signup">Sign-up</a></li>
+        <li ng-show="$ctrl.isAuthenticated()">
+          <md-select class="user-dropdownhome" style="font-size: 16px" ng-model="user" placeholder="{{$ctrl.isAuthenticated() ? $ctrl.getCurrentUser() : Login }}">
+            <md-option style="font-size: 16px" value="My account" ng-if="$ctrl.isAuthenticated()">My account</md-option>
+            <md-option style="font-size: 16px" value="My offers" ng-if="$ctrl.isAuthenticated()" ng-click="$ctrl.myOffers()">My offers</md-option>
+            <md-option style="font-size: 16px" value="Create new offer" ng-if="$ctrl.isAuthenticated()" ng-click="$ctrl.addProduct()">Create new offer</md-option>
+            <md-option style="font-size: 16px" value="Settings" ng-if="$ctrl.isAuthenticated()">Settings</md-option>
+            <md-option style="font-size: 16px"value="LogOut" ng-if="$ctrl.isAuthenticated()" ng-click="$ctrl.logout($event)">Sign out</md-option>
+            <md-option style="font-size: 16px"value="Login" ng-if="!$ctrl.isAuthenticated()" ng-click="$ctrl.login($event)">Login</md-option>
+          </md-select>
+        </li>
       </ul>
     </div>
   </nav>
-  <main ui-sref="app.movies">
+  <main ng-click="$ctrl.offers()">
     <img src="../../assets/img/fleemarket.png" alt="">
   </main>
+  <div class="statement">
+    <div class="statement-wrapper">
+      <div class="statement-item">
+        <div class="title"> <i class="material-icons">favorite</i>   Find unique items you love </div>
+      </div>
+      <div class="statement-item">
+        <p class="title"><i class="material-icons">lightbulb_outline</i>   Get inspired by creative designs </p>
+      </div>
+      <div class="statement-item">
+        <p class="title"><i class="material-icons emotions">tag_faces</i>   Buy local and feel good   </p>
+      </div>
+    </div>
+  </div>
+  <md-card flex layout="column">
+    <md-card-title>
+      <md-card-title-text layout-align="center center">
+        <span class="md-headline">„Every decade needs its own manual of handicraft”</span>
+        <span class="md-subhead">- Liberty Hyde Bailey</span>
+      </md-card-title-text>
+    </md-card-title>
+  </md-card>
+
+  <md-card flex layout="row">
+    <div flex="50">
+      <view-slideshow></view-slideshow>
+    </div>
+    <div class="display-category"
+         flex-xs
+         flex-gt-xs="50"
+         layout="column"
+         ng-mouseover="categoryHoverActive=true"
+         ng-mouseleave="categoryHoverActive=false"
+         md-colors="categoryHoverActive ? {background: 'primary'} : {}"
+         ng-click="$ctrl.offers()">
+      <div flex="40"></div>
+      <md-card-content>
+        <p class="md-headline" layout="column" layout-align="center center">Explore our categories</p>
+      </md-card-content>
+    </div>
+  </md-card>
+
+  <md-card flex layout="row">
+    <div class="display-artist"
+         flex-xs
+         flex-gt-xs="50"
+         layout="column"
+         ng-mouseover="artistHoverActive=true"
+         ng-mouseleave="artistHoverActive=false"
+         md-colors="artistHoverActive ? {background: 'primary'} : {}"
+         ng-click="$ctrl.offers()">
+      <div flex="40"></div>
+      <md-card-content>
+        <p class="md-headline" layout="column" layout-align="center center">Explore handicraft products from the best German artists</p>
+      </md-card-content>
+    </div>
+    <div flex="50">
+      <view-slideshow-seller></view-slideshow-seller>
+    </div>
+  </md-card>
+
   <div class="footer">
     <div class="footer-wrapper">
       <div class="footer-item">
@@ -36,9 +106,6 @@
         <ul class="link-list">
           <li>
             <a href="#">Pricelist</a>
-          </li>
-          <li>
-            <a href="#">Seller Zone</a>
           </li>
           <li>
             <a href="#">How it Works</a>

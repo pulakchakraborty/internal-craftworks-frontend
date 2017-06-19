@@ -2,6 +2,7 @@
 'use strict';
 
 import template from './view-home.template.html';
+import UserService from './../../services/user/user.service';
 import './view-home.style.css';
 
 class ViewHomeComponent {
@@ -19,12 +20,47 @@ class ViewHomeComponent {
 }
 
 class ViewHomeComponentController{
-    constructor($state){
+    constructor($state,UserService){
         this.$state = $state;
+        this.UserService = UserService;
+    }
+
+    isAuthenticated(){
+        return this.UserService.isAuthenticated();
+    }
+
+    getCurrentUser(){
+        let user = this.UserService.getCurrentUser();
+        return user.username;
+    }
+
+    logout(){
+        this.UserService.logout();
+        this.$state.go('home',{});
+    }
+    myOffers(){
+        let requestingUser = this.UserService.getCurrentUser();
+        this.$state.go('app.productsSeller',{ sellerId: requestingUser['_id'] });
+    }
+
+    offers(){
+        this.$state.go('app.offers',{});
+    }
+
+    addProduct() {
+        if (this.UserService.isAuthenticated()) {
+            this.$state.go('app.product.productAdd',);
+        } else {
+            this.$state.go('app.login', {});
+        }
+    }
+
+    goHome(){
+        this.$state.go('home',{});
     }
 
     static get $inject(){
-        return ['$state'];
+        return ['$state', UserService.name];
     }
 
 }
