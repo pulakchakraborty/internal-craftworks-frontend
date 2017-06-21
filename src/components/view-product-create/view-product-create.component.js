@@ -32,11 +32,11 @@ class ViewProductCreateComponentController{
 
     save() {
         let user = this.UserService.getCurrentUser();
-
+        let seller_Id = user['_id'];
         this.product['seller'] = user['_id'];
         this.ProductsService.create(this.product).then(data => {
             let _id = data['_id'];
-            this.$state.go('app.offers',{});
+            this.$state.go('app.product.productsSeller',{sellerId:seller_Id});
         });
 
     };
