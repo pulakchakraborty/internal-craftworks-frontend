@@ -45,7 +45,7 @@ class ViewProductEditComponentController{
         this.ProductsService.update(this.model).then(data => {
             this.product = JSON.parse(JSON.stringify(data));
 
-            this.$state.go('app.productsSeller',{ sellerId:seller_Id});
+            this.$state.go('app.product.productsSeller',{sellerId:seller_Id});
         });
 
     };
