@@ -100,35 +100,14 @@
                             <div ng-message="required">Please enter the phone number.</div>
                         </div>
                     </md-input-container>
-                    <div layout-gt-sm="row">
-                        <md-input-container class="md-block" flex-gt-sm>
-                                <md-checkbox  ng-model="$ctrl.signup.paymentMethod.isIban" aria-label="Checkbox 1">IBAN</md-checkbox>
-                        </md-input-container>
-                        <md-input-container class="md-block" flex-gt-sm>
-                            <md-checkbox  ng-model="$ctrl.signup.paymentMethod.isPaypal" aria-label="Checkbox 2">PayPal</md-checkbox>
-                        </md-input-container>
-                    </div>
-                    <div layout-gt-sm="row">
-                        <md-input-container class="md-block" ng-if="$ctrl.signup.paymentMethod.isIban" flex-gt-sm>
-                            <label>IBAN</label>
-                            <input type="text" name="iban" ng-model="$ctrl.signup.iban" required />
-                            <div ng-messages="SignupForm.iban.$error" role="alert" multiple="">
-                                <div ng-message="required">Please enter the IBAN number.</div>
-                            </div>
-                        </md-input-container>
-                        <md-input-container class="md-block" ng-if="$ctrl.signup.paymentMethod.isPaypal" flex-gt-sm>
-                            <label>Paypal</label>
-                            <input type="text" name="paypal" ng-model="$ctrl.signup.paypal" required />
-                            <div ng-messages="SignupForm.paypal.$error" role="alert" multiple="">
-                                <div ng-message="required">Please enter your paypal id.</div>
-                            </div>
-                        </md-input-container>
-                    </div>
                     <md-input-container class="md-block" flex-gt-sm>
-                        <label>Delivery Time</label>
-                        <input type="number" name="deliveryTime" ng-model="$ctrl.signup.deliveryTime" required=""/>
-                        <div ng-messages="SignupForm.deliveryTime.$error" role="alert" multiple="">
-                            <div ng-message="required">Please enter the delivery time.</div>
+                            <md-checkbox  ng-model="$ctrl.signup.paymentMethod.isIban" aria-label="Checkbox 1">IBAN</md-checkbox>
+                    </md-input-container>
+                    <md-input-container class="md-block" ng-if="$ctrl.signup.paymentMethod.isIban" flex-gt-sm>
+                        <label>IBAN</label>
+                        <input type="text" name="iban" ng-model="$ctrl.signup.iban" required />
+                        <div ng-messages="SignupForm.iban.$error" role="alert" multiple="">
+                            <div ng-message="required">Please enter the IBAN number.</div>
                         </div>
                     </md-input-container>
                     <md-button ng-disabled="!SignupForm.$valid" ng-click="$ctrl.submit()" class="md-raised md-primary">&nbsp Signup &nbsp</md-button>

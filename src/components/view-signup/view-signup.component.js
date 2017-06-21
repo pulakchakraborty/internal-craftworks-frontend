@@ -36,7 +36,7 @@ class ViewSignupComponentController{
        // let password = this.signup.password;
 
         this.UserService.signup(this.signup).then(()=> {
-            this.$state.go('app.movies',{});
+            this.$state.go('home',{});
         });
     }
 
