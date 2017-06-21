@@ -8,7 +8,6 @@ import 'angular-material/angular-material.css';
 
 import ngMdIcons from 'angular-material-icons';
 
-import MoviesService from './services/movies/movies';
 import UserService from './services/user/user';
 import ProductsService from './services/products/products';
 
@@ -25,10 +24,6 @@ import ViewProductCreate from './components/view-product-create/view-product-cre
 import ViewProductEdit from './components/view-product-edit/view-product-edit';
 import ViewProduct from './components/view-product/view-product';
 import ViewProductDetail from './components/view-product-detail/view-product-detail';
-import ViewMovies from './components/view-movies/view-movies';
-import ViewMovie from './components/view-movie/view-movie';
-import ViewMovieEdit from './components/view-movie-edit/view-movie-edit';
-import ViewMovieCreate from './components/view-movie-create/view-movie-create';
 import ViewLogin from './components/view-login/view-login';
 import ViewSignup from './components/view-signup/view-signup';
 import ViewShop from './components/view-shop/view-shop';
@@ -40,13 +35,8 @@ let app = angular.module('app', [
     ngMdIcons,
     jkAngularCarousel,
     UserService.name,
-    MoviesService.name,
     ProductsService.name,
     AppContent.name,
-    ViewMovies.name,
-    ViewMovie.name,
-    ViewMovieEdit.name,
-    ViewMovieCreate.name,
     ViewLogin.name,
     ViewSignup.name,
     ViewShop.name,
