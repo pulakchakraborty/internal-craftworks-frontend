@@ -33,9 +33,10 @@ class ViewLoginComponentController{
     submit(){
         let user = this.login.username;
         let password = this.login.password;
-
         this.UserService.login(user,password).then(()=> {
-            this.$state.go('app.offers',{});
+            let seller = this.UserService.getCurrentUser();
+            let seller_Id = seller['_id'];
+            this.$state.go('app.product.productsSeller',{sellerId: seller_Id});
         });
     }
 
