@@ -22,7 +22,6 @@ class ViewProductCreateComponentController{
     constructor($state, ProductsService,UserService){
         this.product = {};
         this.$state = $state;
-        this.product.imagePath = 'src/assets/img/Productscollection/Kette_Flamingo_Mint.jpg';
         this.ProductsService = ProductsService;
         this.UserService = UserService;
     }
