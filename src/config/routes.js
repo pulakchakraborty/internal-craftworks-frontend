@@ -11,6 +11,7 @@ import SignupComponent from './../components/view-signup/view-signup.component';
 import ShopComponent from './../components/view-shop/view-shop.component';
 import ProductsSellerComponent from './../components/view-products-seller/view-products-seller.component';
 import ProductDetailComponent from './../components/view-product-detail/view-product-detail.component';
+import ShoppingCartComponent from './../components/view-shoppingcart/view-shoppingcart.component';
 
 import ProductsService from './../services/products/products.service';
 
@@ -27,6 +28,11 @@ function resolveProducts(productsService){
 resolveProductsSeller.$inject = ['$stateParams', ProductsService.name];
 function resolveProductsSeller($stateParams, productsService){
     return productsService.listProducts($stateParams.sellerId);
+}
+
+resolveShoppingCart.$inject = [ProductsService.name];
+function resolveShoppingCart(productsService){
+    return productsService.list();
 }
 
 config.$inject = ['$stateProvider', '$urlRouterProvider', '$locationProvider'];
@@ -93,5 +99,12 @@ export default function config ($stateProvider, $urlRouterProvider, $locationPro
         .state('app.signup', {
             url: '/signup',
             component: SignupComponent.name,
+        })
+        .state('app.shoppingCart', {
+            url: '/myshoppingcart',
+            component: ShoppingCartComponent.name,
+            resolve: {
+                products : resolveShoppingCart
+            }
         })
 }

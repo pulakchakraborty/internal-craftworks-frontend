@@ -29,6 +29,7 @@ import ViewSignup from './components/view-signup/view-signup';
 import ViewShop from './components/view-shop/view-shop';
 import ViewProductsSeller from './components/view-products-seller/view-products-seller';
 import ChooseFile from './directives/choose-file/choose-file';
+import ViewShoppingCart from './components/view-shoppingcart/view-shoppingcart';
 
 let app = angular.module('app', [
     uiRouter,
@@ -48,6 +49,7 @@ let app = angular.module('app', [
     ViewProduct.name,
     ViewProductsSeller.name,
     ViewProductDetail.name,
+    ViewShoppingCart.name,
     ChooseFile.name
 ]);
 

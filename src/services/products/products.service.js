@@ -96,4 +96,16 @@ export default class ProductsService {
 
     }
 
+    listShoppingCart () {
+        let url = this.resourceUrl;
+        return this.$http.get(url).then(responce => {
+
+            return new Promise((resolve, reject) => {
+                resolve(responce.data);
+
+            });
+
+        });
+    }
+
 }

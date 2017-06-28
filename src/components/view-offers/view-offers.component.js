@@ -27,6 +27,7 @@ class ViewOffersComponentController{
         this.$state = $state;
         this.UserService = UserService;
         this.ProductsService = ProductsService;
+        this.shoppingCart = [];
 
     }
 
@@ -69,6 +70,11 @@ class ViewOffersComponentController{
             this.$state.go('login',{});
         }
     };
+
+    addtoShoppingCart(product) {
+        let _id = product['_id'];
+        this.shoppingCart.push({name:product.name});
+    }
 
 
     static get $inject(){
