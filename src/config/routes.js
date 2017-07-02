@@ -36,6 +36,11 @@ function resolveShoppingCart(productsService){
     return productsService.list();
 }
 
+resolveCheckOut.$inject = [ProductsService.name];
+function resolveCheckOut(productsService){
+    return productsService.list();
+}
+
 config.$inject = ['$stateProvider', '$urlRouterProvider', '$locationProvider'];
 export default function config ($stateProvider, $urlRouterProvider, $locationProvider){
 
@@ -111,5 +116,8 @@ export default function config ($stateProvider, $urlRouterProvider, $locationPro
         .state('app.checkout', {
             url: '/checkout',
             component: CheckoutComponent.name,
+            resolve: {
+                products : resolveCheckOut
+            }
         })
 }

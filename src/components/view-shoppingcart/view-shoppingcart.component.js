@@ -68,7 +68,11 @@ class ViewShoppingCartComponentController{
     };
 
     checkout() {
-        this.$state.go('app.checkout',{});
+        if (this.UserService.isAuthenticated()) {
+            this.$state.go('app.checkout',);
+        } else {
+            this.$state.go('app.login',{});
+        }
     };
 
 

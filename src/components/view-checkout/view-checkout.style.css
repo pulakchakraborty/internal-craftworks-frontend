@@ -7,14 +7,9 @@
     padding-right: 20px;
 }
 
-.itemshoppingcart {
-    height:250px;
+.itemorder {
+    height:150px;
     text-align: left;
-}
-
-#deleteshoppingitem {
-    display: inline-block;
-    position:absolute;
 }
 
 .Price {
@@ -26,9 +21,6 @@
     text-align: left;
 }
 
-.subtitle {
-    margin: -10px;
-}
 
 .BlockContent {
 }

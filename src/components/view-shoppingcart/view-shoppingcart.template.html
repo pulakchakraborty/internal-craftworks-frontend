@@ -5,18 +5,13 @@
             <h1 >
                 My Shopping Cart
             </h1>
-            <h4 id="stepInstruction" >
-                Step 1/2: Product Overview
-            </h4>
             <md-list>
                 <md-list-item class="itemshoppingcart" aria-label="Shopping Item" ng-repeat="product in $ctrl.products">
-
                     <md-icon></md-icon>
                     <p></p>
                     <p><img ng-src="{{product.imagePath}}"
                             style="max-width:200px" class="cartpicture"></p>
                     <p>
-
                     <div class="BlockContent" layout="column">
                         <div><h3>{{product.name}}</h3></div>
                         <div>{{product.shortDescription}}</div><br/>
@@ -26,7 +21,6 @@
                         </md-button>
                     </div>
                     </p>
-
                     <p>
                     <div><md-select ng-model="$ctrl.orderitem.quantity" placeholder="Quantity" class="md-no-underline">
                         <md-option value="one">1</md-option>
@@ -44,7 +38,6 @@
                     <md-divider ng-if="!$last"></md-divider>
                 </md-list-item>
                 <md-divider></md-divider>
-
             </md-list>
             <div layout="row" layout-padding>
                 <div flex="80"></div>
