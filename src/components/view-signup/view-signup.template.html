@@ -1,22 +1,113 @@
 <div layout="column" layout-padding="">
     <span flex="20"></span>
-    <md-content class="signup-form" layout="row" flex="35">
-        <span flex="35"></span>
-        <md-card flex="30">
+    <md-content class="signup-form" layout="row">
+        <span flex="10"></span>
+        <md-card flex="80">
+            <div class="title-wrapper">
+                <br/>
+                <h1 id="headline">
+                    Sign Up
+                </h1>
+                <p class="iconoffer">+</p>
+                <br/>
+            </div>
             <md-card-content>
                 <form name="SignupForm">
-                    <md-input-container class="md-block">
-                        <label>Login</label>
-                        <input type="text" name="username" ng-model="$ctrl.signup.username" placeholder="signup" required=""/>
-                        <div ng-messages="SignupForm.username.$error" role="alert" multiple="">
+                    <md-input-container class="md-block" flex-gt-sm>
+                        <label>Username</label>
+                        <input type="text" required name="username" ng-model="$ctrl.signup.username"   md-maxlength="15"/>
+                        <div ng-messages="SignupForm.username.$error">
                             <div ng-message="required">Please enter your username.</div>
+                            <div ng-message="md-maxlength">The username has to be less than 15 characters long.</div>
+                        </div>
+                    </md-input-container>
+                    <div layout-gt-sm="row">
+                        <md-input-container class="md-block" flex-gt-sm>
+                            <label>First Name</label>
+                            <input type="text" name="firstName" ng-model="$ctrl.signup.firstName" required="" md-maxlength="30"/>
+                            <div ng-messages="SignupForm.firstName.$error" role="alert" multiple="">
+                                <div ng-message="required">Please enter your first name.</div>
+                            </div>
+                        </md-input-container>
+                        <md-input-container class="md-block" flex-gt-sm>
+                            <label>Last Name</label>
+                            <input type="text" name="lastName" ng-model="$ctrl.signup.lastName" required="" md-maxlength="30"/>
+                            <div ng-messages="SignupForm.lastName.$error" role="alert" multiple="">
+                                <div ng-message="required">Please enter your last name.</div>
+                            </div>
+                        </md-input-container>
+                    </div>
+                    <md-input-container class="md-block" flex-gt-sm>
+                        <label>Email</label>
+                        <input type="email" name="username" ng-model="$ctrl.signup.email"  required minlength="10" maxlength="100" ng-pattern="/^.+@.+\..+$/"/>
+                        <div ng-messages="SignupForm.email.$error" role="alert" multiple="">
+                            <div  ng-message-exp="['required', 'minlength', 'maxlength', 'pattern']">
+                                Your email must be between 10 and 100 characters long and look like an e-mail address.
+                            </div>
                         </div>
                     </md-input-container>
                     <md-input-container class="md-block">
                         <label>Password</label>
-                        <input type="password" name="password" ng-model="$ctrl.signup.password" placeholder="password" required="" md-maxlength="64"/>
+                        <input type="password" name="password" ng-model="$ctrl.signup.password"  required="" md-maxlength="64"/>
                         <div ng-messages="SignupForm.password.$error" role="alert" multiple="">
                             <div ng-message="required">Please enter your password.</div>
+                        </div>
+                    </md-input-container>
+                    <md-input-container class="md-block" flex-gt-sm>
+                        <label>Address Line 1</label>
+                        <input type="text" name="addressLine1" ng-model="$ctrl.signup.addressLine1" required=""/>
+                        <div ng-messages="SignupForm.addressLine1.$error" role="alert" multiple="">
+                            <div ng-message="required">Please enter your street address.</div>
+                        </div>
+                    </md-input-container>
+                    <md-input-container class="md-block" flex-gt-sm>
+                        <label>Address Line 2</label>
+                        <input type="text" name="addressLine2" ng-model="$ctrl.signup.addressLine2" />
+                    </md-input-container>
+                    <div layout-gt-sm="row">
+                        <md-input-container class="md-block" flex-gt-sm>
+                            <label>City</label>
+                            <input type="text" name="city" ng-model="$ctrl.signup.city" required=""/>
+                            <div ng-messages="SignupForm.city.$error" role="alert" multiple="">
+                                <div ng-message="required">Please enter your city name.</div>
+                            </div>
+                        </md-input-container>
+                        <md-input-container class="md-block" flex-gt-sm>
+                            <label>State</label>
+                            <input type="text" name="state" ng-model="$ctrl.signup.state"  required=""/>
+                            <div ng-messages="SignupForm.state.$error" role="alert" multiple="">
+                                <div ng-message="required">Please enter your state.</div>
+                            </div>
+                        </md-input-container>
+                        <md-input-container class="md-block" flex-gt-sm>
+                            <label>ZIP Code</label>
+                            <input name="zip" ng-model="$ctrl.signup.zip" required="" ng-pattern="/^[0-9]{5}$/" md-maxlength="5"/>
+                            <div ng-messages="SignupForm.zip.$error">
+                                <div ng-message="required">Please enter the ZIP code.</div>
+                                <div ng-message="pattern">That doesn't look like a valid postal
+                                    code.
+                                </div>
+                                <div ng-message="md-maxlength">
+                                    Don't use the long version silly...we don't need to be that specific...
+                                </div>
+                            </div>
+                        </md-input-container>
+                    </div>
+                    <md-input-container class="md-block" flex-gt-sm>
+                        <label>Phone Number</label>
+                        <input type="text" name="phone" ng-model="$ctrl.signup.phone"  required=""/>
+                        <div ng-messages="SignupForm.phone.$error" role="alert" multiple="">
+                            <div ng-message="required">Please enter the phone number.</div>
+                        </div>
+                    </md-input-container>
+                    <md-input-container class="md-block" flex-gt-sm>
+                            <md-checkbox  ng-model="$ctrl.signup.paymentMethod.isIban" aria-label="Checkbox 1">IBAN</md-checkbox>
+                    </md-input-container>
+                    <md-input-container class="md-block" ng-if="$ctrl.signup.paymentMethod.isIban" flex-gt-sm>
+                        <label>IBAN</label>
+                        <input type="text" name="iban" ng-model="$ctrl.signup.iban" required />
+                        <div ng-messages="SignupForm.iban.$error" role="alert" multiple="">
+                            <div ng-message="required">Please enter the IBAN number.</div>
                         </div>
                     </md-input-container>
                     <md-button ng-disabled="!SignupForm.$valid" ng-click="$ctrl.submit()" class="md-raised md-primary">&nbsp Signup &nbsp</md-button>

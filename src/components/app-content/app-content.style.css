@@ -1,0 +1,19 @@
+.main-content {
+    width: 100%;
+}
+
+.main-content-wrapper {
+    min-width: 1024px;
+}
+
+.main-content-wrapper {
+    min-height: 85vh;
+}
+
+* {
+    /*font-family: "Nanum Gothic";*/
+}
+
+[ng-click] {
+    cursor: pointer;
+}

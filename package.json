@@ -1,29 +1,34 @@
 {
-  "name": "sebamaster-movie-frontend",
+  "name": "CraftWorks-Frontend",
   "version": "1.0.0",
-  "description": "Movies example application based on AngularJS 1.5+",
+  "description": "Web application for handicraft products based on AngularJS 1.5+",
   "private": true,
   "repository": {
     "type": "git",
-    "url": "https://github.com/sebischair/sebamaster-movie-frontend"
+    "url": "https://github.com/pulakchakraborty/Internal-CraftWorks-Frontend"
   },
-  "author": "Adrian Hernandez-Mendez <adrian.hernandez@tum.de>",
+  "author": "Pulak Chakraborty <pulak.chakraborty@tum.de>",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/sebischair/sebamaster-movie-frontend/issues"
+    "url": "https://github.com/pulakchakraborty/Internal-CraftWorks-Frontend/issues"
   },
-  "homepage": "https://github.com/sebischair/sebamaster-movie-frontend#readme",
+  "homepage": "https://github.com/pulakchakraborty/Internal-CraftWorks-Frontend#readme",
   "devDependencies": {
+    "angular-jk-carousel": "^0.5.0",
     "babel-core": "^6.11.4",
     "babel-loader": "^6.2.4",
     "babel-preset-es2015": "^6.9.0",
     "css-loader": "^0.23.1",
+    "extract-text-webpack-plugin": "^2.1.2",
+    "file-loader": "^0.11.2",
     "html-loader": "^0.4.3",
     "html-webpack-plugin": "^2.22.0",
-    "extract-text-webpack-plugin": "^1.0.1",
     "http-server": "^0.9.0",
     "style-loader": "^0.13.1",
-    "webpack": "^1.13.1"
+    "url-loader": "^0.5.9",
+    "webpack": "^2.6.1",
+    "webpack-dev-server": "^2.4.5",
+    "ng-file-upload": "^12.2.13"
   },
   "dependencies": {
     "angular": "^1.5.8",
@@ -41,6 +46,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "webpack --config webpack.config.js",
     "prestart": "npm install",
-    "start": "http-server -a localhost -p 8000 -c-1 ./dist"
+    "start": "http-server -a localhost -p 8000 -c-1 ./dist",
+    "dev": "node ./node_modules/webpack-dev-server/bin/webpack-dev-server.js"
   }
 }

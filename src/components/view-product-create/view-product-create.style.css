@@ -1,0 +1,144 @@
+
+/*CSS for Navigationblock*/
+.navigationBlock {
+}
+
+.navigationTemplate {
+    margin-left: 50px;
+
+}
+
+.navigationTemplateSub {
+    margin-left: 60px;
+}
+
+/*CSS for Creating new Offerblock*/
+
+.offerBlock {
+}
+
+
+.title-wrapper .iconoffer {
+    background-color: #8BC34A ;
+    color: #fff;
+    font-size: 20px;
+    font-weight: bold;
+    border-radius: 50%;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    height: 40px;
+    line-height: 35px;
+    text-align: center;
+    width: 40px;
+    position: absolute;
+    top: 5px;
+}
+
+.title-wrapper {
+    position: relative;
+}
+
+#headline {
+    margin: 10px 0px 20px 85px;
+} 
+
+.textTemplate {
+    display: flex;
+    margin-bottom: 0px;
+    margin-right: 10px;
+    margin-left: 10px;
+}
+
+#TextArea1 {
+    margin-bottom: 0px;
+    margin-left: 10px;
+    margin-left: 10px;
+}
+
+.colorlist {
+    text-decoration: none;
+}
+ .choosecolor {
+     padding-bottom: 10px;
+     margin-bottom: 15px;
+ }
+
+ .afterbutton {
+     padding-bottom: 10px;
+ }
+
+ /*Choosing color*/
+
+.colorpaletteorange .md-icon {
+    background: orange;
+    border-color: orange;
+}
+.colorpaletteorange.md-checked .md-icon {
+    background: orange;
+
+}
+
+.colorpaletteyellow .md-icon {
+    background: #FFEB3B;
+    border-color: #FFEB3B;
+}
+.colorpaletteyellow.md-checked .md-icon {
+    background: #FFEB3B;
+}
+
+.colorpalettedarkred .md-icon {
+    background: #F44336;
+    border-color: #F44336;
+
+}
+.colorpalettedarkred.md-checked .md-icon {
+    background: #F44336;
+
+}
+
+.colorpalettedarkblue .md-icon {
+    background: darkblue;
+    border-color: darkblue;
+}
+.colorpalettedarkblue.md-checked .md-icon {
+    background: darkblue;
+}
+
+.colorpalettebrown .md-icon {
+    background: brown;
+    border-color: brown;
+}
+.colorpalettebrown.md-checked .md-icon {
+    background: brown;
+}
+
+.colorpaletteviolette .md-icon {
+    background: violet;
+}
+.colorpaletteviolette.md-checked .md-icon {
+    background: violet;
+}
+
+.colorpalettegreen .md-icon {
+    background: lime;
+    border-color: lime;
+}
+.colorpalettegreen.md-checked .md-icon {
+    background: lime;
+}
+
+.description-wrapper .md-resize-wrapper {
+    width: 90%;
+}
+
+.color-select .md-icon {
+    border: 0 !important;
+}
+
+.color-select .md-icon:after {
+    top: 2px !important;
+    left: 7px !important;
+}
+
+.offerBlock {
+    width: 80%;
+}

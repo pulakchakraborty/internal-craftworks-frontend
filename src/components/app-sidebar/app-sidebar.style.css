@@ -1,0 +1,29 @@
+.sidebar-category-title .md-toolbar-tools{
+  color: rgba(0,0,0, 0.8);
+  background-color: #eee;
+}
+
+.sidebar-category-title .md-toolbar-tools i {
+  margin-right: 13px;
+  color: #8bc34a;
+}
+
+.side-bar-menu-list {
+  list-style: none;
+}
+
+.side-bar-menu-list .item {
+  margin-bottom: 10px;
+}
+
+.side-bar-menu-list a {
+  text-transform: none;
+  text-decoration: none;
+  color: rgba(0,0,0, 0.8);
+  font-size: 18px;
+}
+
+md-sidenav {
+  position: fixed;
+  margin-top: 60px;
+}

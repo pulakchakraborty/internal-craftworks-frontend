@@ -10,7 +10,8 @@ var ExtractTextPlugin = require("extract-text-webpack-plugin");
 module.exports = {
 
     entry: {
-        'vendor': ['angular','angular-animate','angular-aria','angular-messages','angular-material','angular-material-icons','@uirouter/angularjs'],
+        'vendor': ['angular','angular-animate','angular-aria','angular-messages','angular-material','angular-material-icons',
+            'angular-jk-carousel','@uirouter/angularjs', 'ng-file-upload'],
         'app': path.resolve(__dirname,'src/app.js')
     },
     output: {
@@ -22,19 +23,23 @@ module.exports = {
             {
                 test: /\.js$/,
                 exclude: /(node_modules)/,
-                loader: 'babel', // 'babel-loader' is also a legal name to reference
+                loader: 'babel-loader', // 'babel-loader' is also a legal name to reference
                 query: {
                     presets: ['es2015']
                 }
             },
             {
                 test: /\.html$/,
-                loader: 'html'
+                loader: 'html-loader'
             },
             // Extract css files
             {
                 test: /\.css$/,
-                loader: ExtractTextPlugin.extract("style-loader", "css-loader")
+                loader: ExtractTextPlugin.extract({ fallback: 'style-loader', use: 'css-loader' })
+            },
+            {
+                test: /\.(png|jpg|gif)$/,
+                loader:'file-loader?name=assets/img/[name].[ext]'
             }
         ]
     },

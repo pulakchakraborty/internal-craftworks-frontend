@@ -22,6 +22,7 @@ class ViewSignupComponent {
 
 class ViewSignupComponentController{
     constructor($state,UserService){
+        //this.user = {};
         this.$state = $state;
         this.UserService = UserService;
     }
@@ -31,11 +32,11 @@ class ViewSignupComponentController{
     }
 
     submit(){
-        let user = this.signup.username;
-        let password = this.signup.password;
+       // let user = this.signup.username;
+       // let password = this.signup.password;
 
-        this.UserService.signup(user,password).then(()=> {
-            this.$state.go('movies',{});
+        this.UserService.signup(this.signup).then(()=> {
+            this.$state.go('home',{});
         });
     }
 

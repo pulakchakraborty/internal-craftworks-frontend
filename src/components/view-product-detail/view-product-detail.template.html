@@ -1,0 +1,177 @@
+<md-content class="md-padding" layout-xs="column" layout="row">
+    <div flex-xs flex-gt-xs="80" layout="column">
+        <md-content  layout-xs="column" layout="row">
+
+            <div flex-xs flex-gt-xs="55" layout="column">
+                <md-card>
+                    <img ng-src="{{$ctrl.getimage()}}" class="md-card-image">
+                </md-card>
+            </div>
+
+            <div flex-xs flex-gt-xs="45" layout="column">
+                <md-card>
+                    <md-card-title>
+                        <md-card-title-text>
+                            <span class="md-headline">{{$ctrl.product.name}}</span>
+                            <span class="md-subhead">hand-made by: {{$ctrl.product.seller.username}}</span>
+                        </md-card-title-text>
+                    </md-card-title>
+                    <md-divider></md-divider>
+                    <md-card-content layout="column" layout-align="space-between">
+                        <div layout-xs="column" layout="row">
+                            <div flex-xs flex-gt-xs="10" layout="column">
+                                <h5>Price: </h5>
+                            </div>
+                            <div flex-xs flex-gt-xs="90" layout="column">
+                                <h3 md-colors="{color:'primary'}">€ {{$ctrl.product.price}} </h3>
+                                <span class="md-subhead">Price is inclusive of German VAT.</span>
+                            </div>
+                        </div>
+                        <md-divider></md-divider>
+                        <div>
+                            <h2 md-colors="{color:'primary'}">In Stock</h2>
+                            <span class="md-subheader">Designer would start shipping in: {{$ctrl.product.daysNeededToSend}} days</span>
+                        </div>
+                        <md-divider></md-divider>
+                        <div>
+                            <h5>Short Description:</h5>
+                            <p>{{$ctrl.product.shortDescription}}</p>
+                        </div>
+                        <md-divider></md-divider>
+                        <div>
+                            <p>Category > {{$ctrl.product.category}}</p>
+                        </div>
+                        <md-divider></md-divider>
+                        <div>
+                            <p>Color: {{$ctrl.product.category}}</p>
+                        </div>
+                    </md-card-content>
+                </md-card>
+            </div>
+
+        </md-content>
+
+        <md-card md-theme="{{ showDarkTheme ? 'dark-grey' : 'default' }}" md-theme-watch>
+            <md-card-title>
+                <md-card-title-text>
+                    <span class="md-headline">Product Description</span>
+                    <span class="md-subhead">{{$ctrl.product.name}}</span>
+                </md-card-title-text>
+            </md-card-title>
+            <md-divider></md-divider>
+            <md-card-content>
+                <p>{{$ctrl.product.description}}</p>
+            </md-card-content>
+        </md-card>
+    </div>
+    <div flex-xs flex-gt-xs="20" layout="column">
+        <md-card md-theme="{{ showDarkTheme ? 'dark-purple' : 'default' }}" md-theme-watch>
+            <md-card-title>
+                <md-card-title-text>
+                    <span class="md-headline">EUR {{$ctrl.product.price}}</span>
+
+                    <span class="md-subhead">+ EUR {{$ctrl.product.deliveryCost}} shipping cost</span>
+                    <span class="md-subheader">Designer would ship it in {{$ctrl.product.daysNeededToSend}} days</span>
+                </md-card-title-text>
+            </md-card-title>
+            <md-divider></md-divider>
+            <md-card-content>
+                <p>In Stock</p>
+                <h5>Only {{$ctrl.product.stock}} more available</h5>
+                <md-input-container class="md-block" flex-gt-sm>
+                    <label>Quantity</label>
+                    <input type="number" name="deliveryTime" placeholder="1"/>
+                </md-input-container>
+                <div flex-xs class="addToCart" layout="column">
+                    <md-button  class="md-raised md-primary" ng-click="">
+                        <md-icon><ng-md-icon icon="add_shopping_cart" ></ng-md-icon></md-icon>
+                        Add to Cart
+                    </md-button>
+                </div>
+            </md-card-content>
+        </md-card>
+
+        <md-card md-theme="{{ showDarkTheme ? 'dark-blue' : 'default' }}" md-theme-watch>
+            <md-card-content layout-xs="column" layout="row">
+                <div flex-xs flex-gt-xs="30" layout="column">
+                    <md-icon><ng-md-icon icon="local_shipping" ></ng-md-icon></md-icon>
+                </div>
+                <div flex-xs flex-gt-xs="70" layout="column">
+                    <h4>Express Delivery</h4>
+                    <span class="md-subheader">1-2 days delivery time</span>
+                </div>
+            </md-card-content>
+            <md-divider md-inset></md-divider>
+
+            <md-card-content layout-xs="column" layout="row">
+                <div flex-xs flex-gt-xs="30" layout="column">
+                    <md-icon><ng-md-icon icon="payment" ></ng-md-icon></md-icon>
+                </div>
+                <div flex-xs flex-gt-xs="70" layout="column">
+                    <div ng-if="$ctrl.product.isActive">
+                        <h4>PayPal</h4>
+                        <span class="md-subheader">Early shipment</span>
+                    </div>
+                    <div ng-if="!$ctrl.product.customizable">
+                        <h4>Sofort Überweisung</h4>
+                        <span class="md-subheader">Consider delay in money transfer</span>
+                    </div>
+                </div>
+
+            </md-card-content>
+        </md-card>
+
+        <md-card md-theme="{{ showDarkTheme ? 'dark-blue' : 'default' }}" md-theme-watch>
+            <md-card-content>
+                <div layout-xs="column" layout="row">
+                    <div flex-xs flex-gt-xs="30" layout="column">
+                        <md-icon><ng-md-icon icon="account_circle" ></ng-md-icon></md-icon>
+                    </div>
+                    <div flex-xs flex-gt-xs="70" layout="column">
+                        <h4>Designer Name</h4>
+                        <p>sent from designer city</p>
+                    </div>
+                </div>
+                <div flex-xs class="addToCart" layout="column">
+                    <md-button  class="md-raised md-primary" ng-click="">
+                        <md-icon><ng-md-icon icon="chat" ></ng-md-icon></md-icon>
+                        Get in touch
+                    </md-button>
+                </div>
+            </md-card-content>
+        </md-card>
+    </div>
+</md-content>
+
+
+<md-content class="md-padding" layout-xs="column" layout="row">
+    <div flex-xs flex-gt-xs="50" layout="column">
+        <md-card md-theme="{{ showDarkTheme ? 'dark-grey' : 'default' }}" md-theme-watch>
+            <md-card-title>
+                <md-card-title-text>
+                    <span class="md-headline">Product Information</span>
+                </md-card-title-text>
+            </md-card-title>
+            <md-divider></md-divider>
+            <md-card-actions layout="row" layout-align="end center">
+                <md-button>Action 1</md-button>
+                <md-button>Action 2</md-button>
+            </md-card-actions>
+        </md-card>
+    </div>
+    <div flex-xs flex-gt-xs="50" layout="column">
+        <md-card md-theme="{{ showDarkTheme ? 'dark-grey' : 'default' }}" md-theme-watch>
+            <md-card-title>
+                <md-card-title-text>
+                    <span class="md-headline">Additional Information</span>
+                    <span class="md-subhead">Large</span>
+                </md-card-title-text>
+            </md-card-title>
+            <md-divider></md-divider>
+            <md-card-actions layout="row" layout-align="end center">
+                <md-button>Action 1</md-button>
+                <md-button>Action 2</md-button>
+            </md-card-actions>
+        </md-card>
+    </div>
+</md-content>

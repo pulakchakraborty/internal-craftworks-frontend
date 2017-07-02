@@ -51,7 +51,7 @@ export default function middlewares ($httpProvider,$windowProvider,$qProvider,$s
 
                 // do something on error
                 if(rejection.status == 400 || rejection.status == 401) {
-                    $state.go('login',{});
+                    $state.go('app.login',{});
                 }
 
                 return $q.reject(rejection);
