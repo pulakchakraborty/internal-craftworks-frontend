@@ -4,15 +4,15 @@
 
 'use strict';
 
-import template from './view-shoppingcart.template.html';
+import template from './view-checkout.template.html';
 import UserService from './../../services/user/user.service';
 import ProductsService from './../../services/products/products.service';
-import './view-shoppingcart.style.css';
+import './view-checkout.style.css';
 
 
-class ViewShoppingCartComponent {
+class CheckOutComponent {
     constructor(){
-        this.controller = ViewShoppingCartComponentController;
+        this.controller = CheckOutComponentController;
         this.template = template;
         this.bindings = {
             products: '<',
@@ -20,18 +20,17 @@ class ViewShoppingCartComponent {
     }
 
     static get name() {
-        return 'viewShoppingCart';
+        return 'viewCheckOut';
     }
 
 
 }
 
-class ViewShoppingCartComponentController{
+class CheckOutComponentController{
     constructor($state,UserService,ProductsService){
         this.$state = $state;
         this.UserService = UserService;
         this.ProductsService = ProductsService;
-        this.shoppingCart = [];
 
     }
 
@@ -67,9 +66,6 @@ class ViewShoppingCartComponentController{
         this.$state.go('app.offers',{});
     };
 
-    checkout() {
-        this.$state.go('app.checkout',{});
-    };
 
 
 
@@ -78,4 +74,4 @@ class ViewShoppingCartComponentController{
 
 }
 
-export default ViewShoppingCartComponent;
+export default CheckOutComponent;

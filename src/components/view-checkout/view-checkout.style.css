@@ -33,7 +33,7 @@
 .BlockContent {
 }
 
-.stepInstruction {
+#stepInstruction {
     text-align: right;
     margin: 20px;
 }

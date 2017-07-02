@@ -12,6 +12,7 @@ import ShopComponent from './../components/view-shop/view-shop.component';
 import ProductsSellerComponent from './../components/view-products-seller/view-products-seller.component';
 import ProductDetailComponent from './../components/view-product-detail/view-product-detail.component';
 import ShoppingCartComponent from './../components/view-shoppingcart/view-shoppingcart.component';
+import CheckoutComponent from './../components/view-checkout/view-checkout.component';
 
 import ProductsService from './../services/products/products.service';
 
@@ -106,5 +107,9 @@ export default function config ($stateProvider, $urlRouterProvider, $locationPro
             resolve: {
                 products : resolveShoppingCart
             }
+        })
+        .state('app.checkout', {
+            url: '/checkout',
+            component: CheckoutComponent.name,
         })
 }
