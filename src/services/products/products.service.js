@@ -71,9 +71,24 @@ export default class ProductsService {
         })
     }
 
-    update(product) {
+    /*update(product) {
         let url = `${ this.resourceUrl }${ product['_id'] }`;
         return this.$http.put(url,product).then(responce => {
+
+            return new Promise((resolve, reject) => {
+                resolve(responce.data);
+            });
+
+        })
+    }*/
+
+    update(product) {
+        let url = `${ this.resourceUrl }${ product['_id'] }`;
+        return this.Upload.upload({
+            url: url,
+            data: product,
+            method: 'POST'
+        }).then(responce => {
 
             return new Promise((resolve, reject) => {
                 resolve(responce.data);
