@@ -151,7 +151,17 @@
                 <md-divider></md-divider>
                 <md-card-content layout="column" layout-align="space-between" style="height: 85%">
                     <div>
-                        <p><strong>Colour:</strong> {{$ctrl.product.weight}}</p>
+                        <p><strong>Colour:</strong>
+                            <span ng-if="$ctrl.product.color['isYellow']">Yellow</span>
+                            <span ng-if="$ctrl.product.color['isOrange']">Orange</span>
+                            <span ng-if="$ctrl.product.color['isRed']">Red</span>
+                            <span ng-if="$ctrl.product.color['isBrown']">Brown</span>
+                            <span ng-if="$ctrl.product.color['isGreen']">Green</span>
+                            <span ng-if="$ctrl.product.color['isBlue']">Blue</span>
+                            <span ng-if="$ctrl.product.color['isViolette']">Violet</span>
+                            <span ng-if="$ctrl.product.color['isBlack']">Black</span>
+                            <span ng-if="$ctrl.product.color['isWhite']">White</span>
+                        </p>
                     </div>
                     <div ng-if="!$ctrl.product.weight">
                         <p><strong>Item Weight:</strong> N/A</p>
