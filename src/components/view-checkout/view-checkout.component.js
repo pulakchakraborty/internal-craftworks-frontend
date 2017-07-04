@@ -66,6 +66,11 @@ class CheckOutComponentController{
         this.$state.go('app.offers',{});
     };
 
+    getCurrentUserAdress(){
+        let user = this.UserService.getCurrentUser();
+        return user.username;
+    }
+
 
 
 

@@ -51,16 +51,19 @@ class ViewShoppingCartComponentController{
             var product = products[i];
                 total += parseInt(product.price);
         }
+        this.delivery(total);
         return total;
 
     };
 
     delivery(total) {
+        var deliverycost = 0;
         if (total > 100) {
-            return 10;
+            deliverycost = 10;
         } else {
-            return 0;
+            deliverycost = 0;
         }
+        return deliverycost;
     };
 
     cancel() {

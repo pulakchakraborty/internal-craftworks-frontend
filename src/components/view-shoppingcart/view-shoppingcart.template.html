@@ -5,6 +5,7 @@
             <h1 >
                 My Shopping Cart
             </h1>
+            <p>Following awesome items are in your shopping cart: </p>
             <md-list>
                 <md-list-item class="itemshoppingcart" aria-label="Shopping Item" ng-repeat="product in $ctrl.products">
                     <md-icon></md-icon>
@@ -15,21 +16,24 @@
                     <div class="BlockContent" layout="column">
                         <div><h3>{{product.name}}</h3></div>
                         <div>{{product.shortDescription}}</div><br/>
-                        <div>{{product.category}}</div><br/>
+                        <div>Category: {{product.category}}</div><br/>
                         <md-button class="md-icon-button" id="deleteshoppingitem" aria-label="Delete Item" ng-click="$ctrl.delete(movie)" >
                             <md-icon><ng-md-icon icon="delete" ></ng-md-icon></md-icon>
                         </md-button>
                     </div>
                     </p>
                     <p>
-                    <div><md-select ng-model="$ctrl.orderitem.quantity" placeholder="Quantity" class="md-no-underline">
+                    <div>
+                    <md-input-container>
+                        <md-select ng-model="$ctrl.orderitem.quantity" placeholder="Quantity" class="md-no-underline">
                         <md-option value="one">1</md-option>
                         <md-option value="two">2</md-option>
                         <md-option value="three">3</md-option>
                         <md-option value="four">4</md-option>
-                        <md-option value="fice">5</md-option>
+                        <md-option value="five">5</md-option>
                         <md-option value="six">6</md-option>
-                    </md-select>
+                    </md-select></md-input-container>
+
                     </div>
                     </p>
                     <p></p>
@@ -43,7 +47,7 @@
                 <div flex="80"></div>
                 <div flex="20">
                     <div><h3 class="Price">Subtotal: {{ $ctrl.subtotal($ctrl.products) | currency:'€'}}</h3></div>
-                    <div><h4 class="Price">Delivery: {{ $ctrl.delivery($ctrl.products) | currency:'€'}}</h4></div>
+                    <div><h4 class="Price" id="delivery">Delivery: {{ $ctrl.delivery() | currency:'€'}}</h4></div>
                     <hr/>
                     <div><h3 class="Price">Total: {{product.price | currency:'€'}}</h3></div>
                 </div>

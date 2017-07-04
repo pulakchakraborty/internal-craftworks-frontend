@@ -3,6 +3,7 @@
 import template from './view-offers.template.html';
 import UserService from './../../services/user/user.service';
 import ProductsService from './../../services/products/products.service';
+import ShoppingcartService from './../../services/shoppingcart/shoppingcart.service';
 import './view-offers.style.css';
 
 
@@ -23,10 +24,11 @@ class ViewOffersComponent {
 }
 
 class ViewOffersComponentController{
-    constructor($state,UserService,ProductsService){
+    constructor($state,UserService,ProductsService, ShoppingcartService){
         this.$state = $state;
         this.UserService = UserService;
         this.ProductsService = ProductsService;
+        this.ShoppingcartService = ShoppingcartService;
         this.shoppingCart = [];
 
     }
@@ -73,12 +75,12 @@ class ViewOffersComponentController{
 
     addtoShoppingCart(product) {
         let _id = product['_id'];
-        this.shoppingCart.push({name:product.name});
+        this.ShoppingcartService.addItem(product,1);
     }
 
 
     static get $inject(){
-        return ['$state', UserService.name, ProductsService.name];
+        return ['$state', UserService.name, ProductsService.name, ShoppingcartService.name];
     }
 
 }

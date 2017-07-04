@@ -10,6 +10,7 @@ import ngMdIcons from 'angular-material-icons';
 
 import UserService from './services/user/user';
 import ProductsService from './services/products/products';
+import ShoppingcartService from './services/shoppingcart/shoppingcart';
 
 import Routes from './config/routes';
 import Middlewares from './config/middlewares';
@@ -39,6 +40,7 @@ let app = angular.module('app', [
     jkAngularCarousel,
     UserService.name,
     ProductsService.name,
+    ShoppingcartService.name,
     AppContent.name,
     ViewLogin.name,
     ViewSignup.name,
