@@ -20,6 +20,8 @@ class ViewProductCreateComponent {
 
 class ViewProductCreateComponentController{
     constructor($state, ProductsService,UserService){
+        //this.category = CategoryService.getCategory();
+        //this.subcategory = CategoryService.getSubcategory(this.product.subcategory);
         this.product = {};
         this.$state = $state;
         this.ProductsService = ProductsService;

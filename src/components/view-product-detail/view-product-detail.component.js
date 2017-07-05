@@ -4,6 +4,7 @@
 import template from './view-product-detail.template.html';
 import ProductsService from './../../services/products/products.service';
 import UserService from './../../services/user/user.service';
+import './view-product-detail.style.css';
 
 class ViewProductDetailComponent {
     constructor(){
@@ -55,7 +56,7 @@ class ViewProductDetailComponentController{
 
 
     getimage(){
-        let imageURL = 'http://via.placeholder.com/550x550';
+        let imageURL = 'http://via.placeholder.com/10x10';
 
         return imageURL;
     }
