@@ -154,18 +154,21 @@
                 <div>
                     <md-input-container class="textTemplate" flex-gt-sm>
                         <label>Upload images</label>
-                        <choose-file>
-                            <input id="fileInput" type="file" class="ng-hide" aria-label="File Upload">
-                            <md-input-container>
-                                <input type="text" ng-model="fileName" disabled>
-                                <div class="hint">Select your images</div>
-                            </md-input-container>
-                            <md-button id="uploadButton" class="md-fab md-mini" aria-label="Upload images">
-                                <md-icon>
-                                    <ng-md-icon icon="camera_alt"></ng-md-icon>
-                                </md-icon>
-                            </md-button>
-                        </choose-file>
+
+                        <md-input-container>
+                            <div class="hint">Select your images</div>
+                        </md-input-container>
+
+                        <md-button id="uploadButton" class="md-fab md-mini" aria-label="Upload images"
+                                   type="file" ngf-select ng-model="$ctrl.model.file" name="file" ngf-pattern="'image/*'"
+                                   ngf-accept="'image/*'" ngf-max-size="20MB" ngf-min-height="100"
+                                   ngf-resize="{width: 550, height: 550}">
+                            <md-icon>
+                                <ng-md-icon icon="camera_alt"></ng-md-icon>
+                            </md-icon>
+
+                        </md-button>
+
                     </md-input-container>
                 </div>
                 <md-input-container class="textTemplate color-select" flex-gt-sm>

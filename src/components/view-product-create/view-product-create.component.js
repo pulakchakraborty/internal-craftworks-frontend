@@ -20,9 +20,10 @@ class ViewProductCreateComponent {
 
 class ViewProductCreateComponentController{
     constructor($state, ProductsService,UserService){
+        //this.category = CategoryService.getCategory();
+        //this.subcategory = CategoryService.getSubcategory(this.product.subcategory);
         this.product = {};
         this.$state = $state;
-        this.product.imagePath = 'src/assets/img/Productscollection/Kette_Flamingo_Mint.jpg';
         this.ProductsService = ProductsService;
         this.UserService = UserService;
     }

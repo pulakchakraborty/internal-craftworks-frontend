@@ -1,0 +1,15 @@
+pre {
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: medium;
+    white-space:pre-wrap;
+}
+
+.product-image {
+    width: 550px;
+    height: 400px;
+}
+
+.product-overview {
+    width: 550px;
+    height: 400px;
+}

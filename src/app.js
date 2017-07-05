@@ -18,6 +18,8 @@ import Middlewares from './config/middlewares';
 import jkAngularCarousel from 'angular-jk-carousel/dist/jk-carousel';
 import 'angular-jk-carousel/dist/jk-carousel.css';
 
+import ngFileUpload from 'ng-file-upload'
+
 import AppContent from './components/app-content/app-content';
 import ViewHome from './components/view-home/view-home';
 import ViewOffers from './components/view-offers/view-offers';
@@ -54,7 +56,8 @@ let app = angular.module('app', [
     ViewProductDetail.name,
     ViewShoppingCart.name,
     ViewCheckOut.name,
-    ChooseFile.name
+    ChooseFile.name,
+    ngFileUpload
 ]);
 
 app.constant('API_URL', 'http://localhost:3000/api');

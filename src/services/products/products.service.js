@@ -3,15 +3,16 @@
 export default class ProductsService {
 
     static get $inject(){
-        return ['$http', 'API_URL', 'UserService', '$state'];
+        return ['$http', 'API_URL', 'UserService', '$state', 'Upload'];
     }
 
-    constructor($http,API_URL,UserService,$state) {
+    constructor($http,API_URL,UserService,$state,Upload) {
         this.$http = $http;
         this.resourceUrl = `${ API_URL }/products/`;
         this.extraUrl = 'seller/';
         this.UserService = UserService;
         this.$state = $state;
+        this.Upload = Upload;
 
     }
 
@@ -47,7 +48,10 @@ export default class ProductsService {
 
     create(product) {
         let url = this.resourceUrl;
-        return this.$http.post(url,product).then(responce => {
+        return this.Upload.upload({
+            url: url,
+            data: product
+        }).then(responce => {
 
             return new Promise((resolve, reject) => {
                 resolve(responce.data);
@@ -67,9 +71,24 @@ export default class ProductsService {
         })
     }
 
-    update(product) {
+    /*update(product) {
         let url = `${ this.resourceUrl }${ product['_id'] }`;
         return this.$http.put(url,product).then(responce => {
+
+            return new Promise((resolve, reject) => {
+                resolve(responce.data);
+            });
+
+        })
+    }*/
+
+    update(product) {
+        let url = `${ this.resourceUrl }${ product['_id'] }`;
+        return this.Upload.upload({
+            url: url,
+            data: product,
+            method: 'POST'
+        }).then(responce => {
 
             return new Promise((resolve, reject) => {
                 resolve(responce.data);

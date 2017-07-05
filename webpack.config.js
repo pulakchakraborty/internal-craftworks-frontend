@@ -11,7 +11,7 @@ module.exports = {
 
     entry: {
         'vendor': ['angular','angular-animate','angular-aria','angular-messages','angular-material','angular-material-icons',
-            'angular-jk-carousel','@uirouter/angularjs'],
+            'angular-jk-carousel','@uirouter/angularjs', 'ng-file-upload'],
         'app': path.resolve(__dirname,'src/app.js')
     },
     output: {
