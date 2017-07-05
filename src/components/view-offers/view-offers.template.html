@@ -1,28 +1,34 @@
-<div class="offer-content">
-    <h1 id="headline">
-        Product Overview
-    </h1>
-    <div class="item-container">
-        <div class="item" ng-repeat="product in $ctrl.products">
-            <img ng-src="{{product.imagePath}}"
-                style="max-width:200px">
-            <div class="item-details">
-                <div class="item-row">
-                    <div class="left">
-                        <div layout="column">
-                            <div class="productName">{{product.name}}</div>
-                            <div> {{product.shortDescription}}</div>
+<div layout="row" layout-padding>
+    <div flex="10"></div>
+    <div flex="80">
+        <div class="offer-content">
+            <h1 id="headline">
+                Product Overview
+            </h1>
+            <div class="item-container">
+                <div class="item" ng-repeat="product in $ctrl.products">
+                    <img ng-src="{{product.imagePath}}"
+                        style="max-width:200px">
+                    <div class="item-details">
+                        <div class="item-row">
+                            <div class="left">
+                                <div layout="column">
+                                    <div class="productName">{{product.name}}</div>
+                                    <div> {{product.price | currency:'€'}}</div>
+                                </div>
+                            </div>
+                            <div class="right">
+                                <md-button class="md-icon-button" aria-label="Shop Product" style="float: right;" ng-click="$ctrl.addtoShoppingCart(product)">
+                                    <md-icon>
+                                         <ng-md-icon icon="shopping_cart"></ng-md-icon>
+                                    </md-icon>
+                                </md-button>
+                            </div>
                         </div>
-                    </div>
-                    <div class="right">
-                        <md-button class="md-icon-button" aria-label="Shop Product" style="float: right;">
-                            <md-icon>
-                                <ng-md-icon icon="shopping_cart"></ng-md-icon>
-                            </md-icon>
-                        </md-button>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+    <div flex="10"></div>
 </div>

@@ -10,6 +10,7 @@ import ngMdIcons from 'angular-material-icons';
 
 import UserService from './services/user/user';
 import ProductsService from './services/products/products';
+import ShoppingcartService from './services/shoppingcart/shoppingcart';
 
 import Routes from './config/routes';
 import Middlewares from './config/middlewares';
@@ -31,6 +32,8 @@ import ViewSignup from './components/view-signup/view-signup';
 import ViewShop from './components/view-shop/view-shop';
 import ViewProductsSeller from './components/view-products-seller/view-products-seller';
 import ChooseFile from './directives/choose-file/choose-file';
+import ViewShoppingCart from './components/view-shoppingcart/view-shoppingcart';
+import ViewCheckOut from './components/view-checkout/view-checkout';
 
 let app = angular.module('app', [
     uiRouter,
@@ -39,6 +42,7 @@ let app = angular.module('app', [
     jkAngularCarousel,
     UserService.name,
     ProductsService.name,
+    ShoppingcartService.name,
     AppContent.name,
     ViewLogin.name,
     ViewSignup.name,
@@ -50,6 +54,8 @@ let app = angular.module('app', [
     ViewProduct.name,
     ViewProductsSeller.name,
     ViewProductDetail.name,
+    ViewShoppingCart.name,
+    ViewCheckOut.name,
     ChooseFile.name,
     ngFileUpload
 ]);
