@@ -10,6 +10,7 @@ export default class ProductsService {
         this.$http = $http;
         this.resourceUrl = `${ API_URL }/products/`;
         this.extraUrl = 'seller/';
+        this.searchUrl = 'search/';
         this.UserService = UserService;
         this.$state = $state;
         this.Upload = Upload;
@@ -21,7 +22,6 @@ export default class ProductsService {
     }
 
     list() {
-
         let url = this.resourceUrl;
         return this.$http.get(url).then(responce => {
 
@@ -31,7 +31,18 @@ export default class ProductsService {
             });
 
         });
+    }
 
+    search(keyword) {
+        let url = `${ this.resourceUrl }${ this.searchUrl }${ keyword }`;
+        return this.$http.post(url).then(responce => {
+
+            return new Promise((resolve, reject) => {
+                resolve(responce.data);
+
+            });
+
+        });
     }
 
     get(id) {

@@ -34,6 +34,7 @@ import ViewProductsSeller from './components/view-products-seller/view-products-
 import ChooseFile from './directives/choose-file/choose-file';
 import ViewShoppingCart from './components/view-shoppingcart/view-shoppingcart';
 import ViewCheckOut from './components/view-checkout/view-checkout';
+import SearchProducts from './components/search-products/search-products';
 
 let app = angular.module('app', [
     uiRouter,
@@ -57,7 +58,8 @@ let app = angular.module('app', [
     ViewShoppingCart.name,
     ViewCheckOut.name,
     ChooseFile.name,
-    ngFileUpload
+    ngFileUpload,
+    SearchProducts.name
 ]);
 
 app.constant('API_URL', 'http://localhost:3000/api');

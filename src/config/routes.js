@@ -13,6 +13,7 @@ import ProductsSellerComponent from './../components/view-products-seller/view-p
 import ProductDetailComponent from './../components/view-product-detail/view-product-detail.component';
 import ShoppingCartComponent from './../components/view-shoppingcart/view-shoppingcart.component';
 import CheckoutComponent from './../components/view-checkout/view-checkout.component';
+import SearchProductsComponent from './../components/search-products/search-products.component';
 
 import ProductsService from './../services/products/products.service';
 
@@ -39,6 +40,11 @@ function resolveShoppingCart(productsService){
 resolveCheckOut.$inject = [ProductsService.name];
 function resolveCheckOut(productsService){
     return productsService.list();
+}
+
+resolveSearch.$inject = ['$stateParams', ProductsService.name];
+function resolveSearch($stateParams,productsService){
+    return productsService.search($stateParams.keyword);
 }
 
 config.$inject = ['$stateProvider', '$urlRouterProvider', '$locationProvider'];
@@ -75,6 +81,13 @@ export default function config ($stateProvider, $urlRouterProvider, $locationPro
             component: OffersComponent.name,
             resolve: {
                 products : resolveProducts
+            }
+        })
+        .state('app.productSearch', {
+            url: '/search/:keyword',
+            component: SearchProductsComponent.name,
+            resolve: {
+                results : resolveSearch
             }
         })
         .state('app.product.productEdit', {
