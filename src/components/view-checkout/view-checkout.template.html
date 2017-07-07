@@ -80,10 +80,32 @@
                     </md-input-container>
                     <md-input-container class="md-block" ng-if="$ctrl.checkout.paymentMethod.isPayPal" flex-gt-sm>
                         <label>PayPal</label>
-                        <input type="text" name="paypal" ng-model="$ctrl.checkout.paypal" required />
-                        <div ng-messages="CheckOutForm.paypal.$error" role="alert" multiple="">
-                            <div ng-message="required">Please enter your paypal account.</div>
-                        </div>
+                        <!--<input type="text" name="paypal" ng-model="$ctrl.checkout.paypal" required />-->
+                        <!--<div ng-messages="CheckOutForm.paypal.$error" role="alert" multiple="">-->
+                            <!--<div ng-message="required">Please enter your paypal account.</div>-->
+                        <!--</div>-->
+                        <!--<form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">-->
+                            <!--<input type="hidden" name="cmd" value="_s-xclick">-->
+                            <!--<input type="hidden" name="hosted_button_id" value="PDU2VCDFLFXUG">-->
+                            <!--<input type="image" src="https://www.paypalobjects.com/de_DE/DE/i/btn/btn_paynowCC_LG.gif" border="0" name="submit" alt="Jetzt einfach, schnell und sicher online bezahlen – mit PayPal.">-->
+                            <!--<img alt="" border="0" src="https://www.paypalobjects.com/de_DE/i/scr/pixel.gif" width="1" height="1">-->
+                        <!--</form>-->
+                        <!--<form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">-->
+                            <!--<input type="hidden" name="cmd" value="_s-xclick">-->
+                            <!--<input type="hidden" name="hosted_button_id" value="PDU2VCDFLFXUG">-->
+                            <!--<input type="image" src="https://www.paypalobjects.com/de_DE/DE/i/btn/btn_paynowCC_LG.gif" border="0" name="submit" alt="Jetzt einfach, schnell und sicher online bezahlen – mit PayPal.">-->
+                            <!--<img alt="" border="0" src="https://www.paypalobjects.com/de_DE/i/scr/pixel.gif" width="1" height="1" onclick="payment()">-->
+                        <!--</form>-->
+
+
+
+                        <input type="button" env="opts.env" client="opts.client" payment="opts.payment" commit="opts.commit" on-authorize="opts.onAuthorize" onclick="$ctrl.paypal()"></inputbutton>
+
+
+
+
+
+
                     </md-input-container>
 
                 <md-divider></md-divider>
