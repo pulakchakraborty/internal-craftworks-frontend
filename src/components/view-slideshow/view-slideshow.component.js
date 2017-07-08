@@ -22,19 +22,19 @@ class ViewSlideshowComponentController{
     constructor(){
         this.arrayData = [
             {
-                src: 'src/assets/img/Category_HomeDecor.jpeg'
+                src: 'src/assets/img/Category_HomeDecor.jpg'
             },
             {
-                src: 'src/assets/img/Category_Art2.jpeg'
+                src: 'src/assets/img/Category_Art2.jpg'
             },
             {
-                src: 'src/assets/img/Category_Clothes2.jpeg'
+                src: 'src/assets/img/Category_Clothes2.jpg'
             },
             {
                 src: 'src/assets/img/Category_Jewellery.jpg'
             },
             {
-                src: 'src/assets/img/Category_Clothes.jpeg'
+                src: 'src/assets/img/Category_Clothes.jpg'
             }
         ];
         this.slideshowCurrentIndex = 0;

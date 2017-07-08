@@ -24,13 +24,13 @@ class ViewSlideshowSellerComponentController{
                 src: 'src/assets/img/Seller1.jpg'
             },
             {
-                src: 'src/assets/img/Seller2.jpeg'
+                src: 'src/assets/img/Seller2.jpg'
             },
             {
-                src: 'src/assets/img/Seller3.jpeg'
+                src: 'src/assets/img/Seller3.jpg'
             },
             {
-                src: 'src/assets/img/Seller4.jpeg'
+                src: 'src/assets/img/Seller4.jpg'
             },
             {
                 src: 'src/assets/img/Seller5.jpg'
