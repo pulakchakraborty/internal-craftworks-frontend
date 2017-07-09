@@ -1,68 +1,73 @@
-
-    <div layout="row" layout-padding>
-        <div flex="10"></div>
-        <div flex="80">
-            <h1 >
-                My Shopping Cart
-            </h1>
-            <p>Following awesome items are in your shopping cart: </p>
-            <md-list>
-                <md-list-item class="itemshoppingcart" aria-label="Shopping Item" ng-repeat="product in $ctrl.products">
-                    <md-icon></md-icon>
-                    <p></p>
-                    <p><img ng-src="{{product.imagePath}}"
-                            style="max-width:200px" class="cartpicture"></p>
-                    <p>
+<div layout="row" layout-padding>
+    <div flex="10"></div>
+    <div flex="80">
+        <h1>
+            My Shopping Cart
+        </h1>
+        <p>Following awesome items are in your shopping cart: </p>
+        <md-list>
+            <md-list-item class="itemshoppingcart" aria-label="Shopping Item" ng-repeat="product in $ctrl.products">
+                <md-icon></md-icon>
+                <p></p>
+                <p><img ng-src="{{product.imagePath}}" style="max-width:200px" class="cartpicture"></p>
+                <p>
                     <div class="BlockContent" layout="column">
-                        <div><h3>{{product.name}}</h3></div>
+                        <div>
+                            <h3>{{product.name}}</h3>
+                        </div>
                         <div>{{product.shortDescription}}</div><br/>
                         <div>Category: {{product.category}}</div><br/>
-                        <md-button class="md-icon-button" id="deleteshoppingitem" aria-label="Delete Item" ng-click="$ctrl.delete(movie)" >
-                            <md-icon><ng-md-icon icon="delete" ></ng-md-icon></md-icon>
+                        <md-button class="md-icon-button" id="deleteshoppingitem" aria-label="Delete Item" ng-click="$ctrl.delete(movie)">
+                            <md-icon>
+                                <ng-md-icon icon="delete"></ng-md-icon>
+                            </md-icon>
                         </md-button>
                     </div>
-                    </p>
-                    <p>
+                </p>
+                <p>
                     <div>
-                    <md-input-container>
-                        <md-select ng-model="$ctrl.orderitem.quantity" placeholder="Quantity" class="md-no-underline">
-                        <md-option value="one">1</md-option>
-                        <md-option value="two">2</md-option>
-                        <md-option value="three">3</md-option>
-                        <md-option value="four">4</md-option>
-                        <md-option value="five">5</md-option>
-                        <md-option value="six">6</md-option>
-                    </md-select></md-input-container>
+                        <md-input-container>
+                            <md-select ng-model="product.q" placeholder="Quantity" class="md-no-underline">
+                                <md-option value="one">1</md-option>
+                                <md-option value="two">2</md-option>
+                                <md-option value="three">3</md-option>
+                                <md-option value="four">4</md-option>
+                                <md-option value="five">5</md-option>
+                                <md-option value="six">6</md-option>
+                            </md-select>
+                        </md-input-container>
 
                     </div>
-                    </p>
-                    <p></p>
-                    <p>{{product.price | currency:'€'}}</p>
+                </p>
+                <p></p>
+                <p>{{product.price | currency:'€'}}</p>
 
-                    <md-divider ng-if="!$last"></md-divider>
-                </md-list-item>
-                <md-divider></md-divider>
-            </md-list>
-            <div layout="row" layout-padding>
-                <div flex="80"></div>
-                <div flex="20">
-                    <div><h3 class="Price">Subtotal: {{ $ctrl.subtotal($ctrl.products) | currency:'€'}}</h3></div>
-                    <div><h4 class="Price" id="delivery">Delivery: {{ $ctrl.delivery() | currency:'€'}}</h4></div>
-                    <hr/>
-                    <div><h3 class="Price">Total: {{product.price | currency:'€'}}</h3></div>
+                <md-divider ng-if="!$last"></md-divider>
+            </md-list-item>
+            <md-divider></md-divider>
+        </md-list>
+        <div layout="row" layout-padding>
+            <div flex="80"></div>
+            <div flex="20">
+                <div>
+                    <h3 class="Price">Subtotal: {{ $ctrl.subtotal($ctrl.products) | currency:'€'}}</h3>
+                </div>
+                <div>
+                    <h4 class="Price" id="delivery">Delivery: {{ $ctrl.delivery() | currency:'€'}}</h4>
+                </div>
+                <hr/>
+                <div>
+                    <h3 class="Price">Total: {{product.price | currency:'€'}}</h3>
                 </div>
             </div>
-            <div class="afterbutton" layout="row">
-                <span flex></span>
-                <md-button class="md-raised" ng-click="$ctrl.cancel()">Cancel</md-button>
-                <md-button class="md-raised md-primary" ng-click="$ctrl.checkout()">Check Out</md-button>
-            </div>
-            <!--End Block 1-->
-            <!--Start Block 1-->
-            </div>
-        <div flex="10"></div>
+        </div>
+        <div class="afterbutton" layout="row">
+            <span flex></span>
+            <md-button class="md-raised" ng-click="$ctrl.cancel()">Cancel</md-button>
+            <md-button class="md-raised md-primary" ng-click="$ctrl.checkout()">Check Out</md-button>
+        </div>
+        <!--End Block 1-->
+        <!--Start Block 1-->
     </div>
-
-
-
-
+    <div flex="10"></div>
+</div>

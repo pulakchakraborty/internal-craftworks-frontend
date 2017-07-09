@@ -15,7 +15,7 @@ class ViewShoppingCartComponent {
         this.controller = ViewShoppingCartComponentController;
         this.template = template;
         this.bindings = {
-            products: '<',
+            
         }
     }
 
@@ -27,12 +27,34 @@ class ViewShoppingCartComponent {
 }
 
 class ViewShoppingCartComponentController{
-    constructor($state,UserService,ProductsService){
+    constructor($state,UserService,ProductsService, $cookies){
         this.$state = $state;
         this.UserService = UserService;
         this.ProductsService = ProductsService;
         this.shoppingCart = [];
 
+        this.products = [];
+
+        this.$cookies = $cookies;
+
+        const productsInCart = $cookies.getObject('shoping_cart');
+ 
+        if (productsInCart) {
+            ProductsService.getSpecificProducts({ids: productsInCart.map( (p) => { return p.id;} )})
+                .then( (res) => {
+                    this.products = res;
+                    this.products.forEach( (product) => {
+                        product.q = null;
+                        productsInCart.forEach( (pInCart) => {
+                            if (pInCart.id === product._id) {
+                                product.q = pInCart.q;
+                            }
+                        })
+                    }, this);
+                }).catch( (err) => {
+                    console.log(err);
+                })
+        };
     }
 
     details (product) {
@@ -40,9 +62,8 @@ class ViewShoppingCartComponentController{
         this.$state.go('product',{ productId:_id});
     };
 
-
     static get $inject(){
-        return ['$state', UserService.name, ProductsService.name];
+        return ['$state', UserService.name, ProductsService.name, '$cookies'];
     };
 
     subtotal(products) {

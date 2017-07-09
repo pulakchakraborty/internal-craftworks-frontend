@@ -24,13 +24,13 @@ class ViewOffersComponent {
 }
 
 class ViewOffersComponentController{
-    constructor($state,UserService,ProductsService, ShoppingcartService){
+    constructor($state,UserService,ProductsService, ShoppingcartService, $cookies){
         this.$state = $state;
         this.UserService = UserService;
         this.ProductsService = ProductsService;
         this.ShoppingcartService = ShoppingcartService;
         this.shoppingCart = [];
-
+        this.$cookies = $cookies;
     }
 
     details (product) {
@@ -75,12 +75,18 @@ class ViewOffersComponentController{
 
     addtoShoppingCart(product) {
         let _id = product['_id'];
-        this.ShoppingcartService.addItem(product,1);
+        // this.ShoppingcartService.addItem(product,1);
+        if (this.$cookies.getObject('shoping_cart')) {
+            const items = this.$cookies.getObject('shoping_cart');
+            this.$cookies.putObject( 'shoping_cart', items.push({id: _id, q: 1}) && items );
+        } else {
+            this.$cookies.putObject( 'shoping_cart', [{id: _id, q: 1}] );
+        }
     }
 
 
     static get $inject(){
-        return ['$state', UserService.name, ProductsService.name, ShoppingcartService.name];
+        return ['$state', UserService.name, ProductsService.name, ShoppingcartService.name, '$cookies'];
     }
 
 }

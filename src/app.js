@@ -3,6 +3,8 @@
 import angular from 'angular';
 import uiRouter from '@uirouter/angularjs';
 
+import ngCookies from 'angular-cookies';
+
 import angularMaterial from 'angular-material';
 import 'angular-material/angular-material.css';
 
@@ -40,6 +42,7 @@ let app = angular.module('app', [
     angularMaterial,
     ngMdIcons,
     jkAngularCarousel,
+    ngCookies,
     UserService.name,
     ProductsService.name,
     ShoppingcartService.name,
