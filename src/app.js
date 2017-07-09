@@ -7,11 +7,12 @@ import angularMaterial from 'angular-material';
 import 'angular-material/angular-material.css';
 
 import ngMdIcons from 'angular-material-icons';
-import ngMessages from 'angular-messages'
+import ngMessages from 'angular-messages';
 
 import UserService from './services/user/user';
 import ProductsService from './services/products/products';
 import ShoppingcartService from './services/shoppingcart/shoppingcart';
+import CategoriesService from './services/categories/categories';
 
 import Routes from './config/routes';
 import Middlewares from './config/middlewares';
@@ -46,6 +47,7 @@ let app = angular.module('app', [
     UserService.name,
     ProductsService.name,
     ShoppingcartService.name,
+    CategoriesService.name,
     AppContent.name,
     ViewLogin.name,
     ViewSignup.name,

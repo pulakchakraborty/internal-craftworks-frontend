@@ -4,6 +4,7 @@ import template from './search-products.template.html';
 import UserService from './../../services/user/user.service';
 import ProductsService from './../../services/products/products.service';
 import ShoppingcartService from './../../services/shoppingcart/shoppingcart.service';
+import CategoriesService from './../../services/categories/categories.service';
 import './search-products.style.css';
 
 
@@ -24,12 +25,13 @@ class SearchProductsComponent {
 }
 
 class SearchProductsComponentController{
-    constructor($state,UserService,ProductsService,ShoppingcartService){
+    constructor($state,UserService,ProductsService,ShoppingcartService,CategoriesService){
         this.$state = $state;
         this.UserService = UserService;
         this.ProductsService = ProductsService;
         this.ShoppingcartService = ShoppingcartService;
         this.shoppingCart = [];
+        this.CategoriesService = CategoriesService;
 
 
     }
@@ -37,8 +39,16 @@ class SearchProductsComponentController{
     $onInit() {
         // initialize the filter variable
         this.filter = {};
-        //this.filter.color = {};
-        console.log(this.filter)
+        this.categories = {};
+        //console.log(this.filter);
+        //use category service
+        this.CategoriesService.list().then(data => {
+            this.categories = JSON.parse(JSON.stringify(data));
+            console.log(this.categories);
+
+            //this.$state.go('app.product.productsSeller',{sellerId:seller_Id});
+        });
+
     }
 
     /*details (product) {
@@ -189,7 +199,7 @@ class SearchProductsComponentController{
     };
 
     static get $inject(){
-        return ['$state', UserService.name, ProductsService.name, ShoppingcartService.name];
+        return ['$state', UserService.name, ProductsService.name, ShoppingcartService.name, CategoriesService.name];
     }
 
 

@@ -4,6 +4,38 @@
         <div>
             Enter a text for filtering {{$ctrl.filter}}
         </div>
+        <div ng-repeat="category in $ctrl.categories">
+            <div>{{category.name}}</div>
+        </div>
+
+        <div>
+            <md-input-container class="textTemplate" flex-gt-sm>
+                <label>Category</label>
+                <md-icon>
+                    <ng-md-icon icon="label"></ng-md-icon>
+                </md-icon>
+                <md-select ng-model="$ctrl.filter.category" placeholder="Category"  class="md-no-underline">
+                    <div ng-repeat="category in $ctrl.categories">
+                        <md-option value="{{category.name}}">{{category.name}}</md-option>
+                    </div>
+
+                    <!--<md-option value="Art">Art</md-option>
+                    <md-option value="Clothes">Clothes</md-option>
+                    <md-option value="Jewellery">Jewellery</md-option>
+                    <md-option value="Accessories">Accessories</md-option>
+                    <md-option value="Home Decor">Home Decor</md-option>-->
+                </md-select>
+            </md-input-container>
+        </div>
+
+        <!--
+        <md-radio-group ng-model="$ctrl.filter.category" ng-dblclick="$ctrl.filter.category=null" >
+            <div class="category-container" ng-repeat="result in $ctrl.results">
+                <md-radio-button value="{{result._source.name}}" class="md-primary">{{result._source.name}}</md-radio-button>
+            </div>
+        </md-radio-group>
+        -->
+
         <div>
             <md-input-container class="textTemplate color-select" flex-gt-sm>
                 <ul>
@@ -78,7 +110,8 @@
             <div class="item-container">
                 <div class="item" ng-repeat="result in $ctrl.results
                  | filter:$ctrl.filterPrice($ctrl.filter.price)
-                 | filter:$ctrl.filterColor($ctrl.filter.color)">
+                 | filter:$ctrl.filterColor($ctrl.filter.color)
+                 | filter:$ctrl.filter.category">
                     <img ng-src="{{result._source.imagePath}}"
                         style="max-width:200px">
                     <div class="item-details">
