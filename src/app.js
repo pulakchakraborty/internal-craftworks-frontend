@@ -7,6 +7,7 @@ import angularMaterial from 'angular-material';
 import 'angular-material/angular-material.css';
 
 import ngMdIcons from 'angular-material-icons';
+import ngMessages from 'angular-messages'
 
 import UserService from './services/user/user';
 import ProductsService from './services/products/products';
@@ -40,6 +41,7 @@ let app = angular.module('app', [
     uiRouter,
     angularMaterial,
     ngMdIcons,
+    ngMessages,
     jkAngularCarousel,
     UserService.name,
     ProductsService.name,
