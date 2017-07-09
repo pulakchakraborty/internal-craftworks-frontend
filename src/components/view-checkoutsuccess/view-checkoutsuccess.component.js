@@ -4,15 +4,15 @@
 
 'use strict';
 
-import template from './view-checkout.template.html';
+import template from './view-checkoutsuccess.template.html';
 import UserService from './../../services/user/user.service';
 import ProductsService from './../../services/products/products.service';
-import './view-checkout.style.css';
+import './view-checkoutsuccess.style.css';
 
 
-class CheckOutComponent {
+class CheckOutSuccessComponent {
     constructor(){
-        this.controller = CheckOutComponentController;
+        this.controller = CheckOutSuccessComponentController;
         this.template = template;
         this.bindings = {
             products: '<',
@@ -20,13 +20,13 @@ class CheckOutComponent {
     }
 
     static get name() {
-        return 'viewCheckOut';
+        return 'viewCheckOutSuccess';
     }
 
 
 }
 
-class CheckOutComponentController{
+class CheckOutSuccessComponentController{
     constructor($state,UserService,ProductsService){
         this.$state = $state;
         this.UserService = UserService;
@@ -65,9 +65,6 @@ class CheckOutComponentController{
     cancel() {
         this.$state.go('app.offers',{});
     };
-    checkout() {
-        this.$state.go('app.checkoutsuccess',{});
-    };
 
     getCurrentUserAdress(){
         let user = this.UserService.getCurrentUser();
@@ -94,4 +91,4 @@ class CheckOutComponentController{
 
 }
 
-export default CheckOutComponent;
+export default CheckOutSuccessComponent;
