@@ -1,12 +1,84 @@
 <div layout="row" layout-padding>
     <div flex="10"></div>
     <div flex="80">
+        <div>
+            Enter a text for filtering {{$ctrl.filter}}
+        </div>
+        <div>
+            <md-input-container class="textTemplate color-select" flex-gt-sm>
+                <ul>
+                    <label class="choosecolor">Choose color</label>
+                    <md-checkbox ng-model="$ctrl.filter.color['isYellow']"
+                                 class="colorpaletteyellow"
+                                 aria-label="Color Yellow"
+                                 ng-false-value="'hack'">
+                    </md-checkbox>
+                    <md-checkbox ng-model="$ctrl.filter.color['isOrange']"
+                                 class="colorpaletteorange"
+                                 aria-label="Color Orange"
+                                 ng-false-value="'hack'">
+                    </md-checkbox>
+                    <md-checkbox ng-model="$ctrl.filter.color['isRed']"
+                                 class="colorpalettedarkred"
+                                 aria-label="Color Red"
+                                 ng-false-value="'hack'">
+                    </md-checkbox>
+                    <md-checkbox ng-model="$ctrl.filter.color['isBrown']"
+                                 class="colorpalettebrown"
+                                 aria-label="Color Brown"
+                                 ng-false-value="'hack'">
+                    </md-checkbox>
+                    <md-checkbox ng-model="$ctrl.filter.color['isGreen']"
+                                 class="colorpalettegreen"
+                                 aria-label="Color Green"
+                                 ng-false-value="'hack'">
+                    </md-checkbox>
+                    <md-checkbox ng-model="$ctrl.filter.color['isBlue']"
+                                 class="colorpalettedarkblue"
+                                 aria-label="Color Blue"
+                                 ng-false-value="'hack'">
+                    </md-checkbox>
+                    <md-checkbox ng-model="$ctrl.filter.color['isViolette']"
+                                 class="colorpaletteviolette"
+                                 aria-label="Color Violette"
+                                 ng-false-value="'hack'">
+                    </md-checkbox>
+                    <md-checkbox ng-model="$ctrl.filter.color['isWhite']"
+                                 class="colorpalettewhite"
+                                 aria-label="Color White"
+                                 ng-false-value="'hack'">
+                    </md-checkbox>
+                    <md-checkbox ng-model="$ctrl.filter.color['isBlack']"
+                                 class="colorpaletteblack"
+                                 aria-label="Color Black"
+                                 ng-false-value="'hack'">
+                    </md-checkbox>
+                    <md-checkbox ng-model="$ctrl.filter.color['isGrey']"
+                                 class="colorpalettegrey"
+                                 aria-label="Color Grey"
+                                 ng-false-value="'hack'">
+                    </md-checkbox>
+                </ul>
+            </md-input-container>
+        </div>
+        <div>
+            <md-slider-container>
+                <span>0</span>
+                <md-slider flex min="0" max="255" ng-model="$ctrl.filter.price" aria-label="green" id="green-slider">
+                </md-slider>
+                <md-input-container>
+                    <input flex type="number" ng-model="$ctrl.filter.price" aria-label="green" aria-controls="green-slider">
+                </md-input-container>
+            </md-slider-container>
+        </div>
         <div class="offer-content">
             <h1 id="headline">
                 Product Overview
             </h1>
             <div class="item-container">
-                <div class="item" ng-repeat="result in $ctrl.results">
+                <div class="item" ng-repeat="result in $ctrl.results
+                 | filter:$ctrl.filterPrice($ctrl.filter.price)
+                 | filter:$ctrl.filterColor($ctrl.filter.color)">
                     <img ng-src="{{result._source.imagePath}}"
                         style="max-width:200px">
                     <div class="item-details">
@@ -14,7 +86,7 @@
                             <div class="left">
                                 <div layout="column">
                                     <div class="productName">{{result._source.name}}</div>
-                                    <div> {{result._source.price | currency:'€'}}</div>
+                                    <div> {{result._source.price}}</div>
                                 </div>
                             </div>
                             <div class="right">

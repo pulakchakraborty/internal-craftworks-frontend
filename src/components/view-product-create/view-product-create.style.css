@@ -39,7 +39,7 @@
 
 #headline {
     margin: 10px 0px 20px 85px;
-} 
+}
 
 .textTemplate {
     display: flex;
@@ -124,6 +124,30 @@
 }
 .colorpalettegreen.md-checked .md-icon {
     background: lime;
+}
+
+.colorpaletteblack .md-icon {
+    background: black;
+    border-color: black;
+}
+.colorpaletteblack.md-checked .md-icon {
+    background: black;
+}
+
+.colorpalettewhite .md-icon {
+    background: white;
+    border-color: white;
+}
+.colorpalettewhite.md-checked .md-icon {
+    background: white;
+}
+
+.colorpalettegrey .md-icon {
+    background: lightgrey;
+    border-color: lightgrey;
+}
+.colorpalettegrey.md-checked .md-icon {
+    background: lightgrey;
 }
 
 .description-wrapper .md-resize-wrapper {

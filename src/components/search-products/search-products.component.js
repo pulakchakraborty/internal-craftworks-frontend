@@ -31,6 +31,14 @@ class SearchProductsComponentController{
         this.ShoppingcartService = ShoppingcartService;
         this.shoppingCart = [];
 
+
+    }
+
+    $onInit() {
+        // initialize the filter variable
+        this.filter = {};
+        //this.filter.color = {};
+        console.log(this.filter)
     }
 
     /*details (product) {
@@ -43,10 +51,147 @@ class SearchProductsComponentController{
         this.ShoppingcartService.addItem(product,1);
     }*/
 
+    filterPrice (price) {
+        // Do some tests
+        console.log(price);
+        if (!price) {
+            return function (result) {
+                console.log(result);
+                return true;
+            }
+        }
+        else {
+            return function (result) {
+                console.log(result);
+                return (result._source.price < price);
+            }
+        }
+    };
+
+    filterColor (color) {
+        // Do some tests
+        console.log(color);
+        if (!color) {
+            return function (result) {
+                console.log(result);
+                return true;
+            }
+        }
+        else {
+            if ((color['isYellow'] === true)
+                || (color['isOrange'] === true)
+                || (color['isRed'] === true)
+                || (color['isBrown'] === true)
+                || (color['isGreen'] === true)
+                || (color['isBlue'] === true)
+                || (color['isViolette'] === true)
+                || (color['isWhite'] === true)
+                || (color['isBlack'] === true)
+                || (color['isGrey'] === true)){
+                return function (result) {
+                    if (result._source.color['isYellow'] === color['isYellow']) {
+                        return true;
+                    }
+                    else if (result._source.color['isOrange'] === color['isOrange']) {
+                        return true;
+                    }
+                    else if (result._source.color['isRed'] === color['isRed']) {
+                        return true;
+                    }
+                    else if (result._source.color['isBrown'] === color['isBrown']) {
+                        return true;
+                    }
+                    else if (result._source.color['isGreen'] === color['isGreen']) {
+                        return true;
+                    }
+                    else if (result._source.color['isBlue'] === color['isBlue']) {
+                        return true;
+                    }
+                    else if (result._source.color['isViolette'] === color['isViolette']) {
+                        return true;
+                    }
+                    /*else if (result._source.color['isWhite'] === color['isWhite']) {
+                        return true;
+                    }
+                    else if (result._source.color['isBlack'] === color['isBlack']) {
+                        return true;
+                    }
+                    else if (result._source.color['isGrey'] === color['isGrey']) {
+                        return true;
+                    }
+                    else {
+                        return false;
+                    }*/
+                }
+            }
+
+            /*if (color['isYellow'] === true) {
+                return function (result) {
+                    console.log(result);
+                    return (result._source.color['isYellow'] === color['isYellow']);
+                }
+            }
+            if (color['isOrange'] === true) {
+                return function (result) {
+                    console.log(result);
+                    return (result._source.color['isOrange'] === color['isOrange']);
+                }
+            }
+            if (color['isRed'] === true) {
+                return function (result) {
+                    console.log(result);
+                    return (result._source.color['isRed'] === color['isRed']);
+                }
+            }
+            if (color['isBrown'] === true) {
+                return function (result) {
+                    console.log(result);
+                    return (result._source.color['isBrown'] === color['isBrown']);
+                }
+            }
+            if (color['isGreen'] === true) {
+                return function (result) {
+                    console.log(result);
+                    return (result._source.color['isGreen'] === color['isGreen']);
+                }
+            }
+            if (color['isBlue'] === true) {
+                return function (result) {
+                    console.log(result);
+                    return (result._source.color['isBlue'] === color['isBlue']);
+                }
+            }
+            if (color['isViolette'] === true) {
+                return function (result) {
+                    console.log(result);
+                    return (result._source.color['isViolette'] === color['isViolette']);
+                }
+            }
+            if (color['isWhite'] === true) {
+                return function (result) {
+                    console.log(result);
+                    return (result._source.color['isWhite'] === color['isWhite']);
+                }
+            }
+            if (color['isBlack'] === true) {
+                return function (result) {
+                    console.log(result);
+                    return (result._source.color['isBlack'] === color['isBlack']);
+                }
+            }
+            if (color['isGrey'] === true) {
+                return function (result) {
+                    console.log(result);
+                    return (result._source.color['isGrey'] === color['isGrey']);
+                }
+            }*/
+        }
+    };
 
     static get $inject(){
         return ['$state', UserService.name, ProductsService.name, ShoppingcartService.name];
     }
+
 
 }
 
