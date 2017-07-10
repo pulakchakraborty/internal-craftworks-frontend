@@ -40,6 +40,7 @@ class SearchProductsComponentController{
         // initialize the filter variable
         this.filter = {};
         this.categories = {};
+        this.subcategories = {};
         //console.log(this.filter);
         //use category service
         this.CategoriesService.list().then(data => {
@@ -49,6 +50,14 @@ class SearchProductsComponentController{
             //this.$state.go('app.product.productsSeller',{sellerId:seller_Id});
         });
 
+    }
+
+    onCategoryChange() {
+        console.log(this.filter.category);
+        this.CategoriesService.getSubcategories(this.filter.category).then(data => {
+                this.subcategories = JSON.parse(JSON.stringify(data));
+                console.log(this.subcategories);
+        });
     }
 
     /*details (product) {
@@ -63,16 +72,16 @@ class SearchProductsComponentController{
 
     filterPrice (price) {
         // Do some tests
-        console.log(price);
+        //console.log(price);
         if (!price) {
             return function (result) {
-                console.log(result);
+                //console.log(result);
                 return true;
             }
         }
         else {
             return function (result) {
-                console.log(result);
+                //console.log(result);
                 return (result._source.price < price);
             }
         }
@@ -80,10 +89,10 @@ class SearchProductsComponentController{
 
     filterColor (color) {
         // Do some tests
-        console.log(color);
+        //console.log(color);
         if (!color) {
             return function (result) {
-                console.log(result);
+                //console.log(result);
                 return true;
             }
         }

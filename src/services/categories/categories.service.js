@@ -10,7 +10,7 @@ export default class CategoriesService {
         this.$http = $http;
         this.resourceUrl = `${ API_URL }/categories/`;
         this.extraUrl = 'parentCategories/';
-        //this.searchUrl = 'search/';
+        this.subCategoryUrl = '/subCategories/';
         this.UserService = UserService;
         this.$state = $state;
         //this.Upload = Upload;
@@ -21,8 +21,23 @@ export default class CategoriesService {
         return 'categoriesService';
     }
 
+    // Fetch all the main i.e. parent categories
     list() {
         let url = `${ this.resourceUrl }${ this.extraUrl }`;
+        return this.$http.get(url).then(responce => {
+
+            //return responce.data;
+            return new Promise((resolve, reject) => {
+                resolve(responce.data);
+
+            })
+
+        });
+    }
+
+    // Fetch all the sub-categories for a selected parent category
+    getSubcategories(categoryName) {
+        let url = `${ this.resourceUrl }${ categoryName }${ this.subCategoryUrl }`;
         return this.$http.get(url).then(responce => {
 
             //return responce.data;

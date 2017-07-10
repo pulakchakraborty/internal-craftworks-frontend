@@ -14,7 +14,7 @@
                 <md-icon>
                     <ng-md-icon icon="label"></ng-md-icon>
                 </md-icon>
-                <md-select ng-model="$ctrl.filter.category" placeholder="Category"  class="md-no-underline">
+                <md-select ng-model="$ctrl.filter.category" ng-change="$ctrl.onCategoryChange()" placeholder="Category"  class="md-no-underline">
                     <div ng-repeat="category in $ctrl.categories">
                         <md-option value="{{category.name}}">{{category.name}}</md-option>
                     </div>
@@ -24,6 +24,22 @@
                     <md-option value="Jewellery">Jewellery</md-option>
                     <md-option value="Accessories">Accessories</md-option>
                     <md-option value="Home Decor">Home Decor</md-option>-->
+                </md-select>
+            </md-input-container>
+        </div>
+
+        <div ng-if="$ctrl.filter.category">
+            <md-input-container  class="textTemplate" flex-gt-sm>
+                <label>Sub-Category</label>
+                <md-icon>
+                    <ng-md-icon icon="label"></ng-md-icon>
+                </md-icon>
+
+                <md-select ng-model="$ctrl.filter.subcategory" placeholder="Sub-Category"  class="md-no-underline">
+                    <div ng-repeat="subcategory in $ctrl.subcategories">
+                        <md-option value="{{subcategory.name}}">{{subcategory.name}}</md-option>
+                    </div>
+
                 </md-select>
             </md-input-container>
         </div>
