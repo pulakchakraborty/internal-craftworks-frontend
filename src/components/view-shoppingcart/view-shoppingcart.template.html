@@ -17,7 +17,7 @@
                         </div>
                         <div>{{product.shortDescription}}</div><br/>
                         <div>Category: {{product.category}}</div><br/>
-                        <md-button class="md-icon-button" id="deleteshoppingitem" aria-label="Delete Item" ng-click="$ctrl.delete(movie)">
+                        <md-button class="md-icon-button" id="deleteshoppingitem" aria-label="Delete Item" ng-click="$ctrl.delete(product)">
                             <md-icon>
                                 <ng-md-icon icon="delete"></ng-md-icon>
                             </md-icon>
@@ -27,13 +27,13 @@
                 <p>
                     <div>
                         <md-input-container>
-                            <md-select ng-model="product.q" placeholder="Quantity" class="md-no-underline">
-                                <md-option value="one">1</md-option>
-                                <md-option value="two">2</md-option>
-                                <md-option value="three">3</md-option>
-                                <md-option value="four">4</md-option>
-                                <md-option value="five">5</md-option>
-                                <md-option value="six">6</md-option>
+                            <md-select ng-model="product.q" placeholder="Quantity" class="md-no-underline" ng-change="$ctrl.qChange(product)">
+                                <md-option value="1">1</md-option>
+                                <md-option value="2">2</md-option>
+                                <md-option value="3">3</md-option>
+                                <md-option value="4">4</md-option>
+                                <md-option value="5">5</md-option>
+                                <md-option value="6">6</md-option>
                             </md-select>
                         </md-input-container>
 
@@ -41,23 +41,24 @@
                 </p>
                 <p></p>
                 <p>{{product.price | currency:'€'}}</p>
+                <p>{{product.price * product.q  | currency:'€'}}</p>
 
                 <md-divider ng-if="!$last"></md-divider>
             </md-list-item>
             <md-divider></md-divider>
         </md-list>
         <div layout="row" layout-padding>
-            <div flex="80"></div>
-            <div flex="20">
+            <div flex="70"></div>
+            <div flex="30">
                 <div>
-                    <h3 class="Price">Subtotal: {{ $ctrl.subtotal($ctrl.products) | currency:'€'}}</h3>
+                    <h3 class="Price">Subtotal: {{ $ctrl.subtotalPrice | currency:'€'}}</h3>
                 </div>
                 <div>
-                    <h4 class="Price" id="delivery">Delivery: {{ $ctrl.delivery() | currency:'€'}}</h4>
+                    <h4 class="Price" id="delivery">Delivery: {{ $ctrl.deliverycostPrice | currency:'€'}}</h4>
                 </div>
                 <hr/>
                 <div>
-                    <h3 class="Price">Total: {{product.price | currency:'€'}}</h3>
+                    <h3 class="Price">Total: {{$ctrl.totalPrice | currency:'€'}}</h3>
                 </div>
             </div>
         </div>
