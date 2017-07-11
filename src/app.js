@@ -37,6 +37,7 @@ import ChooseFile from './directives/choose-file/choose-file';
 import ViewShoppingCart from './components/view-shoppingcart/view-shoppingcart';
 import ViewCheckOut from './components/view-checkout/view-checkout';
 import ViewCheckOutSuccess from './components/view-checkoutsuccess/view-checkoutsuccess';
+import ViewAboutUs from './components/view-AboutUs/view-AboutUs';
 
 let app = angular.module('app', [
     uiRouter,
@@ -62,6 +63,7 @@ let app = angular.module('app', [
     ViewCheckOut.name,
     ViewCheckOutSuccess.name,
     ChooseFile.name,
+    ViewAboutUs.name,
     ngFileUpload
 ]);
 
