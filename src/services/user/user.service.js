@@ -41,20 +41,21 @@ export default class UserService {
         return JSON.parse(this.$window.atob(base64)).user;
     }
 
-    getCurrentUserAddress() {
-        let userId= "5706dcb2e69695f3096743af";
-        let url = `${ this.API_URL}/user/` + userId;
-        /*
-        return this.$http.get(url).then(responce => {/*
+    // this method would fetch user information from backend
+    getCurrentUserInfo(user_id) {
+
+        console.log(user_id);
+        let url = `${ this.API_URL}${'/user/'}${ user_id }`;
+        return this.$http.get(url).then(responce => {
+
+            //return responce.data;
             return new Promise((resolve, reject) => {
                 resolve(responce.data);
-            });
 
-        })
-        */
-        return "TODO";
+            })
+
+        });
     }
-
 
     isAuthenticated() {
         return !!this.$window.localStorage['jwtToken'];

@@ -29,21 +29,13 @@ class CheckOutComponentController {
         this.UserService = UserService;
         this.ProductsService = ProductsService;
         this.$cookies = $cookies;
-    }
 
-    static get $inject(){
-        return ['$state', UserService.name, ProductsService.name, '$cookies'];
 
     }
 
     details(product) {
         let _id = product['_id'];
         this.$state.go('product', { productId: _id });
-    };
-
-
-    static get $inject() {
-        return ['$state', UserService.name, ProductsService.name, '$cookies'];
     };
 
     subtotal(products) {
@@ -63,12 +55,15 @@ class CheckOutComponentController {
         this.$state.go('app.checkoutsuccess', {});
     };
 
-    getCurrentUserAddress() {
-        let user = this.UserService.getCurrentUserAddress();
-        return user;
-    };
-
     $onInit(){
+        // user information would be stored in userFromApi variable which would be accessible in the html template as well
+        this.userFromApi = {};
+
+        this.UserService.getCurrentUserInfo(this.UserService.getCurrentUser()._id).then(data => {
+            this.userFromApi = JSON.parse(JSON.stringify(data));
+            console.log(this.userFromApi);
+        });
+
         const productsInCart = this.$cookies.getObject('shoping_cart');
 
         if (productsInCart) {
@@ -133,6 +128,9 @@ class CheckOutComponentController {
         }, '#paypal-button-container');
     };
 
+    static get $inject() {
+        return ['$state', UserService.name, ProductsService.name, '$cookies'];
+    };
 }
 
 export default CheckOutComponent;
