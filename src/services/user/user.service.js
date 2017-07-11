@@ -11,7 +11,6 @@ export default class UserService {
         this.$http = $http;
         this.$window = $window;
         this.API_URL = API_URL;
-
     }
 
     static get name(){
@@ -41,6 +40,21 @@ export default class UserService {
         let base64 = base64Url.replace('-', '+').replace('_', '/');
         return JSON.parse(this.$window.atob(base64)).user;
     }
+
+    getCurrentUserAddress() {
+        let userId= "5706dcb2e69695f3096743af";
+        let url = `${ this.API_URL}/user/` + userId;
+        /*
+        return this.$http.get(url).then(responce => {/*
+            return new Promise((resolve, reject) => {
+                resolve(responce.data);
+            });
+
+        })
+        */
+        return "TODO";
+    }
+
 
     isAuthenticated() {
         return !!this.$window.localStorage['jwtToken'];
