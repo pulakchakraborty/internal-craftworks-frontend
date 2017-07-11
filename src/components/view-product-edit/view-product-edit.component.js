@@ -5,6 +5,7 @@ import template from './view-product-edit.template.html';
 
 import ProductsService from './../../services/products/products.service';
 import UserService from './../../services/user/user.service';
+import CategoriesService from './../../services/categories/categories.service';
 import './view-product-edit.style.css';
 
 class ViewProductEditComponent {
@@ -22,17 +23,25 @@ class ViewProductEditComponent {
 }
 
 class ViewProductEditComponentController{
-    constructor($state, ProductsService, UserService){
+    constructor($state, ProductsService, UserService, CategoriesService){
         this.model = {};
         this.$state = $state;
         this.ProductsService = ProductsService;
         this.UserService = UserService;
+        this.CategoriesService = CategoriesService;
     }
 
     $onInit() {
         //Clone the Product Data
         this.model = JSON.parse(JSON.stringify(this.product))
-    }
+        this.categories = {};
+        this.subcategories = {};
+        // use category service to fetch the categories to be displayed at the select field
+        this.CategoriesService.list().then(data => {
+            this.categories = JSON.parse(JSON.stringify(data));
+            console.log(this.categories);
+        });
+    };
 
     cancel() {
         this.model = JSON.parse(JSON.stringify(this.product));
@@ -58,9 +67,17 @@ class ViewProductEditComponentController{
         });
     };
 
+    onCategoryChange() {
+        //console.log(this.filter.category);
+        this.CategoriesService.getSubcategories(this.model.category).then(data => {
+            this.subcategories = JSON.parse(JSON.stringify(data));
+            //console.log(this.subcategories);
+        });
+    };
+
     static get $inject(){
-        return ['$state', ProductsService.name, UserService.name];
-    }
+        return ['$state', ProductsService.name, UserService.name, CategoriesService.name];
+    };
 
 }
 

@@ -21,8 +21,6 @@ class ViewProductCreateComponent {
 
 class ViewProductCreateComponentController{
     constructor($state, ProductsService,UserService,CategoriesService){
-        //this.category = CategoryService.getCategory();
-        //this.subcategory = CategoryService.getSubcategory(this.product.subcategory);
         this.product = {};
         this.$state = $state;
         this.ProductsService = ProductsService;
@@ -43,7 +41,7 @@ class ViewProductCreateComponentController{
             //this.$state.go('app.product.productsSeller',{sellerId:seller_Id});
         });
 
-    }
+    };
 
     cancel() {
         this.$state.go('app.offers',{});
@@ -62,7 +60,7 @@ class ViewProductCreateComponentController{
 
     newProduct(){
         this.$state.go('productAdd',{});
-    }
+    };
 
     onCategoryChange() {
         //console.log(this.filter.category);
@@ -70,11 +68,11 @@ class ViewProductCreateComponentController{
             this.subcategories = JSON.parse(JSON.stringify(data));
             //console.log(this.subcategories);
         });
-    }
+    };
 
     static get $inject(){
         return ['$state', ProductsService.name, UserService.name, CategoriesService.name];
-    }
+    };
 
 }
 

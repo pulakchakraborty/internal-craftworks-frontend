@@ -125,29 +125,24 @@
                         <md-icon>
                             <ng-md-icon icon="label"></ng-md-icon>
                         </md-icon>
-                        <md-select ng-model="$ctrl.model.category" placeholder="Category" class="md-no-underline">
-                            <md-option value="art">Art</md-option>
-                            <md-option value="clothes">Clothes</md-option>
-                            <md-option value="jewellery">Jewellery</md-option>
-                            <md-option value="accessories">Accessories</md-option>
-                            <md-option value="homeDecor">Home decor</md-option>
+                        <md-select ng-model="$ctrl.model.category" ng-change="$ctrl.onCategoryChange()" placeholder="Category" class="md-no-underline">
+                            <div ng-repeat="category in $ctrl.categories">
+                                <md-option value="{{category.name}}">{{category.name}}</md-option>
+                            </div>
                         </md-select>
                     </md-input-container>
                 </div>
 
                 <div>
-                    <md-input-container ng-model="$ctrl.model.subcategory" class="textTemplate" flex-gt-sm>
+                    <md-input-container  class="textTemplate" flex-gt-sm>
                         <label>Subcategory</label>
                         <md-icon>
                             <ng-md-icon icon="label_outline"></ng-md-icon>
                         </md-icon>
-                        <md-select ng-model="$ctrl.model.subcategory" placeholder="Subcategory" class="md-no-underline" required md-no-asterisk="false">
-                            <md-option value="none">None</md-option>
-                            <md-option value="earrings">Earrings</md-option>
-                            <md-option value="rings">Rings</md-option>
-                            <md-option value="necklacdes">Necklaces</md-option>
-                            <md-option value="bracelets">Bracelets</md-option>
-                            <md-option value="hair">Hair</md-option>
+                        <md-select ng-model="$ctrl.model.subcategory" placeholder="{{$ctrl.model.subcategory}}" class="md-no-underline">
+                            <div ng-repeat="subcategory in $ctrl.subcategories">
+                                <md-option value="{{subcategory.name}}">{{subcategory.name}}</md-option>
+                            </div>
                         </md-select>
                     </md-input-container>
                 </div>
