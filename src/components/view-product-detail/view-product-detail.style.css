@@ -13,3 +13,8 @@ pre {
     width: 550px;
     height: 400px;
 }
+
+.user-image {
+    width: 100%;
+    height: 200px;
+}

@@ -74,6 +74,7 @@ class AppHeaderComponentController{
 
     logout(){
         this.UserService.logout();
+        this.$state.go('home',{});
     }
 
     searchProduct(){
