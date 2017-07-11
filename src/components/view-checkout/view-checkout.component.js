@@ -33,6 +33,7 @@ class CheckOutComponentController {
 
     static get $inject(){
         return ['$state', UserService.name, ProductsService.name, '$cookies'];
+
     }
 
     details(product) {
@@ -62,14 +63,9 @@ class CheckOutComponentController {
         this.$state.go('app.checkoutsuccess', {});
     };
 
-    getCurrentUser() {
+    getCurrentUserAddress() {
         let user = this.UserService.getCurrentUserAddress();
         return user;
-    };
-
-    getCurrentUserAdress() {
-        let user = this.UserService.getCurrentUser();
-        return user.username;
     };
 
     $onInit(){
