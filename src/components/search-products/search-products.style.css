@@ -44,3 +44,13 @@ md-grid-tile-footer figcaption  {
     align-items: center;
     justify-content: space-between;
 }
+
+.user-image {
+    width: 200px;
+    height: 200px;
+}
+
+.single-item {
+    width: 200px;
+    height: 250px;
+}

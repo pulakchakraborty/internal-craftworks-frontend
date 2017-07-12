@@ -38,6 +38,8 @@ class SearchProductsComponentController{
     $onInit() {
         // initialize the filter variable
         this.filter = {};
+        this.filter.catText = "All >"
+        this.filter.orderBy = false;
         this.categories = {};
         this.subcategories = {};
         //console.log(this.filter);
@@ -48,15 +50,24 @@ class SearchProductsComponentController{
 
             //this.$state.go('app.product.productsSeller',{sellerId:seller_Id});
         });
-
+        this.orderByPrice = function (item) {
+            return parseFloat(item._source.price);
+        };
     }
 
     onCategoryChange() {
         console.log(this.filter.category);
         this.CategoriesService.getSubcategories(this.filter.category).then(data => {
                 this.subcategories = JSON.parse(JSON.stringify(data));
+                this.filter.subcatText = "";
+                this.filter.catText = this.filter.category + " >";
+                this.filter.subcategory = false;
                 console.log(this.subcategories);
         });
+    }
+
+    onSubCategoryChange() {
+        this.filter.subcatText =  this.filter.subcategory + " >";
     }
 
     /*details (product) {
@@ -68,14 +79,13 @@ class SearchProductsComponentController{
         let _id = product['_id'];
         this.ShoppingcartService.addItem(product,1);
     }*/
-
+/*
     orderByPrice (item) {
-        let price_in_float = parseFloat(item._source.price);
-        //console.log(price_in_float);
-        return price_in_float;
+        //console.log(this.filter.sortOrder);
+        return parseFloat(item._source.price);
 
     };
-
+*/
     filterPrice (price) {
         // Do some tests
         //console.log(price);
