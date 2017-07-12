@@ -56,6 +56,15 @@ export default class ProductsService {
         })
     }
 
+    getSpecificProducts(ids) {
+        let url = `${ this.resourceUrl }getspecificproducts`;
+        return this.$http.post(url, ids).then(responce => {
+            return new Promise((resolve, reject) => {
+                resolve(responce.data);
+            });
+        })
+    }
+
 
     create(product) {
         let url = this.resourceUrl;

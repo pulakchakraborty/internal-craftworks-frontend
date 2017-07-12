@@ -24,13 +24,13 @@ class ViewOffersComponent {
 }
 
 class ViewOffersComponentController{
-    constructor($state,UserService,ProductsService, ShoppingcartService){
+    constructor($state,UserService,ProductsService, ShoppingcartService, $cookies){
         this.$state = $state;
         this.UserService = UserService;
         this.ProductsService = ProductsService;
         this.ShoppingcartService = ShoppingcartService;
         this.shoppingCart = [];
-
+        this.$cookies = $cookies;
     }
 
     details (product) {
@@ -75,12 +75,36 @@ class ViewOffersComponentController{
 
     addtoShoppingCart(product) {
         let _id = product['_id'];
-        this.ShoppingcartService.addItem(product,1);
+        const savedItems = this.$cookies.getObject('shoping_cart');
+        if (savedItems) {
+            let q = 0;
+            const exist = savedItems.some( (element) => {
+                if (product._id === element.id) {
+                    q = element.q;
+                    return true;
+                }
+            }, this);
+            if (exist) {
+                for(let i = 0; i < savedItems.length; i++) {
+                    let item = savedItems[i];
+                    if (item.id === product._id) {
+                        item.q += 1;
+                        this.$cookies.putObject( 'shoping_cart', savedItems);
+                        break;
+                    }
+                }
+            } else {
+                this.$cookies.putObject( 'shoping_cart', savedItems.push({id: _id, q: 1}) && savedItems );
+            }
+        } else {
+            this.$cookies.putObject( 'shoping_cart', [{id: _id, q: 1}] );
+        }
+        console.log(this.$cookies.getObject('shoping_cart'));
     }
 
 
     static get $inject(){
-        return ['$state', UserService.name, ProductsService.name, ShoppingcartService.name];
+        return ['$state', UserService.name, ProductsService.name, ShoppingcartService.name, '$cookies'];
     }
 
 }

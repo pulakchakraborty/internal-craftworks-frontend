@@ -3,6 +3,8 @@
 import angular from 'angular';
 import uiRouter from '@uirouter/angularjs';
 
+import ngCookies from 'angular-cookies';
+
 import angularMaterial from 'angular-material';
 import 'angular-material/angular-material.css';
 
@@ -36,6 +38,8 @@ import ViewProductsSeller from './components/view-products-seller/view-products-
 import ChooseFile from './directives/choose-file/choose-file';
 import ViewShoppingCart from './components/view-shoppingcart/view-shoppingcart';
 import ViewCheckOut from './components/view-checkout/view-checkout';
+import ViewCheckOutSuccess from './components/view-checkoutsuccess/view-checkoutsuccess';
+import ViewAboutUs from './components/view-AboutUs/view-AboutUs';
 import SearchProducts from './components/search-products/search-products';
 
 let app = angular.module('app', [
@@ -44,6 +48,7 @@ let app = angular.module('app', [
     ngMdIcons,
     ngMessages,
     jkAngularCarousel,
+    ngCookies,
     UserService.name,
     ProductsService.name,
     ShoppingcartService.name,
@@ -61,7 +66,9 @@ let app = angular.module('app', [
     ViewProductDetail.name,
     ViewShoppingCart.name,
     ViewCheckOut.name,
+    ViewCheckOutSuccess.name,
     ChooseFile.name,
+    ViewAboutUs.name,
     ngFileUpload,
     SearchProducts.name
 ]);

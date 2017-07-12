@@ -48,6 +48,7 @@ class ViewProductCreateComponentController{
     };
 
     save() {
+        console.log(this.product);
         let user = this.UserService.getCurrentUser();
         let seller_Id = user['_id'];
         this.product['seller'] = user['_id'];

@@ -57,6 +57,22 @@ export default class UserService {
         return JSON.parse(this.$window.atob(base64)).user;
     }
 
+    // this method would fetch user information from backend
+    getCurrentUserInfo(user_id) {
+
+        console.log(user_id);
+        let url = `${ this.API_URL}${'/user/'}${ user_id }`;
+        return this.$http.get(url).then(responce => {
+
+            //return responce.data;
+            return new Promise((resolve, reject) => {
+                resolve(responce.data);
+
+            })
+
+        });
+    }
+
     isAuthenticated() {
         return !!this.$window.localStorage['jwtToken'];
     }
