@@ -125,7 +125,7 @@
                             <span class="md-subheader">Early shipment</span>
                         </div>
                         <div>
-                            <h4>Sofort Überweisung</h4>
+                            <h4>Bank Transfer</h4>
                             <span class="md-subheader">Consider delay in money transfer</span>
                         </div>
                     </div>
@@ -196,8 +196,9 @@
                 <md-card-content>
                     <div flex-xs  layout="column">
                         <md-content>
-                            <md-card>
-                                <img ng-src="{{$ctrl.getimage()}}" class="md-card-image">
+                            <md-card layout-align="center center">
+                                <!-- <img ng-src="{{$ctrl.getimage()}}" class="md-card-image"> -->
+                                <img ng-src="{{$ctrl.product.seller.imagePath}}" class="user-image">
                             </md-card>
                         </md-content>
                     </div>
@@ -205,7 +206,7 @@
                             <md-icon><ng-md-icon icon="account_circle" ></ng-md-icon></md-icon>
                         </div> -->
                         <div flex-xs layout="column">
-                            <h4>{{ $ctrl.product.seller.firstName }} {{ $ctrl.product.seller.firstName }}</h4>
+                            <h4>{{ $ctrl.product.seller.firstName }} {{ $ctrl.product.seller.lastName }}</h4>
                             <p>sent from {{ $ctrl.product.seller.city }}, {{ $ctrl.product.seller.state }}</p>
                         </div>
 

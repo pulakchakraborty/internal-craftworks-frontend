@@ -81,12 +81,15 @@
                         <md-icon>
                             <ng-md-icon icon="label"></ng-md-icon>
                         </md-icon>
-                        <md-select ng-model="$ctrl.product.category" placeholder="Category" class="md-no-underline">
-                            <md-option value="Art">Art</md-option>
+                        <md-select ng-model="$ctrl.product.category" ng-change="$ctrl.onCategoryChange()" placeholder="Category" class="md-no-underline">
+                            <div ng-repeat="category in $ctrl.categories">
+                                <md-option value="{{category.name}}">{{category.name}}</md-option>
+                            </div>
+                            <!--<md-option value="Art">Art</md-option>
                             <md-option value="Clothes">Clothes</md-option>
                             <md-option value="Jewellery">Jewellery</md-option>
                             <md-option value="Accessories">Accessories</md-option>
-                            <md-option value="Home Decor">Home Decor</md-option>
+                            <md-option value="Home Decor">Home Decor</md-option>-->
                         </md-select>
                     </md-input-container>
                 </div>
@@ -97,11 +100,14 @@
                             <ng-md-icon icon="label_outline"></ng-md-icon>
                         </md-icon>
                         <md-select ng-model="$ctrl.product.subcategory" placeholder="Subcategory" class="md-no-underline" required md-no-asterisk="false">
-                            <md-option value="Earrings">Earrings</md-option>
+                            <div ng-repeat="subcategory in $ctrl.subcategories">
+                                <md-option value="{{subcategory.name}}">{{subcategory.name}}</md-option>
+                            </div>
+                            <!-- <md-option value="Earrings">Earrings</md-option>
                             <md-option value="Rings">Rings</md-option>
                             <md-option value="Necklaces">Necklaces</md-option>
                             <md-option value="Bracelets">Bracelets</md-option>
-                            <md-option value="Hair">Hair</md-option>
+                            <md-option value="Hair Jewellery">Hair</md-option>-->
                         </md-select>
                     </md-input-container>
                 </div>
@@ -110,7 +116,7 @@
                         <label>{{$ctrl.product.file.$ngfName || "Upload images"}}</label>
 
                         <md-input-container>
-                            <div class="hint">Select your images</div>
+                            <div class="hint">Select your product image</div>
                         </md-input-container>
 
                         <md-button id="uploadButton" class="md-fab md-mini" aria-label="Upload images" type="file" ngf-select ng-model="$ctrl.product.file"

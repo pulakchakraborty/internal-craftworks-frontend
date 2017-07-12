@@ -100,16 +100,48 @@
                             <div ng-message="required">Please enter the phone number.</div>
                         </div>
                     </md-input-container>
-                    <md-input-container class="md-block" flex-gt-sm>
-                            <md-checkbox  ng-model="$ctrl.signup.paymentMethod.isIban" aria-label="Checkbox 1">IBAN</md-checkbox>
-                    </md-input-container>
-                    <md-input-container class="md-block" ng-if="$ctrl.signup.paymentMethod.isIban" flex-gt-sm>
-                        <label>IBAN</label>
-                        <input type="text" name="iban" ng-model="$ctrl.signup.iban" required />
-                        <div ng-messages="SignupForm.iban.$error" role="alert" multiple="">
-                            <div ng-message="required">Please enter the IBAN number.</div>
+                    <div layout-gt-sm="row">
+                        <md-input-container class="md-block" flex-gt-sm>
+                                <md-checkbox  ng-model="$ctrl.signup.paymentMethod.isIban" aria-label="Checkbox 1">IBAN</md-checkbox>
+                        </md-input-container>
+                        <div>
+                            <md-input-container class="textTemplate" flex-gt-sm>
+                                <label>Upload images</label>
+
+                                <md-input-container>
+                                    <div class="hint">Select your profile picture</div>
+                                </md-input-container>
+
+                                <md-button id="uploadButton" class="md-fab md-mini" aria-label="Upload images"
+                                           type="file" ngf-select ng-model="$ctrl.signup.file" name="file" ngf-pattern="'image/*'"
+                                           ngf-accept="'image/*'" ngf-max-size="20MB" ngf-min-height="100"
+                                           ngf-resize="{width: 550, height: 550}">
+                                    <md-icon>
+                                        <ng-md-icon icon="camera_alt"></ng-md-icon>
+                                    </md-icon>
+
+                                </md-button>
+
+                            </md-input-container>
                         </div>
-                    </md-input-container>
+                    </div>
+                    <div layout-gt-sm="row">
+                        <md-input-container class="md-block" ng-if="$ctrl.signup.paymentMethod.isIban" flex-gt-sm>
+                            <label>IBAN</label>
+                            <input type="text" name="iban" ng-model="$ctrl.signup.iban" required />
+                            <div ng-messages="SignupForm.iban.$error" role="alert" multiple="">
+                                <div ng-message="required">Please enter the IBAN number.</div>
+                            </div>
+                        </md-input-container>
+                        <md-input-container class="md-block" ng-if="$ctrl.signup.paymentMethod.isIban" flex-gt-sm>
+                            <label>BIC</label>
+                            <input type="text" name="bic" ng-model="$ctrl.signup.bic" required />
+                            <div ng-messages="SignupForm.bic.$error" role="alert" multiple="">
+                                <div ng-message="required">Please enter the BIC.</div>
+                            </div>
+                        </md-input-container>
+                    </div>
+
                     <md-button ng-disabled="!SignupForm.$valid" ng-click="$ctrl.submit()" class="md-raised md-primary">&nbsp Signup &nbsp</md-button>
                 </form>
             </md-card-content>
