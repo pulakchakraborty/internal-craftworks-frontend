@@ -5,11 +5,18 @@
         <md-card flex="30">
             <md-card-content>
                 <form name="LoginForm">
-                    <md-input-container class="md-block">
+                    <md-input-container class="md-block" flex-gt-sm>
                         <label>Username</label>
-                        <input type="text" name="username" ng-model="$ctrl.login.username" placeholder="username" required=""/>
-                        <div ng-messages="LoginForm.username.$error" role="alert" multiple="">
+                        <input type="text" name="username"
+                               placeholder="username"
+                               ng-model="$ctrl.signup.username"
+                               required minlength="5"
+                               ng-pattern="/^[a-zA-Z0-9ÖÜÄöüäß]+$/"
+                               md-maxlength="15"/>
+                        <div ng-messages="LoginForm.username.$error">
                             <div ng-message="required">Please enter your username.</div>
+                            <div ng-message="pattern">No whacky characters; We are sql injection proof!</div>
+                            <div ng-message-exp="['minlength', 'maxlength']">Your username should be between 5 and 15 characters.</div>
                         </div>
                     </md-input-container>
                     <md-input-container class="md-block">

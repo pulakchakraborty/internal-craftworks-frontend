@@ -15,10 +15,11 @@
                 <form name="SignupForm">
                     <md-input-container class="md-block" flex-gt-sm>
                         <label>Username</label>
-                        <input type="text" required name="username" ng-model="$ctrl.signup.username"   md-maxlength="15"/>
+                        <input type="text" name="username" ng-model="$ctrl.signup.username"  required minlength="5" ng-pattern="/^[a-zA-Z0-9ÖÜÄöüäß]+$/" md-maxlength="15"/>
                         <div ng-messages="SignupForm.username.$error">
                             <div ng-message="required">Please enter your username.</div>
-                            <div ng-message="md-maxlength">The username has to be less than 15 characters long.</div>
+                            <div ng-message="pattern">No whacky characters; We are sql injection proof!</div>
+                            <div ng-message-exp="['minlength', 'maxlength']">Your username should be between 5 and 15 characters.</div>
                         </div>
                     </md-input-container>
                     <div layout-gt-sm="row">
@@ -39,7 +40,7 @@
                     </div>
                     <md-input-container class="md-block" flex-gt-sm>
                         <label>Email</label>
-                        <input type="email" name="username" ng-model="$ctrl.signup.email"  required minlength="10" maxlength="100" ng-pattern="/^.+@.+\..+$/"/>
+                        <input type="email" name="email" ng-model="$ctrl.signup.email"  required minlength="10" maxlength="100" ng-pattern="/^.+@.+\..+$/"/>
                         <div ng-messages="SignupForm.email.$error" role="alert" multiple="">
                             <div  ng-message-exp="['required', 'minlength', 'maxlength', 'pattern']">
                                 Your email must be between 10 and 100 characters long and look like an e-mail address.
