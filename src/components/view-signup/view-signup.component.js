@@ -35,7 +35,9 @@ class ViewSignupComponentController{
        // let user = this.signup.username;
        // let password = this.signup.password;
 
-        this.UserService.signup(this.signup).then(()=> {
+        this.UserService.signup(this.signup).then(data => {
+            console.log("inside signup component submit block");
+            console.log(data);
             this.$state.go('home',{});
         });
     }

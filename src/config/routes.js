@@ -13,6 +13,7 @@ import ProductsSellerComponent from './../components/view-products-seller/view-p
 import ProductDetailComponent from './../components/view-product-detail/view-product-detail.component';
 import ShoppingCartComponent from './../components/view-shoppingcart/view-shoppingcart.component';
 import CheckoutComponent from './../components/view-checkout/view-checkout.component';
+import SearchProductsComponent from './../components/search-products/search-products.component';
 
 import ProductsService from './../services/products/products.service';
 
@@ -41,16 +42,25 @@ function resolveCheckOut(productsService){
     return productsService.list();
 }
 
-config.$inject = ['$stateProvider', '$urlRouterProvider', '$locationProvider'];
-export default function config ($stateProvider, $urlRouterProvider, $locationProvider){
+resolveSearch.$inject = ['$stateParams', ProductsService.name];
+function resolveSearch($stateParams,productsService){
+    return productsService.search($stateParams.keyword);
+}
 
+config.$inject = ['$stateProvider', '$urlRouterProvider', '$locationProvider', '$windowProvider'];
+export default function config ($stateProvider, $urlRouterProvider, $locationProvider, $windowProvider){
+
+    //let $window = $windowProvider.$get();
     // For any unmatched url, redirect to /home
     $urlRouterProvider.otherwise("/");
 
     $stateProvider
         .state('home', {
             url: '/',
-            component: HomeComponent.name
+            component: HomeComponent.name,
+            onEnter: function(){
+                $windowProvider.$get().document.title = "CraftWorks | Buy from local handicraft artists";
+            }
         })
         .state('app', {
             abstract: true,
@@ -68,32 +78,57 @@ export default function config ($stateProvider, $urlRouterProvider, $locationPro
         })
         .state('app.product.productAdd', {
             url: '/new',
-            component: ProductCreateComponent.name
+            component: ProductCreateComponent.name,
+            onEnter: function(){
+                $windowProvider.$get().document.title = "CraftWorks Designer Zone | Add a new product";
+            }
         })
         .state('app.offers', {
             url: '/offers',
             component: OffersComponent.name,
+            onEnter: function(){
+                $windowProvider.$get().document.title = "CraftWorks | Explore our handicraft products";
+            },
             resolve: {
                 products : resolveProducts
+            }
+        })
+        .state('app.productSearch', {
+            url: '/search/:keyword',
+            component: SearchProductsComponent.name,
+            onEnter: function(){
+                $windowProvider.$get().document.title = "CraftWorks | Explore our handicraft products";
+            },
+            resolve: {
+                results : resolveSearch
             }
         })
         .state('app.product.productEdit', {
             url: '/:productId/edit',
             component: ProductEditComponent.name,
+            onEnter: function(){
+                $windowProvider.$get().document.title = "CraftWorks | Designer Zone: Edit a product";
+            },
             resolve: {
                 product : resolveProduct
             }
         })
         .state('app.productDetail', {
-             url: '/products/:productId',
-             component: ProductDetailComponent.name,
-             resolve: {
+            url: '/products/:productId',
+            component: ProductDetailComponent.name,
+            onEnter: function(){
+                $windowProvider.$get().document.title = "CraftWorks | Product details";
+            },
+            resolve: {
                  product : resolveProduct
-             }
+            }
         })
         .state('app.product.productsSeller', {
             url: '/seller/:sellerId',
             component: ProductsSellerComponent.name,
+            onEnter: function(){
+                $windowProvider.$get().document.title = "CraftWorks | Designer Zone: My offered products";
+            },
             resolve: {
                 products : resolveProductsSeller
             }
@@ -101,10 +136,16 @@ export default function config ($stateProvider, $urlRouterProvider, $locationPro
         .state('app.login', {
             url: '/login',
             component: LoginComponent.name,
+            onEnter: function(){
+                $windowProvider.$get().document.title = "CraftWorks | Log in";
+            }
         })
         .state('app.signup', {
             url: '/signup',
             component: SignupComponent.name,
+            onEnter: function(){
+                $windowProvider.$get().document.title = "CraftWorks | Sign up";
+            }
         })
         .state('app.shoppingCart', {
             url: '/myshoppingcart',

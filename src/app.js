@@ -7,10 +7,12 @@ import angularMaterial from 'angular-material';
 import 'angular-material/angular-material.css';
 
 import ngMdIcons from 'angular-material-icons';
+import ngMessages from 'angular-messages';
 
 import UserService from './services/user/user';
 import ProductsService from './services/products/products';
 import ShoppingcartService from './services/shoppingcart/shoppingcart';
+import CategoriesService from './services/categories/categories';
 
 import Routes from './config/routes';
 import Middlewares from './config/middlewares';
@@ -34,15 +36,18 @@ import ViewProductsSeller from './components/view-products-seller/view-products-
 import ChooseFile from './directives/choose-file/choose-file';
 import ViewShoppingCart from './components/view-shoppingcart/view-shoppingcart';
 import ViewCheckOut from './components/view-checkout/view-checkout';
+import SearchProducts from './components/search-products/search-products';
 
 let app = angular.module('app', [
     uiRouter,
     angularMaterial,
     ngMdIcons,
+    ngMessages,
     jkAngularCarousel,
     UserService.name,
     ProductsService.name,
     ShoppingcartService.name,
+    CategoriesService.name,
     AppContent.name,
     ViewLogin.name,
     ViewSignup.name,
@@ -57,7 +62,8 @@ let app = angular.module('app', [
     ViewShoppingCart.name,
     ViewCheckOut.name,
     ChooseFile.name,
-    ngFileUpload
+    ngFileUpload,
+    SearchProducts.name
 ]);
 
 app.constant('API_URL', 'http://localhost:3000/api');

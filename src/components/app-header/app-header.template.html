@@ -9,10 +9,9 @@
         <a ui-sref="home">CraftWorks</a>
     </div>
         <span flex></span>
-
         <div class="search-container">
             <i class="material-icons headericon">search</i>
-            <input placeholder="Search for items...">
+            <input type="search" ng-model="$ctrl.keyword" ng-keypress="$ctrl.searchProduct()" placeholder="Search for items...">
         </div>
         <div class="notification-icon-wrapper">
             <a href="#">

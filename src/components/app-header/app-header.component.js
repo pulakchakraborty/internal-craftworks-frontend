@@ -9,6 +9,7 @@ import './app-header.style.css';
 class AppHeaderComponent {
     constructor(){
         this.controller = AppHeaderComponentController;
+        this.keyword = {};
         this.template = template;
         this.bindings = {
             menuId: '<'
@@ -73,6 +74,16 @@ class AppHeaderComponentController{
 
     logout(){
         this.UserService.logout();
+        this.$state.go('home',{});
+    }
+
+    searchProduct(){
+        if (!this.keyword) {
+            this.$state.go('app.productSearch',{ keyword: 'all' });
+        }
+        else {
+            this.$state.go('app.productSearch',{ keyword: this.keyword });
+        }
     }
 
     myOffers(){

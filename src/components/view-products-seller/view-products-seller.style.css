@@ -51,3 +51,8 @@ md-grid-tile-footer figcaption  {
     margin-left: 0 !important;
     padding-left: 0 !important;
 }
+
+.seller-product-image {
+    width: 200px;
+    height: 200px;
+}
