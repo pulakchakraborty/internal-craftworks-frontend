@@ -20,6 +20,7 @@
                         </div>
                     </md-input-container>
                     <md-button ng-disabled="!LoginForm.$valid" ng-click="$ctrl.submit()" class="md-raised md-primary">&nbsp Login &nbsp</md-button>
+                    <md-progress-linear ng-if="$ctrl.buttonClicked" md-mode="indeterminate"></md-progress-linear>
                 </form>
                 <a ui-sref="app.signup" class="LinkSignUp">...or Sign Up first</a>
             </md-card-content>
