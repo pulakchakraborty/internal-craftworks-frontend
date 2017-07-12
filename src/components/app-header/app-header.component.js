@@ -78,7 +78,12 @@ class AppHeaderComponentController{
     }
 
     searchProduct(){
-        this.$state.go('app.productSearch',{ keyword: this.keyword });
+        if (!this.keyword) {
+            this.$state.go('app.productSearch',{ keyword: 'all' });
+        }
+        else {
+            this.$state.go('app.productSearch',{ keyword: this.keyword });
+        }
     }
 
     myOffers(){
