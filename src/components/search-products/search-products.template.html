@@ -128,7 +128,8 @@
                  | filter:$ctrl.filterPrice($ctrl.filter.price)
                  | filter:$ctrl.filterColor($ctrl.filter.color)
                  | filter:$ctrl.filter.category
-                 | filter:$ctrl.filter.subcategory">
+                 | filter:$ctrl.filter.subcategory
+                 | orderBy:$ctrl.orderByPrice">
                     <img ng-src="{{result._source.imagePath}}"
                         style="max-width:200px">
                     <div class="item-details">
@@ -136,7 +137,7 @@
                             <div class="left">
                                 <div layout="column">
                                     <div class="productName">{{result._source.name}}</div>
-                                    <div> {{result._source.price}}</div>
+                                    <div> {{result._source.price | currency:'€'}}</div>
                                 </div>
                             </div>
                             <div class="right">

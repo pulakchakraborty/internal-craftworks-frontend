@@ -33,7 +33,6 @@ class SearchProductsComponentController{
         this.shoppingCart = [];
         this.CategoriesService = CategoriesService;
 
-
     }
 
     $onInit() {
@@ -69,6 +68,13 @@ class SearchProductsComponentController{
         let _id = product['_id'];
         this.ShoppingcartService.addItem(product,1);
     }*/
+
+    orderByPrice (item) {
+        let price_in_float = parseFloat(item._source.price);
+        //console.log(price_in_float);
+        return price_in_float;
+
+    };
 
     filterPrice (price) {
         // Do some tests
