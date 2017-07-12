@@ -70,6 +70,9 @@ class SearchProductsComponentController{
         this.filter.subcatText =  this.filter.subcategory + " >";
     }
 
+    goToProductDetails(product_id) {
+        this.$state.go('app.productDetail',{ productId: product_id });
+    }
     /*details (product) {
         let _id = product['_id'];
         this.$state.go('product',{ productId:_id});

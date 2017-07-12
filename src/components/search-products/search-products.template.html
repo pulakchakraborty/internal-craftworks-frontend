@@ -182,7 +182,7 @@
                      | filter:$ctrl.filter.subcategory
                      | orderBy:$ctrl.orderByPrice:$ctrl.filter.orderBy">
                         <md-card class="md-padding" layout-align="center center" class="single-item">
-                            <img ng-src="{{result._source.imagePath}}" class="user-image">
+                            <img ng-src="{{result._source.imagePath}}" ng-click="$ctrl.goToProductDetails(result._id)" class="user-image">
                             <div class="item-details">
                                 <div class="item-row">
                                     <div class="left">
