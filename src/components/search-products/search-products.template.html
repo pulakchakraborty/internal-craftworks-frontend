@@ -127,7 +127,8 @@
                 <div class="item" ng-repeat="result in $ctrl.results
                  | filter:$ctrl.filterPrice($ctrl.filter.price)
                  | filter:$ctrl.filterColor($ctrl.filter.color)
-                 | filter:$ctrl.filter.category">
+                 | filter:$ctrl.filter.category
+                 | filter:$ctrl.filter.subcategory">
                     <img ng-src="{{result._source.imagePath}}"
                         style="max-width:200px">
                     <div class="item-details">
