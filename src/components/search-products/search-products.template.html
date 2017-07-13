@@ -29,7 +29,7 @@
                             </md-icon>
                             <md-select ng-model="$ctrl.filter.category" ng-change="$ctrl.onCategoryChange()" placeholder="Category"  class="md-no-underline">
                                 <div ng-repeat="category in $ctrl.categories">
-                                    <md-option value="{{category.name}}">{{category.name}}</md-option>
+                                    <md-option id="categoryfilter" value="{{category.name}}">{{category.name}}</md-option>
                                 </div>
                             </md-select>
                         </md-input-container>

@@ -21,10 +21,11 @@ class AppSidebarComponent {
 }
 
 class AppSidebarComponentController{
-    constructor($rootScope,$mdSidenav,$scope){
+    constructor($state, $rootScope,$mdSidenav,$scope){
         this.$rootScope = $rootScope;
         this.$mdSidenav = $mdSidenav;
         this.$scope = $scope;
+        this.$state = $state;
     }
 
     $onInit() {
@@ -35,8 +36,19 @@ class AppSidebarComponentController{
         })
     }
 
+    openJewellery(){
+        if (!this.keyword) {
+            this.$state.go('app.productSearch',{ keyword: 'all' });
+            $ctrl.filter.category = "Jewellery";
+
+        }
+        else {
+            this.$state.go('app.productSearch',{ keyword: this.keyword });
+        }
+    }
+
     static get $inject(){
-        return ['$rootScope', '$mdSidenav', '$scope'];
+        return ['$state', '$rootScope', '$mdSidenav', '$scope'];
     }
 }
 

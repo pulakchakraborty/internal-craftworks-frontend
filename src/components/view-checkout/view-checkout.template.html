@@ -9,7 +9,7 @@
             </h4>
             <md-radio-group ng-model="$ctrl.checkout.addressOption">
                 <md-radio-button id="useraddress" aria-label="Choose user address" value="option1">
-                    Take this Address: {{$ctrl.userFromApi.addressLine1}}</md-radio-button>
+                    Take this Address: <b>{{$ctrl.userFromApi.firstName}} {{$ctrl.userFromApi.lastName}}</b>, {{$ctrl.userFromApi.addressLine1}}, {{$ctrl.userFromApi.zip}} {{$ctrl.userFromApi.city}}</md-radio-button>
                 <md-radio-button id="newaddress" aria-label="Choose new address" value="option2"> Insert new Address </md-radio-button>
             </md-radio-group>
                 <div class="md-block" ng-if="$ctrl.checkout.addressOption === 'option2'" flex-gt-sm>

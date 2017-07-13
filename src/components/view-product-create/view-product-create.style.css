@@ -5,7 +5,10 @@
 
 .navigationTemplate {
     margin-left: 50px;
+}
 
+.navigationTemplate :focus {
+    outline: none;
 }
 
 .navigationTemplateSub {
