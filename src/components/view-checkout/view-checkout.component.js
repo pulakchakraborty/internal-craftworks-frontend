@@ -7,6 +7,7 @@
 import template from './view-checkout.template.html';
 import UserService from './../../services/user/user.service';
 import ProductsService from './../../services/products/products.service';
+import OrdersService from './../../services/orders/orders.service';
 import './view-checkout.style.css';
 
 class CheckOutComponent {
@@ -24,11 +25,13 @@ class CheckOutComponent {
 }
 
 class CheckOutComponentController {
-    constructor($state, UserService, ProductsService, $cookies) {
+    constructor($state, UserService, ProductsService, OrdersService, $cookies) {
         this.$state = $state;
         this.UserService = UserService;
         this.ProductsService = ProductsService;
+        this.OrdersService = OrdersService;
         this.$cookies = $cookies;
+        this.order = {};
 
 
     }
@@ -52,7 +55,12 @@ class CheckOutComponentController {
     };
 
     checkout() {
-        this.$state.go('app.checkoutsuccess', {});
+        console.log(this.order);
+        let user = this.UserService.getCurrentUser();
+        this.OrdersService.create(this.order).then(data => {
+            let _id = data['_id'];
+            this.$state.go('app.checkoutsuccess', {});
+        });
     };
 
     delivery(total) {
@@ -149,7 +157,7 @@ class CheckOutComponentController {
     };
 
     static get $inject() {
-        return ['$state', UserService.name, ProductsService.name, '$cookies'];
+        return ['$state', UserService.name, ProductsService.name, OrdersService.name, '$cookies'];
     };
 }
 
