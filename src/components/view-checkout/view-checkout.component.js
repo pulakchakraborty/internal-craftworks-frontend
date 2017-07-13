@@ -55,6 +55,26 @@ class CheckOutComponentController {
         this.$state.go('app.checkoutsuccess', {});
     };
 
+    delivery(total) {
+        var deliverycost = total > 100 ? 0 : 10;
+        this.deliveryPrice = deliverycost;
+        return deliverycost;
+    };
+
+    priceCalculate () {
+        this.subtotalPrice = 0;
+        this.totalPrice = 0;
+
+        let subtotalPrice = 0;
+
+        this.products.forEach( (item) => {
+            subtotalPrice += item.price * (item.q || 1);
+        })
+
+        this.subtotalPrice = subtotalPrice;
+        this.totalPrice = subtotalPrice + this.delivery(subtotalPrice);
+    }
+
     $onInit(){
         // user information would be stored in userFromApi variable which would be accessible in the html template as well
         this.userFromApi = {};
