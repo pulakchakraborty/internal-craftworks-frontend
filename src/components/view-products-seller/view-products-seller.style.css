@@ -56,3 +56,8 @@ md-grid-tile-footer figcaption  {
     width: 200px;
     height: 200px;
 }
+
+.md-success-toast-theme .md-toast-content {
+    color: rgb(34,139,34) !important;
+    font-weight: bold;
+}

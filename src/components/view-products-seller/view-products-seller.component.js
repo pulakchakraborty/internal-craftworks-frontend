@@ -23,11 +23,11 @@ class ViewProductsSellerComponent {
 }
 
 class ViewProductsSellerComponentController{
-    constructor($state,UserService,ProductsService){
+    constructor($state,UserService,ProductsService,$mdToast){
         this.$state = $state;
         this.UserService = UserService;
         this.ProductsService = ProductsService;
-
+        this.$mdToast = $mdToast;
     }
 
     details (product) {
@@ -63,6 +63,13 @@ class ViewProductsSellerComponentController{
             this.ProductsService.delete(_id).then(response => {
                 let index = this.products.map(x => x['_id']).indexOf(_id);
                 this.products.splice(index, 1);
+                this.$mdToast.show(
+                    this.$mdToast.simple()
+                        .toastClass('md-success-toast-theme')
+                        .textContent('The product has been removed from your offers')
+                        .position('bottom right')
+                        .hideDelay(5000)
+                );
             })
 
         } else {
@@ -72,7 +79,7 @@ class ViewProductsSellerComponentController{
 
 
     static get $inject(){
-        return ['$state', UserService.name, ProductsService.name];
+        return ['$state', UserService.name, ProductsService.name, '$mdToast'];
     }
 
 }
