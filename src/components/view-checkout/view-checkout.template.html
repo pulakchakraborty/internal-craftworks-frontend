@@ -85,20 +85,25 @@
             </h4>
             <md-list>
                 <md-list-item class="checkoutoverview" aria-label="Shopping Item" ng-repeat="product in $ctrl.products">
-                    <p>
+                    <div flex="25">
                         <img ng-src="{{product.imagePath}}" style="max-width:100px" class="cartpicture">
-                    </p>
-                    <p>
-                    <div class="BlockContent" f>
-                        <div>
-                            <h3>{{product.name}}</h3>
-                        </div>
-                        <div>{{product.shortDescription}}</div>
                     </div>
-                    </p>
-                    <p>{{product.q}}</p>
-                    <p>{{product.price * product.q | currency:'€'}}</p>
+                    <div flex="25">
+                        <div class="BlockContent" f>
+                            <div>
+                                <h3>{{product.name}}</h3>
+                            </div>
+                            <div>{{product.shortDescription}}</div>
+                        </div>
+                    </div>
+                    <div flex="25">{{product.q}}</div>
+                    <div flex="25">{{product.price * product.q | currency:'€'}}</div>
                     <md-divider ng-if="!$last"></md-divider>
+                </md-list-item>
+                <md-list-item class="checkoutoverview">
+                    <div flex="50"></div>
+                    <div flex="25">Subtotal:</div>
+                    <div flex="25">{{$ctrl.totalPrice | currency:'€' }} <span>( Delivery: {{$ctrl.deliveryPrice | currency:'€'}} )</span></div>
                 </md-list-item>
                 <md-divider></md-divider>
             </md-list>
