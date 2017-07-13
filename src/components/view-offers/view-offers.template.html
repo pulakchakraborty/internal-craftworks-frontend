@@ -7,8 +7,9 @@
             </h1>
             <div class="item-container">
                 <div class="item" ng-repeat="product in $ctrl.products">
-                    <img ng-src="{{product.imagePath}}"
-                        style="max-width:200px">
+                    <div class="pictureproduct" ng-click="$ctrl.goToProductDetails(product._id)" ><img ng-src="{{product.imagePath}}"
+                              style="max-width:200px">
+                    </div>
                     <div class="item-details">
                         <div class="item-row">
                             <div class="left">

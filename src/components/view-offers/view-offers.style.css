@@ -44,3 +44,7 @@ md-grid-tile-footer figcaption  {
     align-items: center;
     justify-content: space-between;
 }
+
+.pictureproduct :focus {
+    outline: none;
+}
