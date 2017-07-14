@@ -1,40 +1,3 @@
-<!--
-<div layout="column" layout-padding>
-    <md-content class="md-no-momentum">
-        <h1> {{$ctrl.movie.title}} </h1>
-        <br/>
-        <form name="movieForm">
-            <md-input-container class="md-icon-float md-block">
-                <label>Title</label>
-                <md-icon><ng-md-icon icon="title" ></ng-md-icon></md-icon>
-                <input ng-model="$ctrl.model.title" type="text">
-            </md-input-container>
-            <md-input-container class="md-icon-float md-block">
-                <label>Year</label>
-                <md-icon><ng-md-icon icon="date_range" ></ng-md-icon></md-icon>
-                <input ng-model="$ctrl.model.year" type="text">
-            </md-input-container>
-            <md-input-container class="md-icon-float md-block">
-                <label>MPAA Rating</label>
-                <md-icon><ng-md-icon icon="title" ></ng-md-icon></md-icon>
-                <input ng-model="$ctrl.model.mpaa_rating" type="text">
-            </md-input-container>
-            <md-input-container class="md-block">
-                <label>Synopsis</label>
-                <textarea ng-model="$ctrl.model.synopsis" md-maxlength="1000" rows="8" md-select-on-focus></textarea>
-            </md-input-container>
-            <div layout="row">
-                <span flex></span>
-                <md-button class="md-raised md-primary" type="submit" ng-click="$ctrl.save()">Save</md-button>
-                <md-button class="md-raised" ng-click="$ctrl.cancel()">Cancel</md-button>
-            </div>
-
-        </form>
-    </md-content>
-
-</div>
--->
-
 <md-card class="offerBlock">
     <div layout="column" flex>
         <div class="title-wrapper">
@@ -57,7 +20,6 @@
                         <div ng-message="required">Don't forget to name your product silly!</div>
                     </div>
                 </md-input-container>
-
                 <md-input-container class="textTemplate description-wrapper" flex-gt-sm>
                     <label>Description</label>
                     <md-icon>
@@ -118,7 +80,6 @@
                         </div>
                     </md-input-container>
                 </div>
-
                 <div>
                     <md-input-container class="textTemplate" flex-gt-sm>
                         <label>Category</label>
@@ -132,7 +93,6 @@
                         </md-select>
                     </md-input-container>
                 </div>
-
                 <div>
                     <md-input-container  class="textTemplate" flex-gt-sm>
                         <label>Subcategory</label>
@@ -148,12 +108,11 @@
                 </div>
                 <div>
                     <md-input-container class="textTemplate" flex-gt-sm>
-                        <label>Upload images</label>
-
                         <md-input-container>
-                            <div class="hint">Select your images</div>
+                            <p></p>
+                            <div class="hint" style="color: grey;">Upload a nice product image </div>
                         </md-input-container>
-
+                        <label>{{$ctrl.product.file.$ngfName }}</label>
                         <md-button id="uploadButton" class="md-fab md-mini" aria-label="Upload images"
                                    type="file" ngf-select ng-model="$ctrl.model.file" name="file" ngf-pattern="'image/*'"
                                    ngf-accept="'image/*'" ngf-max-size="20MB" ngf-min-height="100"
@@ -161,9 +120,7 @@
                             <md-icon>
                                 <ng-md-icon icon="camera_alt"></ng-md-icon>
                             </md-icon>
-
                         </md-button>
-
                     </md-input-container>
                 </div>
                 <md-input-container class="textTemplate color-select" flex-gt-sm>

@@ -45,9 +45,11 @@ class ViewProductEditComponentController{
 
     cancel() {
         this.model = JSON.parse(JSON.stringify(this.product));
-        this.$state.go('app.offers',{});
+        let requestingUser = this.UserService.getCurrentUser();
+        this.$state.go('app.product.productsSeller',{ sellerId: requestingUser['_id'] });
     };
 
+    //saves changes of product
     save() {
         let user = this.UserService.getCurrentUser();
         let seller_Id = user['_id'];
@@ -67,19 +69,16 @@ class ViewProductEditComponentController{
         });
     };
 
+    //change subcategory depending on category
     onCategoryChange() {
-        //console.log(this.filter.category);
         this.CategoriesService.getSubcategories(this.model.category).then(data => {
             this.subcategories = JSON.parse(JSON.stringify(data));
-            //console.log(this.subcategories);
         });
     };
 
     static get $inject(){
         return ['$state', ProductsService.name, UserService.name, CategoriesService.name];
     };
-
 }
-
 
 export default ViewProductEditComponent;

@@ -49,8 +49,7 @@
                     <input name="price" ng-model="$ctrl.product.price" type="text" required="" ng-pattern="/^[0-9]+(\.[0-9]{1,2})?$/">
                     <div ng-messages="productForm.price.$error" role="alert" multiple="">
                         <div ng-message="required">Please enter the price.</div>
-                        <div ng-message="pattern">That doesn't look like a valid price.
-                        </div>
+                        <div ng-message="pattern">That doesn't look like a valid price.</div>
                     </div>
                 </md-input-container>
                 <div layout-gt-sm="row">
@@ -64,14 +63,14 @@
                             <div ng-message="required">Please enter the stock.</div>
                         </div>
                     </md-input-container>
-                    <md-input-container class="textTemplate" flex-gt-sm>
+                    <md-input-container class="textTemplate" flex>
                         <label>Processing time</label>
                         <md-icon>
                             <ng-md-icon icon="hourglass_full"></ng-md-icon>
                         </md-icon>
                         <input name="processingDays" ng-model="$ctrl.product.processingDays" type="number" required="">
                         <div ng-messages="productForm.processingDays.$error" role="alert" multiple="">
-                            <div ng-message="required">fill it up.</div>
+                            <div ng-message="required">How long does it take you to produce your product?</div>
                         </div>
                     </md-input-container>
                 </div>
@@ -85,11 +84,6 @@
                             <div ng-repeat="category in $ctrl.categories">
                                 <md-option value="{{category.name}}">{{category.name}}</md-option>
                             </div>
-                            <!--<md-option value="Art">Art</md-option>
-                            <md-option value="Clothes">Clothes</md-option>
-                            <md-option value="Jewellery">Jewellery</md-option>
-                            <md-option value="Accessories">Accessories</md-option>
-                            <md-option value="Home Decor">Home Decor</md-option>-->
                         </md-select>
                     </md-input-container>
                 </div>
@@ -99,35 +93,27 @@
                         <md-icon>
                             <ng-md-icon icon="label_outline"></ng-md-icon>
                         </md-icon>
-                        <md-select ng-model="$ctrl.product.subcategory" placeholder="Subcategory" class="md-no-underline" required md-no-asterisk="false">
+                        <md-select ng-model="$ctrl.product.subcategory" placeholder="Subcategory" class="md-no-underline" md-no-asterisk="false">
                             <div ng-repeat="subcategory in $ctrl.subcategories">
                                 <md-option value="{{subcategory.name}}">{{subcategory.name}}</md-option>
                             </div>
-                            <!-- <md-option value="Earrings">Earrings</md-option>
-                            <md-option value="Rings">Rings</md-option>
-                            <md-option value="Necklaces">Necklaces</md-option>
-                            <md-option value="Bracelets">Bracelets</md-option>
-                            <md-option value="Hair Jewellery">Hair</md-option>-->
                         </md-select>
                     </md-input-container>
                 </div>
                 <div>
                     <md-input-container class="textTemplate" flex-gt-sm>
-                        <label>{{$ctrl.product.file.$ngfName || "Upload images"}}</label>
-
                         <md-input-container>
-                            <div class="hint">Select your product image</div>
+                            <p></p>
+                            <div class="hint" style="color: grey;">Upload a nice product image </div>
                         </md-input-container>
-
+                        <label>{{$ctrl.product.file.$ngfName }}</label>
                         <md-button id="uploadButton" class="md-fab md-mini" aria-label="Upload images" type="file" ngf-select ng-model="$ctrl.product.file"
                             name="file" ngf-pattern="'image/*'" ngf-accept="'image/*'" ngf-max-size="20MB" ngf-min-height="100"
                             ngf-resize="{width: 550, height: 550}">
                             <md-icon>
                                 <ng-md-icon icon="camera_alt"></ng-md-icon>
                             </md-icon>
-
                         </md-button>
-
                     </md-input-container>
                 </div>
                 <md-input-container class="textTemplate color-select" flex-gt-sm>
