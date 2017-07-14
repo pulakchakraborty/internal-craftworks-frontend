@@ -31,12 +31,42 @@
         <div class="profile-dropdown-container" ng-if="$ctrl.isAuthenticated()">
             <div layout="row" layout-align="space-between center">
                 <md-select class="user-dropdown" ng-model="user" placeholder="{{$ctrl.isAuthenticated() ? $ctrl.getCurrentUser() : Login }}" class="md-no-underline">
-                    <md-option value="My Account" ng-if="$ctrl.isAuthenticated()" ng-click="$ctrl.myOffers()">My account</md-option>
-                    <md-option value="My Offers" ng-if="$ctrl.isAuthenticated()" ng-click="$ctrl.myOffers()">My offers</md-option>
-                    <md-option value="productAdd" ng-if="$ctrl.isAuthenticated()" ng-click="$ctrl.addProduct()">Create new offer</md-option>
-                    <md-option value="Settings" ng-if="$ctrl.isAuthenticated()" ng-click="$ctrl.myOffers()">Settings</md-option>
-                    <md-option value="Logout" ng-if="$ctrl.isAuthenticated()" ng-click="$ctrl.logout($event)">Sign out</md-option>
-                    <md-option value="" ng-if="!$ctrl.isAuthenticated()" ng-click="$ctrl.login($event)">Login</md-option>
+                    <md-option value="My Account" ng-if="$ctrl.isAuthenticated()" ng-click="$ctrl.myOffers()">
+                        <md-icon>
+                            <ng-md-icon icon="account_circle"></ng-md-icon>
+                        </md-icon>
+                        My account
+                    </md-option>
+                    <md-option value="My Offers" ng-if="$ctrl.isAuthenticated()" ng-click="$ctrl.myOffers()">
+                        <md-icon>
+                            <ng-md-icon icon="shop"></ng-md-icon>
+                        </md-icon>
+                        My offers
+                    </md-option>
+                    <md-option value="productAdd" ng-if="$ctrl.isAuthenticated()" ng-click="$ctrl.addProduct()">
+                        <md-icon>
+                            <ng-md-icon icon="add_circle"></ng-md-icon>
+                        </md-icon>
+                        Create new offer
+                    </md-option>
+                    <md-option value="Settings" ng-if="$ctrl.isAuthenticated()" ng-click="$ctrl.myOffers()">
+                        <md-icon>
+                            <ng-md-icon icon="settings"></ng-md-icon>
+                        </md-icon>
+                        Settings
+                    </md-option>
+                    <md-option value="Logout" ng-if="$ctrl.isAuthenticated()" ng-click="$ctrl.logout($event)">
+                        <md-icon>
+                            <ng-md-icon icon="power_settings_new"></ng-md-icon>
+                        </md-icon>
+                        Sign out
+                    </md-option>
+                    <md-option value="" ng-if="!$ctrl.isAuthenticated()" ng-click="$ctrl.login($event)">
+                        <md-icon>
+                            <ng-md-icon icon="power_settings_new"></ng-md-icon>
+                        </md-icon>
+                        Login
+                    </md-option>
                 </md-select>
             </div>
         </div>
