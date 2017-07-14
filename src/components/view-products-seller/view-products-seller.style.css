@@ -2,10 +2,10 @@
     left: 400px;
 }
 .offersListed {
-    top: 0px;
-    position: relative;
-    left: 10px;
-    bottom: 50px;
+    top: 0px !important;;
+    position: relative !important;;
+    left: 10px !important;;
+    bottom: 50px !important;;
 }
 
 .productName {
@@ -52,6 +52,7 @@ md-grid-tile-footer figcaption  {
     padding-left: 0 !important;
 }
 
+
 .seller-product-image {
     width: 200px;
     height: 200px;
@@ -60,4 +61,8 @@ md-grid-tile-footer figcaption  {
 .md-success-toast-theme .md-toast-content {
     color: rgb(34,139,34) !important;
     font-weight: bold;
+}
+
+*:focus {
+    outline: none;
 }

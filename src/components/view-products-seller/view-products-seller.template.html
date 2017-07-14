@@ -6,42 +6,39 @@
                     My Offers
                 </h1>
                 <div class="offersListed">
-                    <div class="grid-container">
-                        <div ng-repeat="product in $ctrl.products" class="item">
-                            <img ng-src="{{product.imagePath}}" class="seller-product-image">
-                            <md-grid-tile-footer style="height:50px; margin-top: 10px;" class="item-footer">
-                                <div layout="row">
-                                    <div>
-                                        <div layout="column">
-                                            <div class="productName">{{product.name}}</div>
-                                            <div> {{product.shortDescription}}</div>
-                                        </div>
-                                    </div>
-                                    <div class="edit-button">
-                                        <md-button class="md-icon-button" aria-label="Edit Product" ng-click="$ctrl.edit(product)"
-                                                   style="float: right;">
-                                            <md-icon>
-                                                <ng-md-icon icon="mode_edit"></ng-md-icon>
-                                            </md-icon>
-                                        </md-button>
-                                    </div>
-                                    <div class="delete-button">
-                                        <md-button class="md-icon-button" aria-label="Delete Product" ng-click="$ctrl.delete(product)"
-                                                   style="float: right;">
-                                            <md-icon>
-                                                <ng-md-icon icon="delete"></ng-md-icon>
-                                            </md-icon>
-                                        </md-button>
-                                    </div>
-                                </div>
-                            </md-grid-tile-footer>
+    <div class="grid-container">
+        <div ng-repeat="product in $ctrl.products" class="item">
+            <img ng-src="{{product.imagePath}}" style="max-width:200px" ng-click="$ctrl.goToProductDetails(product._id)">
+            <md-grid-tile-footer style="height:50px; margin-top: 10px;" class="item-footer">
+                <div layout="row">
+                    <div>
+                        <div layout="column">
+                            <div class="productName">{{product.name}}</div>
+                            <div> {{product.shortDescription}}</div>
                         </div>
                     </div>
+                    <div class="edit-button">
+                        <md-button class="md-icon-button" aria-label="Edit Product" ng-click="$ctrl.edit(product)"
+                                   style="float: right;">
+                            <md-icon>
+                                <ng-md-icon icon="mode_edit"></ng-md-icon>
+                            </md-icon>
+                        </md-button>
+                    </div>
+                    <div class="delete-button">
+                        <md-button class="md-icon-button" aria-label="Delete Product" ng-click="$ctrl.delete(product)"
+                                   style="float: right;">
+                            <md-icon>
+                                <ng-md-icon icon="delete"></ng-md-icon>
+                            </md-icon>
+                        </md-button>
+                    </div>
+                </div>
+            </md-grid-tile-footer>
+        </div>
+    </div>
                 </div>
             </md-card>
         </div>
     </div>
 </md-content>
-
-
-
