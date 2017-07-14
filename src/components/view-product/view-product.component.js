@@ -27,7 +27,14 @@ class ViewProductComponentController{
         this.$state = $state;
         this.ProductsService = ProductsService;
         this.UserService = UserService;
+    }
 
+    $onInit() {
+        this.userFromApi = {};
+        this.UserService.getCurrentUserInfo(this.UserService.getCurrentUser()._id).then(data => {
+            this.userFromApi = JSON.parse(JSON.stringify(data));
+            console.log(this.userFromApi);
+        });
     }
 
     edit () {

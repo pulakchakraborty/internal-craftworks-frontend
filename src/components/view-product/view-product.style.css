@@ -1,3 +1,7 @@
 #profile :focus {
     outline: none;
 }
+
+.search-container {
+    display: flex;
+}

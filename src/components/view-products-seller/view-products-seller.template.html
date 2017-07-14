@@ -1,13 +1,13 @@
-<md-content class="md-no-momentum">
+<md-content class="md-padding">
     <div layout="row">
         <div flex>
             <md-card class="offersOverview">
                 <h1 id="headline">
-                    My Offers
+                    My Offers {{$ctrl.filter.name}}
                 </h1>
                 <div class="offersListed">
     <div class="grid-container">
-        <div ng-repeat="product in $ctrl.products" class="item">
+        <div ng-repeat="product in $ctrl.products | filter:$ctrl.filter.name" class="item">
             <img ng-src="{{product.imagePath}}" style="max-width:200px" ng-click="$ctrl.goToProductDetails(product._id)">
             <md-grid-tile-footer style="height:50px; margin-top: 10px;" class="item-footer">
                 <div layout="row">
