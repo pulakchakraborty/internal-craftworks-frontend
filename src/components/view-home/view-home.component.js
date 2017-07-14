@@ -59,6 +59,10 @@ class ViewHomeComponentController{
         this.$state.go('home',{});
     }
 
+    gotoSearch() {
+        this.$state.go('app.productSearch',{ keyword: "all" }, {reload: true});
+    }
+
     static get $inject(){
         return ['$state', UserService.name];
     }
