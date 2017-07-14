@@ -69,6 +69,13 @@ class CheckOutComponentController {
         return deliverycost;
     };
 
+    filladressfields(addressline1, city, state, zip) {
+        this.order.addressLine1 = addressline1;
+        this.order.zip = zip;
+        this.order.state = state;
+        this.order.city = city;
+    };
+
     priceCalculate () {
         this.subtotalPrice = 0;
         this.totalPrice = 0;
@@ -81,6 +88,7 @@ class CheckOutComponentController {
 
         this.subtotalPrice = subtotalPrice;
         this.totalPrice = subtotalPrice + this.delivery(subtotalPrice);
+        return this.totalPrice;
     }
 
     $onInit(){
@@ -91,6 +99,31 @@ class CheckOutComponentController {
             this.userFromApi = JSON.parse(JSON.stringify(data));
             console.log(this.userFromApi);
         });
+
+/*        checkoutProducts(){
+            this.buyingproducts = [];
+            this.quantity = [];
+
+
+            if (this.products.length != 0) {
+                for (var i = 0; i < this.products.length; i++) {
+                    this.buyingproducts = $scope.buyingproducts.concat(this.products[i].name);
+                    this.quantity = $scope.buyingproducts.concat(this.products[i].q);
+                }
+            }
+
+            this order.items = [];
+            for (var i = 0; i < this.products.length; i++){
+                items.push({
+                    name: this.buyingproducts[i],
+                    quantity: this.quantity[i],
+                })
+            }
+
+        }*/
+
+
+
 
         const productsInCart = this.$cookies.getObject('shoping_cart');
 
@@ -117,7 +150,10 @@ class CheckOutComponentController {
 
 
     init(){
+        this.price = this.priceCalculate();
+        var price = parseInt(this.price);
         paypal.Button.render({
+
 
             env: 'sandbox', // sandbox | production
 
@@ -132,12 +168,14 @@ class CheckOutComponentController {
             // payment() is called when the button is clicked
             payment: function(data, actions) {
 
+
                 // Make a call to the REST api to create the payment
                 return actions.payment.create({
+
                     payment: {
                         transactions: [
                             {
-                                amount: { total: '0.01', currency: 'EUR' }
+                                amount: { total: price, currency: 'EUR' }
                             }
                         ]
                     }
