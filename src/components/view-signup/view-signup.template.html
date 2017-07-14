@@ -107,22 +107,18 @@
                         </md-input-container>
                         <div>
                             <md-input-container class="textTemplate" flex-gt-sm>
-                                <label>Upload images</label>
-
                                 <md-input-container>
-                                    <div class="hint">Select your profile picture</div>
+                                    <p></p>
+                                    <div class="hint" style="color: grey;">Upload your photo </div>
                                 </md-input-container>
-
-                                <md-button id="uploadButton" class="md-fab md-mini" aria-label="Upload images"
-                                           type="file" ngf-select ng-model="$ctrl.signup.file" name="file" ngf-pattern="'image/*'"
-                                           ngf-accept="'image/*'" ngf-max-size="20MB" ngf-min-height="100"
+                                <label>{{$ctrl.signup.file.$ngfName }}</label>
+                                <md-button id="uploadButton" class="md-fab md-mini" aria-label="Upload images" type="file" ngf-select ng-model="$ctrl.signup.file"
+                                           name="file" ngf-pattern="'image/*'" ngf-accept="'image/*'" ngf-max-size="20MB" ngf-min-height="100"
                                            ngf-resize="{width: 550, height: 550}">
                                     <md-icon>
                                         <ng-md-icon icon="camera_alt"></ng-md-icon>
                                     </md-icon>
-
                                 </md-button>
-
                             </md-input-container>
                         </div>
                     </div>
