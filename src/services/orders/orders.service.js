@@ -33,7 +33,6 @@ export default class OrdersService {
         });
     }
 
-
     get(id) {
         let url = `${ this.resourceUrl }${ id }`;
         return this.$http.get(url).then(responce => {
@@ -45,23 +44,15 @@ export default class OrdersService {
         })
     }
 
-
-
-
     create(order) {
         let url = this.resourceUrl;
-        return this.Upload.upload({
-            url: url,
-            data: order
-        }).then(responce => {
+        return this.$http.post(url, order).then(responce => {
 
             return new Promise((resolve, reject) => {
                 resolve(responce.data);
             });
-
         })
     }
-
 
     listOrders(id) {
         // make sure that user is not able to see orders listing of another user
@@ -78,7 +69,6 @@ export default class OrdersService {
         } else {
             this.$state.go('home',{});
         }
-
     }
 
 }
