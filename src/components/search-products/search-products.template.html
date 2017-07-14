@@ -12,10 +12,11 @@
 
         <md-divider></md-divider>
         <md-content class="md-padding">
-            <md-card style="height: 250px;">
-                <h1 id="headline1">
-                    Product Overview {{$ctrl.keyword}}
-                </h1>
+            <md-card >
+                <h3 class="headline1">
+                    Filter Options
+                </h3>
+
             <div layout-xs="column" layout="row">
 
                 <div flex-xs flex-gt-xs="20" layout="column" layout-align="left stretch">
@@ -147,19 +148,27 @@
 
         <md-divider></md-divider>
 
-            <div style="text-align: right">
-                    <md-input-container flex-gt-sm>
-                        <label>Sort by</label>
-                        <md-icon>
-                            <ng-md-icon icon="swap_vert"></ng-md-icon>
-                        </md-icon>
-                        <md-select ng-model="$ctrl.filter.orderBy" placeholder="Sort by"  class="md-no-underline">
-                            <md-option value="false">Price ascending</md-option>
-                            <md-option value="true">Price descending</md-option>
-                        </md-select>
-                    </md-input-container>
+        <md-content layout-xs="column" layout="row" layout-align="space-between center">
+            <div>
+                <md-input-container flex-gt-sm>
+                    <h3 class="headline1">
+                        Your Search / {{$ctrl.searchKeyword}}
+                    </h3>
+                </md-input-container>
             </div>
-
+            <div>
+                <md-input-container flex-gt-sm>
+                    <label>Sort by</label>
+                    <md-icon>
+                        <ng-md-icon icon="swap_vert"></ng-md-icon>
+                    </md-icon>
+                    <md-select ng-model="$ctrl.filter.orderBy" placeholder="Sort by"  class="md-no-underline">
+                        <md-option value="false">Price ascending</md-option>
+                        <md-option value="true">Price descending</md-option>
+                    </md-select>
+                </md-input-container>
+            </div>
+        </md-content>
 
         <md-content>
 

@@ -81,10 +81,12 @@ class AppHeaderComponentController{
 
     searchProduct(){
         if (!this.keyword) {
+            this.ProductsService.searchKeywordSetter('All');
             this.ProductsService.categorySetter("");
             this.$state.go('app.productSearch',{ keyword: 'all' });
         }
         else {
+            this.ProductsService.searchKeywordSetter(this.keyword);
             this.ProductsService.categorySetter("");
             this.$state.go('app.productSearch',{ keyword: this.keyword });
         }

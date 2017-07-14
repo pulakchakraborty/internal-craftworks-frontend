@@ -44,6 +44,7 @@ class SearchProductsComponentController{
         else {
             this.filter.catText = "All >";
         }
+        this.searchKeyword = this.ProductsService.searchKeywordGetter();
         this.filter.orderBy = false;
         this.categories = {};
         this.subcategories = {};

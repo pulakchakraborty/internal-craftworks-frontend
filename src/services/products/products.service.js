@@ -15,7 +15,7 @@ export default class ProductsService {
         this.$state = $state;
         this.Upload = Upload;
         this.passCategory = "";
-
+        this.passKeyword = "";
     }
 
     static get name(){
@@ -41,6 +41,16 @@ export default class ProductsService {
             return "";
         }
 
+    }
+
+    searchKeywordSetter(searchKeyword) {
+        this.passKeyword = searchKeyword;
+        console.log("debug msg: ", this.passKeyword);
+        return true;
+    }
+
+    searchKeywordGetter() {
+        return this.passKeyword;
     }
 
     list() {
