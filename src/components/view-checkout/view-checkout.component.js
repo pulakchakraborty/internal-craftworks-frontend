@@ -159,6 +159,24 @@ class CheckOutComponentController {
     static get $inject() {
         return ['$state', UserService.name, ProductsService.name, OrdersService.name, '$cookies'];
     };
+
+    subtotal(products) {
+        var total = 0;
+        for (var i = 0; i < products.length; i++) {
+            var product = products[i];
+            total += parseInt(product.price || 0);
+        }
+        this.delivery(total);
+        return total;
+
+    };
+
+    delivery(total) {
+        var deliverycost = total > 100 ? 0 : 10;
+        this.deliverycostPrice = deliverycost;
+        return deliverycost;
+    };
+
 }
 
 export default CheckOutComponent;
