@@ -2,10 +2,10 @@
     left: 400px;
 }
 .offersListed {
-    top: 0px;
-    position: relative;
-    left: 10px;
-    bottom: 50px;
+    top: 0px !important;;
+    position: relative !important;;
+    left: 10px !important;;
+    bottom: 50px !important;;
 }
 
 .productName {
@@ -26,7 +26,7 @@ md-grid-tile-footer figcaption  {
 
 }
 
-.offersListed .item {
+.item {
     width: 33.33%;
     padding: 10px;
     box-sizing: border-box;
@@ -51,6 +51,7 @@ md-grid-tile-footer figcaption  {
     margin-left: 0 !important;
     padding-left: 0 !important;
 }
+
 
 .seller-product-image {
     width: 200px;
