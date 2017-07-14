@@ -1,17 +1,19 @@
 <md-content class="md-padding" layout-xs="column" layout="row">
     <div flex-xs flex-gt-xs="80" layout="column">
-        <md-content class="md-padding" layout-xs="column" layout="row">
-
-            <div flex-xs flex-gt-xs="55" layout="column">
+        <!--Start of upper block (Picture and Information) -->
+        <md-content class="md-padding" >
+            <md-card layout-xs="column" layout="row">
+            <div flex-xs flex-gt-xs="55">
                 <md-content>
-                    <md-card>
+
+                        <div style="text-align: center">
                         <img ng-src="{{$ctrl.product.imagePath}}" class="product-image">
-                    </md-card>
+                        </div>
+
                 </md-content>
             </div>
-
-            <div flex flex-gt-xs="45" layout="column">
-                <md-content>
+            <div flex flex-gt-xs="60" layout="column">
+                <md-content style="overflow:hidden">
                     <md-card class="product-overview" flex>
                         <md-card-title style="height: 30%">
                             <md-card-title-text>
@@ -22,15 +24,10 @@
                         </md-card-title>
                         <md-divider></md-divider>
                         <md-card-content layout="column" layout-align="space-between" style="height: 70%">
-                            <div layout-xs="column" layout="row">
-                                <div flex-xs flex-gt-xs="10" layout="column">
-                                    <p><strong>Price: </strong></p>
-                                </div>
-                                <div flex-xs flex-gt-xs="90" layout="column">
-                                    <p md-colors="{color:'primary'}"><strong> € {{$ctrl.product.price}} </strong></p>
-                                    <span class="md-subhead">Price is inclusive of German VAT.</span>
-                                </div>
+                                <div flex-xs flex-gt-xs="10" >
+                                    <p><strong>Price: <span style="color: #8BC34A"> € {{$ctrl.product.price}} </strong></span></p>
                             </div>
+                            <span class="md-subheader">Price is inclusive of German VAT.</span>
                             <md-divider></md-divider>
                             <div ng-if="$ctrl.product.stock < 10">
                                 <h3 style="color: darkred">Only {{$ctrl.product.stock}} left in stock</h3>
@@ -38,24 +35,18 @@
                             <div ng-if="$ctrl.product.stock >= 10">
                                 <h3 style="color: orangered">{{$ctrl.product.stock}} items left in stock</h3>
                             </div>
-                            <!--<div>
-                                <p><strong>Category:</strong> {{$ctrl.product.category}}</p>
-                            </div>
-                            <!--<div>
-                                <p><strong>Color:</strong> {{$ctrl.product.category}}</p>
-                            </div> -->
                         </md-card-content>
                     </md-card>
                 </md-content>
             </div>
+            </md-card>
         </md-content>
-
+        <!--Start of Product Description -->
         <md-content class="md-padding" >
-            <md-card style="height: 300px">
+            <md-card style="height: 380px">
                 <md-card-title style="height: 20%">
                     <md-card-title-text>
                         <span class="md-headline">Product Description</span>
-                        <!-- <span class="md-subhead">{{$ctrl.product.name}}</span> -->
                     </md-card-title-text>
                 </md-card-title>
                 <md-divider></md-divider>
@@ -67,13 +58,13 @@
             </md-card>
         </md-content>
     </div>
+    <!--Start of Block left (Shopping Cart) -->
     <div flex-xs flex-gt-xs="20" layout="column">
         <md-content class="md-padding">
             <md-card>
                 <md-card-title>
                     <md-card-title-text>
                         <span class="md-headline" md-colors="{color:'primary'}">EUR {{$ctrl.product.price}}</span>
-
                         <span class="md-subhead">+ shipping cost</span>
                         <span class="md-subheader">Designer will ship it in {{$ctrl.product.processingDays}} days</span>
                     </md-card-title-text>
@@ -81,13 +72,12 @@
                 <md-divider></md-divider>
                 <md-card-content>
                     <p>In Stock</p>
-                    <!-- <h5>Only {{$ctrl.product.stock}} more available</h5> -->
                     <md-input-container class="md-block" flex-gt-sm>
                         <label>Quantity</label>
                         <input type="number" name="deliveryTime" placeholder="1"/>
                     </md-input-container>
                     <div flex-xs class="addToCart" layout="column">
-                        <md-button  class="md-raised md-primary" ng-click="">
+                        <md-button  class="md-raised md-primary" ng-click="$ctrl.addtoShoppingCart($ctrl.product)">
                             <md-icon><ng-md-icon icon="add_shopping_cart" ></ng-md-icon></md-icon>
                             Add to Cart
                         </md-button>
@@ -95,7 +85,7 @@
                 </md-card-content>
             </md-card>
         </md-content>
-
+        <!--Start of Delivery and Payment -->
         <md-content class="md-padding">
             <md-card>
                 <md-card-content layout-xs="column" layout="row">
@@ -114,7 +104,6 @@
                     </div>
                 </md-card-content>
                 <md-divider md-inset></md-divider>
-
                 <md-card-content layout-xs="column" layout="row">
                     <div flex-xs flex-gt-xs="30" layout="column">
                         <md-icon><ng-md-icon icon="payment" ></ng-md-icon></md-icon>
@@ -129,16 +118,14 @@
                             <span class="md-subheader">Consider delay in money transfer</span>
                         </div>
                     </div>
-
                 </md-card-content>
             </md-card>
         </md-content>
-
     </div>
 </md-content>
 
 <md-divider md-inset></md-divider>
-
+<!--Start of Product Information -->
 <md-content class="md-padding" layout-xs="column" layout="row">
     <div flex-xs flex-gt-xs="80" layout="column">
         <md-content class="md-padding" >
@@ -185,6 +172,7 @@
             </md-card>
         </md-content>
     </div>
+    <!--Start of Block Designer -->
     <div flex-xs flex-gt-xs="20" layout="column">
         <md-content class="md-padding">
             <md-card style="height: 450px">
@@ -197,23 +185,19 @@
                     <div flex-xs  layout="column">
                         <md-content>
                             <md-card layout-align="center center">
-                                <!-- <img ng-src="{{$ctrl.getimage()}}" class="md-card-image"> -->
                                 <img ng-src="{{$ctrl.product.seller.imagePath}}" class="user-image">
                             </md-card>
                         </md-content>
                     </div>
-                        <!-- <div flex-xs flex-gt-xs="30" layout="column">
-                            <md-icon><ng-md-icon icon="account_circle" ></ng-md-icon></md-icon>
-                        </div> -->
                         <div flex-xs layout="column">
                             <h4>{{ $ctrl.product.seller.firstName }} {{ $ctrl.product.seller.lastName }}</h4>
                             <p>sent from {{ $ctrl.product.seller.city }}, {{ $ctrl.product.seller.state }}</p>
                         </div>
-
                     <div flex-xs class="addToCart" layout="column">
-                        <md-button  class="md-raised md-primary" ng-click="">
+                        <md-button  class="md-raised md-primary" ng-click="sendMail($ctrl.product.seller.email)">
+                            <a class="mailbutton"href="mailto: {{$ctrl.product.seller.email}}">
                             <md-icon><ng-md-icon icon="chat" ></ng-md-icon></md-icon>
-                            Get in touch
+                            Get in touch</a>
                         </md-button>
                     </div>
                 </md-card-content>
