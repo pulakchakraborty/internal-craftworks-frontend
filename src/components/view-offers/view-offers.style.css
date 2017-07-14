@@ -1,5 +1,6 @@
 .offersOverview {
     left: 400px;
+    overflow: hidden
 }
 .offersListed {
     top: 80px;
