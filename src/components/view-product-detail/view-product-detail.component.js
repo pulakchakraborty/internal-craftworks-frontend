@@ -13,7 +13,6 @@ class ViewProductDetailComponent {
         this.bindings = {
             product: '<',
         }
-
     }
 
     static get name() {
@@ -24,48 +23,47 @@ class ViewProductDetailComponent {
 }
 
 class ViewProductDetailComponentController{
-    constructor($state,ProductsService,UserService){
+    constructor($state,ProductsService,UserService, $cookies){
         this.$state = $state;
         this.ProductsService = ProductsService;
         this.UserService = UserService;
+        this.$cookies = $cookies;
     }
 
-    edit () {
 
-        if (this.UserService.isAuthenticated()) {
-            let _id = this.product['_id'];
-            this.$state.go('app.productEdit',{ productId:_id});
+    addtoShoppingCart(product) {
+        let _id = product['_id'];
+        const savedItems = this.$cookies.getObject('shoping_cart');
+        if (savedItems) {
+            let q = 0;
+            const exist = savedItems.some( (element) => {
+                if (product._id === element.id) {
+                    q = element.q;
+                    return true;
+                }
+            }, this);
+            if (exist) {
+                for(let i = 0; i < savedItems.length; i++) {
+                    let item = savedItems[i];
+                    if (item.id === product._id) {
+                        item.q += 1;
+                        this.$cookies.putObject( 'shoping_cart', savedItems);
+                        break;
+                    }
+                }
+            } else {
+                this.$cookies.putObject( 'shoping_cart', savedItems.push({id: _id, q: 1}) && savedItems );
+            }
         } else {
-            this.$state.go('app.login',{});
+            this.$cookies.putObject( 'shoping_cart', [{id: _id, q: 1}] );
         }
-
-    };
-
-
-    delete() {
-        if (this.UserService.isAuthenticated()) {
-            let _id = this.product['_id'];
-
-            this.ProductsService.delete(_id).then(response => {
-                this.$state.go('app.products',{});
-            });
-        } else {
-            this.$state.go('app.login',{});
-        }
-    };
-
-
-    getimage(){
-        let imageURL = 'http://via.placeholder.com/10x10';
-
-        return imageURL;
+        console.log(this.$cookies.getObject('shoping_cart'));
     }
 
     static get $inject(){
-        return ['$state', ProductsService.name, UserService.name];
+        return ['$state', ProductsService.name, UserService.name, '$cookies'];
     }
 
 }
-
 
 export default ViewProductDetailComponent;
