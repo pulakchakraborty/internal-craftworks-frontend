@@ -58,10 +58,10 @@
          ng-mouseover="categoryHoverActive=true"
          ng-mouseleave="categoryHoverActive=false"
          md-colors="categoryHoverActive ? {background: 'primary'} : {}"
-         ng-click="$ctrl.offers()">
+         ng-click="$ctrl.gotoSearch()">
       <div flex="40"></div>
       <md-card-content>
-        <p class="md-headline" layout="column" layout-align="center center">Explore our categories</p>
+        <p class="md-headline" layout="column" layout-align="center center"> Explore our products</p>
       </md-card-content>
     </div>
   </md-card>
@@ -74,7 +74,7 @@
          ng-mouseover="artistHoverActive=true"
          ng-mouseleave="artistHoverActive=false"
          md-colors="artistHoverActive ? {background: 'primary'} : {}"
-         ng-click="$ctrl.offers()">
+         ng-click="$ctrl.gotoSearch()">
       <div flex="40"></div>
       <md-card-content>
         <p class="md-headline" layout="column" layout-align="center center">Explore handicraft products from the best German artists</p>
