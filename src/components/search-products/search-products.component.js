@@ -32,17 +32,22 @@ class SearchProductsComponentController{
         this.ShoppingcartService = ShoppingcartService;
         this.shoppingCart = [];
         this.CategoriesService = CategoriesService;
-
     }
 
     $onInit() {
         // initialize the filter variable
         this.filter = {};
-        this.filter.catText = "All >"
+        this.filter.category = this.ProductsService.categoryGetter();
+        if (this.filter.category !== "") {
+            this.filter.catText = this.filter.category + " >";
+        }
+        else {
+            this.filter.catText = "All >";
+        }
         this.filter.orderBy = false;
         this.categories = {};
         this.subcategories = {};
-        //console.log(this.filter);
+
         //use category service
         this.CategoriesService.list().then(data => {
             this.categories = JSON.parse(JSON.stringify(data));
