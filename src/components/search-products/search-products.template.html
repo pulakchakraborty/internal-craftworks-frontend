@@ -11,11 +11,19 @@
 
 
         <md-divider></md-divider>
+        <div class="md-padding">
+            <md-content  class="search-box">
+            <md-input-container flex-gt-sm>
+                <h2 class="headline1">
+                    Your Search / {{$ctrl.searchKeyword}}
+                </h2>
+            </md-input-container>
+            </md-content>
+        </div>
+        <md-divider></md-divider>
+
         <md-content class="md-padding">
             <md-card >
-                <h1 class="headline1">
-                    Products Overview
-                </h1>
                 <h4 class="headline1">
                     Filter Options
                 </h4>
@@ -153,11 +161,9 @@
 
         <md-content layout-xs="column" layout="row" layout-align="space-between center">
             <div>
-                <md-input-container flex-gt-sm>
-                    <h3 class="headline1">
-                        Products / {{$ctrl.searchKeyword}}
-                    </h3>
-                </md-input-container>
+                <h3 class="headline1">
+                    Available Products
+                </h3>
             </div>
             <div>
                 <md-input-container flex-gt-sm >
