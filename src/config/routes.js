@@ -78,8 +78,8 @@ export default function config ($stateProvider, $urlRouterProvider, $locationPro
             abstract: true,
             component: ProductComponent.name
         })
-        .state('app.product.productAdd', {
-            url: '/new',
+        .state('app.productAdd', {
+            url: '/products/new',
             component: ProductCreateComponent.name,
             onEnter: function(){
                 $windowProvider.$get().document.title = "CraftWorks Designer Zone | Add a new product";
@@ -105,8 +105,8 @@ export default function config ($stateProvider, $urlRouterProvider, $locationPro
                 results : resolveSearch
             }
         })
-        .state('app.product.productEdit', {
-            url: '/:productId/edit',
+        .state('app.productEdit', {
+            url: '/products/:productId/edit',
             component: ProductEditComponent.name,
             onEnter: function(){
                 $windowProvider.$get().document.title = "CraftWorks | Designer Zone: Edit a product";
@@ -125,8 +125,8 @@ export default function config ($stateProvider, $urlRouterProvider, $locationPro
                  product : resolveProduct
             }
         })
-        .state('app.product.productsSeller', {
-            url: '/seller/:sellerId',
+        .state('app.productsSeller', {
+            url: '/products/seller/:sellerId',
             component: ProductsSellerComponent.name,
             onEnter: function(){
                 $windowProvider.$get().document.title = "CraftWorks | Designer Zone: My offered products";

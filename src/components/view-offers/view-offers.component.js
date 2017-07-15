@@ -58,6 +58,10 @@ class ViewOffersComponentController{
 
     }
 
+    goToProductDetails(product_id) {
+        this.$state.go('app.productDetail',{ productId: product_id });
+    }
+
 
     delete(product) {
         if (this.UserService.isAuthenticated()) {

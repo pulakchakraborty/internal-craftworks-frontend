@@ -1,6 +1,7 @@
 'use strict';
 
 import UserService from './../../services/user/user.service';
+import ProductsService from './../../services/products/products.service';
 
 import template from './app-header.template.html';
 
@@ -22,11 +23,12 @@ class AppHeaderComponent {
 }
 
 class AppHeaderComponentController{
-    constructor($state,UserService,$mdSidenav,$rootScope){
+    constructor($state,UserService,$mdSidenav,$rootScope,ProductsService){
         this.$state = $state;
         this.$rootScope = $rootScope;
         this.UserService = UserService;
         this.$mdSidenav = $mdSidenav;
+        this.ProductsService = ProductsService;
     }
 
     $onInit () {
@@ -79,21 +81,25 @@ class AppHeaderComponentController{
 
     searchProduct(){
         if (!this.keyword) {
+            this.ProductsService.searchKeywordSetter('All');
+            this.ProductsService.categorySetter("");
             this.$state.go('app.productSearch',{ keyword: 'all' });
         }
         else {
+            this.ProductsService.searchKeywordSetter(this.keyword);
+            this.ProductsService.categorySetter("");
             this.$state.go('app.productSearch',{ keyword: this.keyword });
         }
     }
 
     myOffers(){
         let requestingUser = this.UserService.getCurrentUser();
-        this.$state.go('app.product.productsSeller',{ sellerId: requestingUser['_id'] });
+        this.$state.go('app.productsSeller',{ sellerId: requestingUser['_id'] });
     }
 
     addProduct() {
         if (this.UserService.isAuthenticated()) {
-            this.$state.go('app.product.productAdd',);
+            this.$state.go('app.productAdd',);
         } else {
             this.$state.go('app.login', {});
         }
@@ -102,7 +108,7 @@ class AppHeaderComponentController{
 
 
     static get $inject(){
-        return ['$state', UserService.name, '$mdSidenav', '$rootScope'];
+        return ['$state', UserService.name, '$mdSidenav', '$rootScope', ProductsService.name];
     }
 
 }

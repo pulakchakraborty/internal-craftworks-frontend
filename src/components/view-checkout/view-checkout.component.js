@@ -7,6 +7,7 @@
 import template from './view-checkout.template.html';
 import UserService from './../../services/user/user.service';
 import ProductsService from './../../services/products/products.service';
+import OrdersService from './../../services/orders/orders.service';
 import './view-checkout.style.css';
 
 class CheckOutComponent {
@@ -24,11 +25,13 @@ class CheckOutComponent {
 }
 
 class CheckOutComponentController {
-    constructor($state, UserService, ProductsService, $cookies) {
+    constructor($state, UserService, ProductsService, OrdersService, $cookies) {
         this.$state = $state;
         this.UserService = UserService;
         this.ProductsService = ProductsService;
+        this.OrdersService = OrdersService;
         this.$cookies = $cookies;
+        this.order = {};
 
 
     }
@@ -52,13 +55,25 @@ class CheckOutComponentController {
     };
 
     checkout() {
-        this.$state.go('app.checkoutsuccess', {});
+        console.log(this.order);
+        let user = this.UserService.getCurrentUser();
+        this.OrdersService.create(this.order).then(data => {
+            let _id = data['_id'];
+            this.$state.go('app.checkoutsuccess', {});
+        });
     };
 
     delivery(total) {
         var deliverycost = total > 100 ? 0 : 10;
         this.deliveryPrice = deliverycost;
         return deliverycost;
+    };
+
+    filladressfields(addressline1, city, state, zip) {
+        this.order.addressLine1 = addressline1;
+        this.order.zip = zip;
+        this.order.state = state;
+        this.order.city = city;
     };
 
     priceCalculate () {
@@ -73,6 +88,7 @@ class CheckOutComponentController {
 
         this.subtotalPrice = subtotalPrice;
         this.totalPrice = subtotalPrice + this.delivery(subtotalPrice);
+        return this.totalPrice;
     }
 
     $onInit(){
@@ -83,6 +99,31 @@ class CheckOutComponentController {
             this.userFromApi = JSON.parse(JSON.stringify(data));
             console.log(this.userFromApi);
         });
+
+/*        checkoutProducts(){
+            this.buyingproducts = [];
+            this.quantity = [];
+
+
+            if (this.products.length != 0) {
+                for (var i = 0; i < this.products.length; i++) {
+                    this.buyingproducts = $scope.buyingproducts.concat(this.products[i].name);
+                    this.quantity = $scope.buyingproducts.concat(this.products[i].q);
+                }
+            }
+
+            this order.items = [];
+            for (var i = 0; i < this.products.length; i++){
+                items.push({
+                    name: this.buyingproducts[i],
+                    quantity: this.quantity[i],
+                })
+            }
+
+        }*/
+
+
+
 
         const productsInCart = this.$cookies.getObject('shoping_cart');
 
@@ -109,7 +150,10 @@ class CheckOutComponentController {
 
 
     init(){
+        this.price = this.priceCalculate();
+        var price = parseInt(this.price);
         paypal.Button.render({
+
 
             env: 'sandbox', // sandbox | production
 
@@ -124,12 +168,14 @@ class CheckOutComponentController {
             // payment() is called when the button is clicked
             payment: function(data, actions) {
 
+
                 // Make a call to the REST api to create the payment
                 return actions.payment.create({
+
                     payment: {
                         transactions: [
                             {
-                                amount: { total: '0.01', currency: 'EUR' }
+                                amount: { total: price, currency: 'EUR' }
                             }
                         ]
                     }
@@ -149,8 +195,26 @@ class CheckOutComponentController {
     };
 
     static get $inject() {
-        return ['$state', UserService.name, ProductsService.name, '$cookies'];
+        return ['$state', UserService.name, ProductsService.name, OrdersService.name, '$cookies'];
     };
+
+    subtotal(products) {
+        var total = 0;
+        for (var i = 0; i < products.length; i++) {
+            var product = products[i];
+            total += parseInt(product.price || 0);
+        }
+        this.delivery(total);
+        return total;
+
+    };
+
+    delivery(total) {
+        var deliverycost = total > 100 ? 0 : 10;
+        this.deliverycostPrice = deliverycost;
+        return deliverycost;
+    };
+
 }
 
 export default CheckOutComponent;

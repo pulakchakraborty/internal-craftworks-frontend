@@ -39,7 +39,7 @@ class ViewLoginComponentController{
         this.UserService.login(user,password).then(()=> {
             let seller = this.UserService.getCurrentUser();
             let seller_Id = seller['_id'];
-            this.$state.go('app.product.productsSeller', {sellerId: seller_Id});
+            this.$state.go('app.productsSeller', {sellerId: seller_Id});
         }, responce => {
             console.log(responce);
             this.buttonClicked = false;

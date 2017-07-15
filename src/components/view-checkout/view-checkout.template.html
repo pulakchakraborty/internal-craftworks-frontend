@@ -8,40 +8,40 @@
                 Step 1/3: Delivery Address
             </h4>
             <md-radio-group ng-model="$ctrl.checkout.addressOption">
-                <md-radio-button id="useraddress" aria-label="Choose user address" value="option1">
-                    Take this Address: {{$ctrl.userFromApi.addressLine1}}</md-radio-button>
+                <md-radio-button id="useraddress" aria-label="Choose user address" value="option1" ng-click="$ctrl.filladressfields($ctrl.userFromApi.addressLine1, $ctrl.userFromApi.city, $ctrl.userFromApi.state, $ctrl.userFromApi.zip)">
+                    Take this Address: <b>{{$ctrl.userFromApi.firstName}} {{$ctrl.userFromApi.lastName}}</b>, {{$ctrl.userFromApi.addressLine1}}, {{$ctrl.userFromApi.zip}} {{$ctrl.userFromApi.city}}</md-radio-button>
                 <md-radio-button id="newaddress" aria-label="Choose new address" value="option2"> Insert new Address </md-radio-button>
             </md-radio-group>
                 <div class="md-block" ng-if="$ctrl.checkout.addressOption === 'option2'" flex-gt-sm>
                             <md-input-container class="md-block">
                                 <label>Address Line 1</label>
-                                <input type="text" name="addressLine1" ng-model="$ctrl.checkout.address.addressLine1" required=""/>
+                                <input type="text" name="addressLine1" ng-model="$ctrl.order.addressLine1" required=""/>
                                 <div ng-messages="CheckoutForm.addressLine1.$error" role="alert" multiple="">
                                     <div ng-message="required">Please enter your street address.</div>
                                 </div>
                             </md-input-container>
                             <md-input-container class="md-block" flex-gt-sm>
                                 <label>Address Line 2</label>
-                                <input type="text" name="addressLine2" ng-model="$ctrl.checkout.address.addressLine2" />
+                                <input type="text" name="addressLine2" ng-model="$ctrl.order.addressLine2" />
                             </md-input-container>
                             <div layout-gt-sm="row">
                                 <md-input-container class="md-block" flex-gt-sm>
                                     <label>City</label>
-                                    <input type="text" name="city" ng-model="$ctrl.checkout.address.city" required=""/>
+                                    <input type="text" name="city" ng-model="$ctrl.order.city" required=""/>
                                     <div ng-messages="CheckOutForm.city.$error" role="alert" multiple="">
                                         <div ng-message="required">Please enter your city name.</div>
                                     </div>
                                 </md-input-container>
                                 <md-input-container class="md-block" flex-gt-sm>
                                     <label>State</label>
-                                    <input type="text" name="state" ng-model="$ctrl.checkout.address.state"  required=""/>
+                                    <input type="text" name="state" ng-model="$ctrl.order.state"  required=""/>
                                     <div ng-messages="CeckOutForm.state.$error" role="alert" multiple="">
                                         <div ng-message="required">Please enter your state.</div>
                                     </div>
                                 </md-input-container>
                                 <md-input-container class="md-block" flex-gt-sm>
                                     <label>ZIP Code</label>
-                                    <input name="zip" ng-model="$ctrl.checkout.address.zip" required="" ng-pattern="/^[0-9]{5}$/" md-maxlength="5"/>
+                                    <input name="zip" ng-model="$ctrl.order.zip" required="" ng-pattern="/^[0-9]{5}$/" md-maxlength="5"/>
                                     <div ng-messages="CheckOutForm.zip.$error">
                                         <div ng-message="required">Please enter the ZIP code.</div>
                                         <div ng-message="pattern">That doesn't look like a valid postal
@@ -56,56 +56,78 @@
                 </div>
                 <md-divider></md-divider>
                 <h4 class="stepInstruction" >
-                    Step 2/3: Payment
+                    Step 2/3: Overview
                 </h4>
-                <md-radio-group ng-model="$ctrl.checkout.paymentmethod">
-                    <div layout="row">
-                            <md-input-container class="md-block" flex-gt-sm>
-                                 <md-radio-button ng-model="$ctrl.checkout.paymentmethod.iban" aria-label="Choose IBAN" value="option1">IBAN</md-radio-button>
-                            </md-input-container>
-                            <md-input-container class="md-block" flex-gt-sm>
-                                <md-radio-button ng-model="$ctrl.checkout.paymentmethod.paypal" aria-label="Choose Paypal" value="option2"> PayPal </md-radio-button>
-                            </md-input-container>
-                    </div>
-                </md-radio-group>
-            <md-input-container class="md-block" ng-if="$ctrl.checkout.paymentmethod === 'option1'" flex-gt-sm>
-                <label>IBAN</label>
-                <input type="text" name="iban" ng-model="$ctrl.checkout.iban" required=""/>
-                <div ng-messages="CheckOutForm.iban.$error" role="alert" multiple="" >
-                    <div ng-message="required">Please enter the IBAN number.</div>
-                </div>
-            </md-input-container>
-            <md-input-container class="md-block" ng-if="$ctrl.checkout.paymentmethod === 'option2'" flex-gt-sm>
-                <paypal-button env="opts.env" client="opts.client" payment="opts.payment" commit="opts.commit" on-authorize="opts.onAuthorize"></paypal-button>
-                <div id="paypal-button-container"  data-ng-init="$ctrl.init()"></div>
-            </md-input-container>
-            <md-divider></md-divider>
-            <h4 class="stepInstruction">
-                Step 3/3: Overview
-            </h4>
             <md-list>
-                <md-list-item class="checkoutoverview" aria-label="Shopping Item" ng-repeat="product in $ctrl.products">
+                <md-list-item class="checkoutoverview" aria-label="Shopping Item" ng-repeat="order in $ctrl.products">
                     <div flex="25">
-                        <img ng-src="{{product.imagePath}}" style="max-width:100px" class="cartpicture">
+                        <img ng-src="{{order.imagePath}}" style="max-width:100px" class="cartpicture">
                     </div>
                     <div flex="25">
                         <div class="BlockContent" f>
                             <div>
-                                <h3>{{product.name}}</h3>
+                                <h3>{{order.name}}</h3>
                             </div>
-                            <div>{{product.shortDescription}}</div>
+                            <div>{{order.shortDescription}}</div>
                         </div>
                     </div>
-                    <div flex="25">{{product.q}}</div>
-                    <div flex="25">{{product.price * product.q | currency:'€'}}</div>
+                    <div flex="25">{{order.q}}</div>
+                    <div flex="25">{{order.price * order.q | currency:'€'}}</div>
                     <md-divider ng-if="!$last"></md-divider>
                 </md-list-item>
-                <md-list-item class="checkoutoverview">
-                    <div flex="50"></div>
-                    <div flex="25">Total:</div>
-                    <div flex="25">{{$ctrl.totalPrice | currency:'€' }} <span>( Delivery: {{$ctrl.deliveryPrice | currency:'€'}} )</span></div>
+                <md-divider ng-if="!$last"></md-divider>
                 </md-list-item>
                 <md-divider></md-divider>
+                <div layout="row" layout-padding>
+                    <div flex="70"></div>
+                    <div flex="30">
+                        <div>
+                            <h4 class="Price">Subtotal: {{ $ctrl.subtotalPrice | currency:'€'}}</h4>
+                        </div>
+                        <div>
+                            <h4 class="Price" id="delivery">Delivery: {{ $ctrl.deliverycostPrice | currency:'€'}}</h4>
+                        </div>
+                        <hr/>
+                        <div>
+                            <h3 class="Price" style="color: #8BC34A">Total: {{$ctrl.totalPrice | currency:'€'}}</h3>
+                        </div>
+                    </div>
+                </div>
+                <md-divider></md-divider>
+            </md-list>
+            <h4 class="stepInstruction">
+                Step 3/3: Payment
+            </h4>
+            <md-radio-group ng-model="$ctrl.checkout.paymentmethod">
+                <div layout="row">
+                    <md-input-container class="md-block" flex-gt-sm>
+                        <md-radio-button ng-model="$ctrl.order.addressLine1['isIBAN']" aria-label="Choose IBAN" value="isIBAN">Bank Transfer</md-radio-button>
+                    </md-input-container>
+                    <md-input-container class="md-block" flex-gt-sm>
+                        <md-radio-button ng-model="$ctrl.order.payment['isPayPal']" aria-label="Choose Paypal" value="isPayPal"> PayPal </md-radio-button>
+                    </md-input-container>
+                </div>
+            </md-radio-group>
+            <md-input-container class="md-block" ng-if="$ctrl.checkout.paymentmethod === 'isIBAN'" flex-gt-sm>
+                <p>You have chosen <strong>Bank Transfer </strong> as your payment method. Great! </br>
+                    Please transfer the requested amount of money to the following Bank Account:
+                </br>
+                    </br>
+                <strong> CraftWorks GmbH </strong> </br>
+                IBAN: DE22 0023 0000 1037 3469 23</br>
+                BIC: BYAQSWU2004</br>
+                    </br>
+                Thanks :) </br>
+                    P.S. The order will be shipped, as soon as we have received the money.
+                </p>
+
+            </md-input-container>
+            <md-input-container class="md-block" ng-if="$ctrl.checkout.paymentmethod === 'isPayPal'" flex-gt-sm>
+                <paypal-button env="opts.env" client="opts.client" payment="opts.payment" commit="opts.commit" on-authorize="opts.onAuthorize"></paypal-button>
+                <div id="paypal-button-container"  data-ng-init="$ctrl.init()"></div>
+            </md-input-container>
+            <md-divider></md-divider>
+
             </md-list>
             <div class="afterbutton" layout="row">
                 <span flex></span>

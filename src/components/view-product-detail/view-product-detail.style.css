@@ -5,16 +5,20 @@ pre {
 }
 
 .product-image {
-    width: 550px;
-    height: 400px;
+    max-width: 300px;
 }
 
 .product-overview {
     width: 550px;
-    height: 400px;
+    height: 300px;
 }
 
 .user-image {
     width: 100%;
     height: 200px;
+}
+
+.mailbutton {
+    color: black;
+    text-decoration: none;
 }

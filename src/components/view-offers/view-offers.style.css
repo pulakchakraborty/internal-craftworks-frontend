@@ -1,5 +1,6 @@
 .offersOverview {
     left: 400px;
+    overflow: hidden
 }
 .offersListed {
     top: 80px;
@@ -43,4 +44,8 @@ md-grid-tile-footer figcaption  {
     align-content: center;
     align-items: center;
     justify-content: space-between;
+}
+
+.pictureproduct :focus {
+    outline: none;
 }

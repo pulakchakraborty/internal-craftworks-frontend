@@ -48,20 +48,20 @@
             <md-divider></md-divider>
         </md-list>
         <div layout="row" layout-padding>
-            <div flex="70"></div>
-            <div flex="30">
-                <div>
-                    <h3 class="Price">Subtotal: {{ $ctrl.subtotalPrice | currency:'€'}}</h3>
-                </div>
-                <div>
-                    <h4 class="Price" id="delivery">Delivery: {{ $ctrl.deliverycostPrice | currency:'€'}}</h4>
-                </div>
-                <hr/>
-                <div>
-                    <h3 class="Price">Total: {{$ctrl.totalPrice | currency:'€'}}</h3>
-                </div>
+        <div flex="70"></div>
+        <div flex="30">
+            <div>
+                <h3 class="Price">Subtotal: {{ $ctrl.subtotalPrice | currency:'€'}}</h3>
+            </div>
+            <div>
+                <h4 class="Price" id="delivery">Delivery: {{ $ctrl.deliverycostPrice | currency:'€'}}</h4>
+            </div>
+            <hr/>
+            <div>
+                <h3 class="Price">Total: {{$ctrl.totalPrice | currency:'€'}}</h3>
             </div>
         </div>
+    </div>
         <div class="afterbutton" layout="row">
             <span flex></span>
             <md-button class="md-raised" ng-click="$ctrl.cancel()">Cancel</md-button>

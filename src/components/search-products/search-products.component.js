@@ -32,17 +32,23 @@ class SearchProductsComponentController{
         this.ShoppingcartService = ShoppingcartService;
         this.shoppingCart = [];
         this.CategoriesService = CategoriesService;
-
     }
 
     $onInit() {
         // initialize the filter variable
         this.filter = {};
-        this.filter.catText = "All >"
+        this.filter.category = this.ProductsService.categoryGetter();
+        if (this.filter.category !== "") {
+            this.filter.catText = this.filter.category + " >";
+        }
+        else {
+            this.filter.catText = "All >";
+        }
+        this.searchKeyword = this.ProductsService.searchKeywordGetter();
         this.filter.orderBy = false;
         this.categories = {};
         this.subcategories = {};
-        //console.log(this.filter);
+
         //use category service
         this.CategoriesService.list().then(data => {
             this.categories = JSON.parse(JSON.stringify(data));
@@ -123,7 +129,7 @@ class SearchProductsComponentController{
                 || (color['isGreen'] === true)
                 || (color['isBlue'] === true)
                 || (color['isViolette'] === true)
-                || (color['isWhite'] === true)
+                || (color['isPink'] === true)
                 || (color['isBlack'] === true)
                 || (color['isGrey'] === true)){
                 return function (result) {
@@ -148,7 +154,7 @@ class SearchProductsComponentController{
                     else if (result._source.color['isViolette'] === color['isViolette']) {
                         return true;
                     }
-                    /*else if (result._source.color['isWhite'] === color['isWhite']) {
+                    else if (result._source.color['isPink'] === color['isPink']) {
                         return true;
                     }
                     else if (result._source.color['isBlack'] === color['isBlack']) {
@@ -157,7 +163,7 @@ class SearchProductsComponentController{
                     else if (result._source.color['isGrey'] === color['isGrey']) {
                         return true;
                     }
-                    else {
+                    /*else {
                         return false;
                     }*/
                 }

@@ -54,3 +54,15 @@ md-grid-tile-footer figcaption  {
     width: 200px;
     height: 250px;
 }
+
+.headline1 {
+    margin-left: 50px;
+}
+
+.textTemplate1 {
+    margin-left: 50px;
+}
+
+.search-box {
+    background: whitesmoke;
+}

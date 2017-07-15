@@ -1,47 +1,79 @@
-<md-content class="md-no-momentum">
-    <div layout="row">
-        <div flex>
-            <md-card class="offersOverview">
-                <h1 id="headline">
-                    My Offers
-                </h1>
-                <div class="offersListed">
-                    <div class="grid-container">
-                        <div ng-repeat="product in $ctrl.products" class="item">
-                            <img ng-src="{{product.imagePath}}" class="seller-product-image">
-                            <md-grid-tile-footer style="height:50px; margin-top: 10px;" class="item-footer">
-                                <div layout="row">
-                                    <div>
-                                        <div layout="column">
-                                            <div class="productName">{{product.name}}</div>
-                                            <div> {{product.shortDescription}}</div>
-                                        </div>
-                                    </div>
-                                    <div class="edit-button">
-                                        <md-button class="md-icon-button" aria-label="Edit Product" ng-click="$ctrl.edit(product)"
-                                                   style="float: right;">
-                                            <md-icon>
-                                                <ng-md-icon icon="mode_edit"></ng-md-icon>
-                                            </md-icon>
-                                        </md-button>
-                                    </div>
-                                    <div class="delete-button">
-                                        <md-button class="md-icon-button" aria-label="Delete Product" ng-click="$ctrl.delete(product)"
-                                                   style="float: right;">
-                                            <md-icon>
-                                                <ng-md-icon icon="delete"></ng-md-icon>
-                                            </md-icon>
-                                        </md-button>
-                                    </div>
-                                </div>
-                            </md-grid-tile-footer>
-                        </div>
-                    </div>
-                </div>
-            </md-card>
+<md-content class="md-padding" layout-xs="column" layout="row">
+    <div flex-xs flex-gt-xs="20" layout="column">
+        <md-input-container flex-gt-sm>
+            <md-icon>
+                <ng-md-icon icon="search"></ng-md-icon>
+            </md-icon>
+            <input name="name" ng-model="searchInDesigner" type="search" placeholder="Search for products">
+        </md-input-container>
+        <view-product></view-product>
+    </div>
+    <div flex-xs flex-gt-xs="80" layout="column">
+        <div class="md-padding">
+            <md-content  class="offer-box">
+                <md-input-container flex-gt-sm>
+                    <h2 class="headline1">
+                        Your Offered Products ({{filtered.length}})
+                    </h2>
+                </md-input-container>
+            </md-content>
         </div>
+        <md-divider></md-divider>
+        <md-content class="md-padding">
+            <div layout="row">
+                <div flex>
+                    <md-card class="offersOverview">
+                        <!-- <h1 id="headline">
+                            My Offers {{$ctrl.filter.name}}
+                        </h1>
+                        -->
+                        <div class="offersListed">
+                            <div class="grid-container">
+                                <div ng-repeat="product in filtered = ($ctrl.products | filter:searchInDesigner)" class="item">
+                                    <div ng-if="($ctrl.products.length > 0)">
+                                        <img ng-src="{{product.imagePath}}" style="max-width:200px" ng-click="$ctrl.goToProductDetails(product._id)">
+                                        <md-grid-tile-footer style="height:50px; margin-top: 10px;" class="item-footer">
+                                            <div layout="row">
+                                                <div>
+                                                    <div layout="column">
+                                                        <div class="productName">{{product.name}}</div>
+                                                        <div> {{product.shortDescription}}</div>
+                                                    </div>
+                                                </div>
+                                                <div class="edit-button">
+                                                    <md-button class="md-icon-button" aria-label="Edit Product" ng-click="$ctrl.edit(product)"
+                                                               style="float: right;">
+                                                        <md-icon>
+                                                            <ng-md-icon icon="mode_edit"></ng-md-icon>
+                                                        </md-icon>
+                                                    </md-button>
+                                                </div>
+                                                <div class="delete-button">
+                                                    <md-button class="md-icon-button" aria-label="Delete Product" ng-click="$ctrl.delete(product)"
+                                                               style="float: right;">
+                                                        <md-icon>
+                                                            <ng-md-icon icon="delete"></ng-md-icon>
+                                                        </md-icon>
+                                                    </md-button>
+                                                </div>
+                                            </div>
+                                        </md-grid-tile-footer>
+                                    </div>
+
+                                </div>
+                                <div flex-xs ng-if="($ctrl.products.length === 0)">
+                                    <h4>You do not have any products to offer at the moment. </h4>
+                                    <p>Click
+                                        <md-icon ng-click="$ctrl.addProduct()">
+                                        <ng-md-icon icon="add_circle" ></ng-md-icon></md-icon>
+                                        to add a product
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </md-card>
+                </div>
+            </div>
+        </md-content>
     </div>
 </md-content>
-
-
-

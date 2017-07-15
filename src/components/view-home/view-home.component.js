@@ -40,7 +40,7 @@ class ViewHomeComponentController{
     }
     myOffers(){
         let requestingUser = this.UserService.getCurrentUser();
-        this.$state.go('app.product.productsSeller',{ sellerId: requestingUser['_id'] });
+        this.$state.go('app.productsSeller',{ sellerId: requestingUser['_id'] });
     }
 
     offers(){
@@ -49,7 +49,7 @@ class ViewHomeComponentController{
 
     addProduct() {
         if (this.UserService.isAuthenticated()) {
-            this.$state.go('app.product.productAdd',);
+            this.$state.go('app.productAdd',);
         } else {
             this.$state.go('app.login', {});
         }
@@ -57,6 +57,10 @@ class ViewHomeComponentController{
 
     goHome(){
         this.$state.go('home',{});
+    }
+
+    gotoSearch() {
+        this.$state.go('app.productSearch',{ keyword: "all" }, {reload: true});
     }
 
     static get $inject(){

@@ -11,12 +11,42 @@
         <li ng-hide="$ctrl.isAuthenticated()" class="sign-up" ><a ui-sref="app.signup">Sign-up</a></li>
         <li ng-show="$ctrl.isAuthenticated()">
           <md-select class="user-dropdownhome" style="font-size: 16px" ng-model="user" placeholder="{{$ctrl.isAuthenticated() ? $ctrl.getCurrentUser() : Login }}">
-            <md-option style="font-size: 16px" value="My account" ng-if="$ctrl.isAuthenticated()">My account</md-option>
-            <md-option style="font-size: 16px" value="My offers" ng-if="$ctrl.isAuthenticated()" ng-click="$ctrl.myOffers()">My offers</md-option>
-            <md-option style="font-size: 16px" value="Create new offer" ng-if="$ctrl.isAuthenticated()" ng-click="$ctrl.addProduct()">Create new offer</md-option>
-            <md-option style="font-size: 16px" value="Settings" ng-if="$ctrl.isAuthenticated()">Settings</md-option>
-            <md-option style="font-size: 16px"value="LogOut" ng-if="$ctrl.isAuthenticated()" ng-click="$ctrl.logout($event)">Sign out</md-option>
-            <md-option style="font-size: 16px"value="Login" ng-if="!$ctrl.isAuthenticated()" ng-click="$ctrl.login($event)">Login</md-option>
+            <md-option style="font-size: 16px" value="My account" ng-if="$ctrl.isAuthenticated()">
+              <md-icon>
+                <ng-md-icon icon="account_circle"></ng-md-icon>
+              </md-icon>
+              My account
+            </md-option>
+            <md-option style="font-size: 16px" value="My offers" ng-if="$ctrl.isAuthenticated()" ng-click="$ctrl.myOffers()">
+              <md-icon>
+                <ng-md-icon icon="shop"></ng-md-icon>
+              </md-icon>
+              My offers
+            </md-option>
+            <md-option style="font-size: 16px" value="Create new offer" ng-if="$ctrl.isAuthenticated()" ng-click="$ctrl.addProduct()">
+              <md-icon>
+                <ng-md-icon icon="add_circle"></ng-md-icon>
+              </md-icon>
+              Create new offer
+            </md-option>
+            <md-option style="font-size: 16px" value="Settings" ng-if="$ctrl.isAuthenticated()">
+              <md-icon>
+                <ng-md-icon icon="settings"></ng-md-icon>
+              </md-icon>
+              Settings
+            </md-option>
+            <md-option style="font-size: 16px"value="LogOut" ng-if="$ctrl.isAuthenticated()" ng-click="$ctrl.logout($event)">
+              <md-icon>
+                <ng-md-icon icon="power_settings_new"></ng-md-icon>
+              </md-icon>
+              Sign out
+            </md-option>
+            <md-option style="font-size: 16px"value="Login" ng-if="!$ctrl.isAuthenticated()" ng-click="$ctrl.login($event)">
+              <md-icon>
+                <ng-md-icon icon="power_settings_new"></ng-md-icon>
+              </md-icon>
+              Login
+            </md-option>
           </md-select>
         </li>
       </ul>
@@ -58,10 +88,10 @@
          ng-mouseover="categoryHoverActive=true"
          ng-mouseleave="categoryHoverActive=false"
          md-colors="categoryHoverActive ? {background: 'primary'} : {}"
-         ng-click="$ctrl.offers()">
+         ng-click="$ctrl.gotoSearch()">
       <div flex="40"></div>
       <md-card-content>
-        <p class="md-headline" layout="column" layout-align="center center">Explore our categories</p>
+        <p class="md-headline" layout="column" layout-align="center center"> Explore our products</p>
       </md-card-content>
     </div>
   </md-card>
@@ -74,7 +104,7 @@
          ng-mouseover="artistHoverActive=true"
          ng-mouseleave="artistHoverActive=false"
          md-colors="artistHoverActive ? {background: 'primary'} : {}"
-         ng-click="$ctrl.offers()">
+         ng-click="$ctrl.gotoSearch()">
       <div flex="40"></div>
       <md-card-content>
         <p class="md-headline" layout="column" layout-align="center center">Explore handicraft products from the best German artists</p>
@@ -94,10 +124,10 @@
             <a ui-sref="app.aboutus">About us</a>
           </li>
           <li>
-            <a href="#">Careers</a>
+            <a ui-sref="app.aboutus">Careers</a>
           </li>
           <li>
-            <a href="#">Imprint</a>
+            <a ui-sref="app.aboutus">Imprint</a>
           </li>
         </ul>
       </div>
@@ -105,13 +135,13 @@
         <p class="title">Sell with Us</p>
         <ul class="link-list">
           <li>
-            <a href="#">Pricelist</a>
+            <a ui-sref="app.aboutus">Pricelist</a>
           </li>
           <li>
-            <a href="#">How it Works</a>
+            <a ui-sref="app.aboutus">How it Works</a>
           </li>
           <li>
-            <a href="#">FAQ</a>
+            <a ui-sref="app.aboutus">FAQ</a>
           </li>
         </ul>
       </div>
@@ -119,13 +149,13 @@
         <p class="title">Useful Links</p>
         <ul class="link-list">
           <li>
-            <a href="#">Blogs</a>
+            <a ui-sref="app.aboutus">Blogs</a>
           </li>
           <li>
-            <a href="#">Events</a>
+            <a ui-sref="app.aboutus">Events</a>
           </li>
           <li>
-            <a href="#">Help</a>
+            <a ui-sref="app.aboutus">Help</a>
           </li>
         </ul>
       </div>

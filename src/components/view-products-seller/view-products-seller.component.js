@@ -19,7 +19,6 @@ class ViewProductsSellerComponent {
         return 'viewProductsSeller';
     }
 
-
 }
 
 class ViewProductsSellerComponentController{
@@ -30,36 +29,29 @@ class ViewProductsSellerComponentController{
         this.$mdToast = $mdToast;
     }
 
-    details (product) {
-        let _id = product['_id'];
-        this.$state.go('product',{ productId:_id});
-    };
-
+    //change product details
     edit (product) {
-
         if (this.UserService.isAuthenticated()) {
             let _id = product['_id'];
-            this.$state.go('app.product.productEdit',{ productId:_id});
+            this.$state.go('app.productEdit',{ productId:_id});
         } else {
             this.$state.go('login',{});
         }
     };
 
-    newProduct(){
 
+    addProduct() {
         if (this.UserService.isAuthenticated()) {
-            this.$state.go('productAdd',{});
+            this.$state.go('app.productAdd',);
         } else {
-            this.$state.go('login',{});
+            this.$state.go('app.login', {});
         }
-
     }
 
-
+    //delets product from the database
     delete(product) {
         if (this.UserService.isAuthenticated()) {
             let _id = product['_id'];
-
             this.ProductsService.delete(_id).then(response => {
                 let index = this.products.map(x => x['_id']).indexOf(_id);
                 this.products.splice(index, 1);
@@ -71,12 +63,16 @@ class ViewProductsSellerComponentController{
                         .hideDelay(5000)
                 );
             })
-
+    //if user is not logged in, go to login
         } else {
             this.$state.go('login',{});
         }
     };
 
+    //go to Details of the product
+    goToProductDetails(product_id) {
+        this.$state.go('app.productDetail',{ productId: product_id });
+    }
 
     static get $inject(){
         return ['$state', UserService.name, ProductsService.name, '$mdToast'];

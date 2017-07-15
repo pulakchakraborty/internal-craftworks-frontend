@@ -11,32 +11,42 @@
 
 
         <md-divider></md-divider>
+        <div class="md-padding">
+            <md-content  class="search-box">
+            <md-input-container flex-gt-sm>
+                <h2 class="headline1">
+                    Available Products
+                </h2>
+            </md-input-container>
+            </md-content>
+        </div>
+        <md-divider></md-divider>
+
         <md-content class="md-padding">
-            <md-card>
-            <md-card-title class="md-padding">
-                <md-card-title-text>
-                    <span class="md-headline">Filter {{$ctrl.keyword}}</span>
-                </md-card-title-text>
-            </md-card-title>
-                <md-divider></md-divider>
-            <md-card-content  layout-xs="column" layout="row">
-                <div flex-xs flex-gt-xs="20" layout="column" layout-align="center strech">
+            <md-card >
+                <h4 class="headline1">
+                    Filter Options
+                </h4>
+
+            <div layout-xs="column" layout="row">
+
+                <div flex-xs flex-gt-xs="20" layout="column" layout-align="left stretch">
                     <div>
-                        <md-input-container class="textTemplate" flex-gt-sm>
+                        <md-input-container class="textTemplate1" flex-gt-sm>
                             <label>Category</label>
                             <md-icon>
                                 <ng-md-icon icon="label"></ng-md-icon>
                             </md-icon>
                             <md-select ng-model="$ctrl.filter.category" ng-change="$ctrl.onCategoryChange()" placeholder="Category"  class="md-no-underline">
                                 <div ng-repeat="category in $ctrl.categories">
-                                    <md-option value="{{category.name}}">{{category.name}}</md-option>
+                                    <md-option id="categoryfilter" value="{{category.name}}">{{category.name}}</md-option>
                                 </div>
                             </md-select>
                         </md-input-container>
                     </div>
 
                     <div ng-if="$ctrl.filter.category">
-                        <md-input-container  class="textTemplate" flex-gt-sm>
+                        <md-input-container  class="textTemplate1" flex-gt-sm>
                             <label>Sub-Category</label>
                             <md-icon>
                                 <ng-md-icon icon="label"></ng-md-icon>
@@ -52,7 +62,7 @@
                     </div>
                 </div>
 
-                <div flex-xs flex-gt-xs="40" layout="column" layout-align="center center">
+                <div flex-xs flex-gt-xs="40" layout="column">
                     <md-input-container class="textTemplate color-select" flex-gt-sm>
                         <ul>
                             <label class="choosecolor">Choose color</label>
@@ -95,11 +105,6 @@
                                          aria-label="Color Violette"
                                          ng-false-value="'hack'">
                             </md-checkbox>
-                            <md-checkbox ng-model="$ctrl.filter.color['isWhite']"
-                                         class="colorpalettewhite"
-                                         aria-label="Color White"
-                                         ng-false-value="'hack'">
-                            </md-checkbox>
                             <md-checkbox ng-model="$ctrl.filter.color['isBlack']"
                                          class="colorpaletteblack"
                                          aria-label="Color Black"
@@ -110,23 +115,30 @@
                                          aria-label="Color Grey"
                                          ng-false-value="'hack'">
                             </md-checkbox>
+                            <md-checkbox ng-model="$ctrl.filter.color['isPink']"
+                                         class="colorpalettepink"
+                                         aria-label="Color Pink"
+                                         ng-false-value="'hack'">
+                            </md-checkbox>
                         </ul>
                     </md-input-container>
                 </div>
 
-                <div flex-xs flex-gt-xs="40" layout="column" layout-align="center strech">
+                <div flex-xs flex-gt-xs="40" layout="column" layout-align="center">
 
                     <div>
-                        <label>Price range</label>
+                        <label>Price range (in €)</label>
                         <md-slider-container>
 
-                            <span>0</span>
-                            <md-slider flex min="0" max="255" ng-model="$ctrl.filter.price" aria-label="green" id="green-slider">
+                            <span>€ 0</span>
+                            <md-slider flex min="0" max="255" ng-model="$ctrl.filter.price" aria-label="pricefilter" id="green-slider">
                             </md-slider>
                             <md-input-container>
-                                <input flex type="number" ng-model="$ctrl.filter.price" aria-label="green" aria-controls="green-slider">
+                                <input flex type="number" ng-model="$ctrl.filter.price" aria-label="pricefilter" aria-controls="green-slider">
                             </md-input-container>
                         </md-slider-container>
+
+
                     </div>
                     <!--<div>
                         <md-input-container class="textTemplate" flex-gt-sm>
@@ -141,34 +153,30 @@
                         </md-input-container>
                     </div> -->
                 </div>
-            </md-card-content>
+            </div>
             </md-card>
         </md-content>
 
         <md-divider></md-divider>
 
-        <md-content class="md-padding">
-            <md-card class="md-padding" layout-xs="column" layout="row">
-                <md-card-title style="height: 20%">
-                    <md-card-title-text>
-                        <span class="md-headline">Products</span>
-                        <!-- <span class="md-subhead">{{$ctrl.product.name}}</span> -->
-                    </md-card-title-text>
-                </md-card-title>
-                <div>
-                    <md-input-container class="textTemplate" flex-gt-sm>
-                        <label>Sort by</label>
-                        <md-icon>
-                            <ng-md-icon icon="swap_vert"></ng-md-icon>
-                        </md-icon>
-                        <md-select ng-model="$ctrl.filter.orderBy" placeholder="Sort by"  class="md-no-underline">
-                            <md-option value="false">Price ascending</md-option>
-                            <md-option value="true">Price descending</md-option>
-                        </md-select>
-                    </md-input-container>
-                </div>
-
-            </md-card>
+        <md-content layout-xs="column" layout="row" layout-align="space-between center">
+            <div>
+                <h3 class="headline1">
+                    Your Search / {{$ctrl.searchKeyword}}
+                </h3>
+            </div>
+            <div>
+                <md-input-container flex-gt-sm >
+                    <label>Sort by</label>
+                    <md-icon>
+                        <ng-md-icon icon="swap_vert"></ng-md-icon>
+                    </md-icon>
+                    <md-select ng-model="$ctrl.filter.orderBy" placeholder="Sort by"  class="md-no-underline">
+                        <md-option value="false">Price ascending</md-option>
+                        <md-option value="true">Price descending</md-option>
+                    </md-select>
+                </md-input-container>
+            </div>
         </md-content>
 
         <md-content>
@@ -181,7 +189,7 @@
                      | filter:$ctrl.filter.category
                      | filter:$ctrl.filter.subcategory
                      | orderBy:$ctrl.orderByPrice:$ctrl.filter.orderBy">
-                        <md-card class="md-padding" layout-align="center center" class="single-item">
+
                             <img ng-src="{{result._source.imagePath}}" ng-click="$ctrl.goToProductDetails(result._id)" class="user-image">
                             <div class="item-details">
                                 <div class="item-row">
@@ -200,7 +208,7 @@
                                     </div>
                                 </div>
                             </div>
-                        </md-card>
+
                     </div>
                 </div>
             </div>

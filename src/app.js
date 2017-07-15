@@ -15,6 +15,7 @@ import UserService from './services/user/user';
 import ProductsService from './services/products/products';
 import ShoppingcartService from './services/shoppingcart/shoppingcart';
 import CategoriesService from './services/categories/categories';
+import OrdersService from './services/orders/orders';
 
 import Routes from './config/routes';
 import Middlewares from './config/middlewares';
@@ -53,6 +54,7 @@ let app = angular.module('app', [
     ProductsService.name,
     ShoppingcartService.name,
     CategoriesService.name,
+    OrdersService.name,
     AppContent.name,
     ViewLogin.name,
     ViewSignup.name,

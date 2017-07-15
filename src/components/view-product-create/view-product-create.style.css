@@ -5,7 +5,10 @@
 
 .navigationTemplate {
     margin-left: 50px;
+}
 
+.navigationTemplate :focus {
+    outline: none;
 }
 
 .navigationTemplateSub {
@@ -148,6 +151,22 @@
 }
 .colorpalettegrey.md-checked .md-icon {
     background: lightgrey;
+}
+
+.colorpaletteskyblue .md-icon {
+    background: deepskyblue;
+    border-color: deepskyblue;
+}
+.colorpaletteskyblue.md-checked .md-icon {
+    background: deepskyblue;
+}
+
+.colorpalettepink .md-icon {
+    background: deeppink;
+    border-color: deeppink;
+}
+.colorpalettepink.md-checked .md-icon {
+    background: deeppink;
 }
 
 .description-wrapper .md-resize-wrapper {

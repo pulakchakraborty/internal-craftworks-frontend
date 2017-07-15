@@ -14,11 +14,43 @@ export default class ProductsService {
         this.UserService = UserService;
         this.$state = $state;
         this.Upload = Upload;
-
+        this.passCategory = "";
+        this.passKeyword = "";
     }
 
     static get name(){
         return 'productsService';
+    }
+
+    // categorySetter function to set category from either side navigation bar or header
+    categorySetter(sendCategory) {
+        this.passCategory = sendCategory;
+        //this.passCategory = category;
+        console.log("debug msg: ", this.passCategory);
+        return true;
+    }
+
+    // categoryGetter function used as a service to fetch/refresh category data into search and filter page
+    categoryGetter() {
+        console.log(this.passCategory);
+        if (this.passCategory !== "") {
+            console.log("inside getter if: ", this.passCategory);
+            return this.passCategory;
+        }
+        else {
+            return "";
+        }
+
+    }
+
+    searchKeywordSetter(searchKeyword) {
+        this.passKeyword = searchKeyword;
+        console.log("debug msg: ", this.passKeyword);
+        return true;
+    }
+
+    searchKeywordGetter() {
+        return this.passKeyword;
     }
 
     list() {

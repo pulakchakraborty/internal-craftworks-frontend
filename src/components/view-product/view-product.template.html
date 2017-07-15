@@ -1,29 +1,105 @@
-<md-content class="md-no-momentum">
-    <div layout="row" layout-padding>
-        <!-- Start of Navigationblock left-->
-        <div flex="20">
-            <md-card class="navigationBlock">
-                <p style="background-color: lightgrey">
-                    <md-button aria-label="My Account" class="md-icon-button" style="color: #8BC34A;">
+<!-- <div class="md-no-momentum">
+    <div layout="row" layout-padding> -->
+
+        <!-- <div flex="20"> -->
+            <!-- <md-content class="">
+                <div layout-gt-sm="row">
+                    <md-input-container flex-gt-sm>
                         <md-icon>
-                            <ng-md-icon icon="face"></ng-md-icon>
+                            <ng-md-icon icon="search"></ng-md-icon>
                         </md-icon>
-                    </md-button>
-                    My Account
-                </p>
-                <p class="navigationTemplate">My Profile</p>
-                <p class="navigationTemplate" ng-click="$ctrl.myOffers()">My Offers</p>
-                <p class="navigationTemplate">Messages</p>
-                <p class="navigationTemplate">My Events</p>
-                <p class="navigationTemplate">My Blogs</p>
-                <p class="navigationTemplate">Settings</p>
-            </md-card>
+                        <input name="name" ng-model="$ctrl.filter.name" type="search" placeholder="Search for products">
+                    </md-input-container>
+
+                </div>
+            </md-content> -->
+            <div class="md-no-momentum">
+            <md-content layout-padding="">
+                <md-card>
+                    <md-card-title>
+                        <md-card-title-text>
+                            <span class="md-headline">Designer</span>
+                        </md-card-title-text>
+                    </md-card-title>
+                    <md-divider></md-divider>
+                    <md-card-content>
+                        <div flex-xs  layout="column">
+                            <md-content>
+                                <md-card layout-align="center center">
+                                    <img ng-src="{{$ctrl.userFromApi.imagePath}}" class="user-image">
+                                </md-card>
+                            </md-content>
+                        </div>
+                        <div flex-xs layout="column">
+                            <h4>{{ $ctrl.userFromApi.firstName }} {{ $ctrl.userFromApi.lastName }}</h4>
+                            <p>{{ $ctrl.userFromApi.city }}, {{ $ctrl.userFromApi.state }}</p>
+                        </div>
+                        <div flex-xs class="addToCart" layout="column">
+                            <md-button  class="md-raised md-primary" ng-click="sendMail($ctrl.product.seller.email)">
+                                <a class="mailbutton"href="mailto: {{$ctrl.userFromApi.email}}">
+                                    <md-icon><ng-md-icon icon="chat" ></ng-md-icon></md-icon>
+                                    Get in touch</a>
+                            </md-button>
+                        </div>
+                    </md-card-content>
+                </md-card>
+            </md-content>
+                <!--
+            <md-divider></md-divider>
+            <md-content layout-padding="">
+                <md-card class="navigationBlock">
+                    <p style="background-color: lightgrey">
+                        <md-button aria-label="My Account" class="md-icon-button" style="color: #8BC34A;">
+                            <md-icon>
+                                <ng-md-icon icon="face"></ng-md-icon>
+                            </md-icon>
+                        </md-button>
+                        My Account
+                    </p>
+                    <p class="navigationTemplate" ng-click="$ctrl.myOffers()">
+                        <md-icon>
+                            <ng-md-icon icon="shop"></ng-md-icon>
+                        </md-icon>
+                        My Offers
+                    </p>
+                    <p class="navigationTemplate" ng-click="$ctrl.myOffers()">
+                        <md-icon>
+                            <ng-md-icon icon="email"></ng-md-icon>
+                        </md-icon>
+                        Messages
+                    </p>
+                    <p class="navigationTemplate" ng-click="$ctrl.myOffers()">
+                        <md-icon>
+                            <ng-md-icon icon="event_available"></ng-md-icon>
+                        </md-icon>
+                        My Events
+                    </p>
+                    <p class="navigationTemplate" ng-click="$ctrl.myOffers()">
+                        <md-icon>
+                            <ng-md-icon icon="border_color"></ng-md-icon>
+                        </md-icon>
+                        My Blogs
+                    </p>
+                    <p class="navigationTemplate" ng-click="$ctrl.myOffers()">
+                        <md-icon>
+                            <ng-md-icon icon="settings"></ng-md-icon>
+                        </md-icon>
+                        Settings
+                    </p>
+                </md-card>
+            </md-content>
+            -->
         </div>
         <!-- End of Navigationblock left-->
         <!-- Start Block for new Offer right-->
+
+        <!--
         <div flex="80">
             <ui-view flex></ui-view>
-        </div>
-    </div>
-</md-content>
+        </div> -->
+
+
+
+  <!--  </div>
+</div> -->
 
