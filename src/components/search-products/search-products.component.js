@@ -129,7 +129,7 @@ class SearchProductsComponentController{
                 || (color['isGreen'] === true)
                 || (color['isBlue'] === true)
                 || (color['isViolette'] === true)
-                || (color['isWhite'] === true)
+                || (color['isPink'] === true)
                 || (color['isBlack'] === true)
                 || (color['isGrey'] === true)){
                 return function (result) {
@@ -154,7 +154,7 @@ class SearchProductsComponentController{
                     else if (result._source.color['isViolette'] === color['isViolette']) {
                         return true;
                     }
-                    /*else if (result._source.color['isWhite'] === color['isWhite']) {
+                    else if (result._source.color['isPink'] === color['isPink']) {
                         return true;
                     }
                     else if (result._source.color['isBlack'] === color['isBlack']) {
@@ -163,7 +163,7 @@ class SearchProductsComponentController{
                     else if (result._source.color['isGrey'] === color['isGrey']) {
                         return true;
                     }
-                    else {
+                    /*else {
                         return false;
                     }*/
                 }
