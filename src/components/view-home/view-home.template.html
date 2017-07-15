@@ -11,12 +11,42 @@
         <li ng-hide="$ctrl.isAuthenticated()" class="sign-up" ><a ui-sref="app.signup">Sign-up</a></li>
         <li ng-show="$ctrl.isAuthenticated()">
           <md-select class="user-dropdownhome" style="font-size: 16px" ng-model="user" placeholder="{{$ctrl.isAuthenticated() ? $ctrl.getCurrentUser() : Login }}">
-            <md-option style="font-size: 16px" value="My account" ng-if="$ctrl.isAuthenticated()">My account</md-option>
-            <md-option style="font-size: 16px" value="My offers" ng-if="$ctrl.isAuthenticated()" ng-click="$ctrl.myOffers()">My offers</md-option>
-            <md-option style="font-size: 16px" value="Create new offer" ng-if="$ctrl.isAuthenticated()" ng-click="$ctrl.addProduct()">Create new offer</md-option>
-            <md-option style="font-size: 16px" value="Settings" ng-if="$ctrl.isAuthenticated()">Settings</md-option>
-            <md-option style="font-size: 16px"value="LogOut" ng-if="$ctrl.isAuthenticated()" ng-click="$ctrl.logout($event)">Sign out</md-option>
-            <md-option style="font-size: 16px"value="Login" ng-if="!$ctrl.isAuthenticated()" ng-click="$ctrl.login($event)">Login</md-option>
+            <md-option style="font-size: 16px" value="My account" ng-if="$ctrl.isAuthenticated()">
+              <md-icon>
+                <ng-md-icon icon="account_circle"></ng-md-icon>
+              </md-icon>
+              My account
+            </md-option>
+            <md-option style="font-size: 16px" value="My offers" ng-if="$ctrl.isAuthenticated()" ng-click="$ctrl.myOffers()">
+              <md-icon>
+                <ng-md-icon icon="shop"></ng-md-icon>
+              </md-icon>
+              My offers
+            </md-option>
+            <md-option style="font-size: 16px" value="Create new offer" ng-if="$ctrl.isAuthenticated()" ng-click="$ctrl.addProduct()">
+              <md-icon>
+                <ng-md-icon icon="add_circle"></ng-md-icon>
+              </md-icon>
+              Create new offer
+            </md-option>
+            <md-option style="font-size: 16px" value="Settings" ng-if="$ctrl.isAuthenticated()">
+              <md-icon>
+                <ng-md-icon icon="settings"></ng-md-icon>
+              </md-icon>
+              Settings
+            </md-option>
+            <md-option style="font-size: 16px"value="LogOut" ng-if="$ctrl.isAuthenticated()" ng-click="$ctrl.logout($event)">
+              <md-icon>
+                <ng-md-icon icon="power_settings_new"></ng-md-icon>
+              </md-icon>
+              Sign out
+            </md-option>
+            <md-option style="font-size: 16px"value="Login" ng-if="!$ctrl.isAuthenticated()" ng-click="$ctrl.login($event)">
+              <md-icon>
+                <ng-md-icon icon="power_settings_new"></ng-md-icon>
+              </md-icon>
+              Login
+            </md-option>
           </md-select>
         </li>
       </ul>
