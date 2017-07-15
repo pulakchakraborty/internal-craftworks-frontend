@@ -40,11 +40,11 @@ class ViewProductsSellerComponentController{
     };
 
 
-    newProduct(){
+    addProduct() {
         if (this.UserService.isAuthenticated()) {
-            this.$state.go('productAdd',{});
+            this.$state.go('app.productAdd',);
         } else {
-            this.$state.go('login',{});
+            this.$state.go('app.login', {});
         }
     }
 
