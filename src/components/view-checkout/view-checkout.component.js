@@ -54,9 +54,12 @@ class CheckOutComponentController {
         this.$state.go('app.offers', {});
     };
 
-    checkout() {
-        console.log(this.order);
+    checkout(products) {
+
         let user = this.UserService.getCurrentUser();
+        this.order['buyer'] = user['_id'];
+        this.order.items = products;
+        console.log(this.order);
         this.OrdersService.create(this.order).then(data => {
             let _id = data['_id'];
             this.$state.go('app.checkoutsuccess', {});
@@ -69,7 +72,9 @@ class CheckOutComponentController {
         return deliverycost;
     };
 
-    filladressfields(addressline1, city, state, zip) {
+    filladressfields(firstName, lastName, addressline1, city, state, zip) {
+        this.order.firstName = firstName;
+        this.order.lastName = lastName;
         this.order.addressLine1 = addressline1;
         this.order.zip = zip;
         this.order.state = state;
@@ -155,7 +160,7 @@ class CheckOutComponentController {
         paypal.Button.render({
 
 
-            env: 'sandbox', // sandbox | production
+            env: 'production', // sandbox | production
 
             client: {
                 sandbox:    'AZDxjDScFpQtjWTOUtWKbyN_bDt4OgqaF4eYXlewfBP4-8aqX3PiV8e1GWU6liB2CUXlkA59kJXE7M6R',

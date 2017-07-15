@@ -8,11 +8,27 @@
                 Step 1/3: Delivery Address
             </h4>
             <md-radio-group ng-model="$ctrl.checkout.addressOption">
-                <md-radio-button id="useraddress" aria-label="Choose user address" value="option1" ng-click="$ctrl.filladressfields($ctrl.userFromApi.addressLine1, $ctrl.userFromApi.city, $ctrl.userFromApi.state, $ctrl.userFromApi.zip)">
+                <md-radio-button id="useraddress" aria-label="Choose user address" value="option1" ng-click="$ctrl.filladressfields($ctrl.userFromApi.firstName, $ctrl.userFromApi.lastName, $ctrl.userFromApi.addressLine1, $ctrl.userFromApi.city, $ctrl.userFromApi.state, $ctrl.userFromApi.zip)">
                     Take this Address: <b>{{$ctrl.userFromApi.firstName}} {{$ctrl.userFromApi.lastName}}</b>, {{$ctrl.userFromApi.addressLine1}}, {{$ctrl.userFromApi.zip}} {{$ctrl.userFromApi.city}}</md-radio-button>
                 <md-radio-button id="newaddress" aria-label="Choose new address" value="option2"> Insert new Address </md-radio-button>
             </md-radio-group>
                 <div class="md-block" ng-if="$ctrl.checkout.addressOption === 'option2'" flex-gt-sm>
+                    <div layout-gt-sm="row">
+                        <md-input-container class="md-block" flex-gt-sm>
+                            <label>First Name</label>
+                            <input type="text" name="firstName" ng-model="$ctrl.order.firstName" required="" md-maxlength="30"/>
+                            <div ng-messages="CheckoutForm.firstName.$error" role="alert" multiple="">
+                                <div ng-message="required">Please enter your first name.</div>
+                            </div>
+                        </md-input-container>
+                        <md-input-container class="md-block" flex-gt-sm>
+                            <label>Last Name</label>
+                            <input type="text" name="lastName" ng-model="$ctrl.order.lastName" required="" md-maxlength="30"/>
+                            <div ng-messages="CheckoutForm.lastName.$error" role="alert" multiple="">
+                                <div ng-message="required">Please enter your last name.</div>
+                            </div>
+                        </md-input-container>
+                    </div>
                             <md-input-container class="md-block">
                                 <label>Address Line 1</label>
                                 <input type="text" name="addressLine1" ng-model="$ctrl.order.addressLine1" required=""/>
@@ -98,17 +114,17 @@
             <h4 class="stepInstruction">
                 Step 3/3: Payment
             </h4>
-            <md-radio-group ng-model="$ctrl.checkout.paymentmethod">
+            <md-radio-group ng-model="$ctrl.order.payment">
                 <div layout="row">
                     <md-input-container class="md-block" flex-gt-sm>
-                        <md-radio-button ng-model="$ctrl.order.addressLine1['isIBAN']" aria-label="Choose IBAN" value="isIBAN">Bank Transfer</md-radio-button>
+                        <md-radio-button ng-model="$ctrl.order.payment['isIBAN']" aria-label="Choose IBAN" value="isIBAN">Bank Transfer</md-radio-button>
                     </md-input-container>
                     <md-input-container class="md-block" flex-gt-sm>
                         <md-radio-button ng-model="$ctrl.order.payment['isPayPal']" aria-label="Choose Paypal" value="isPayPal"> PayPal </md-radio-button>
                     </md-input-container>
                 </div>
             </md-radio-group>
-            <md-input-container class="md-block" ng-if="$ctrl.checkout.paymentmethod === 'isIBAN'" flex-gt-sm>
+            <md-input-container class="md-block" ng-if="$ctrl.order.payment === 'isIBAN'" flex-gt-sm>
                 <p>You have chosen <strong>Bank Transfer </strong> as your payment method. Great! </br>
                     Please transfer the requested amount of money to the following Bank Account:
                 </br>
@@ -122,7 +138,7 @@
                 </p>
 
             </md-input-container>
-            <md-input-container class="md-block" ng-if="$ctrl.checkout.paymentmethod === 'isPayPal'" flex-gt-sm>
+            <md-input-container class="md-block" ng-if="$ctrl.order.payment === 'isPayPal'" flex-gt-sm>
                 <paypal-button env="opts.env" client="opts.client" payment="opts.payment" commit="opts.commit" on-authorize="opts.onAuthorize"></paypal-button>
                 <div id="paypal-button-container"  data-ng-init="$ctrl.init()"></div>
             </md-input-container>
@@ -132,7 +148,7 @@
             <div class="afterbutton" layout="row">
                 <span flex></span>
                 <md-button class="md-raised" ng-click="$ctrl.cancel()">Cancel</md-button>
-                <md-button class="md-raised md-primary" ng-click="$ctrl.checkout()">Buy</md-button>
+                <md-button class="md-raised md-primary" ng-click="$ctrl.checkout($ctrl.products)">Buy</md-button>
             </div>
         </div>
      <div flex="10"></div>

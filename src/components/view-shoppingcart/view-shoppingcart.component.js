@@ -27,11 +27,11 @@ class ViewShoppingCartComponent {
 }
 
 class ViewShoppingCartComponentController{
-    constructor($state,UserService,ProductsService, $cookies){
+    constructor($state,UserService,ProductsService, $cookies, $mdToast){
         this.$state = $state;
         this.UserService = UserService;
         this.ProductsService = ProductsService;
-        this.shoppingCart = [];
+        this.$mdToast = $mdToast;
 
         this.products = [];
 
@@ -63,9 +63,7 @@ class ViewShoppingCartComponentController{
         this.$state.go('product',{ productId:_id});
     };
 
-    static get $inject(){
-        return ['$state', UserService.name, ProductsService.name, '$cookies'];
-    };
+
 
     subtotal(products) {
         var total = 0;
@@ -88,9 +86,21 @@ class ViewShoppingCartComponentController{
         this.$state.go('app.offers',{});
     };
 
-    checkout() {
+    checkout(product) {
+        console.log(product);
         if (this.UserService.isAuthenticated()) {
-            this.$state.go('app.checkout',);
+            if(product.length !== 0) {
+                this.$state.go('app.checkout',);
+            } else {
+                this.$mdToast.show(
+                    this.$mdToast.simple()
+                        .toastClass('md-toast-error')
+                        .textContent('There are no items in your shopping cart! Go shopping! :)')
+                        .position('bottom right')
+                        .hideDelay(5000)
+                );
+            }
+
         } else {
             this.$state.go('app.login',{});
         }
@@ -139,6 +149,10 @@ class ViewShoppingCartComponentController{
 
         this.priceCalculate();
     }
+
+    static get $inject(){
+        return ['$state', UserService.name, ProductsService.name, '$cookies', '$mdToast'];
+    };
 }
 
 export default ViewShoppingCartComponent;
