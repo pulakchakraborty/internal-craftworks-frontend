@@ -41,7 +41,7 @@ class ViewProductCreateComponentController{
     //User gets back to My Offers
     cancel() {
         let requestingUser = this.UserService.getCurrentUser();
-        this.$state.go('app.product.productsSeller',{ sellerId: requestingUser['_id'] });
+        this.$state.go('app.productsSeller',{ sellerId: requestingUser['_id'] });
     };
 
     //Save new Offer into Database
@@ -52,7 +52,7 @@ class ViewProductCreateComponentController{
         this.product['seller'] = user['_id'];
         this.ProductsService.create(this.product).then(data => {
             let _id = data['_id'];
-            this.$state.go('app.product.productsSeller',{sellerId:seller_Id});
+            this.$state.go('app.productsSeller',{sellerId:seller_Id});
         });
     };
 

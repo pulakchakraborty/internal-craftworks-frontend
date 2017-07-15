@@ -46,7 +46,7 @@ class ViewProductEditComponentController{
     cancel() {
         this.model = JSON.parse(JSON.stringify(this.product));
         let requestingUser = this.UserService.getCurrentUser();
-        this.$state.go('app.product.productsSeller',{ sellerId: requestingUser['_id'] });
+        this.$state.go('app.productsSeller',{ sellerId: requestingUser['_id'] });
     };
 
     //saves changes of product
@@ -56,7 +56,7 @@ class ViewProductEditComponentController{
         this.ProductsService.update(this.model).then(data => {
             this.product = JSON.parse(JSON.stringify(data));
 
-            this.$state.go('app.product.productsSeller',{sellerId:seller_Id});
+            this.$state.go('app.productsSeller',{sellerId:seller_Id});
         });
 
     };
