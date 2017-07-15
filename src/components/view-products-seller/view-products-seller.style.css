@@ -66,3 +66,7 @@ md-grid-tile-footer figcaption  {
 *:focus {
     outline: none;
 }
+
+.offer-box {
+    background: lightgrey;
+}

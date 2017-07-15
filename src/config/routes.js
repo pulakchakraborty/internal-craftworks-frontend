@@ -125,8 +125,8 @@ export default function config ($stateProvider, $urlRouterProvider, $locationPro
                  product : resolveProduct
             }
         })
-        .state('app.product.productsSeller', {
-            url: '/seller/:sellerId',
+        .state('app.productsSeller', {
+            url: '/products/seller/:sellerId',
             component: ProductsSellerComponent.name,
             onEnter: function(){
                 $windowProvider.$get().document.title = "CraftWorks | Designer Zone: My offered products";
