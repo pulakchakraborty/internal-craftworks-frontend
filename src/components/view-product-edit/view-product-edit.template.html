@@ -1,149 +1,156 @@
-<md-card class="offerBlock">
-    <div layout="column" flex>
-        <div class="title-wrapper">
-            <br/>
-            <h1 id="headline">
-                Update your product: {{ $ctrl.model.name }}
-            </h1>
-            <p class="iconoffer">+</p>
-            <br/>
-        </div>
-        <div>
-            <form name="productForm">
-                <md-input-container class="textTemplate" flex-gt-sm>
-                    <label>Name</label>
-                    <md-icon>
-                        <ng-md-icon icon="title"></ng-md-icon>
-                    </md-icon>
-                    <input name="name" ng-model="$ctrl.model.name" type="text" required="">
-                    <div ng-messages="productForm.name.$error" role="alert" multiple="">
-                        <div ng-message="required">Don't forget to name your product silly!</div>
-                    </div>
-                </md-input-container>
-                <md-input-container class="textTemplate description-wrapper" flex-gt-sm>
-                    <label>Description</label>
-                    <md-icon>
-                        <ng-md-icon icon="subject"></ng-md-icon>
-                    </md-icon>
-                    <textarea name="description"
-                              id="textArea1"
-                              ng-model="$ctrl.model.description"
-                              md-maxlength="500"
-                              rows="4"
-                              md-select-on-focus
-                              required=""></textarea>
-                    <div ng-messages="productForm.description.$error" role="alert" multiple="">
-                        <div ng-message="required">White space is boring.</div>
-                    </div>
-                </md-input-container>
-                <md-input-container class="textTemplate" flex-gt-sm>
-                    <label>Short Description</label>
-                    <md-icon>
-                        <ng-md-icon icon="subject"></ng-md-icon>
-                    </md-icon>
-                    <input name="shortDescription" ng-model="$ctrl.model.shortDescription" type="text" required="">
-                    <div ng-messages="productForm.shortDescription.$error" role="alert" multiple="">
-                        <div ng-message="required">Don't be too descriptive here.</div>
-                    </div>
-                </md-input-container>
-                <md-input-container class="textTemplate" flex-gt-sm>
-                    <label>Price in €</label>
-                    <md-icon>
-                        <ng-md-icon icon="euro_symbol"></ng-md-icon>
-                    </md-icon>
-                    <input name="price" ng-model="$ctrl.model.price" type="text" required="" ng-pattern="/^[0-9]+(\.[0-9]{1,2})?$/">
-                    <div ng-messages="productForm.price.$error" role="alert" multiple="">
-                        <div ng-message="required">Please enter the price.</div>
-                        <div ng-message="pattern">That doesn't look like a valid price.
-                        </div>
-                    </div>
-                </md-input-container>
-                <div layout-gt-sm="row">
-                    <md-input-container class="textTemplate" flex-gt-sm>
-                        <label>Product stock</label>
-                        <md-icon>
-                            <ng-md-icon icon="store"></ng-md-icon>
-                        </md-icon>
-                        <input name="stock" ng-model="$ctrl.model.stock" type="number" required="" >
-                        <div ng-messages="productForm.stock.$error" role="alert" multiple="">
-                            <div ng-message="required">Please enter the stock.</div>
-                        </div>
-                    </md-input-container>
-                    <md-input-container class="textTemplate" flex-gt-sm>
-                        <label>Processing time</label>
-                        <md-icon>
-                            <ng-md-icon icon="hourglass_full"></ng-md-icon>
-                        </md-icon>
-                        <input name="processingDays" ng-model="$ctrl.model.processingDays" type="number" required="" >
-                        <div ng-messages="productForm.processingDays.$error" role="alert" multiple="">
-                            <div ng-message="required">fill it up.</div>
-                        </div>
-                    </md-input-container>
-                </div>
-                <div>
-                    <md-input-container class="textTemplate" flex-gt-sm>
-                        <label>Category</label>
-                        <md-icon>
-                            <ng-md-icon icon="label"></ng-md-icon>
-                        </md-icon>
-                        <md-select ng-model="$ctrl.model.category" ng-change="$ctrl.onCategoryChange()" placeholder="Category" class="md-no-underline">
-                            <div ng-repeat="category in $ctrl.categories">
-                                <md-option value="{{category.name}}">{{category.name}}</md-option>
-                            </div>
-                        </md-select>
-                    </md-input-container>
-                </div>
-                <div>
-                    <md-input-container  class="textTemplate" flex-gt-sm>
-                        <label>Subcategory</label>
-                        <md-icon>
-                            <ng-md-icon icon="label_outline"></ng-md-icon>
-                        </md-icon>
-                        <md-select ng-model="$ctrl.model.subcategory" placeholder="{{$ctrl.model.subcategory}}" class="md-no-underline">
-                            <div ng-repeat="subcategory in $ctrl.subcategories">
-                                <md-option value="{{subcategory.name}}">{{subcategory.name}}</md-option>
-                            </div>
-                        </md-select>
-                    </md-input-container>
-                </div>
-                <div>
-                    <md-input-container class="textTemplate" flex-gt-sm>
-                        <md-input-container>
-                            <p></p>
-                            <div class="hint" style="color: grey;">Upload a nice product image </div>
-                        </md-input-container>
-                        <label>{{$ctrl.product.file.$ngfName }}</label>
-                        <md-button id="uploadButton" class="md-fab md-mini" aria-label="Upload images"
-                                   type="file" ngf-select ng-model="$ctrl.model.file" name="file" ngf-pattern="'image/*'"
-                                   ngf-accept="'image/*'" ngf-max-size="20MB" ngf-min-height="100"
-                                   ngf-resize="{width: 550, height: 550}">
-                            <md-icon>
-                                <ng-md-icon icon="camera_alt"></ng-md-icon>
-                            </md-icon>
-                        </md-button>
-                    </md-input-container>
-                </div>
-                <md-input-container class="textTemplate color-select" flex-gt-sm>
-                    <ul>
-                        <label class="choosecolor">Choose color</label>
-                        <md-checkbox ng-model="$ctrl.model.color['isYellow']" class="colorpaletteyellow" aria-label="Color Yellow"></md-checkbox>
-                        <md-checkbox ng-model="$ctrl.model.color['isOrange']" class="colorpaletteorange" aria-label="Color Orange"></md-checkbox>
-                        <md-checkbox ng-model="$ctrl.model.color['isRed']" class="colorpalettedarkred" aria-label="Color Red" ></md-checkbox>
-                        <md-checkbox ng-model="$ctrl.model.color['isBrown']" class="colorpalettebrown" aria-label="Color Brown" ></md-checkbox>
-                        <md-checkbox ng-model="$ctrl.model.color['isGreen']" class="colorpalettegreen" aria-label="Color Green" ></md-checkbox>
-                        <md-checkbox ng-model="$ctrl.model.color['isBlue']" class="colorpalettedarkblue" aria-label="Color Blue" ></md-checkbox>
-                        <md-checkbox ng-model="$ctrl.model.color['isViolette']" class="colorpaletteviolette" aria-label="Color Violette" ></md-checkbox>
-                        <md-checkbox ng-model="$ctrl.product.color['isBlack']" class="colorpaletteblack" aria-label="Color Black"></md-checkbox>
-                        <md-checkbox ng-model="$ctrl.product.color['isGrey']" class="colorpalettegrey" aria-label="Color Grey"></md-checkbox>
-                        <md-checkbox ng-model="$ctrl.product.color['isPink']" class="colorpalettepink" aria-label="Color Pink"></md-checkbox>
-                    </ul>
-                </md-input-container>
-                <div class="afterbutton" layout="row">
-                    <span flex></span>
-                    <md-button class="md-raised" ng-click="$ctrl.cancel()">Cancel</md-button>
-                    <md-button class="md-raised md-primary" ng-click="$ctrl.save()">Save</md-button>
-                </div>
-            </form>
-        </div>
+<md-content class="md-padding" layout-xs="column" layout="row">
+    <div flex-xs flex-gt-xs="20" layout="column">
+        <view-product></view-product>
     </div>
-</md-card>
+    <div flex-xs flex-gt-xs="80" layout="column">
+        <md-card class="offerBlock">
+            <div layout="column" flex>
+                <div class="title-wrapper">
+                    <br/>
+                    <h1 id="headline">
+                        Update your product: {{ $ctrl.model.name }}
+                    </h1>
+                    <p class="iconoffer">+</p>
+                    <br/>
+                </div>
+                <div>
+                    <form name="productForm">
+                        <md-input-container class="textTemplate" flex-gt-sm>
+                            <label>Name</label>
+                            <md-icon>
+                                <ng-md-icon icon="title"></ng-md-icon>
+                            </md-icon>
+                            <input name="name" ng-model="$ctrl.model.name" type="text" required="">
+                            <div ng-messages="productForm.name.$error" role="alert" multiple="">
+                                <div ng-message="required">Don't forget to name your product silly!</div>
+                            </div>
+                        </md-input-container>
+                        <md-input-container class="textTemplate description-wrapper" flex-gt-sm>
+                            <label>Description</label>
+                            <md-icon>
+                                <ng-md-icon icon="subject"></ng-md-icon>
+                            </md-icon>
+                            <textarea name="description"
+                                      id="textArea1"
+                                      ng-model="$ctrl.model.description"
+                                      md-maxlength="500"
+                                      rows="4"
+                                      md-select-on-focus
+                                      required=""></textarea>
+                            <div ng-messages="productForm.description.$error" role="alert" multiple="">
+                                <div ng-message="required">White space is boring.</div>
+                            </div>
+                        </md-input-container>
+                        <md-input-container class="textTemplate" flex-gt-sm>
+                            <label>Short Description</label>
+                            <md-icon>
+                                <ng-md-icon icon="subject"></ng-md-icon>
+                            </md-icon>
+                            <input name="shortDescription" ng-model="$ctrl.model.shortDescription" type="text" required="">
+                            <div ng-messages="productForm.shortDescription.$error" role="alert" multiple="">
+                                <div ng-message="required">Don't be too descriptive here.</div>
+                            </div>
+                        </md-input-container>
+                        <md-input-container class="textTemplate" flex-gt-sm>
+                            <label>Price in €</label>
+                            <md-icon>
+                                <ng-md-icon icon="euro_symbol"></ng-md-icon>
+                            </md-icon>
+                            <input name="price" ng-model="$ctrl.model.price" type="text" required="" ng-pattern="/^[0-9]+(\.[0-9]{1,2})?$/">
+                            <div ng-messages="productForm.price.$error" role="alert" multiple="">
+                                <div ng-message="required">Please enter the price.</div>
+                                <div ng-message="pattern">That doesn't look like a valid price.
+                                </div>
+                            </div>
+                        </md-input-container>
+                        <div layout-gt-sm="row">
+                            <md-input-container class="textTemplate" flex-gt-sm>
+                                <label>Product stock</label>
+                                <md-icon>
+                                    <ng-md-icon icon="store"></ng-md-icon>
+                                </md-icon>
+                                <input name="stock" ng-model="$ctrl.model.stock" type="number" required="" >
+                                <div ng-messages="productForm.stock.$error" role="alert" multiple="">
+                                    <div ng-message="required">Please enter the stock.</div>
+                                </div>
+                            </md-input-container>
+                            <md-input-container class="textTemplate" flex-gt-sm>
+                                <label>Processing time</label>
+                                <md-icon>
+                                    <ng-md-icon icon="hourglass_full"></ng-md-icon>
+                                </md-icon>
+                                <input name="processingDays" ng-model="$ctrl.model.processingDays" type="number" required="" >
+                                <div ng-messages="productForm.processingDays.$error" role="alert" multiple="">
+                                    <div ng-message="required">fill it up.</div>
+                                </div>
+                            </md-input-container>
+                        </div>
+                        <div>
+                            <md-input-container class="textTemplate" flex-gt-sm>
+                                <label>Category</label>
+                                <md-icon>
+                                    <ng-md-icon icon="label"></ng-md-icon>
+                                </md-icon>
+                                <md-select ng-model="$ctrl.model.category" ng-change="$ctrl.onCategoryChange()" placeholder="Category" class="md-no-underline">
+                                    <div ng-repeat="category in $ctrl.categories">
+                                        <md-option value="{{category.name}}">{{category.name}}</md-option>
+                                    </div>
+                                </md-select>
+                            </md-input-container>
+                        </div>
+                        <div>
+                            <md-input-container  class="textTemplate" flex-gt-sm>
+                                <label>Subcategory</label>
+                                <md-icon>
+                                    <ng-md-icon icon="label_outline"></ng-md-icon>
+                                </md-icon>
+                                <md-select ng-model="$ctrl.model.subcategory" placeholder="{{$ctrl.model.subcategory}}" class="md-no-underline">
+                                    <div ng-repeat="subcategory in $ctrl.subcategories">
+                                        <md-option value="{{subcategory.name}}">{{subcategory.name}}</md-option>
+                                    </div>
+                                </md-select>
+                            </md-input-container>
+                        </div>
+                        <div>
+                            <md-input-container class="textTemplate" flex-gt-sm>
+                                <md-input-container>
+                                    <p></p>
+                                    <div class="hint" style="color: grey;">Upload a nice product image </div>
+                                </md-input-container>
+                                <label>{{$ctrl.product.file.$ngfName }}</label>
+                                <md-button id="uploadButton" class="md-fab md-mini" aria-label="Upload images"
+                                           type="file" ngf-select ng-model="$ctrl.model.file" name="file" ngf-pattern="'image/*'"
+                                           ngf-accept="'image/*'" ngf-max-size="20MB" ngf-min-height="100"
+                                           ngf-resize="{width: 550, height: 550}">
+                                    <md-icon>
+                                        <ng-md-icon icon="camera_alt"></ng-md-icon>
+                                    </md-icon>
+                                </md-button>
+                            </md-input-container>
+                        </div>
+                        <md-input-container class="textTemplate color-select" flex-gt-sm>
+                            <ul>
+                                <label class="choosecolor">Choose color</label>
+                                <md-checkbox ng-model="$ctrl.model.color['isYellow']" class="colorpaletteyellow" aria-label="Color Yellow"></md-checkbox>
+                                <md-checkbox ng-model="$ctrl.model.color['isOrange']" class="colorpaletteorange" aria-label="Color Orange"></md-checkbox>
+                                <md-checkbox ng-model="$ctrl.model.color['isRed']" class="colorpalettedarkred" aria-label="Color Red" ></md-checkbox>
+                                <md-checkbox ng-model="$ctrl.model.color['isBrown']" class="colorpalettebrown" aria-label="Color Brown" ></md-checkbox>
+                                <md-checkbox ng-model="$ctrl.model.color['isGreen']" class="colorpalettegreen" aria-label="Color Green" ></md-checkbox>
+                                <md-checkbox ng-model="$ctrl.model.color['isBlue']" class="colorpalettedarkblue" aria-label="Color Blue" ></md-checkbox>
+                                <md-checkbox ng-model="$ctrl.model.color['isViolette']" class="colorpaletteviolette" aria-label="Color Violette" ></md-checkbox>
+                                <md-checkbox ng-model="$ctrl.product.color['isBlack']" class="colorpaletteblack" aria-label="Color Black"></md-checkbox>
+                                <md-checkbox ng-model="$ctrl.product.color['isGrey']" class="colorpalettegrey" aria-label="Color Grey"></md-checkbox>
+                                <md-checkbox ng-model="$ctrl.product.color['isPink']" class="colorpalettepink" aria-label="Color Pink"></md-checkbox>
+                            </ul>
+                        </md-input-container>
+                        <div class="afterbutton" layout="row">
+                            <span flex></span>
+                            <md-button class="md-raised" ng-click="$ctrl.cancel()">Cancel</md-button>
+                            <md-button class="md-raised md-primary" ng-click="$ctrl.save()">Save</md-button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </md-card>
+    </div>
+</md-content>

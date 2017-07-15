@@ -33,7 +33,7 @@ class ViewProductsSellerComponentController{
     edit (product) {
         if (this.UserService.isAuthenticated()) {
             let _id = product['_id'];
-            this.$state.go('app.product.productEdit',{ productId:_id});
+            this.$state.go('app.productEdit',{ productId:_id});
         } else {
             this.$state.go('login',{});
         }

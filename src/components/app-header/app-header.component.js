@@ -99,7 +99,7 @@ class AppHeaderComponentController{
 
     addProduct() {
         if (this.UserService.isAuthenticated()) {
-            this.$state.go('app.product.productAdd',);
+            this.$state.go('app.productAdd',);
         } else {
             this.$state.go('app.login', {});
         }
