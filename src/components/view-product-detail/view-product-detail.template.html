@@ -29,11 +29,14 @@
                             </div>
                             <span class="md-subheader">Price is inclusive of German VAT.</span>
                             <md-divider></md-divider>
-                            <div ng-if="$ctrl.product.stock < 10">
+                            <div ng-if="$ctrl.product.stock < 3">
                                 <h3 style="color: darkred">Only {{$ctrl.product.stock}} left in stock</h3>
                             </div>
-                            <div ng-if="$ctrl.product.stock >= 10">
+                            <div ng-if="$ctrl.product.stock < 10">
                                 <h3 style="color: orangered">{{$ctrl.product.stock}} items left in stock</h3>
+                            </div>
+                            <div ng-if="$ctrl.product.stock >= 10">
+                                <h3 style="color: grey">{{$ctrl.product.stock}} items left in stock</h3>
                             </div>
                         </md-card-content>
                     </md-card>
@@ -147,7 +150,8 @@
                             <span ng-if="$ctrl.product.color['isBlue']">Blue</span>
                             <span ng-if="$ctrl.product.color['isViolette']">Violet</span>
                             <span ng-if="$ctrl.product.color['isBlack']">Black</span>
-                            <span ng-if="$ctrl.product.color['isWhite']">White</span>
+                            <span ng-if="$ctrl.product.color['isGrey']">Grey</span>
+                            <span ng-if="$ctrl.product.color['isPink']">Pink</span>
                         </p>
                     </div>
                     <div ng-if="!$ctrl.product.weight">

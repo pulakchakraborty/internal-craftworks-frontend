@@ -71,18 +71,17 @@ class CheckOutSuccessComponentController{
         return user.username;
     };
 
-    paypal() {
+    // function gets called when user clicks on a particular category from side navigation
+    filterOnCategory(sendCategory){
+        this.ProductsService.categorySetter(sendCategory);
 
-            var env    = 'sandbox';
-            var client = AWi18rxt26-hrueMoPZ0tpGEOJnNT4QkiMQst9pYgaQNAfS1FLFxkxQuiaqRBj1vV5PmgHX_jA_c1ncL;
-            return paypal.rest.payment.create(env, client, {
-                transactions: [
-                    {
-                        amount: { total: '1.00', currency: 'USD' }
-                    }
-                ]
-            });
-        }
+        /* force load the search and filter page; not a good design pattern, but for the moment
+         would keep it here. This is done so that navigating to search result for a particular
+         category is possible
+         */
+        this.$state.go('app.productSearch',{ keyword: "all" }, {reload: true});
+
+    }
 
 
 

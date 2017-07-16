@@ -160,7 +160,7 @@ class CheckOutComponentController {
         paypal.Button.render({
 
 
-            env: 'production', // sandbox | production
+            env: 'sandbox', // sandbox | production
 
             client: {
                 sandbox:    'AZDxjDScFpQtjWTOUtWKbyN_bDt4OgqaF4eYXlewfBP4-8aqX3PiV8e1GWU6liB2CUXlkA59kJXE7M6R',
