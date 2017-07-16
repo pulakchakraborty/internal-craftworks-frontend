@@ -104,10 +104,9 @@
                     </div>
                     <md-input-container class="md-block" flex-gt-sm>
                         <label>Phone Number</label>
-                        <input type="text" name="phone" ng-model="$ctrl.signup.phone" ng-pattern="/^[0-9]{11}$/" required=""/>
+                        <input type="text" name="phone" ng-model="$ctrl.signup.phone" ng-pattern="/^[0-9]{11}$/" />
                         <div ng-messages="SignupForm.phone.$error" role="alert" multiple="">
                             <div ng-message="pattern">Your phone number should contain only numbers and be 11 characters long.</div>
-                            <div ng-message="required">Please enter the phone number.</div>
                         </div>
                     </md-input-container>
                     <div layout-gt-sm="row">
