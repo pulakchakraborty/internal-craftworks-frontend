@@ -67,7 +67,7 @@ export default class ProductsService {
 
     search(keyword) {
         let url = `${ this.resourceUrl }${ this.searchUrl }${ keyword }`;
-        return this.$http.post(url).then(responce => {
+        return this.$http.get(url).then(responce => {
 
             return new Promise((resolve, reject) => {
                 resolve(responce.data);
