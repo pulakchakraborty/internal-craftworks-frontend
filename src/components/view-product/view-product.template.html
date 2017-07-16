@@ -34,13 +34,6 @@
                             <h4>{{ $ctrl.userFromApi.firstName }} {{ $ctrl.userFromApi.lastName }}</h4>
                             <p>{{ $ctrl.userFromApi.city }}, {{ $ctrl.userFromApi.state }}</p>
                         </div>
-                        <div flex-xs class="addToCart" layout="column">
-                            <md-button  class="md-raised md-primary" ng-click="sendMail($ctrl.product.seller.email)">
-                                <a class="mailbutton"href="mailto: {{$ctrl.userFromApi.email}}">
-                                    <md-icon><ng-md-icon icon="chat" ></ng-md-icon></md-icon>
-                                    Get in touch</a>
-                            </md-button>
-                        </div>
                     </md-card-content>
                 </md-card>
             </md-content>

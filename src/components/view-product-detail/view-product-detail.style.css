@@ -14,8 +14,11 @@ pre {
 }
 
 .user-image {
-    width: 100%;
-    height: 200px;
+    display: block;
+    max-width:200px;
+    max-height:200px;
+    width: auto;
+    height: auto;
 }
 
 .mailbutton {

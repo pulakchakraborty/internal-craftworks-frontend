@@ -11,7 +11,7 @@
         <li ng-hide="$ctrl.isAuthenticated()" class="sign-up" ><a ui-sref="app.signup">Sign-up</a></li>
         <li ng-show="$ctrl.isAuthenticated()">
           <md-select class="user-dropdownhome" style="font-size: 16px" ng-model="user" placeholder="{{$ctrl.isAuthenticated() ? $ctrl.getCurrentUser() : Login }}">
-            <md-option style="font-size: 16px" value="My account" ng-if="$ctrl.isAuthenticated()">
+            <md-option style="font-size: 16px" value="My account" ng-if="$ctrl.isAuthenticated()" ng-click="$ctrl.myOffers()">
               <md-icon>
                 <ng-md-icon icon="account_circle"></ng-md-icon>
               </md-icon>
