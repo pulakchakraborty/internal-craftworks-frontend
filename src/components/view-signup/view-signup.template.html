@@ -15,26 +15,28 @@
                 <form name="SignupForm">
                     <md-input-container class="md-block" flex-gt-sm>
                         <label>Username</label>
-                        <input type="text" name="username" ng-model="$ctrl.signup.username"  required minlength="5" ng-pattern="/^[a-zA-Z0-9ÖÜÄöüäß]+$/" md-maxlength="15"/>
+                        <input type="text" name="username" ng-model="$ctrl.signup.username"  required minlength="5" ng-pattern="/^[a-zA-Z0-9ÖÜÄöüäß-]+$/" md-maxlength="15"/>
                         <div ng-messages="SignupForm.username.$error">
                             <div ng-message="required">Please enter your username.</div>
-                            <div ng-message="pattern">No whacky characters; We are sql injection proof!</div>
+                            <div ng-message="pattern">No whacky characters please; We are sql injection proof!</div>
                             <div ng-message-exp="['minlength', 'maxlength']">Your username should be between 5 and 15 characters.</div>
                         </div>
                     </md-input-container>
                     <div layout-gt-sm="row">
                         <md-input-container class="md-block" flex-gt-sm>
                             <label>First Name</label>
-                            <input type="text" name="firstName" ng-model="$ctrl.signup.firstName" required="" md-maxlength="30"/>
+                            <input type="text" name="firstName" ng-model="$ctrl.signup.firstName" required="" ng-pattern="/^[a-zA-Z0-9ÖÜÄöüäß-]+$/" md-maxlength="30"/>
                             <div ng-messages="SignupForm.firstName.$error" role="alert" multiple="">
+                                <div ng-message="pattern">No whacky characters please; We are sql injection proof!</div>
                                 <div ng-message="required">Please enter your first name.</div>
                             </div>
                         </md-input-container>
                         <md-input-container class="md-block" flex-gt-sm>
                             <label>Last Name</label>
-                            <input type="text" name="lastName" ng-model="$ctrl.signup.lastName" required="" md-maxlength="30"/>
+                            <input type="text" name="lastName" ng-model="$ctrl.signup.lastName" required="" ng-pattern="/^[a-zA-Z0-9ÖÜÄöüäß-]+$/" md-maxlength="30"/>
                             <div ng-messages="SignupForm.lastName.$error" role="alert" multiple="">
                                 <div ng-message="required">Please enter your last name.</div>
+                                <div ng-message="pattern">No whacky characters please; We are sql injection proof!</div>
                             </div>
                         </md-input-container>
                     </div>
@@ -56,27 +58,33 @@
                     </md-input-container>
                     <md-input-container class="md-block" flex-gt-sm>
                         <label>Address Line 1</label>
-                        <input type="text" name="addressLine1" ng-model="$ctrl.signup.addressLine1" required=""/>
+                        <input type="text" name="addressLine1" ng-model="$ctrl.signup.addressLine1" ng-pattern="/^[a-zA-Z0-9ÖÜÄöüäß'-]+$/" required=""/>
                         <div ng-messages="SignupForm.addressLine1.$error" role="alert" multiple="">
                             <div ng-message="required">Please enter your street address.</div>
+                            <div ng-message="pattern">No whacky characters please; We are sql injection proof!</div>
                         </div>
                     </md-input-container>
                     <md-input-container class="md-block" flex-gt-sm>
                         <label>Address Line 2</label>
-                        <input type="text" name="addressLine2" ng-model="$ctrl.signup.addressLine2" />
+                        <input type="text" name="addressLine2" ng-model="$ctrl.signup.addressLine2" ng-pattern="/^[a-zA-Z0-9ÖÜÄöüäß'-]+$/" />
+                        <div ng-messages="SignupForm.addressLine2.$error" role="alert" multiple="">
+                            <div ng-message="pattern">No whacky characters please; We are sql injection proof!</div>
+                        </div>
                     </md-input-container>
                     <div layout-gt-sm="row">
                         <md-input-container class="md-block" flex-gt-sm>
                             <label>City</label>
-                            <input type="text" name="city" ng-model="$ctrl.signup.city" required=""/>
+                            <input type="text" name="city" ng-model="$ctrl.signup.city" ng-pattern="/^[a-zA-ZÖÜÄöüäß-]+$/" required=""/>
                             <div ng-messages="SignupForm.city.$error" role="alert" multiple="">
+                                <div ng-message="pattern">A city name should look like a C I T Y name</div>
                                 <div ng-message="required">Please enter your city name.</div>
                             </div>
                         </md-input-container>
                         <md-input-container class="md-block" flex-gt-sm>
                             <label>State</label>
-                            <input type="text" name="state" ng-model="$ctrl.signup.state"  required=""/>
+                            <input type="text" name="state" ng-model="$ctrl.signup.state" ng-pattern="/^[a-zA-ZÖÜÄöüäß-]+$/" required=""/>
                             <div ng-messages="SignupForm.state.$error" role="alert" multiple="">
+                                <div ng-message="pattern">Oh come on! Don't put your nerdy username as the name of your state.</div>
                                 <div ng-message="required">Please enter your state.</div>
                             </div>
                         </md-input-container>
@@ -96,14 +104,15 @@
                     </div>
                     <md-input-container class="md-block" flex-gt-sm>
                         <label>Phone Number</label>
-                        <input type="text" name="phone" ng-model="$ctrl.signup.phone"  required=""/>
+                        <input type="text" name="phone" ng-model="$ctrl.signup.phone" ng-pattern="/^[0-9]{11}$/" required=""/>
                         <div ng-messages="SignupForm.phone.$error" role="alert" multiple="">
+                            <div ng-message="pattern">Your phone number should contain only numbers and be 11 characters long.</div>
                             <div ng-message="required">Please enter the phone number.</div>
                         </div>
                     </md-input-container>
                     <div layout-gt-sm="row">
                         <md-input-container class="md-block" flex-gt-sm>
-                                <md-checkbox  ng-model="$ctrl.signup.paymentMethod.isIban" aria-label="Checkbox 1">IBAN</md-checkbox>
+                                <md-checkbox  ng-model="$ctrl.signup.paymentMethod.isIban" aria-label="Checkbox 1">Bank Details</md-checkbox>
                         </md-input-container>
                         <div>
                             <md-input-container class="textTemplate" flex-gt-sm>
@@ -125,15 +134,17 @@
                     <div layout-gt-sm="row">
                         <md-input-container class="md-block" ng-if="$ctrl.signup.paymentMethod.isIban" flex-gt-sm>
                             <label>IBAN</label>
-                            <input type="text" name="iban" ng-model="$ctrl.signup.iban" required />
+                            <input type="text" name="iban" ng-model="$ctrl.signup.iban" ng-pattern="/^[a-zA-Z0-9]+$/" required />
                             <div ng-messages="SignupForm.iban.$error" role="alert" multiple="">
+                                <div ng-message="pattern">That doesn't look like a valid IBAN number</div>
                                 <div ng-message="required">Please enter the IBAN number.</div>
                             </div>
                         </md-input-container>
                         <md-input-container class="md-block" ng-if="$ctrl.signup.paymentMethod.isIban" flex-gt-sm>
                             <label>BIC</label>
-                            <input type="text" name="bic" ng-model="$ctrl.signup.bic" required />
+                            <input type="text" name="bic" ng-model="$ctrl.signup.bic" ng-pattern="/^[a-zA-Z]+$/" required />
                             <div ng-messages="SignupForm.bic.$error" role="alert" multiple="">
+                                <div ng-message="pattern">That doesn't look like a valid BIC code</div>
                                 <div ng-message="required">Please enter the BIC.</div>
                             </div>
                         </md-input-container>
