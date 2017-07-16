@@ -62,6 +62,7 @@ class CheckOutComponentController {
         console.log(this.order);
         this.OrdersService.create(this.order).then(data => {
             let _id = data['_id'];
+            this.clearshoppingcart();
             this.$state.go('app.checkoutsuccess', {});
         });
     };
@@ -96,6 +97,15 @@ class CheckOutComponentController {
         return this.totalPrice;
     }
 
+    clearshoppingcart () {
+        const savedProducts = this.$cookies.getObject('shoping_cart');
+        savedProducts.forEach( (item, i) => {
+                savedProducts.splice(i, savedProducts.length);
+        })
+        this.$cookies.putObject('shoping_cart', savedProducts);
+
+    }
+
     $onInit(){
         // user information would be stored in userFromApi variable which would be accessible in the html template as well
         this.userFromApi = {};
@@ -104,30 +114,6 @@ class CheckOutComponentController {
             this.userFromApi = JSON.parse(JSON.stringify(data));
             console.log(this.userFromApi);
         });
-
-/*        checkoutProducts(){
-            this.buyingproducts = [];
-            this.quantity = [];
-
-
-            if (this.products.length != 0) {
-                for (var i = 0; i < this.products.length; i++) {
-                    this.buyingproducts = $scope.buyingproducts.concat(this.products[i].name);
-                    this.quantity = $scope.buyingproducts.concat(this.products[i].q);
-                }
-            }
-
-            this order.items = [];
-            for (var i = 0; i < this.products.length; i++){
-                items.push({
-                    name: this.buyingproducts[i],
-                    quantity: this.quantity[i],
-                })
-            }
-
-        }*/
-
-
 
 
         const productsInCart = this.$cookies.getObject('shoping_cart');
