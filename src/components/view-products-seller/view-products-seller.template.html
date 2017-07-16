@@ -1,12 +1,15 @@
-<md-content class="md-padding" layout-xs="column" layout="row">
+<div class="md-padding" layout-xs="column" layout="row">
+
     <div flex-xs flex-gt-xs="20" layout="column">
-        <md-input-container flex-gt-sm>
-            <md-icon>
-                <ng-md-icon icon="search"></ng-md-icon>
-            </md-icon>
-            <input name="name" ng-model="searchInDesigner" type="search" placeholder="Search for products">
-        </md-input-container>
-        <view-product></view-product>
+        <md-content>
+            <md-input-container flex-gt-sm>
+                <md-icon>
+                    <ng-md-icon icon="search"></ng-md-icon>
+                </md-icon>
+                <input name="name" ng-model="searchInDesigner" type="search" placeholder="Search for products">
+            </md-input-container>
+            <view-product></view-product>
+        </md-content>
     </div>
     <div flex-xs flex-gt-xs="80" layout="column">
         <div class="md-padding">
@@ -76,4 +79,4 @@
             </div>
         </md-content>
     </div>
-</md-content>
+</div>
