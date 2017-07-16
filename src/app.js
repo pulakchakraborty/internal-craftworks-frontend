@@ -34,7 +34,6 @@ import ViewProduct from './components/view-product/view-product';
 import ViewProductDetail from './components/view-product-detail/view-product-detail';
 import ViewLogin from './components/view-login/view-login';
 import ViewSignup from './components/view-signup/view-signup';
-import ViewShop from './components/view-shop/view-shop';
 import ViewProductsSeller from './components/view-products-seller/view-products-seller';
 import ChooseFile from './directives/choose-file/choose-file';
 import ViewShoppingCart from './components/view-shoppingcart/view-shoppingcart';
@@ -58,7 +57,6 @@ let app = angular.module('app', [
     AppContent.name,
     ViewLogin.name,
     ViewSignup.name,
-    ViewShop.name,
     ViewHome.name,
     ViewOffers.name,
     ViewProductEdit.name,

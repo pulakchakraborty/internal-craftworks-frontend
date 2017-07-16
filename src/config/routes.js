@@ -8,7 +8,6 @@ import ProductEditComponent from './../components/view-product-edit/view-product
 import ProductComponent from './../components/view-product/view-product.component';
 import LoginComponent from './../components/view-login/view-login.component';
 import SignupComponent from './../components/view-signup/view-signup.component';
-import ShopComponent from './../components/view-shop/view-shop.component';
 import ProductsSellerComponent from './../components/view-products-seller/view-products-seller.component';
 import ProductDetailComponent from './../components/view-product-detail/view-product-detail.component';
 import ShoppingCartComponent from './../components/view-shoppingcart/view-shoppingcart.component';
@@ -52,7 +51,6 @@ function resolveSearch($stateParams,productsService){
 config.$inject = ['$stateProvider', '$urlRouterProvider', '$locationProvider', '$windowProvider'];
 export default function config ($stateProvider, $urlRouterProvider, $locationProvider, $windowProvider){
 
-    //let $window = $windowProvider.$get();
     // For any unmatched url, redirect to /home
     $urlRouterProvider.otherwise("/");
 
@@ -68,10 +66,6 @@ export default function config ($stateProvider, $urlRouterProvider, $locationPro
             abstract: true,
             component: AppContentComponent.name,
             url: '/app'
-        })
-        .state('app.shop', {
-            url: '/shop/:category',
-            component: ShopComponent.name
         })
         .state('app.product', {
             url: '/products',
