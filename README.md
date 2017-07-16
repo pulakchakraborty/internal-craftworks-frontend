@@ -65,6 +65,14 @@ Behind the scenes this will call `webpack --config webpack.config.js `.  After, 
 
 ### Run the Application
 
+Note: Before running make sure that both the frontend and backend repositories are under a common root folder and named as it is. Otherwise the image uploads will not work. So the directory structure would be the following
+
+```
+/CraftWorks Webapp
+    /Internal-CraftWorks-Frontend
+    /Internal-CraftWorks-Backend
+```
+
 We have preconfigured the project with a simple development web server.  The simplest way to start
 this server is:
 
@@ -72,11 +80,11 @@ this server is:
 npm start
 ```
 
-We have configured the project to run a development server which would continuously look for .  The simplest way to start
+We have configured the project to run a development server which would continuously look for changes in the code.  The simplest way to start
 this server is:
 
 ```
-npm start
+npm run dev
 ```
 
 Now browse to the app at `http://localhost:8000/index.html`.
