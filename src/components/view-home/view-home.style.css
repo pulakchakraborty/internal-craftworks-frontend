@@ -82,9 +82,11 @@
  color: #000;
 }
 
-.user-dropdownhome {
+.user-dropdownhome  {
   font-size: 18px;
+  height: 100px;
 }
+
 
 .home-page .statement {
   display: flex;

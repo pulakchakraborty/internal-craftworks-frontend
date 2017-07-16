@@ -50,7 +50,8 @@ class ViewSignupComponentController{
             else {
                 console.log("User signup successful");
                 console.log(data);
-                this.$state.go('home',{});
+                let requestingUser = this.UserService.getCurrentUser();
+                this.$state.go('app.productsSeller',{ sellerId: requestingUser['_id'] });
             }
         });
     }

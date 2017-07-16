@@ -83,7 +83,7 @@ class ViewShoppingCartComponentController{
     };
 
     cancel() {
-        this.$state.go('app.offers',{});
+        this.$state.go('app.productSearch',{ keyword: "all" }, {reload: true});
     };
 
     checkout(product) {

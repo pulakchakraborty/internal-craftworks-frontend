@@ -51,7 +51,7 @@ class CheckOutComponentController {
     };
 
     cancel() {
-        this.$state.go('app.offers', {});
+        this.$state.go('app.productSearch',{ keyword: "all" }, {reload: true});
     };
 
     checkout(products) {
@@ -150,7 +150,7 @@ class CheckOutComponentController {
 
             client: {
                 sandbox:    'AZDxjDScFpQtjWTOUtWKbyN_bDt4OgqaF4eYXlewfBP4-8aqX3PiV8e1GWU6liB2CUXlkA59kJXE7M6R',
-                production: 'ARpexpnsoXMeLydUtEb9fmX3hxzAO65betV3qcUrWPlKByp_97dCWxew5cizEhF1FkTkq4XQWTlbLGQV'
+                production: 'AZDxjDScFpQtjWTOUtWKbyN_bDt4OgqaF4eYXlewfBP4-8aqX3PiV8e1GWU6liB2CUXlkA59kJXE7M6R'
             },
 
             // Show the buyer a 'Pay Now' button in the checkout flow

@@ -131,7 +131,7 @@
                         <md-slider-container>
 
                             <span>€ 0</span>
-                            <md-slider flex min="0" max="255" ng-model="$ctrl.filter.price" aria-label="pricefilter" id="green-slider">
+                            <md-slider flex min="0" max="500" ng-model="$ctrl.filter.price" aria-label="pricefilter" id="green-slider">
                             </md-slider>
                             <md-input-container>
                                 <input flex type="number" ng-model="$ctrl.filter.price" aria-label="pricefilter" aria-controls="green-slider">
@@ -200,7 +200,7 @@
                                         </div>
                                     </div>
                                     <div class="right">
-                                        <md-button class="md-icon-button" aria-label="Shop Product" style="float: right;" ng-click="$ctrl.addtoShoppingCart(product)">
+                                        <md-button class="md-icon-button" aria-label="Shop Product" style="float: right;" ng-click="$ctrl.addtoShoppingCart(result._source)">
                                             <md-icon>
                                                  <ng-md-icon icon="shopping_cart"></ng-md-icon>
                                             </md-icon>
