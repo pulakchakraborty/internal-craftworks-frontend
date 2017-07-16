@@ -21,10 +21,11 @@ class ViewSignupComponent {
 }
 
 class ViewSignupComponentController{
-    constructor($state,UserService){
+    constructor($state,UserService,$mdToast){
         //this.user = {};
         this.$state = $state;
         this.UserService = UserService;
+        this.$mdToast = $mdToast;
     }
 
     $onInit() {
@@ -36,14 +37,26 @@ class ViewSignupComponentController{
        // let password = this.signup.password;
 
         this.UserService.signup(this.signup).then(data => {
-            console.log("inside signup component submit block");
-            console.log(data);
-            this.$state.go('home',{});
+            if (data.code === 11000) {
+                console.log("User signup NOT successful");
+                this.$mdToast.show(
+                    this.$mdToast.simple()
+                        .toastClass('md-toast-error')
+                        .textContent('Please chose a different username or email. An user with the chosen username or email already exists!')
+                        .position('bottom right')
+                        .hideDelay(5000)
+                );
+            }
+            else {
+                console.log("User signup successful");
+                console.log(data);
+                this.$state.go('home',{});
+            }
         });
     }
 
     static get $inject(){
-        return ['$state', UserService.name];
+        return ['$state', UserService.name, '$mdToast'];
     }
 
 }

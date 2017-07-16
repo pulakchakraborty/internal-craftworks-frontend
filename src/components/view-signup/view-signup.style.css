@@ -4,3 +4,13 @@
 .signup-form md-card md-card-title {
     background-color: blue;
 }
+
+.md-toast-error .md-toast-content{
+    color: rgb(193, 30, 23) !important;
+    font-weight: bold;
+}
+
+.md-success-toast-theme .md-toast-content {
+    color: rgb(34,139,34) !important;
+    font-weight: bold;
+}

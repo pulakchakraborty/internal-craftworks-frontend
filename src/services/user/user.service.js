@@ -33,7 +33,12 @@ export default class UserService {
                 console.log("inside return promise");
                 resolve(responce.data);
             });
-
+        }, responce => {
+            console.log("inside unsuccessful promise");
+            return new Promise((resolve, reject) => {
+                console.log("inside unsucessful return promise");
+                resolve(responce.data);
+            });
         });
     }
 
