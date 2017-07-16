@@ -152,6 +152,9 @@ export default function config ($stateProvider, $urlRouterProvider, $locationPro
         .state('app.shoppingCart', {
             url: '/myshoppingcart',
             component: ShoppingCartComponent.name,
+            onEnter: function(){
+                $windowProvider.$get().document.title = "CraftWorks | Shopping Cart";
+            },
             resolve: {
                 products : resolveShoppingCart
             }
@@ -159,6 +162,9 @@ export default function config ($stateProvider, $urlRouterProvider, $locationPro
         .state('app.checkout', {
             url: '/checkout',
             component: CheckoutComponent.name,
+            onEnter: function(){
+                $windowProvider.$get().document.title = "CraftWorks | Checkout";
+            },
             resolve: {
                 products : resolveCheckOut
             }
@@ -166,9 +172,15 @@ export default function config ($stateProvider, $urlRouterProvider, $locationPro
         .state('app.checkoutsuccess', {
             url: '/checkoutsuccess',
             component: CheckOutSuccessComponent.name,
+            onEnter: function(){
+                $windowProvider.$get().document.title = "CraftWorks | Order successful";
+            }
         })
         .state('app.aboutus', {
             url: '/aboutus',
             component: AboutUsComponent.name,
+            onEnter: function(){
+                $windowProvider.$get().document.title = "CraftWorks | About us";
+            }
         })
 }
