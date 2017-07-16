@@ -87,4 +87,14 @@ this server is:
 npm run dev
 ```
 
-Now browse to the app at `http://localhost:8080/#!/`.
+Now browse to the app at `http://localhost:8080/#!/`
+
+
+### Browse through the app
+
+You can use the already existing user with the following credentials to browse through the application or create your own account.
+
+```
+username: BarbDesign
+password: BarbDesign
+```
