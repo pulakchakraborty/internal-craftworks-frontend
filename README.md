@@ -1,11 +1,13 @@
 # CraftWorks-Frontend application
 Web application for handicraft products based on AngularJS. Backend can be found [here](https://github.com/pulakchakraborty/Internal-CraftWorks-Backend)
 
-Landing Page:
+## Landing page of the application:
+
 ![CraftWorks Homepage](https://github.com/pulakchakraborty/Internal-CraftWorks-Frontend/blob/develop/src/assets/img/AboutUs/CraftWorks-Home.jpg)
 
-Products Page:
-![CraftWorks Products](https://github.com/pulakchakraborty/Internal-CraftWorks-Frontend/blob/develop/src/assets/img/AboutUs/CraftWorks-Products.jpg)
+## Products page to search for products from different sellers:
+
+![CraftWorks Products](https://github.com/pulakchakraborty/Internal-CraftWorks-Frontend/blob/develop/src/assets/img/AboutUs/CraftWorks-Products.png)
 
 ## Prerequisites
 
